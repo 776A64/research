@@ -8,7 +8,9 @@ os.environ["http_proxy"] = "http://127.0.0.1:7890"  # 替换为您的代理地�
 os.environ["https_proxy"] = "http://127.0.0.1:7890"  # 替换为您的代理地址和端口
 csv.field_size_limit(10 * 1024 * 1024)
 data_name = 'jax'
-github_token = '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'
+github_token = os.getenv("GITHUB_TOKEN")
+if not github_token:
+    raise ValueError("未找到环境变量 GITHUB_TOKEN")
 
 
 def get_issue_creator(issue_url):

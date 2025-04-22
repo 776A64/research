@@ -2,8 +2,11 @@ import requests
 import re
 import csv
 from concurrent.futures import ThreadPoolExecutor
+import os
 
-ACCESS_TOKEN = "d9cfbce7c20790c81b9dedf00109f9f3" 
+ACCESS_TOKEN = os.getenv("gitee_token")
+if not ACCESS_TOKEN:
+    raise ValueError("未找到环境变量 gitee_token")
 csv.field_size_limit(10 * 1024 * 1024)
 data_name = 'mindspore'
 

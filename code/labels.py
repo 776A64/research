@@ -1,6 +1,7 @@
 import requests
 import csv
 from typing import List
+import os
 
 def fetch_labels(repo_full_name: str, token: str) -> List[dict]:
     """
@@ -32,7 +33,9 @@ def fetch_labels(repo_full_name: str, token: str) -> List[dict]:
 
 def main():
     # 从环境变量读取 GitHub Token
-    token = "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"
+    token = os.getenv("GITHUB_TOKEN")
+    if not token:
+        raise ValueError("未找到环境变量 GITHUB_TOKEN")
 
     # 在这里填入你要爬取的仓库列表（格式：owner/repo）
     repos = [

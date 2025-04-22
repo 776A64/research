@@ -2,8 +2,12 @@ import requests
 import csv
 import re
 import time
+import os
 
-access_token = "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"
+access_token = os.getenv("GITHUB_TOKEN")
+if not access_token:
+    raise ValueError("未找到环境变量 GITHUB_TOKEN")
+
 repo_list = [('NVIDIA', 'TensorRT-LLM')]
 
 headers = {

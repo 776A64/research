@@ -2,11 +2,16 @@ import requests
 import json
 import csv
 import re
+import os
 
 platform = 'github'
 data_name = 'DeepSpeed'
 url = "https://cn2us02.opapi.win/v1/chat/completions"
 csv.field_size_limit(10 * 1024 * 1024)
+
+token = os.getenv("Ohmygpt")
+if not token:
+    raise ValueError("未找到环境变量 Ohmygpt")
 
 def count(input_file):
     result = [] 
@@ -42,7 +47,7 @@ def ask(content):
     })
     headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer sk-S0AVdUdE3dC95bf6fa4aT3BlBkFJ4beD718858f8432f85Cf'
+    'Authorization': f'Bearer {token}'
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)

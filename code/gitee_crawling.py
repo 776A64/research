@@ -3,11 +3,14 @@ import csv
 from time import sleep
 import time
 import re
+import os
 
 # 配置
 OWNER = "mindspore"   # 仓库所属用户或组织
 REPO = "mindspore"  # 仓库名称
-ACCESS_TOKEN = "12ee65f9c2566ec7b24ff18d88dfe23c"  # 你的 Gitee 访问令牌
+ACCESS_TOKEN = os.getenv("gitee_token")
+if not ACCESS_TOKEN:
+    raise ValueError("未找到环境变量 gitee_token")
 
 def clean(text): # 净化文本内容
     if not text:
