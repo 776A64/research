@@ -1,0 +1,1020 @@
+https://github.com/pytorch/pytorch/issues/142228
+这是一个bug报告，涉及的主要对象是在PyTorch中使用Scaled Dot-Product Attention时出现了Invalid Configuration错误。这个问题是由于大批量大小时，CUDA错误触发了无效配置参数所致。
+
+https://github.com/pytorch/pytorch/issues/142161
+这是一个bug报告类型的issue，主要涉及torch.export.export在导出自定义类型时无法保留动态维度，可能是由于遗漏了在注册自定义类时的某些步骤。
+
+https://github.com/pytorch/pytorch/issues/142025
+这是一个Bug报告，涉及主要对象为PyTorch中的模型导出操作。问题出现的原因是可能没有为特定类注册序列化名称，导致出现`NotImplementedError`。
+
+https://github.com/pytorch/pytorch/issues/142004
+这是一个bug报告，主要涉及到在使用TorchTensorRT编译大型模型并尝试保存时出现错误。这可能是由于模型大小超过4GiB所致，需要使用pickle协议4或更高版本。
+
+https://github.com/pytorch/pytorch/issues/141893
+这是一个bug报告类型的issue，主要涉及到pytorch下的Llama3.2 1B导出.pte文件时遇到的错误，可能由于某些原因导致导出过程中被打断。
+
+https://github.com/pytorch/pytorch/issues/141855
+这是一个bug报告，主要涉及PyTorch下的torch.jit模块，用户在尝试使用torch.jit对*.pth文件转换为*.pt文件时遇到错误。
+
+https://github.com/pytorch/pytorch/issues/141786
+这是一个bug报告，主要涉及了在运行Facebook BART-base模型进行摘要生成任务时出现了错误。原因是MPS不支持int64输入导致的bug。
+
+https://github.com/pytorch/pytorch/issues/141722
+这是一个Lint相关的issue，涉及到test_transformers的oncall owner切换，属于维护类任务。
+
+https://github.com/pytorch/pytorch/issues/141642
+这是一个bug报告，涉及主要对象为在使用PyTorch XPU backend时运行Huggingface hiera模型时出现Nan输出。这个问题是由于在设置`initializer_range=1e10`时导致的。
+
+https://github.com/pytorch/pytorch/issues/141539
+这是一个bug报告，涉及的主要对象是XPU backend 在实现`aten::_thnn_fused_lstm_cell`时出现问题，无法通过`PYTORCH_ENABLE_XPU_FALLBACK=1`进行回退。
+
+https://github.com/pytorch/pytorch/issues/141373
+这是一个bug报告，涉及PyTorch项目中的导出功能，出现了节点没有用户的问题。可能由于代码更新导致版本11/21出现了问题，而之前的版本11/17没有这个问题。
+
+https://github.com/pytorch/pytorch/issues/141241
+这是一个关于bug报告的issue，主要涉及到torch升级后使用SDPA和bf16训练出现梯度爆炸的问题。
+
+https://github.com/pytorch/pytorch/issues/141177
+这是一个bug报告。该问题涉及PyTorch中的`CrossEntropyLoss`在处理类概率和类索引目标时的性能差异。原因可能是MixUp操作导致同一调用`CrossEntropyLoss()`时执行不同的内核。
+
+https://github.com/pytorch/pytorch/issues/141107
+这是关于bug报告，主要涉及的是PyTorch中使用transformer模型导出时出现的错误。该问题是由于动态形状设置引起的，导致无法正确查看张量的形状。
+
+https://github.com/pytorch/pytorch/issues/141039
+这是一个bug报告，主要涉及的对象是在使用LoRA训练时出现了图形中断。这个问题的根本原因是在编译每个transformer block时出现了图形中断。
+
+https://github.com/pytorch/pytorch/issues/140965
+该问题类型是bug报告，涉及到Huggingface Transformers v4.46.0及以后版本，由于缺少`aten::_linalg_eigvals`的实现和自动CPU后备注册，导致在XPU上无法使用`torch.linalg.eigvals()`操作符。
+
+https://github.com/pytorch/pytorch/issues/140943
+这是一个bug报告，主要涉及的对象是PyTorch中模型导出过程中遇到的quantization相关错误，可能是由于缺少_quantized_linear_op属性导致的。
+
+https://github.com/pytorch/pytorch/issues/140914
+这是一个Bug报告，主要涉及对象为PyTorch中的_cachedMethod类，由于类型参数RV在默认情况下跟在具有默认值的类型参数之后，导致了TypeError。
+
+https://github.com/pytorch/pytorch/issues/140781
+这是一个bug报告，涉及主要对象为Huggingface Transformers库中的`hubert`模型。由于`CTCLossLogAlphaKernelFunctor`内核中存在早期返回且在内核中使用了barrier，导致了测试hangs的bug。
+
+https://github.com/pytorch/pytorch/issues/140768
+这是一个需求讨论的issue，主要涉及torch库下的transformer模块中关于注意力机制的使用问题，用户想了解_transformer_encoder_layer_forward函数中到底使用了哪种类型的attention，以及是否可以优化。
+
+https://github.com/pytorch/pytorch/issues/140625
+这个issue是一个bug报告，主要涉及的对象是pytorch下的NaViT (Native Resolution Vision Transformer)模型。造成这个bug的原因是在运行`aoti_compile_and_package`时出现了`AttributeError: 'int' object has no attribute 'node'`的错误。
+
+https://github.com/pytorch/pytorch/issues/140615
+这个issue类型是bug报告，涉及主要对象为aoti artifact生成和输出类型问题，导致了用户接收到不具操作性的错误消息。
+
+https://github.com/pytorch/pytorch/issues/140607
+这个issue类型是bug报告，该问题涉及的主要对象是pytorch下的模型导出，由于错误消息提示不清晰，导致用户难以理解异常是什么。
+
+https://github.com/pytorch/pytorch/issues/140596
+这是一个bug报告，涉及到pytorch下的export功能，由于传入kwargs参数导致在non_strict_utils.fakify()处出现问题。
+
+https://github.com/pytorch/pytorch/issues/140589
+这个issue类型为bug报告，主要涉及对象为pytorch中的export功能。该问题由于安装huggingface transformers时出现了AssertionError，导致出现错误。
+
+https://github.com/pytorch/pytorch/issues/140471
+这是一个bug报告类型的issue，主要涉及到使用torchrun在N>1 GPUs上运行时出现的RuntimeError。该bug导致了"Tensors of the same index must be on the same device and the same dtype except step tensors that can be CPU and float32/64 notwithstanding"错误。
+
+https://github.com/pytorch/pytorch/issues/140410
+该issue为功能增强，主要涉及Selective Activation Checkpointing（SAC）的自动化策略构建和封装。原因是为了在内存限制下实现模型训练，解决了内存、运行时和激活检查点权衡统计的问题，并通过ILP解决了自动选择模块进行激活检查点和确定内存预算的问题。
+
+https://github.com/pytorch/pytorch/issues/140298
+这是一个关于ILP for auto FSDP wrapping的功能建议问题，涉及到PyTorch的自动包装问题。原因可能是为了在内存预算下确定哪些模块应该包装为FSDP单元。
+
+https://github.com/pytorch/pytorch/issues/140229
+这是一个bug报告，主要涉及的对象是在使用torch.compile时结合DDP导致模型在输入具有不断增长序列长度的情况下需要重复编译，最终达到缓存限制的问题。
+
+https://github.com/pytorch/pytorch/issues/140130
+这是一个特性请求，主要涉及ONNX中的NJT-enabled SDPA / MHA ops以及ORT的PackingMode Attention，用户希望在导出时直接将NJTenabled SDPA映射到PackingMode。
+
+https://github.com/pytorch/pytorch/issues/140069
+这是一个关于PyTorch中DTensor支持融合qkv matmul的特性需求的issue，由于当前不清楚如何在DTensor中处理此类操作，导致了tensor并行支持受阻。
+
+https://github.com/pytorch/pytorch/issues/140011
+这是一个bug报告，涉及主要对象是`torch.export.export`，导致症状是动态形状（dynamic_shape）被推断为常量。
+
+https://github.com/pytorch/pytorch/issues/139908
+这是一个关于性能跟踪的issue，主要涉及Inductor和Liger之间的性能比较，针对PyTorch下一些自定义操作符的性能对比。产生这个issue的原因可能是Inductor在某些情况下表现不如Liger，需要改进性能。
+
+https://github.com/pytorch/pytorch/issues/139424
+这是一个bug报告，涉及的主要对象是`transformers.LlamaForCausalLM`中的`torch.compile`，由于`scaled_dot_product_attention`中提供了`attention_mask`参数，导致出现了`RuntimeError: (*bias): last dimension must be contiguous`的错误。
+
+https://github.com/pytorch/pytorch/issues/139401
+这是一个bug报告，涉及的主要对象是PyTorch中的模型`Mixtral-8x7B-Instruct-v0.1`。由于导出模型时出现了错误`error torch._dynamo.exc.Unsupported: hasattr ConstDictVariable to.`。
+
+https://github.com/pytorch/pytorch/issues/139389
+这是一个bug报告类型的issue，主要涉及到PyTorch 2.5.x和Nightlies版本在内存占用和性能方面出现显著下降的问题。
+
+https://github.com/pytorch/pytorch/issues/139307
+这是一个用户提出需求的issue，主要涉及torch.export团队是否计划支持离散维度动态性，由于无法在torch.export中强制模型接受“集”的基本约束，导致出现了“discrete” dynamic dimension的失败模式。
+
+https://github.com/pytorch/pytorch/issues/139222
+这是一个bug报告，主要涉及torchtitan的torch.compile逻辑对于编译线性层而不是transformer块导致错误的问题。
+
+https://github.com/pytorch/pytorch/issues/138977
+这是一个bug报告，主要涉及PyTorch模型加载过程中直接在GPU加载而无法在CPU上加载的问题。原因可能是在加载模型数据时未指定使用CPU。
+
+https://github.com/pytorch/pytorch/issues/138864
+这是一个bug报告，主要涉及ROCM的EFFICIENT_ATTENTION模块，报告了"No available kernel"错误，可能是由于缺少对应的计算核心所导致。
+
+https://github.com/pytorch/pytorch/issues/138839
+这是一个bug报告类型的issue，主要涉及的对象是与pytorch相关的`Llama-3.2-vision`代码。由于torch 2.5版本的一个regression，导致在运行`run_decompositions`时出现pytree错误。
+
+https://github.com/pytorch/pytorch/issues/138822
+这是一个关于bug报告的issue，主要涉及的对象是Libtorch的头文件，由于安装的版本可能导致无法找到"Torch/torch.h"头文件。
+
+https://github.com/pytorch/pytorch/issues/138652
+这是一个bug报告，主要涉及Segformer在2.5.0版本中在AOT eager模式下准确率下降的问题。可能是由于2.5.0版本引入的改动导致了AOT Inductor输出结果中某些预测掩模出现细微的伪影。
+
+https://github.com/pytorch/pytorch/issues/138637
+这是一个bug报告，涉及到PyTorch中ONNX导出的问题。导出的ONNX图中，多个切片节点缺少starts和/或ends属性，导致在运行推断会出现错误。
+
+https://github.com/pytorch/pytorch/issues/138635
+这是关于ILP for auto FSDP wrapping的功能增强请求。主要涉及的对象是PyTorch中的内存管理和性能估计工具，该功能旨在在内存预算下确定要作为FSDP单位包装的模块。
+
+https://github.com/pytorch/pytorch/issues/138317
+这是一个bug报告，涉及到使用`torch.nn.functional.scaled_dot_product_attention`函数时在长度为1的张量上运行`torch.compile`时出现`(*bias): last dimension must be contiguous`错误。造成这个问题的原因可能是在修改过的代码中的`view`、`permute`和`attention_mask`的组合导致了这个bug。
+
+https://github.com/pytorch/pytorch/issues/138274
+这是一个bug报告，涉及的主要对象是使用torch nested在bettertransfromer实现中的代码。这个问题由于新的torch版本在编译时出现了问题，导致代码中的torch嵌套部分出现错误。
+
+https://github.com/pytorch/pytorch/issues/138196
+这是一个bug报告，涉及到Torch Dynamo对于Flux T5模型的支持问题，由于缺少对`fused_layer_norm_cuda.PyCapsule.rms_forward_affine`的支持导致错误。
+
+https://github.com/pytorch/pytorch/issues/138195
+这是一个bug报告，涉及的主要对象是Torch Dynamo支持Flux Transformer模型。导致此问题的原因是在使用torch.onnx.dynamo_export()时遇到TypeError相关的属性类型错误。
+
+https://github.com/pytorch/pytorch/issues/138147
+这个issue是关于bug报告，主要对象是测试用例。导致这个问题的原因是最近的CI机器升级导致该测试用例失败。
+
+https://github.com/pytorch/pytorch/issues/138120
+这是一个bug报告，涉及到在导出wav2vec2语音情感识别模型时出现错误。该问题可能由代码问题或环境配置问题导致。
+
+https://github.com/pytorch/pytorch/issues/138111
+这是一个bug报告，主要涉及的对象是在使用BLIP时出现了错误。原因是在执行特定步骤后，出现了错误导致无法顺利导出BLIP。
+
+https://github.com/pytorch/pytorch/issues/137908
+这是一个功能需求类型的issue，主要涉及ILP for Auto SAC (Selective Activation Checkpointing)的功能实现。
+
+https://github.com/pytorch/pytorch/issues/137654
+这是一个 bug 报告，主要涉及 nn.Transformer().generate_square_subsequent_mask() 方法，导致不理会 set_default_device() 和 set_default_dtype() 设置。
+
+https://github.com/pytorch/pytorch/issues/137640
+这是一个bug报告，主要涉及的对象是`nn.Transformer().generate_square_subsequent_mask()`，该问题由于`set_default_device()`和`set_default_dtype()`不被`CC`函用户视，导致了不恰当的行为。
+
+https://github.com/pytorch/pytorch/issues/137252
+这是一个Bug报告，主要涉及问题是在使用`torch.jit.load`时出现RuntimeError，可能是由于PyTorch版本和依赖库版本不兼容导致的。
+
+https://github.com/pytorch/pytorch/issues/137192
+这是一个bug报告，主要涉及PyTorch中`nn.TransformerEncoder()`和`nn.TransformerDecoder()`设置为`nn.Transformer()`时不会报错，即使`nn.Transformer()`的参数类型错误。
+
+https://github.com/pytorch/pytorch/issues/137186
+这是一个Bug报告，主要涉及对象是`nn.Transformer().generate_square_subsequent_mask()`。原因是`set_default_device()`和`set_default_dtype()`无法影响`nn.Transformer().generate_square_subsequent_mask()`的设备和数据类型。
+
+https://github.com/pytorch/pytorch/issues/137173
+这是一个bug报告，涉及到PyTorch中`nn.Transformer()`的`batch_first`参数默认值问题，用户建议将`batch_first`默认设为`True`。
+
+https://github.com/pytorch/pytorch/issues/136948
+这是一个bug报告，用户尝试将Llama模型转换为MLIR时失败，原因未明。
+
+https://github.com/pytorch/pytorch/issues/136660
+这是一个bug报告，涉及主要对象为pytorch下的nn.Linear模块，用户反映在NJT linear的反向传播计算中偏置的梯度未被正确计算。
+
+https://github.com/pytorch/pytorch/issues/136582
+这是一个bug报告，涉及对象是torch.export和transformers中的DynamicCache类，由于torch.export将DynamicCache类错误地识别为非张量类型而无法导出模型。
+
+https://github.com/pytorch/pytorch/issues/136336
+这是一个bug报告，主要涉及在加载Hugging Face模型时出现错误，尝试将`torch.Tensor`的state_dict加载到`DTensor`中。这个问题导致了加载模型权重时出现错误。
+
+https://github.com/pytorch/pytorch/issues/136261
+这是一个bug报告，主要涉及使用Flex Attention时遇到的性能极其缓慢的问题，原因可能是Flex Attention实现效率低下。
+
+https://github.com/pytorch/pytorch/issues/136254
+这是一个bug报告，主要涉及的对象是torch.compile功能。由于torch 0806到torch 0807之间的更新，编译模型的生成延迟比eager mode更慢，造成性能退化。
+
+https://github.com/pytorch/pytorch/issues/136222
+这是一个bug报告类型的issue，主要涉及的对象是pytorch下的`NestedTensorTransformerFunctions.cu`文件。由于编译产生了警告消息，需要修复以消除这些警告。
+
+https://github.com/pytorch/pytorch/issues/136121
+这是一个关于bug报告的issue，主要涉及pytorch下的Transformer模块中梯度数值差异的问题，造成原因可能是torch.compile(backend='inductor')和eager模式下的数字计算不一致。
+
+https://github.com/pytorch/pytorch/issues/136065
+这是一个bug报告，主要涉及的对象是Huggingface Transformers模型。由于缺少一些aten操作的实现，导致XPU环境下的部分Huggingface模型测试无法通过。
+
+https://github.com/pytorch/pytorch/issues/135936
+这是一个bug报告，主要涉及的对象是AutocastCPU，可能由于lower precision cast policy在transformer模块中导致了`RuntimeError: mat1 and mat2 must have the same dtype, but got BFloat16 and Float`错误。
+
+https://github.com/pytorch/pytorch/issues/135598
+这是一个bug报告，涉及的主要对象是LLaMA v3.1在MPS后端中出现问题。由于NDArray total bytes超过2**32导致了错误，需要类似于批量矩阵乘法操作的切割方法来解决。
+
+https://github.com/pytorch/pytorch/issues/135590
+这是一个bug报告，涉及到PyTorch中transformers的测试方法，由于PR 128922导致当前的数值误差估计方法不再准确。
+
+https://github.com/pytorch/pytorch/issues/135508
+这是一个关于BUG的报告，涉及主要对象是`torch.cuda.is_available()`函数在特定的torch、CUDA和driver版本下返回`False`的问题。可能是由于CUDA、Torch版本不匹配导致的。
+
+https://github.com/pytorch/pytorch/issues/135329
+这是一个关于bug报告的issue，主要对象是代码中的错误。这个问题是由于使用了不兼容的数据类型导致的错误。
+
+https://github.com/pytorch/pytorch/issues/135208
+这是一个功能需求类型的issue，涉及的主要对象是SAC Estimator (Selective Activation Checkpointing)。由于对于任何函数或torch.nn.Modules进行SAC估算时，需要考虑内存与重新计算时间的权衡，因此该功能需要实现这一估算过程。
+
+https://github.com/pytorch/pytorch/issues/135150
+这是一个bug报告，主要涉及的对象是nn.TransformerEncoderLayer，在测试中出现了由未记录的快速通路行为导致的测试失败。
+
+https://github.com/pytorch/pytorch/issues/135027
+这是一个bug报告类型的issue，主要涉及到pytorch下的AMP static shape default wrapper在AlbertForMaskedLM、DebertaV2ForMaskedLM和timm_vision_transformer_large模型中出现的crash问题，原因是weights_offset未对齐到16K边界导致错误。
+
+https://github.com/pytorch/pytorch/issues/134995
+这是一个bug报告。该问题涉及于使用torch.autograd.graph.save_on_cpu()方法时，在offloading attention layer的过程中出现了"attn_bias is not correctly aligned"错误。可能的原因是torch.nn.functional.scaled_dot_product_attention操作的不正确对齐导致的。
+
+https://github.com/pytorch/pytorch/issues/134950
+这是一个bug报告。主要对象是在使用torch.compile()模式下在CPU上运行Bert模型训练，但出现数值错误。这可能是由于torch.compile()模式在特定场景下无法兼容BERT模型训练引起的。
+
+https://github.com/pytorch/pytorch/issues/134920
+这是一个bug报告，主要涉及PyTorch中的分布式DataParallel功能，问题表现为在使用Kaggle时无法正常加载2个T4 GPU导致程序hang。
+
+https://github.com/pytorch/pytorch/issues/134824
+这是一个bug报告，主要涉及的对象是pytorch下的一个测试。由于最新的代码变更引入了故障，导致了测试失败并被禁用。
+
+https://github.com/pytorch/pytorch/issues/137133
+这是一个bug报告issue，涉及的主要对象是`transformers==4.44.2`。由于新的`transformers==4.44.2`中使用了`torch.isin()`，导致了特定控制流的图表破坏。
+
+https://github.com/pytorch/pytorch/issues/134768
+这是一个bug报告issue，主要涉及PyTorch下的Fusion Benchmarking功能，用户提到当启用fusion benchmarking时，triton benchmark结果显示为0.000ms，但实际执行生成的kernel时却需要耗时，可能是由于代码中某行造成的差异导致的。
+
+https://github.com/pytorch/pytorch/issues/134687
+这个issue是关于bug报告的，主要涉及的对象是pytorch中的TransformerEncoderLayer。由于https://github.com/pytorch/pytorch/pull/133331 的引入，导致了rocm平台上的测试无法通过。
+
+https://github.com/pytorch/pytorch/issues/134534
+这是一个bug报告，涉及MiniCPM-V 2.6 transformer model在不同后端下输出错误token的问题。
+
+https://github.com/pytorch/pytorch/issues/134408
+这是一个建议修改的issue，主要涉及torch下的一个功能函数参数的设计问题，提议将其中的一个参数设为可选。
+
+https://github.com/pytorch/pytorch/issues/134369
+这是一个bug报告，主要涉及PyTorch中的图计算差异。由于PyTorch 2.5中的行为改变，导致在TensorRT编译过程中常量被注册为占位符而不是`get_attr`节点，在某些情况下可能会影响模型性能。
+
+https://github.com/pytorch/pytorch/issues/134243
+这个issue属于功能需求，主要涉及的对象是PyTorch中的单device模型。由于用户需要对GPU运行时间进行估算，因此提出了添加基本的运行时间估算功能的需求。
+
+https://github.com/pytorch/pytorch/issues/134242
+这是一个bug报告issue，主要涉及torch.utils.flop_counter.FlopCounterMode在torch 2.4版本中出现问题，导致无法正常使用。可能是由于torch 2.4版本中的改动引起的问题。
+
+https://github.com/pytorch/pytorch/issues/134124
+这是一个特性新增的issue，主要涉及到在PyTorch中为ARM架构添加4位动态量化的矩阵乘法和KleidiAI后端。
+
+https://github.com/pytorch/pytorch/issues/134106
+这个issue是关于bug报告，主要涉及的对象是pytorch中的RMSNorm模块。导致问题的原因是在FP16下计算`at::pow(input, 2)`会导致溢出，进而影响实际计算结果。
+
+https://github.com/pytorch/pytorch/issues/134050
+这是一个bug报告，主要涉及的对象是pytorch中的`DTensor` sharding propagation缓存策略，由于缓存策略不当导致梯度不正确或者触发IMA异常。
+
+https://github.com/pytorch/pytorch/issues/133759
+这是一个bug报告类型的issue，主要涉及PyTorch torch.compile在编译yolo模型时出现错误的情况。由于PyTorch版本升级到2.4.0+cu121后，出现无法编译yolo模型的bug。
+
+https://github.com/pytorch/pytorch/issues/133502
+这是一个bug报告类型的issue，主要涉及到pytorch中的`native_layer_norm_backward`在处理optional args时出现的IndexError和AssertionError。导致这个问题的原因是`DTensor` sharding propagation未能完整地适应optional args的情况。
+
+https://github.com/pytorch/pytorch/issues/133499
+这是一个bug报告，主要涉及到PyTorch下的`DTensor`的`native_layer_norm_backward`在处理可选参数时出现错误。该bug导致特定`requires_grad`模式下的`IndexError`和`AssertionError`错误。
+
+https://github.com/pytorch/pytorch/issues/133369
+该issue是一个优化提升类型的问题，主要涉及PyTorch中的FSDP2模块，通过优化参数转换过程来减少CPU开销，提高效率。
+
+https://github.com/pytorch/pytorch/issues/133252
+这是一个bug报告，主要涉及到`Torch.Export`和OpenELM。由于在尝试导出OpenELM时遇到了错误，使用了torch版本`2.3.0`和`2.4.0`，且Transformers版本为`4.38.2`。
+
+https://github.com/pytorch/pytorch/issues/133166
+这是一个bug报告，主要涉及的对象是torch.compile中存储为动态整数的nn.Modules，由于torch将所有nn.Module中的整数设置为动态，导致出现错误。
+
+https://github.com/pytorch/pytorch/issues/133085
+这是一个关于bug报告的issue，主要涉及Pytorch下RMSNorm实现的问题，由于FP16动态范围较小，在计算`at::pow(input, 2)`时容易溢出，导致实际计算中出现问题。
+
+https://github.com/pytorch/pytorch/issues/133049
+这是一个优化类型的issue，主要涉及的对象是test_transformers.py的测试用例。由于测试用例数量过多且存在冗余，导致了部分测试用例被跳过，需要优化该测试文件。
+
+https://github.com/pytorch/pytorch/issues/133046
+这是一个bug报告，主要涉及的对象是测试transformers的优化问题，由 ISSUE_NUMBER 引起的。
+
+https://github.com/pytorch/pytorch/issues/132895
+这个issue类型是bug报告，涉及的主要对象是PyTorch的测试模块。这个问题是由于ROCm环境下的测试_transformers和一些需要较新GPU架构的单元测试无法通过，暂时需要进行排除与跳过。
+
+https://github.com/pytorch/pytorch/issues/132855
+这是一个bug报告，涉及的主要对象是训练GPT2XL模型时使用的优化器和梯度。导致这个问题的原因可能是optimizer_state在快照中的值始终是梯度的2倍，而不符合预期的情况。
+
+https://github.com/pytorch/pytorch/issues/132700
+这是一个bug报告，主要涉及的对象是PyTorch中的Transformer模型，由于同时使用`model.eval()`和`torch.no_grad()`导致前向钩子（forward hooks）无法正常工作。
+
+https://github.com/pytorch/pytorch/issues/132644
+这是一个bug报告，主要涉及到`torch.distributed.pipelining`在CPU gloo backend下出现hang和timeout错误。导致这个问题的原因可能与PyTorch版本、CPU架构以及其他环境配置有关。
+
+https://github.com/pytorch/pytorch/issues/132613
+这是一个bug报告，涉及的主要对象是TransformerEncoder，由于在eval模式下无法将autocast转换为float16/bfloat16导致问题。
+
+https://github.com/pytorch/pytorch/issues/132519
+这是一个关于修改测试用例所属模块的问题，涉及主要对象为测试用例文件"test_transformers.py"。原因是为了解决测试用例标记错误的问题。
+
+https://github.com/pytorch/pytorch/issues/132381
+这是一个bug报告，主要涉及到PyTorch库下的torch.vmap函数的动态张量形状问题，升级到torch2.4版本后，标记vmap维度为动态时编译操作失败，可能是由于vmap所创建的约束强制要求常数守卫而不是动态/相对守卫引起的。
+
+https://github.com/pytorch/pytorch/issues/132373
+这是一个bug报告，主要对象是pytorch的`torch.compile`函数，由于f44446e851提交引起了对dynamic=True参数的错误使用，导致C++错误。
+
+https://github.com/pytorch/pytorch/issues/132136
+这是一个bug报告，主要涉及 `torch.nn.transformer.forward` 返回值在 `torch.no_grad()` 块内不正确的问题。原因可能是由于执行环境或代码逻辑导致的。
+
+https://github.com/pytorch/pytorch/issues/132110
+这是一个bug报告，主要涉及的对象是PyTorch库。该问题由于在macOS 13.0以上系统上使用PyTorch时出现了MPS相关警告导致性能下降。
+
+https://github.com/pytorch/pytorch/issues/132027
+这个issue是关于bug报告，涉及主要对象为PyTorch中的All-reduce操作。导致这个bug的原因是在共享模型权重时，执行allreduce sum后进行分布式平均无法正确平均权重，需要通过除以world_size来解决。
+
+https://github.com/pytorch/pytorch/issues/131965
+这是一个关于bug报告的issue，主要涉及到PyTorch下的FSDP2模块，在forward和backward之间根模块参数未被分片导致问题。
+
+https://github.com/pytorch/pytorch/issues/131919
+这是一个bug报告，主要涉及优化测试transformers相关内容，原因是减少被跳过的测试用例数和合并冗余的测试用例导致的。
+
+https://github.com/pytorch/pytorch/issues/131799
+这是一个bug报告，主要涉及对象是pytorch下的XPU初始化和torch.xpu.is_available()函数。由于XPU backend不检查支持的设备类型，导致会错误地报告支持更多的Intel GPU设备，但实际上在某些设备上会失败。
+
+https://github.com/pytorch/pytorch/issues/131734
+这是一个bug报告，主要涉及在text generation中batch size为1时性能下降的问题。由于batch size为1时性能表现较差，可能是由于模型在处理单个样本时效率较低所导致。
+
+https://github.com/pytorch/pytorch/issues/131692
+这个issue类型是需求提出，主要涉及的对象是"Projeto liliti stk 3.6.9 inteligência artificial multimidal fase 5 "。用户需要实现多种人工智能相关功能，如时间旅行模拟、人脸识别、情绪分析等，可能是为了实现更多智能功能和展示技术可行性而提出的需求。
+
+https://github.com/pytorch/pytorch/issues/131592
+这是一个功能需求的issue，主要涉及pytorch中的dtensor模块。这个issue添加了一个新的噪声级别，允许用户仅打印包含dtensors的操作，以增加用户控制的灵活性。
+
+https://github.com/pytorch/pytorch/issues/131265
+这是一个bug报告，涉及主要对象是torch.compile on forward method of Meta Llama model。由于stride change 和 Cudgraph skipping 导致了bug产生。
+
+https://github.com/pytorch/pytorch/issues/131254
+这是一个bug报告，涉及到PyTorch中的TransformerEncoderLayer模块，描述了在使用Masked Attention时没有效果的问题。
+
+https://github.com/pytorch/pytorch/issues/131196
+这个issue是一个bug报告，涉及主要对象是在使用float8存储时遇到的异常。原因可能是pytorch和transformers版本之间的兼容性问题。
+
+https://github.com/pytorch/pytorch/issues/131179
+这是一个关于测试用例失效的bug报告，主要涉及的对象是PyTorch中的Transformers模块。这个问题出现的原因是在CI环境下出现了 flaky 测试，导致测试用例被禁用。
+
+https://github.com/pytorch/pytorch/issues/131146
+这是一个bug报告类型的issue，主要涉及到pytorch下的一个测试案例被禁用的问题。由于测试案例在持续集成环境中失败且被确定为不稳定，在CI工作流程中出现了多次失败和成功的情况。
+
+https://github.com/pytorch/pytorch/issues/131123
+这个issue是一个bug报告，涉及的主要对象是Transformer库中的CUDA模块测试，由于测试用例的不稳定性导致CI中出现了多次失败和成功的情况，需要开发人员对测试进行调试和修复。
+
+https://github.com/pytorch/pytorch/issues/131120
+这是一个关于禁用测试的issue，涉及主要对象是pytorch下的一个测试用例。由于该测试用例在CI中失败和成功表现不稳定，可能是由于测试环境或测试代码本身的问题导致。
+
+https://github.com/pytorch/pytorch/issues/131107
+这是一个bug报告，主要涉及PyTorch下的一个测试函数在CI中失败，可能由于测试用例存在问题或环境配置有误导致。
+
+https://github.com/pytorch/pytorch/issues/131095
+这是一个bug报告类型的issue，主要涉及Transformers库下CUDA相关的测试失败问题，由于测试用例的不稳定性导致在CI中出现了多次失败和成功的情况。
+
+https://github.com/pytorch/pytorch/issues/131086
+这是一个关于CI测试失败的bug报告，主要对象是Transformers库中的CUDA测试，由于测试案例被认定为flaky，导致CI中出现了多个失败和成功的情况。
+
+https://github.com/pytorch/pytorch/issues/130985
+这是一个bug报告，涉及的主要对象是在运行huggingface预训练模型时遇到了Runtime错误。
+
+https://github.com/pytorch/pytorch/issues/130875
+这是一个bug报告，涉及的主要对象是BertForSequenceClassification.from_pretrained方法。由于FSDP启用时设置了low_cpu_mem_usage为True，导致state_dict为None，从而无法成功加载模型检查点。
+
+https://github.com/pytorch/pytorch/issues/130790
+这是一个bug报告，主要涉及的对象是在M1芯片的MacBook Pro上使用PyTorch进行训练时出现的错误。问题似乎是由于未分配MPS设备上的占位存储空间而导致训练无法正常进行。
+
+https://github.com/pytorch/pytorch/issues/130619
+这是一个关于PyTorch 2.4 Windows性能回归的bug报告，问题涉及到Windows环境下的性能问题。该问题可能是由于最新的whl版本导致性能回归。
+
+https://github.com/pytorch/pytorch/issues/130539
+这是一个bug报告，涉及的主要对象是将PyTorch模型转换为ONNX时出现了异常。导致这个问题的原因是无法将输入张量reshape为请求的形状。
+
+https://github.com/pytorch/pytorch/issues/130518
+这是一个功能需求的issue， 主要涉及到添加了新的噪声级别，使用户可以仅打印包含dtensors操作的操作。
+
+https://github.com/pytorch/pytorch/issues/130480
+这是一个Feature Request类型的issue，主要涉及的对象是PyTorch下的mmap'd state dicts。由于模型加载时总是将参数转换为`float32`，而不是实际存储的`bfloat16`，导致加载`llama38B`时无法懒加载，需要立即将所有值强制转换为`float32`，导致加载速度较慢。
+
+https://github.com/pytorch/pytorch/issues/130302
+这是一个bug报告，主要涉及的对象是pytorch下的SDPA模块。这个问题是由于未正确清除`print`语句，导致cuDNN SDPA默认开启的设置位置错误。
+
+https://github.com/pytorch/pytorch/issues/130274
+这是一个bug报告issue，涉及的主要对象是尝试将加载的torch模型导出为onnx格式。由于torch.onnx.dynamo_export目前仅实现了opset版本18，导致了无法成功导出模型的问题。
+
+https://github.com/pytorch/pytorch/issues/130263
+这是一个bug报告，主要对象是pytorch/FasterTransformer/FasterTransformer中的unit test代码文件unittest_utils.h，由于代码中使用了C++17中已移除的dynamic exception，导致被LLVM检测到了`Wdeprecateddynamicexceptionspec`的违规情况。
+
+https://github.com/pytorch/pytorch/issues/130229
+这是一个Bug报告，主要涉及的对象是PyTorch的JIT trace功能。由于缺少对`aten::full`操作的支持，导致了RuntimeError。
+
+https://github.com/pytorch/pytorch/issues/130115
+这是一个bug报告，涉及的主要对象是将HuggingFace模型导出到ONNX格式的过程。由于执行多轮导出后，使用torch.onnx.export时出现了内存泄漏问题，导致内存使用量随每轮迭代增加而增加。
+
+https://github.com/pytorch/pytorch/issues/130008
+这是一个bug报告issue类型，主要涉及的对象是huggingface longformer模型。造成这个bug的原因可能是作者对transformers源代码进行了修改。
+
+https://github.com/pytorch/pytorch/issues/129926
+这是一个bug报告，涉及的主要对象是torch.distributed在不同组中同时运行引起连接中止的问题。
+
+https://github.com/pytorch/pytorch/issues/129853
+这个issue属于bug报告类型，主要涉及测试在CI中失败导致的问题。
+
+https://github.com/pytorch/pytorch/issues/129657
+这是一个功能需求，主要涉及要求在PyTorch中实现一个稳定的log(1 - softmax)函数。由于缺乏这样的函数实现，导致在一些特定情况下出现数值不稳定的问题，进而产生损失为"inf"和反向传播中出现"nan"值的情况。
+
+https://github.com/pytorch/pytorch/issues/129637
+这是一个bug报告issue，主要涉及`torch.compile()`在PyTorch 2.3版本下对于tupled inputs的失败，用户发现该问题在PyTorch 2.2版本下可以成功运行。
+
+https://github.com/pytorch/pytorch/issues/129613
+这是一个改进性质的issue，主要涉及到代码优化，解决了重复的代码问题，并提供了更简洁的方式设置模型，以提高代码可维护性。
+
+https://github.com/pytorch/pytorch/issues/129611
+这个issue是关于增加inductor E2E unit test的需求，涉及主要对象是FSDP2和SAC模型。
+
+https://github.com/pytorch/pytorch/issues/129515
+这是一个bug报告，主要涉及CP loss curve与TP loss curve不一致的问题。原因可能是实现中的两处改动导致性能差异。
+
+https://github.com/pytorch/pytorch/issues/129502
+这是关于在pytorch下的一个issue，类型为特性增加，主要涉及到自动功能化支持mutable list[Tensor]以及在transformer模型中启用E2E inductor单元测试。导致此问题产生的原因是需要在Inductor中支持mutable `List[Tensor]`。
+
+https://github.com/pytorch/pytorch/issues/129471
+这个issue属于bug报告类型，主要涉及到pytorch下FasterTransformer库的代码文件 unittest_utils.h，由于使用了C++17中已移除的动态异常规范导致出现了`Wdeprecateddynamicexceptionspec`的问题。
+
+https://github.com/pytorch/pytorch/issues/129457
+这是一个bug报告，主要涉及到pytorch下的fp8精度计算问题。由于`compute_amaxes_compile`的速度较慢，导致gpu和cpu时间存在问题。
+
+https://github.com/pytorch/pytorch/issues/129377
+这个issue类型是代码修改建议，主要对象是针对pytorch下的FSDP2模块的改进。
+
+https://github.com/pytorch/pytorch/issues/129283
+这个issue是一个代码修改建议，涉及的主要对象是pytorch中的Traceable FSDP2模块，提出了关于FSDP2存储调整和CUDA支持修复的建议。
+
+https://github.com/pytorch/pytorch/issues/129263
+这是一个关于修复测试代码的issue，主要涉及到修复模型转换和存储大小调整的功能，可能是由于之前代码实现不完整或错误导致的问题。
+
+https://github.com/pytorch/pytorch/issues/129230
+这是一个用户提出需求的issue，涉及的主要对象是PyTorch和CUDA依赖关系。由于CUDA版本不匹配导致构建过程中可能发生兼容性问题。
+
+https://github.com/pytorch/pytorch/issues/129226
+这是一个bug报告，涉及主要对象是PyTorch的模型推理过程。此问题可能由于PyTorch版本2.3.0和2.3.1在推理时将模型再次加载到GPU导致，而在版本2.2.2中则可以正常进行推理。
+
+https://github.com/pytorch/pytorch/issues/129215
+这是一个关于bug报告的issue，主要涉及CUDA tensor的尺寸调整问题，可能导致无法使用CUDA相关函数，原因在于inductor_ops.cpp未包含USE_CUDA信息或连接到CUDA相关函数。
+
+https://github.com/pytorch/pytorch/issues/129203
+这是一个bug报告类型的issue，主要涉及pytorch中FSDP2 storage resize功能的修改及相关测试用例的调整。原因在于需要更改FSDP2 patterns并暂时禁用两个测试用例，以解决resize功能相关问题。
+
+https://github.com/pytorch/pytorch/issues/129157
+这是一个用户提出需求的issue，主要涉及Traceable FSDP2 `aot_eager` backend E2E tests for transformer model。由于需要对简单MLP和transformer模型进行端到端测试，可能是为了确保Traceable FSDP2的正确性和稳定性。
+
+https://github.com/pytorch/pytorch/issues/129079
+这是一个bug报告，涉及主要对象是PyTorch中的optimizer learning rate加载。导致这个问题的原因是`2.3.0`版本中存在的回归，导致optimizer learning rate在加载时出现错误。
+
+https://github.com/pytorch/pytorch/issues/129043
+这是一个性能优化的issue，主要涉及到Inductor库中CrossEntropyLoss的反向传播，由于在反向传播过程中大量稀疏矩阵的显式化导致性能和内存占用问题。
+
+https://github.com/pytorch/pytorch/issues/129017
+这是一个开发调试类型的issue，主要涉及的对象是在PyTorch中添加操作追踪到comm_mode模块。由于需要更详细的模块跟踪，包括每个子模块中发生的集体计数和操作，以便用户更容易进行调试。
+
+https://github.com/pytorch/pytorch/issues/128933
+这是一个bug报告，涉及的主要对象是transformers models static/dynamic quant，由于特定的提交导致性能/准确性崩溃。
+
+https://github.com/pytorch/pytorch/issues/128906
+这是一个bug报告类型的issue，主要涉及的对象是无法将Phi-3-vision模型导出到导出的程序。由于PyTorch版本为2.4.0.dev20240412+cu121，可能导致了无法导出模型的问题。
+
+https://github.com/pytorch/pytorch/issues/128798
+这是一个bug报告，涉及的主要对象是pytorch下的torch.compile、FSDP和huggingface transformer。由于使用8个A100 GPUs时出现了`RuntimeError: invalid dtype for bias - should match query's dtype`的错误。
+
+https://github.com/pytorch/pytorch/issues/128758
+该issue类型为功能需求，主要对象是pytorch下的CUDA index_put_ kernel。由于KV cache是FP8且预分配，需要修改CUDA index_put_核以接受FP8输入。
+
+https://github.com/pytorch/pytorch/issues/128548
+这是一个bug报告，涉及到在Torch 2.4 nightly版本下使用动态形状时，torch.compile出错的问题。原因可能是TensorRT库中的某个地方引起了错误。
+
+https://github.com/pytorch/pytorch/issues/128505
+这是一个bug报告，主要涉及的对象是torch.onnx.export函数。由于`repeat_interleave`操作在ONNX导出中产生了无效模型，导致出现问题。
+
+https://github.com/pytorch/pytorch/issues/128503
+这是一个Bug报告，涉及的主要对象是pytorch中的torch.compile()函数。由于在Linuxs390x平台上尝试运行torch.compile()时，加载预训练的BERT模型导致程序崩溃，可能是由于架构兼容性或其他问题引起的。
+
+https://github.com/pytorch/pytorch/issues/128480
+这是一个bug报告，主要涉及到使用torch.onnx.dynamo_export尝试将llama2模型转换为onnx时出现了错误。由于torch.onnx.dynamo_export给出了'InternalTorchDynamoError: 'NoneType' object has no attribute 'is_tracing''的错误提示，导致了转换失败。
+
+https://github.com/pytorch/pytorch/issues/128478
+这是一个bug报告issue，主要涉及到在仅有XPU设备和未安装CUDA版本的PyTorch环境下运行Huggingface transformers库时出现的问题。该问题由于梯度检查点机制错误地命中了CUDA路径，导致了意外行为。
+
+https://github.com/pytorch/pytorch/issues/128435
+这是一个bug报告，涉及主要对象为在使用PyTorch和Transformers运行推理时遇到结果不符预期的问题。原因可能是使用'MPS'后端导致的。
+
+https://github.com/pytorch/pytorch/issues/128415
+这是一个bug报告，涉及主要对象是`TransformerEncoderLayer`。由于存在forward hooks或者pre-hooks时，快速路径无法正确调用这些hooks，导致bug。
+
+https://github.com/pytorch/pytorch/issues/128413
+这是一个bug报告，涉及主要对象是PyTorch中的TransformerEncoderLayer模块。由于在特定条件下触发了快速路径优化实现，导致forward hooks未被调用，造成用户cache中不包含预期输出的情况。
+
+https://github.com/pytorch/pytorch/issues/128394
+这是一个Bug报告，涉及到"Failed to trace HF Llama2 model"的问题，并由于pytorch nightly版本更新导致无法成功追踪LLama2模型。
+
+https://github.com/pytorch/pytorch/issues/128385
+这是一个bug报告，涉及的主要对象是在使用Torch 2.4 nightly时尝试导出Llama2模型时遇到的错误，由于Torch 2.4 nightly中存在某种回归，导致了失败的导出过程。
+
+https://github.com/pytorch/pytorch/issues/128369
+这是一个功能增强类型的issue，主要涉及到pytorch下的dtensor模块。由于当前的CommDebugMode在模型级别只能显示集合跟踪，用户可能需要更详细的细分。
+
+https://github.com/pytorch/pytorch/issues/128326
+这是一个bug报告，主要涉及pytorch下的transformers SAM模型。由于使用`torch.compile`编译后，SAM模型推断失败，但未编译时正常工作。
+
+https://github.com/pytorch/pytorch/issues/128209
+这是一个bug报告，主要涉及的对象是PyTorch中的`nn.Transformer`模块。由于在`torch.no_grad()`上下文中的前向传播会导致`nn.Transformer`给出不同输出，可能是由于模型将编码器输入转换为嵌套张量造成的。
+
+https://github.com/pytorch/pytorch/issues/128067
+这是一个bug报告，涉及的主要对象是PyTorch中的Dynamo Graph。这个问题由于未支持的调用方法"ConstDictVariable()"导致了模型在特定样本上出现了图破裂的情况。
+
+https://github.com/pytorch/pytorch/issues/127932
+该issue属于功能需求类型，涉及的主要对象是pytorch下的Transformer和Diffusion模型，用户提出了添加SinusoidalPositionalEmbedding模块的需求，以便提供位置编码功能给开发者或者在其他模型中使用。
+
+https://github.com/pytorch/pytorch/issues/127849
+这是一个特性需求的issue，涉及到pytorch中的OffloadPolicy，用户正在请求支持此功能。
+
+https://github.com/pytorch/pytorch/issues/127832
+这个issue是关于CI（持续集成）的问题，涉及到FSDP2在使用`torch.compile`根模型时的情况。
+
+https://github.com/pytorch/pytorch/issues/127676
+这是一个bug报告，主要涉及的对象是torch.mps模块，由于mps模型缺少device()方法导致了"module 'torch.mps' has no attribute 'device'"错误。
+
+https://github.com/pytorch/pytorch/issues/127652
+这是一个bug报告，涉及到pytorch下的torchtitain库。这个问题导致了访问非法内存，是由于pointwise autotuning of a cat-like kernel导致的。
+
+https://github.com/pytorch/pytorch/issues/127402
+这是一个bug报告，涉及的主要对象是Hugging Face合集的静态/动态量化性能异常提升和精度下降。由于最新版本的夜间发布中存在精度下降，用户反馈了关于此问题并提供了相关信息。
+
+https://github.com/pytorch/pytorch/issues/127383
+这是一个bug报告，涉及的主要对象是pytorch中的GPT2模型。由于最近的一个PR的更改，导致无法通过AOTI运行到`_scaled_dot_product_flash_attention_for_cpu`，从而影响了一些模型的性能。
+
+https://github.com/pytorch/pytorch/issues/127247
+这是一个关于添加Dynamo支持运行及运行带有RNG状态HOP的问题，涉及到的主要对象是Traceable FSDP2。
+
+https://github.com/pytorch/pytorch/issues/127177
+这是一个bug报告，涉及主要对象是使用PyTorch深度学习框架的用户。由于在模型推理过程中出现了只能输出固定结果的问题，推测可能是模型在训练和评估过程中状态重置的方式导致了输出的异常行为。
+
+https://github.com/pytorch/pytorch/issues/127176
+这是一个bug报告，涉及的主要对象是pytorch。由于BFloat16数据类型的运行时实现缺失，导致出现了运行时错误的bug。
+
+https://github.com/pytorch/pytorch/issues/127077
+这是一个bug报告，主要涉及的对象是PyTorch中的DDP（分布式数据并行）模块，问题是DDP在torch版本大于2.1时性能明显下降。
+
+https://github.com/pytorch/pytorch/issues/126843
+这是一个bug报告，主要对象是`Salesforce/blip2-opt-2.7b`模型的导出过程。导出时出现了Conv shape error，可能是由于torchscript导出器无法成功导出该模型而导致。
+
+https://github.com/pytorch/pytorch/issues/126840
+这是一个bug报告类型的issue，主要涉及的对象是pytorch下的Torchscript导出功能。导出过程中出现索引错误，可能是由于某些模型的`past_key_values`引起的。
+
+https://github.com/pytorch/pytorch/issues/126738
+这是一个bug报告，涉及主要对象为pytorch中的FakeTensor和bert attention模型，由于使用FakeTensor时返回了一个DataDependentOutputException异常，导致无法成功运行代码。
+
+https://github.com/pytorch/pytorch/issues/126665
+这是一个关于bug报告的issue，主要涉及的对象是使用PyTorch框架的用户。由于将`TORCH_CHECK`替换为`AOTI_TORCH_CHECK`导致性能下降，用户在多个模型上观察到了这种现象。
+
+https://github.com/pytorch/pytorch/issues/126626
+这个issue是关于bug报告，主要涉及的对象是pytorch的pipelining功能。由于重构tracer时暂时删除了对多次使用参数/缓冲区的支持，导致在运行tracer模式时出现NotImplementedError。
+
+https://github.com/pytorch/pytorch/issues/126568
+这个issue是关于代码优化建议，涉及主要对象为MultiHeadAttention模块。原因是当前实现中的输出投影层设计不一致，会导致依赖性，并且内部结构较为复杂。
+
+https://github.com/pytorch/pytorch/issues/126559
+这个issue是一个bug报告，涉及到pytorch中的activation checkpointing在FQN映射方面的问题，由于没有正确处理activation checkpointed模块的prefix，导致了FQN映射错误。
+
+https://github.com/pytorch/pytorch/issues/126497
+这是一个bug报告，主要涉及的对象是代码中的2D梯度裁剪功能。原因是在使用TP时，从transformer到MLP堆栈的变化引入了轻微的数值差异，导致2D裁剪梯度规范测试失败。
+
+https://github.com/pytorch/pytorch/issues/126448
+这是一个用户提出需求的issue，主要涉及的对象是pytorch下的DeepSpeed transformer extension。这个问题是由于需要在ROCm上进行构建时，需要将cublasGemmAlgo_t映射到hipblasGemmAlgo_t。
+
+https://github.com/pytorch/pytorch/issues/126391
+这是一个Bug报告，涉及的主要对象是PyTorch下的VIT Transformer模型。由于特定的矩阵形状导致了性能下降的问题。
+
+https://github.com/pytorch/pytorch/issues/126388
+这是一个bug报告，涉及的主要对象是在将模型移动到CUDA时使用`torch.nn.ModuleList`或`torch.nn.Sequential`包含多个`torch.nn.Transformer`实例而导致的内存泄漏问题。
+
+https://github.com/pytorch/pytorch/issues/126380
+这是一个bug报告，该问题单涉及的主要对象是在ROCM平台下的pytorch测试。这个问题的症状是测试正在主分支上失败。
+
+https://github.com/pytorch/pytorch/issues/126348
+这是一个关于优化性能的issue，主要涉及PyTorch下的AOTAutograd和inductor，问题出现的原因是softmax_output的保存导致了计算效率低下。
+
+https://github.com/pytorch/pytorch/issues/126330
+这个issue是关于测试失败的bug报告，主要对象是测试中的一个特定功能。这个问题是因为测试在最新的主分支上失败而被禁用。
+
+https://github.com/pytorch/pytorch/issues/126296
+这是一则关于测试失败的issue，涉及主要对象为pytorch下的一个测试案例，由于最近在主分支上出现失败，因此被禁用。
+
+https://github.com/pytorch/pytorch/issues/126274
+这是一个 bug 报告，主要涉及 pytorch 下的 speech_transformer AMP 性能回归问题。由于 AMP static shape default wrapper 和 AMP dyanmic shape default wrapper 的性能出现了明显下降，导致了速度和指标之间的不匹配。
+
+https://github.com/pytorch/pytorch/issues/126043
+这个issue是关于一个bug报告，涉及主要对象是pytorch下的一个测试用例。该问题由于测试用例`test_transformerdecoder` 在CI中失败，被识别为flaky（不稳定）而被禁用，需要进一步调试寻找问题。
+
+https://github.com/pytorch/pytorch/issues/125991
+这个issue类型是bug报告，主要涉及的对象是DistTensorParallelExampleTest，由于最近的改动导致测试失败，需要修复或排查问题。
+
+https://github.com/pytorch/pytorch/issues/125918
+这是一个关于bug报告的issue，主要对象是pytorch下的一个测试示例，问题出现的原因可能是最新的代码改动导致测试失败。
+
+https://github.com/pytorch/pytorch/issues/125755
+这是一个bug报告，涉及的主要对象是torch._dynamo，原因可能是torch._dynamo在导入时意外地对jax/xla有了运行时依赖。
+
+https://github.com/pytorch/pytorch/issues/125741
+这是一个bug报告，主要涉及PyTorch中的Tensor Parallel模块，由于在使用`dtype=torch.float32`时，在一些情况下会出现数值偏差导致测试失败。
+
+https://github.com/pytorch/pytorch/issues/125677
+这个issue是关于bug报告，主要涉及到AsyncCollectiveTensor和AOTAutograd，由于`trigger_wait()`被调用时忽略了其输出导致了NaN loss。
+
+https://github.com/pytorch/pytorch/issues/125644
+这是一个bug报告，主要涉及的对象是pytorch项目中的一个测试案例。由于最新提交导致的测试失败，测试被禁用。
+
+https://github.com/pytorch/pytorch/issues/125641
+这是一个bug报告，涉及的主要对象是在使用PyTorch中的`torch.compile`编译时出现了与动态形状和DistributedDataParallel相关的错误。由于使用`torch._dynamo.mark_dynamic`或`dynamic=True`或`dynamic=None`时遇到了`ConstraintViolationError`或者多次重新编译的错误，导致了编译失败的症状。
+
+https://github.com/pytorch/pytorch/issues/125604
+这是一个Bug报告，主要涉及问题是在使用tensorrt后端和动态形状编译GPT2模型时出现了保护错误。
+
+https://github.com/pytorch/pytorch/issues/125564
+这是一个bug报告，涉及主要对象是加载量化权重时出现错误。由于torch版本为2.0.0+cu117时，加载量化模型权重时出现了错误，即使尝试使用torch==2.2.2和torch==2.3.0也无法解决这个问题。
+
+https://github.com/pytorch/pytorch/issues/125534
+这是一个bug报告，涉及的主要对象是在使用低精度（例如bfloat16）时在normal batching和`vmap`之间产生不同结果的问题。导致这种情况的原因可能是不同模式下的梯度计算方式不同。
+
+https://github.com/pytorch/pytorch/issues/125459
+这是一个bug报告，主要涉及GPU stats在多GPU推断中未正确报告的问题。由于代码编写方式不规范导致GPU信息，包括显存使用率，未能正确更新。
+
+https://github.com/pytorch/pytorch/issues/125323
+这个issue类型是功能需求，主要涉及到FSDP2 Memory Tracker。由于用户需要调优决策，提出了关于内存使用情况的问题。
+
+https://github.com/pytorch/pytorch/issues/125015
+这是一个bug报告，涉及主要对象为pytorch中的TransformerEncoderLayer，由于bias参数设置为False导致访问bias设备属性时出现AttributeError。
+
+https://github.com/pytorch/pytorch/issues/124973
+这是一个bug报告类型的issue，主要涉及将llama v3导出到ONNX的问题。这个问题的症状是导出过程受阻，可能由于相关Issue和PR所描述的问题导致。
+
+https://github.com/pytorch/pytorch/issues/124946
+这是一个bug报告，涉及对象为torch.compile在使用hugging face Mistral7B模型时出现错误。这个问题是由于传入的参数类型不匹配导致的。
+
+https://github.com/pytorch/pytorch/issues/124937
+这是一个bug报告，主要涉及的对象是Transformer Module中的bias参数设置与why_not_sparsity_fast_path之间的冲突，导致在评估模式下出现错误。
+
+https://github.com/pytorch/pytorch/issues/124931
+这个issue类型是文档问题，主要涉及对象是 `nn.Transformer`，由于缺少对3D memory_mask 输入情况的描述，导致用户提出需要添加该描述的问题。
+
+https://github.com/pytorch/pytorch/issues/124901
+这是一个bug报告，涉及的主要对象是PyTorch中使用`torch.compile`和`autocast`时出现的问题，由于数据类型错误导致了`RuntimeError: invalid dtype for bias`错误。
+
+https://github.com/pytorch/pytorch/issues/124796
+这是一个bug报告，涉及的主要对象是PyTorch下的Dynamo库。这个问题由于缺少对于修改模块属性的支持，导致在导出Qwen/Qwen7BChat模型时出现错误。
+
+https://github.com/pytorch/pytorch/issues/124793
+这是一个bug报告类型的issue，主要涉及的对象是Dynamo导出google/gemma2b模型，在导出过程中遇到了关于mutating module attributes的错误。
+
+https://github.com/pytorch/pytorch/issues/124718
+这是一个用户提出需求的issue，主要涉及的对象是`nn.MultiHeadAttention`，由于缺乏对应的scaled_dot_product_attention "scale" 参数，用户希望在该模块中添加这一功能。
+
+https://github.com/pytorch/pytorch/issues/124707
+这是一个bug报告，主要涉及的对象是dynamo库中的scaled_dot_product_attention()函数。由于出现了Unexpected SymBool错误，用户提出了这个issue。
+
+https://github.com/pytorch/pytorch/issues/124698
+这是一个bug报告，主要涉及的对象是关于PyTorch中的activation checkpointing功能。由于未将优化器状态单独加载，当使用激活检查点和`use_orig_params = False`时，导致了FQN映射错误的问题。
+
+https://github.com/pytorch/pytorch/issues/124677
+这个issue属于用户提出需求类型，主要涉及的对象是在PyTorch中导出包含反向传播的模型到ONNX时遇到的问题。通过这个issue可以看出用户希望支持导出包含反向传播的模型到ONNX，以便在推理时差分通过去噪器。
+
+https://github.com/pytorch/pytorch/issues/124634
+这是一个bug报告，主要涉及对象是在导入torch._dynamo时不希望导入transformers模块，可能原因是torch._dynamo意外地依赖了jax/xla等模块，导致出现了相关的问题。
+
+https://github.com/pytorch/pytorch/issues/124624
+这是一个bug报告，主要涉及Nested Tensor (NJT) 的构造问题。由于无法正确处理在图中创建NJTs时的偏移量，导致了无法比较大小的错误。
+
+https://github.com/pytorch/pytorch/issues/124502
+这是一个bug报告，涉及的主要对象是Llama3模型的导出过程。原因可能是由于在尝试使用动态形状导出Llama3模型时出现了错误，用户寻求关于此问题的帮助。
+
+https://github.com/pytorch/pytorch/issues/124497
+这是一个bug报告，涉及的主要对象是在MacOS上使用torch.compile时出现的执行Hang的问题，可能是由于2.2.1版本引入的问题导致。
+
+https://github.com/pytorch/pytorch/issues/124289
+这是一个bug报告，涉及主要对象是SDPA在使用torch.compile时出现错误。造成该bug的原因尚不清楚。
+
+https://github.com/pytorch/pytorch/issues/124262
+这是一个bug报告，涉及的主要对象是在使用torch.multiprocessing时遇到了CUBLAS_STATUS_EXECUTION_FAILED错误。这可能是由于CUDA可见设备大于1时出现的问题导致的。
+
+https://github.com/pytorch/pytorch/issues/124019
+这个问题是一个bug报告，主要涉及到pytorch中FSDP+TP例子的HFT5模型在3个节点，每个节点有2个GPU（总共6个GPU）上运行时出现了问题。造成这个问题的原因可能是在嵌入层的前向传播过程中出现了维度错误。
+
+https://github.com/pytorch/pytorch/issues/124017
+这是一个bug报告，涉及主要对象为使用FSDP训练transformer模型的用户。由于FSDP中出现的错误导致了ViewBackward0输出问题，用户在issue中寻求解决方法或解决方案。
+
+https://github.com/pytorch/pytorch/issues/124006
+这是一个bug报告，涉及主要对象为pytorch 2.3版本，由于输入的indices数据类型不匹配导致出现错误。
+
+https://github.com/pytorch/pytorch/issues/123962
+这是一个bug报告，涉及主要对象是FSDP模块，在使用`model.generate()`时出现错误。由于某种原因导致了无法正常生成的问题。
+
+https://github.com/pytorch/pytorch/issues/123954
+这是一个bug报告，主要涉及PyTorch的`import torch._dynamo`导致了一些意外依赖关系，最终导致了症状表现为不必要的警告提示和环境变化。
+
+https://github.com/pytorch/pytorch/issues/123855
+这是一个bug报告，涉及到PyTorch的Dynamo库中关于动态填充的功能出现的问题。原因是根据未支持的值计算填充大小导致Dynamo引发数据依赖性错误。
+
+https://github.com/pytorch/pytorch/issues/123738
+这个issue属于功能需求提出，主要对象是为PyTorch的CPU后端增加一个新的rotary_embedding操作。这个需求主要是基于研究显示rotary positional embeddings可以显著提高transformer模型的性能，因此提出了这个操作以提供一种更有效的方式来编码位置信息。
+
+https://github.com/pytorch/pytorch/issues/123642
+这是一个bug报告，主要涉及的对象是PyTorch下的TransformerDecoderLayer模块。此问题是由于在CUDA环境下，当批量维度为零时，TransformerDecoderLayer会出现崩溃，而在CPU环境下则正常运行。
+
+https://github.com/pytorch/pytorch/issues/123636
+这是一个bug报告，针对使用torch.explain在相同模型和输入上产生非确定性结果的问题。
+
+https://github.com/pytorch/pytorch/issues/123558
+这个issue属于功能需求提出，主要涉及PyTorch中支持FP16 accumulation以优化LLM推断性能问题，用户希望在4090等GPU上进行更快的LLM推断过程。
+
+https://github.com/pytorch/pytorch/issues/123528
+这是一个用户提出需求的issue，主要涉及的对象是FullyShardedDataParallel，由于当前版本不支持整数数据类型，导致用户无法在FSDP中使用整数参数。
+
+https://github.com/pytorch/pytorch/issues/122997
+这是一个bug报告类型的issue，主要涉及Transformer中SDPA（Self-Attention）使用dtensor的问题。由于Efficient attention仅支持bf16/fp32等数据类型以及其他约束，导致SDPA在某些情况下无法正常工作。
+
+https://github.com/pytorch/pytorch/issues/122996
+这是一个功能需求类型的issue，主要涉及的对象是pytorch中的dtensor，用户提出了关于支持内存高效注意力机制的需求。
+
+https://github.com/pytorch/pytorch/issues/122995
+该issue是关于改进新工厂策略的，涉及到的主要对象是dtensor。这个问题是关于优化新工厂策略导致的bug。
+
+https://github.com/pytorch/pytorch/issues/122946
+这是一个bug报告，主要涉及的对象是Transformer Engine在使用Torch 2.3版本时的checkpointing bug，导致在保存checkpoints时不能正确处理_extra_state，可能是因为未能正确忽略_extra_state而导致此问题。
+
+https://github.com/pytorch/pytorch/issues/122934
+这是一个bug报告，主要涉及对象是DETR模型无法使用torch.export导出编码器的问题。这可能是由于PyTorch版本2.2.1和Ubuntu 22.04.3 LTS操作系统的组合导致的。
+
+https://github.com/pytorch/pytorch/issues/122898
+这个issue是一个bug报告，涉及的主要对象是UDOP模型从transformers库导出到ONNX时出现的错误。
+
+https://github.com/pytorch/pytorch/issues/122868
+这是一个bug报告，主要涉及模型导出至ONNX后出现错误，并由于可能是动态维度的问题导致模型配置不正确的问题。
+
+https://github.com/pytorch/pytorch/issues/122851
+这个issue是关于bug报告，主要涉及了pytorch下的dynamo模块中避免跳过torch/testing/_internal模块，由于原因是Dynamo跳过了用户定义的torch/testing/_internal模块，导致出现了一些症状。
+
+https://github.com/pytorch/pytorch/issues/122803
+这是一个bug报告，涉及对象主要是pytorch下的`LayerNorm`和`TransformerEncoder`，问题可能是由于某种方式导致`swap_tensors`路径无法正确检测layernorm权重的引用计数。
+
+https://github.com/pytorch/pytorch/issues/122679
+这是一个bug报告，主要涉及到测试代码中的注释错误，导致了文档不准确的问题。
+
+https://github.com/pytorch/pytorch/issues/122660
+这是一个WIP的问题，涉及到的主要对象是`torch.nn.MultiHeadAttention`和`torch.nn.Transformer`相关的模块。由于模块的monolithic性质以及性能和可定制性问题，用户希望对这些模块进行弃用。
+
+https://github.com/pytorch/pytorch/issues/122617
+这是一个bug报告，涉及PyTorch下的`torch._transformer_encoder_layer_fwd`函数的输出在CUDA/NestedTensorCUDA背景下与正确输出显著不一致的问题。此问题主要是由于在torch>=2.1版本中出现了错误的相对差异而导致性能下降。
+
+https://github.com/pytorch/pytorch/issues/122594
+这是一个bug报告，涉及主要对象是pytorch中的test_transformers.py文件。原因是在该文件的第1437行出现了错误的注释，导致注释内容与测试用例的名称不匹配。
+
+https://github.com/pytorch/pytorch/issues/122586
+这是一个用户提出需求的issue，主要涉及Transformer头文件在cmake和wheel中暴露的问题，用户需要在IPEX方面开发嵌套Transformer时使用一些工具函数。
+
+https://github.com/pytorch/pytorch/issues/122460
+这是一份关于添加环状注意力支持的功能提议，涉及的主要对象是 PyTorch 下的 _scaled_dot_product_flash_attention。这个提议涉及的问题可能是由于数值精度、nn.Linear 行为以及并行性问题导致的。
+
+https://github.com/pytorch/pytorch/issues/122391
+这是一个需求提出类的issue，主要涉及CUDNN attention实现的问题，并要求支持更通用的flash attention。
+
+https://github.com/pytorch/pytorch/issues/122321
+这是一个bug报告，涉及的主要对象是pytorch中的self attention层，由于导出到onnx后无法在不同的batch size和sequence length下正常运行，可能是由于导出过程中的某些问题导致的。
+
+https://github.com/pytorch/pytorch/issues/122314
+这是一个bug报告，主要涉及到PyTorch下使用LlamaForCausalLM时出现的错误。原因可能是模型使用了未实现的功能或者存在bug导致出现了RuntimeError。
+
+https://github.com/pytorch/pytorch/issues/122194
+这是一个特性改进的issue，主要涉及PyTorch下的BMM操作以及MPS后端。由于将转置操作融合到GEMM内核调度中，提高了Transformer网络性能。
+
+https://github.com/pytorch/pytorch/issues/122181
+这是一个bug报告，主要涉及的对象是PyTorch中的`dort`和`dynamo_export`功能。由于输入维度错误导致在`onnxruntime`中出现错误，可能是由于不匹配的输入维度引起的。
+
+https://github.com/pytorch/pytorch/issues/122068
+这个issue类型是bug报告，主要涉及对象是PyTorch。由于某些原因导致了NVML_SUCCESS == r INTERNAL ASSERT FAILED错误的bug。
+
+https://github.com/pytorch/pytorch/issues/122016
+这是一个bug报告，主要涉及对象是PyTorch在macOS 14.4上的MPS Regression，由于PyTorch 2.2.0/2.2.1中的特定提交导致了启动崩溃。
+
+https://github.com/pytorch/pytorch/issues/122002
+这是一个用户提出需求的issue，主要涉及的对象是测试训练2D转换器的checkpoint恢复，用户希望在该测试中添加AdamW选项。
+
+https://github.com/pytorch/pytorch/issues/121986
+这是一个bug报告，涉及到ONNX模型的数据类型不匹配问题，由于torch模型和checkpoint的数据类型不一致导致。
+
+https://github.com/pytorch/pytorch/issues/121857
+这是一个Bug报告，主要涉及的对象是使用PyTorch下的AdamW算法。由于开启了融合（fused=True）导致速度比未融合（unfused）慢，存在性能问题。
+
+https://github.com/pytorch/pytorch/issues/121783
+这个issue是一个bug报告，主要涉及的对象是警告消息在SDP工具CPP文件中的内容。这是因为警告消息在SDP工具CPP文件中产生了困惑。
+
+https://github.com/pytorch/pytorch/issues/121720
+这个issue类型是用户提出需求，主要涉及PyTorch是否需要向客户端公开位于aten/src/ATen/native/transformers目录中的头文件，由于这些头文件未暴露给客户端，导致在适配特定类型的GPU设备时需要编写大量重复的检查代码。
+
+https://github.com/pytorch/pytorch/issues/121660
+这个issue是关于代码重构的，主要涉及到`Transformer`的sharding操作，由于需要支持FSDP + TP/SP unit tests，所以将canonical TP/SP sharding抽取为一个staticmethod。
+
+https://github.com/pytorch/pytorch/issues/121649
+这是一个bug报告，主要涉及的对象是pytorch下的tensor parallelism测试例子，由于缺少guards可能会导致测试例子中的通信收集出错。
+
+https://github.com/pytorch/pytorch/issues/121637
+这个issue是关于bug报告，主要涉及的对象是SwinTransformer编码器。由于输入大小的更改导致在训练时正常工作但在推断时失败。
+
+https://github.com/pytorch/pytorch/issues/121632
+这是一个bug报告，涉及的主要对象是PyTorch的TransformerDecoder模块。该问题由于使用MPS后端时，直接生成的布尔蒙版会导致第一个标记的解码特征错误。
+
+https://github.com/pytorch/pytorch/issues/121631
+这是一个bug报告，涉及的主要对象是在使用inductor backend时出现了类型不匹配的问题，导致nested `autocast`未被正确处理。
+
+https://github.com/pytorch/pytorch/issues/121594
+这是一个bug报告，涉及PyTorch中使用DDP和gradient checkpointing导致梯度同步失败的问题。
+
+https://github.com/pytorch/pytorch/issues/121572
+这是一个bug报告，涉及的主要对象是PyTorch。由于某种原因导致了RuntimeError: invalid unordered_map<K, T> key的bug。
+
+https://github.com/pytorch/pytorch/issues/121465
+这是一个特性请求（Feature request）类型的issue，主要涉及到PagedAttention功能的支持。由于PagedAttention在基于LLMs的生成任务中成为了一种主流优化技术，但在PyTorch+Huggingface中存在一些内存和性能瓶颈，因此提出了PageAttention KV Cache设计的建议。
+
+https://github.com/pytorch/pytorch/issues/121357
+这个issue是一个功能改进类型的报告，主要涉及到FSDP2中的`check_1d_sharded_parity`函数的重构使用。原因是因为FSDP与`DTensor` API在2D上的布局不同，导致无法使用`check_sharded_parity`函数进行比较。
+
+https://github.com/pytorch/pytorch/issues/121280
+这是一个bug报告，主要涉及PyTorch中使用transformer导出到onnx时遇到的问题。原因可能是参数被错误地插入为常数，导致错误的梯度计算。
+
+https://github.com/pytorch/pytorch/issues/121235
+这是一个bug报告，涉及对象是pytorch下的sentence_transformers库。这个问题可能是由于系统升级后出现，导致程序无法正常运行，最终报告了signal 11错误。
+
+https://github.com/pytorch/pytorch/issues/121193
+这是一个用户提出需求的issue，主要涉及到`nn.TransformerEncoder`中关于`causal_mask`参数详细文档和示例的问题，用户疑惑于如何正确使用这一参数进行注意力分数的屏蔽。
+
+https://github.com/pytorch/pytorch/issues/121113
+这是一个bug报告，主要涉及PyTorch下使用transformers Trainer在MPS硬件上训练时出现内存泄漏导致"MPS out of memory"错误。
+
+https://github.com/pytorch/pytorch/issues/121109
+这是一个bug报告类型的issue，主要涉及fairseq库在导出ONNX模型时遇到UnsupportedOperatorError错误。
+
+https://github.com/pytorch/pytorch/issues/121030
+这是一个用户提出需求的issue，涉及的主要对象是Python中的深度学习框架PyTorch。
+
+https://github.com/pytorch/pytorch/issues/120994
+这是一个bug报告，涉及的主要对象是在使用HF OPT1.3B模型进行混合精度时出现OOM错误。这个问题可能是由于混合精度预测导致内存使用增加而引起的。
+
+https://github.com/pytorch/pytorch/issues/120878
+这是一个关于功能需求的issue，主要涉及FSDP框架在GPU上自动实例化模型的功能。原因是用户需要在模型实例化时直接在GPU上分片模型，以解决实例化巨大模型时的问题。
+
+https://github.com/pytorch/pytorch/issues/120787
+这是一个bug报告，主要涉及的对象是Tensor Parallel Inference Performance Issue with Llama-7b-chat-hf Model。由于server straggler问题导致AllReduce操作中慢est rank的等待时间超过1ms，造成推理速度没有达到预期的加速效果。
+
+https://github.com/pytorch/pytorch/issues/120668
+这个issue类型是文档问题，主要涉及 torch.nn.functional.scaled_dot_product_attention 的注释不清导致的混淆。
+
+https://github.com/pytorch/pytorch/issues/120601
+这是一个bug报告issue，涉及对象为pytorch下的torchrun。由于argparse的缩写处理遮蔽了具有与现有torchrun参数前缀匹配的任何参数，导致了参数被错误地覆盖的bug。
+
+https://github.com/pytorch/pytorch/issues/120565
+这是一个需求报告，主要对象是pytorch中transformer文档的更新需求，由于文档中缺少超链接指向transformer类，需要修复以提高文档的可读性和易用性。
+
+https://github.com/pytorch/pytorch/issues/120550
+该issue类型为功能改进建议，主要对象为TransformerEncoder/Decoder部分代码，用户希望在该部分添加类型提示。
+
+https://github.com/pytorch/pytorch/issues/120488
+这是一个关于需求的issue，涉及到pytorch下transformers模块中`_mask`和`_key_padding_mask`参数文档不清晰的问题。因为文档没有准确说明mask的形状和类型，导致用户不清楚如何使用这些参数。
+
+https://github.com/pytorch/pytorch/issues/120466
+该问题属于用户提出需求，主要涉及pytorch高级API使用nccl新特性加速通信的功能。
+
+https://github.com/pytorch/pytorch/issues/120462
+这是一个bug报告，主要涉及到torch.compile()对模型输出质量的影响。由于torch.compile()的使用导致模型输出质量在不同条件下出现明显差异，作者怀疑是否是torch.compile()本身引起了精度问题。
+
+https://github.com/pytorch/pytorch/issues/120396
+该issue类型为用户提出需求，主要对象为nn.TransformerEncoder中的参数初始化问题，用户认为需要为每个层随机初始化参数，而不是复制初始状态，因为重复应用相同初始化可能导致数值问题。
+
+https://github.com/pytorch/pytorch/issues/120309
+这是一个bug报告，涉及的主要对象是PyTorch中使用`torch.compile`的模型。由于CUDA图导致第二次forward调用变慢，且出现了GPU利用率为0%，CPU利用率为100%的情况。
+
+https://github.com/pytorch/pytorch/issues/120288
+这是一个bug报告，涉及到PyTorch中Sizelike SymInts的模型中的问题，用户提出了需要一个类似于"size-oblivious guard"的等效方法来解决索引问题造成的不连续性。
+
+https://github.com/pytorch/pytorch/issues/120248
+这是一个bug报告，涉及的主要对象是使用`torch.compile`时状态无法正确更新的模型实例属性`int`，导致`seen_tokens`未正确更新。
+
+https://github.com/pytorch/pytorch/issues/120189
+这个issue类型是用户提出需求，主要涉及的对象是Mamba在PyTorch中作为一等公民的支持。由于Transformers在长序列上的计算效率低下，Mamba的出现吸引了更多关注，并且具有更快的推断速度和线性序列长度扩展的特点。
+
+https://github.com/pytorch/pytorch/issues/120158
+这是一个bug报告，主要涉及的对象是使用DTensor、ColwiseParallel、RowwiseParallel进行TP训练时出现前向精度无法完全对齐的问题。导致这个bug可能是由于模型参数梯度在反向传播时无法对齐。
+
+https://github.com/pytorch/pytorch/issues/119877
+该issue类型为用户提出需求，主要涉及的对象是在pytorch下的dtensor模块。由于需要实现loss parallel，用于在具有许多类的分类问题中有效地进行分布式交叉熵计算，但由于输入在类维度上分片，必须在`aten.log_softmax`和`aten.nll_loss_foward`之间运行多个allreduce收集。
+
+https://github.com/pytorch/pytorch/issues/119621
+这是一个bug报告，涉及的主要对象是pytorch中的ONNX导出功能。导出量化模型至ONNX时，遇到了不支持的操作符bitwise_right_shift，导致无法成功导出。
+
+https://github.com/pytorch/pytorch/issues/119584
+这是一个Bug报告，主要涉及CC(torch.load fails under FakeTensorMode for GPT2 model)，由于FakeTensorMode导致torch.load无法正确加载GPT2模型的情况。
+
+https://github.com/pytorch/pytorch/issues/119551
+该issue类型为技术修改提议，主要涉及PyTorch下的FSDP参数注释和编译相关内容。原因可能是为了改进参数处理和编译性能。
+
+https://github.com/pytorch/pytorch/issues/119374
+这是一个关于bug报告的issue，主要涉及的对象是PyTorch在aarch64 linux平台下使用openblas后端时推理延迟增加的问题。这个问题是由于torch 2.1及更高版本在多线程配置下的推理性能退化所引起的。
+
+https://github.com/pytorch/pytorch/issues/119343
+这是一个bug报告。用户在尝试使用Dtensor和ColwiseParallel api对llama2模型进行张量并行时遇到了通信错误。可能由于某种原因导致了在Embedding函数处卡住无法继续前进的症状。
+
+https://github.com/pytorch/pytorch/issues/118972
+这是一个关于文档不一致性的问题，主要涉及PyTorch中MultiheadAttention的用法。由于文档描述不清导致用户对is_causal和attn_mask参数的使用产生疑惑，并提出了需要更一致性解释或修复的建议。
+
+https://github.com/pytorch/pytorch/issues/118628
+这是一个bug报告，涉及的主要对象是PyTorch下的`nn.TransformerEncoderLayer`类。由于提供了注意力偏置，导致在快速路径中预测出NaN值。
+
+https://github.com/pytorch/pytorch/issues/118584
+这是一个功能需求的issue，主要涉及的对象是pytorch下的FSDP功能。原因是为了支持在FSDP中原生地融合模块而提出的功能改进需求。
+
+https://github.com/pytorch/pytorch/issues/118369
+这是一个bug报告，涉及的主要对象是通过深度学习框架PyTorch进行监督微调时出现的NCCL watchdog异常。原因可能是集体操作超时引起的。
+
+https://github.com/pytorch/pytorch/issues/118198
+该issue是一个feature添加，主要涉及的对象是FSDP2库中的activation checkpointing tests，该功能的添加是为了验证在transformer上使用torch.utils.checkpoint的功能。
+
+https://github.com/pytorch/pytorch/issues/118136
+这个issue类型为功能增强，主要涉及PyTorch下的FSDP2（Fully Sharded Data Parallelism 2）功能的测试增加。原因是为了验证新功能的正确性和稳定性。
+
+https://github.com/pytorch/pytorch/issues/118122
+这是一个bug报告，涉及torch.cuda.is_bf16_compatible()输出与TorchInductor支持的不一致导致Transformer Engine CI测试崩溃的问题。
+
+https://github.com/pytorch/pytorch/issues/117897
+这是一个bug报告，涉及主要对象是Pytorch FSDP和TransformerEngine，由于通信/计算重叠不佳导致TransformerEngine LayerNorm在前向传递中等待FSDP allGather，造成性能问题。
+
+https://github.com/pytorch/pytorch/issues/117891
+这是一个bug报告。该问题涉及到使用`torch.export`无法成功导出"microsoft/phi2"模型的情况。原因是在dynamo转换器中出现了`torch._dynamo.exc.InternalTorchDynamoError`错误。
+
+https://github.com/pytorch/pytorch/issues/117752
+这是一个bug报告，主要涉及到"llama_v2_7b_16h"模型在使用torch.jit.trace时出现问题，导致无法成功导出模型。
+
+https://github.com/pytorch/pytorch/issues/117703
+这是一个bug报告，涉及的主要对象是ONNX中的transformers模块。由于transformers版本过时，导致出现了不符预期的测试结果。
+
+https://github.com/pytorch/pytorch/issues/117660
+这是一个需求问题，主要涉及到ONNX CI中transformers版本过时导致的问题。
+
+https://github.com/pytorch/pytorch/issues/117550
+这是一个bug报告，主要涉及FSDP在7B参数转换器模型上扩展时出现的问题，导致一些allGathers操作耗时过长。
+
+https://github.com/pytorch/pytorch/issues/117477
+这是一个bug报告，涉及PyTorch下LLM模型在进行图捕捉时遇到困难，由于输入形状的动态变化导致无法捕获预期的图。
+
+https://github.com/pytorch/pytorch/issues/117399
+这是一个bug报告，主要涉及的对象是pytorch下的activation checkpoint功能。由于_CHECKPOINT_PREFIX未在activation checkpoint子模块时被正确剥离，导致需要在torch中进行补丁处理。
+
+https://github.com/pytorch/pytorch/issues/117351
+这是一个Bug报告，涉及主要对象是pytorch下的fx.Interpreter，由于版本为main导致执行 fx.Interpreter 时没有进行日志记录。
+
+https://github.com/pytorch/pytorch/issues/117209
+这是一个bug报告，该问题涉及的主要对象是torch.onnx.export函数。由于某些情况下导致生成的onnx模型无法处理不同seq_len的数据。
+
+https://github.com/pytorch/pytorch/issues/117140
+这是一个bug报告，主要涉及的对象是PyTorch中的Transformer模块。由于测试过程太慢导致超时，测试被禁用。
+
+https://github.com/pytorch/pytorch/issues/117123
+这是一个关于性能问题的bug报告，主要涉及的对象是测试中的模块。这个问题可能是由于梯度检查速度缓慢导致了测试耗时过长。
+
+https://github.com/pytorch/pytorch/issues/117109
+这是一个bug报告，主要涉及PyTorch下的_transformers_、_accelerate_和_peft_模块，由于_import_module_函数导致了__module 'abc' has no attribute '__file__'_错误。
+
+https://github.com/pytorch/pytorch/issues/117106
+这是一个bug报告，主要涉及PyTorch中的torch.compile功能在处理不同长度的提示时可能导致内存溢出。
+
+https://github.com/pytorch/pytorch/issues/116986
+这是一个用户提出需求的issue，主要涉及Pytorch的FSDP API，用户希望能够在更细粒度的层级上控制通信和内存重叠。
+
+https://github.com/pytorch/pytorch/issues/116935
+这是一个bug报告，涉及的主要对象是PyTorch下的Compiled Transformer AOT Autograd graph。由于开启了Compiled Transformer，导致模型的loss curve表现不佳，出现了精度失败的问题。
+
+https://github.com/pytorch/pytorch/issues/116928
+这是一个bug报告类型的issue，主要涉及的对象是在升级PyTorch版本后出现CUDA内存耗尽的问题。
+
+https://github.com/pytorch/pytorch/issues/116835
+这是一个bug报告，主要对象是torch.compile中的GPTJ模型，由于torch.compile参数设置错误导致无法正确运行。
+
+https://github.com/pytorch/pytorch/issues/116760
+这是一个bug报告，涉及到pytorch的TransformerEncoderLayer，由于bias设置为False导致了AttributeError错误。
+
+https://github.com/pytorch/pytorch/issues/116735
+这是一个代码修改（codemod）类别的issue，主要涉及的对象是测试用例（test）。该问题涉及标记DynamoStrictTest的一系列测试，可能是为了修复代码中的严格性问题。
+
+https://github.com/pytorch/pytorch/issues/116706
+这是一个bug报告，主要涉及PyTorch下的私有上采样操作，由于缺乏decomp实现，导致导出结果中出现了一些运算符无法识别的问题。
+

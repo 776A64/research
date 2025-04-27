@@ -1,0 +1,4149 @@
+https://github.com/NVIDIA/Megatron-LM/issues/1516
+这是一个关于bug报告的issue，主要涉及Megatron-LM中加载checkpoint后发生OOM错误的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1515
+这是一个BUG报告，涉及Megatron-LM下的optimizer创建顺序可能导致的问题，用户遇到在启用pipeline并行时参数组排序不确定的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1514
+这是一个bug报告，涉及的主要对象是Megatron-LM中的aux loss保存机制。由于recompute时会导致`save_to_aux_losses_tracker`方法被执行两次，使得aux loss叠加计算，最终导致保存的aux loss是真实值的两倍。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1513
+这是一个bug报告，主要涉及Megatron-LM中的一个函数在计算aux loss时出现的问题，导致了较低的辅助损失值。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1512
+这是一个技术需求类型的issue，主要涉及Megatron-LM中数据预处理的优化方案使用pyspark加速。由于数据量很大，需要进一步加速预处理步骤，因此提出了使用pyspark替代multiprocessing的方案，并对实现细节进行了说明。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1511
+该issue类型为用户提出需求，主要涉及的对象是Megatron-LM项目。由于缺乏Apex或Transformer Engine支持，导致在本地模式下无法充分支持项目功能，测试失败，无法直接使用CUDA设备以及无法支持在CUDA上的XLA，用户建议添加全面支持本地模式并实现对CUDA及CUDA上的XLA支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1510
+该issue类型为用户提出需求，希望在Megatron-LM中添加对Local模式的完整支持，同时支持直接使用CUDA和Open XLA/CUDA。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1509
+这是一个bug报告，涉及到Megatron-LM中的OOM问题，由于使用load optim导致内存溢出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1508
+这是一个bug报告，涉及主要对象是在Megatron-LM中使用distcp checkpoint进行Hugging Face推断时的转换问题，由于保存时启用了fullyparallel功能而导致无法转换为Hugging Face格式。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1507
+这个issue类型是bug报告，涉及的主要对象是关于CUDA Graphs中准确记录值的问题，由于CUDA graphs只能注册张量操作，因此在图形捕获期间缓存PG无法在以后减少值时正常工作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1506
+这是一个Bug报告类型的issue，涉及的主要对象是Megatron-LM中的_DeepEpManager类。由于在commit `dab7723` 中引入的新属性`router_dtype`没有在`__init__`方法中添加导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1505
+这是一个bug报告，涉及的主要对象是代码中一个变量名。由于拼写错误导致的bug，用户提出需要将变量名full_sharded_model_space替换为正确的名称fully_sharded_model_space。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1504
+这是一个提出问题的类型，主要涉及路由缩放因子设置，问询如何确定
+
+https://github.com/NVIDIA/Megatron-LM/issues/1503
+这是一个BUG报告类型的issue，主要涉及了Megatron-LM中Transformer Engine实现中关于attention gradient计算的错误。该问题导致在训练GPT模型时，单卡和分布式计算结果不一致，相对误差很大，且与正确实现相比也存在较大误差。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1502
+这是一个Bug报告，涉及主要对象是MegatronLM下的group_limited_topk函数。原因是K_r参数设置错误导致了功能异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1501
+这是一个bug报告，主要涉及Megatron-LM中的MLA模块，由于kv_channels的计算错误导致了训练不稳定。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1500
+这是一个bug报告，关于Megatron-LM中T5模型在tp size为1时无法工作的问题。由于model定义中对tp size的限制，导致在tp size为1时出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1499
+这是一个bug报告，涉及的主要对象是MultiLatentAttention类，问题是由于未正确传递cp_comm_type变量导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1498
+这个issue是一个功能增强需求，主要涉及Megatron-LM中的MoE模型，提出了实现全局批次负载平衡的解决方案。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1497
+这是一个关于bug报告的issue，主要涉及Megatron-LM中TorchDistLoadShardedStrategy加载模型权重时无法正确读取`ShardedObject`导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1496
+这是一个bug报告，涉及Megatron-LM中使用fp8时设置pp_size=4导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1495
+这个issue类型是bug报告，主要涉及到Megatron-LM中的p2p通信顺序错误和卡住问题，导致了通信错误以及程序hang的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1494
+这是一个BUG报告，涉及到了在开启和不开启CUDA图的情况下出现的loss不一致的问题。在CUDA图启用时，代码永远不会进入特定的条件，导致了loss的差异。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1493
+这是一个BUG报告类型的issue，涉及主要对象为在构建megatron_core==0.11.2时遇到的安装错误。由于缺乏满足条件的nvidia-resiliency-ext软件包，导致无法成功安装megatron_core，出现了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1491
+这是一个关于bug的报告，涉及了Megatron-LM中的llama_mistral loader，并且由于忽略传入的`true_vocab_size`参数导致使用了tokenizer中的vocab size，可能会与Huggingface checkpoints中的实际vocab size不一致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1490
+这个issue类型为用户提出需求，关注的主要对象是Megatron-LM中的torch_dist和torch_dcp格式支持DP到TP/PP转换的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1489
+这是一个关于功能问题的issue，主要涉及Megatron-LM Release 0.11版本中的`Add multi datacenter training support though N/S connection`功能。用户提出了关于如何启用此功能以及与该功能相关的代码的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1488
+这是一个询问类型的issue，主要涉及Megatron-LM中forward和backward passes的时间比较，用户想了解为何forward pass时间略长的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1487
+这是一个关于代码逻辑的问题，讨论了在使用`recompute_activations`时为什么强制要求`recompute_granularity = 'selective'`。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1485
+这是一个Bug报告类型的Issue，主要涉及Megatron-LM中的p2p通信顺序错误和卡住问题，由于p2p通信顺序错误导致了backward张量形状不匹配的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1484
+这个issue是一个Bug报告，涉及主要对象是Megatron-LM下的P2P通信模块。由于p2p通信顺序错误和卡顿问题导致了与特定配置和环境下的P2P通信出现错误行为。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1483
+这个issue类型是用户提出需求，主要对象是为Megatron-LM仓库添加一个vscode devcontainer以便快速开始使用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1482
+这个issue是关于bug报告，涉及的主要对象是Megatron-LM中的TopKRouter模块。问题出现的原因是expert_bias在预训练时被观察到以错误的bfloat16格式存在，而实际上应该使用float32格式。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1481
+这是一个Bug报告，主要涉及对象是Megatron-LM中的cross_entroy_loss_fusion功能。由于TE < 2.1时，te_parallel_cross_entropy返回None导致损失错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1480
+这是一个需求提出的issue，主要涉及Megatron-LM在多机训练时构建数据集的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1479
+这是一个关于用户提问的问题，主要涉及在Megatron框架下如何使用训练好的模型进行推断。由于用户想了解如何更轻松地设置一个模型，提出了关于提供JSON文件来描述模型结构的建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1478
+这是一个bug报告，主要涉及到Megatron-LM中Mixture of Experts（MOE）模块中的计算问题，导致在重复计算时记录了错误的load_balancing_loss值。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1477
+这是一个Bug报告，涉及MegatronLM中使用FP16优化器时GPU内存使用量异常增加的问题。问题是由于在调用FusedAdam.step()时，FP16的exp_avg和exp_avg_sq在调用adam_func之前被转换为float，而FP32优化器则不需要这样的转换，导致了GPU内存使用量的增加。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1476
+这是一个bug报告类型的issue，涉及主要对象为Megatron-LM工具下的模块调用错误，导致了模块未找到的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1475
+该issue类型为需求提出，涉及的主要对象是MLA（Multi-Latent Attention）。由于MoE相关术语已经更新，但MLA仍未更新，导致需要更新MLA的计算代码。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1474
+这是一个关于用户需求的问题，主要涉及Megatron-LM如何管理集群的节点和进程的问题。用户想了解Megatron是如何管理这些节点和进程，包括负载均衡等方面。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1473
+这是一个关于代码错误的bug报告，涉及的主要对象是MegatronLM中的RoPE（Rotary Positional Embedding），用户在尝试修改代码时遇到了输入和`cu_seqlens`不匹配的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1472
+这是一个bug报告，涉及的主要对象是Megatron-LM代码中的hashlib.md5函数。这个bug由于hashlib.md5函数在调用时未设置usedforsecurity=False参数导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1471
+这是一个Bug报告，涉及的主要对象是在系统启用FIPS的情况下调用`hashlib.md5`方法时出错。原因是调用`hashlib.md5`时没有设置`usedforsecurity=False`，导致出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1470
+这是一个缺陷报告，涉及主要对象为Megatron-LM的Encoder，由于commit 8af3dae72a9允许Encoder具有不同的TP大小，但尚未更新函数**_communicate_shapes**，导致在许多具有**variable_seq_lengths = True**的多模态模型中出现问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1469
+这是一个关于MOE训练过程中遇到异常梯度和损失的问题，用户寻求关于异常梯度的原因和解决方法。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1468
+这是一个用户提出的问题，主要涉及Megatron团队，内容是关于如何使用`--overlap-grad-reduce`和`--overlap-param-gather`来重叠通讯和计算。用户注意到设置这些标志时未能实现重叠效果，可能是因为未设置`CUDA_DEVICE_MAX_CONNECTIONS`导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1467
+这是一个用户提出疑问的类型问题，主要涉及MegatronLM中的`use_shared_expert_gate`参数参考的来源，用户想了解该参数来源的原因。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1466
+这是一个功能提议类型的issue，主要涉及的对象是数据集的混合定义。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1465
+这是一个bug报告，主要涉及Megatron-LM下的P2P attention模块，在使用context parallelism时梯度计算出现错误。原因可能是`AttnFuncWithCPAndKVP2P.backward()`函数中存在bug，导致训练时梯度不匹配，从而影响模型的训练效果。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1464
+这个issue类型是bug报告，主要涉及的对象是Megatron-LM中的attention模块。由于Context Parallelism 开启时出现了attention梯度错误，导致训练过程中的梯度计算不准确，进而影响整个模型训练的结果。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1463
+这是一个关于bug报告的issue，主要涉及到Megatron-LM中的Mixture of Experts (MoE)模块。由于缺少了`router_dtype`参数导致了错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1462
+这是一个BUG报告，涉及到Megatron-LM中的优化器模块，由于不同pipeline之间调用barrier次数不匹配，导致了hang in barrier的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1461
+这是一个bug报告，主要涉及Megatron-LM中生成文本时出现错误的问题，导致生成的文本内容不正确。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1460
+这个issue类型是用户提出需求，该问题单涉及的主要对象是Youngeun/a2a hiding。由于缺少具体内容，用户可能正在讨论编写或修改代码的相关问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1459
+这是一个关于并行技术的问题讨论，涉及Megatron-LM中Expert Parallelism (EP)和Context Parallelism (CP)不能同时启用的设计限制。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1456
+这个issue是一个问题提问，涉及主要对象是Megatron-LM中的训练速度。用户询问由于何种原因导致使用DeepEP时训练速度比传统all-to-all方法慢的现象，并寻求其他测试结果作为参考。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1455
+这是一个用户需求的问题，主要涉及Megatron-LM下的custom_fsdp是否能够与PP兼容，用户想知道是否有计划使其兼容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1454
+这是一个关于需求的问题，主要涉及到Megatron-GPT模型中是否支持logit偏差设置，用户想要在推理过程中降低某些token的概率以避免被预测。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1453
+这是一个描述bug的issue，涉及的主要对象是Megatron-LM中的Float8Tensor对象。导致这个bug的原因是在TE 2.0版本中，Float8Tensor不再具有_fp8_meta属性，但某些代码仍在使用param._fp8_meta，这与TE 2.0不兼容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1452
+这个issue类型是需求报告，涉及到Artifact Evaluation。由于作者没有提供具体内容，用户可能在寻求有关Artifact Evaluation方面的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1451
+这是一个bug报告类的issue，主要涉及到Megatron-LM下的p2p通信和batch处理模块，原因是p2p通信顺序错误导致通信混乱和批处理操作hang的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1450
+这是一个BUG报告，涉及Megatron-LM中p2p通信顺序错误和卡在pp 2和vpp 2的问题。由于配置参数设置不当，导致p2p通信顺序错误和卡住的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1449
+这是一个用户提出问题的issue，主要涉及到如何在Megatron-LM中保存和加载检查点，以及如何在训练中从上次的检查点继续进行。问题由于参数不匹配导致了错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1448
+这是一个用户提出需求的问题，主要对象是WrappedTorchLayerNorm class。用户想知道为什么WrappedTorchLayerNorm class不能支持sequence parallel，导致对序列并行性的需求无法满足。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1447
+这是一个关于用户提出需求的问题，主要涉及到Megatron-LM中的FSDP2模块和embedding tying功能。报告中提到由于缺少对embedding tying的支持，导致在FSDP2中出现了AssertionError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1446
+这是一个bug报告，涉及主要对象为Megatron-LM中的pretrain_gpt.py文件，由于tensor parallel和sequence parallel同时启用时，在final_layernorm的参数中存在梯度不匹配的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1445
+这是一个BUG报告，涉及到Megatron-LM中使用MLA时出现了loss错误。造成这个BUG的原因可能是相关配置参数设置有误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1444
+这是一个bug报告，涉及主要对象为MegatronLM中的一个函数`reduce_aux_losses_tracker_across_ranks`。由于某些管道阶段没有moe层，导致在进行all_reduce时出现hangs现象。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1443
+该issue为用户的疑问类型，涉及主要对象为`torch.distributed.ring_exchange()`和`batch_isend_irecv`，用户想了解这两者的区别以决定是否值得自行实现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1442
+这是一个提出功能增强的Issue，主要涉及添加名为z-loss的正则化方法。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1441
+这是一个用户提出需求类型的issue，主要涉及了Megatron-LM中的节点路由选择策略的改进。导致这个问题的原因是现有的top-2 sum group selection策略不能很好地与DeepSeek V3的设计相匹配。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1440
+这是一个 bug 报告，主要涉及到替换 `np.product` 为 `np.prod` 来确保与 NumPy >=2.0 的兼容性。原因是 `np.product` 已经在 numpy 2.0 中被弃用，需要使用 `np.prod` 来支持当前以及之前的 numpy 版本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1439
+这是一个 bug 报告，主要涉及 DeepSeek-V3 模型的辅助损失（auxiliary loss）问题，由于修复链接无效导致需要修复改进。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1438
+这是一个bug报告，涉及了DeepSeek-V3模型在计算`seq_aux_loss`时使用了错误的评分函数，导致出现问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1437
+这个issue类型为需求提升，涉及主要对象为Megatron LM中的Mamba2模型，由于缺乏对Mamba2模型的上下文并行支持，用户提出了希望扩展上下文并行支持到Mamba2 SSM层的解决方案。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1436
+这是一个问题询问类型的issue，主要涉及Megatron框架中添加自定义Transformer块的问题。导致出现问题的原因可能是在创建独立单层Transformer块时，与checkpointing或分布式训练发生了干扰。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1435
+该issue是一个用户提出的需求，主要涉及Megatron-LM中异步保存checkpoint功能的改进。用户提出因为当前缺乏明确的保存失败的提示或事件，可能导致用户对保存是否成功不清楚而造成混乱和潜在的数据丢失。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1434
+这是一个bug报告，涉及到FSDP模型的参数定义问题，导致无法接受`disable_bucketing`参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1433
+这是一个bug报告，涉及到在recompute模式下load balancing loss被重复聚合的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1432
+这是一个关于功能咨询的问题，用户提出了关于Megatron是否支持Deepseek-VL2 fine-tuning的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1431
+这是一个bug报告，主要涉及Megatron-LM中pretrain_gpt.py脚本在使用mockdata时需要传入vocabfile/mergefile参数的问题。由于未传入vocabfile/mergefile参数，导致出现了错误提示。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1430
+这是一个bug报告，涉及到Megatron-LM中的flash解码功能问题。由于flash_decode=True在生成错误的输出，并修改了tools/run_text_generation_server.py中的重命名错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1429
+这是一个bug报告，涉及到Megatron-LM下的MLA模块实现，由于`softmax_factor`的计算中使用了`mscale`而不是`mscale_all_dim`，导致了潜在的模型性能问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1428
+这是一个技术验证类型的issue，主要涉及Distributed Muon的实现。由于想测试Distributed Muon的性能，对比了不同配置下的结果并使用了bigscience提供的数据。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1427
+这是一个用户提出需求的issue，主要对象是"Distributed Muon"。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1426
+这个issue类型是错误报告，涉及主要对象为Megatron-LM，由于某个moonshot/distributedmuon的改动导致了需要撤销此更改。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1425
+这是一个Bug报告，涉及MegatronLM中的flash_decode功能，由于kv缓存错误截断造成了输出错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1424
+这是一个关于用户如何使用Megatron量化CLIP模型的问题，属于用户提出需求并寻求帮助的类型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1423
+该问题是关于用户需求的，主要对象是是否能够使用GPUDirect Storage进行checkpointing，可能是由于系统性能或者架构设计考虑而提出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1422
+这个issue是一个bug报告，主要涉及到项目中的1f1b combine poc，可能出现了相关错误或问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1421
+这是一个bug报告类型的issue，主要涉及Megatron-LM中的MoE模型以及routing probabilities在通信中的精度问题所导致的输出差异。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1420
+这是一个bug报告，该问题涉及Megatron-LM中的`get_rotary_seq_len`函数返回值类型问题。由于返回值可能是`Tensor`而不是float，导致了内部错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1419
+这是一个bug报告，涉及的主要对象是Megatron-LM中的 `rotary_pos_embedding.py` 文件。这个问题是由于 `get_rotary_seq_len` 方法可能返回一个张量值而不是其float值，导致了引发错误的堆栈跟踪。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1418
+这是一个Bug报告类型的Issue，主要涉及Megatron-LM中的`max_position_embeddings`参数，由于该参数同时用于计算嵌入形状和YARN缩放基础，所以在使用MLA时，当序列长度与`max_position_embeddings`不同时会导致张量形状不匹配错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1417
+这是一个bug报告类型的issue，主要涉及Megatron-LM中的MLA层的检查点状态字典重映射未应用的问题。由于缺少特定情况下的状态字典键映射，导致在加载检查点时出现问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1416
+这是一个bug报告类型的issue，主要涉及Megatron-LM中的MLA实现。由于禁用了序列并行性，导致在应用MLA之前尝试汇集序列并行激活分片，从而导致张量形状不匹配。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1415
+这是一个关于性能问题的问题，涉及主要对象为MegatronLM的GPU利用率波动的问题。可能由于代码实现或环境配置等原因导致GPU利用率波动较大。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1414
+这个issue是功能需求类型，涉及的主要对象是DeepSeekV2模型的实现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1413
+该issue属于bug报告类型，涉及的主要对象是Megatron-LM中的优化参数调度器。这个问题是由于`lr_decay_steps`被记录为`total num of iterations`，导致了症状是不正确的LR衰减步骤的记录。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1412
+这是一个bug报告，涉及的主要对象是Megatron-LM下的Multi-Head-Latent-Attention功能。由于key和value输入形状不匹配导致了`AssertionError: Keys and values must have the same shape!`错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1411
+这是一个bug报告类型的issue，主要涉及Megatron-LM中multi_latent_attention模块不支持apply_rope_fusion，导致数值错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1410
+这是一个bug报告，主要涉及 Megatron-LM 中的 RowColumnLinear 精度问题。由于实现问题导致在训练 llm 过程中无法获得位对齐的结果。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1409
+这个issue类型为用户提出需求，主要对象是Megatron core，用户想知道是否支持rlhf方法（如grpo）以利用已支持的并行性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1408
+这是一个用户提出需求的Issue，主要涉及到Megatron-LM中的Distillation Training功能。用户想了解哪个版本将支持蒸馏训练以及蒸馏训练是否有计划支持PP。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1407
+这是一个bug报告类型的issue，涉及Megatron-LM下的multi-modal示例中解冻视觉编码器出现NaN的问题。原因可能是解冻视觉编码器导致的训练异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1406
+这个issue属于用户提出的疑问类型，主要涉及到Megatron-LM中的moe_utils.py文件。由于代码中在不同地方处理了'probs_for_aux_loss'和'routing_map'，用户质疑为什么不在'sequence_load_balancing_loss_func'函数中也对'routing_map'进行gather操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1405
+这是一个bug报告，用户在训练GPT2模型时遇到保存格式问题，导致每个iter文件很小且训练结束后保存了多个iter文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1404
+这是一个用户提出需求的类型，主要对象是DeepSpeed v3，由于用户希望支持Multi-token Prediction(MTP)，而当前看起来累积了预测。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1403
+这个issue属于性能问题，涉及到在`megatron/core/pipeline_parallel/schedules.py`中使用`item()`方法导致性能影响的情况。原因可能是因为`item()`方法会将数据从GPU设备传输到主机，可能导致CPU阻塞等待GPU完成计算。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1402
+这是一个关于bug报告的issue，主要涉及的对象是cuda支持的fp32 residual connection feature。这个问题可能出现的原因是cuda不支持或存在bug，导致测试失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1401
+这是一个bug报告类型的issue，主要涉及到Megatron-LM下的一个参数文档问题，由于参数文档中的错误导致了需要修复该文档。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1400
+该 issue 类型为用户提出需求，主要涉及内容是实现将 wandb runs 从一个项目复制到另一个项目的功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1399
+该issue属于用户提出需求类型，主要涉及Megatron-LM的开发团队。用户询问是否有计划实现zerobubble pipelining或dual pipelining以及MoE通信计算重叠，这对优化MoE训练至关重要。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1398
+这是一个bug报告类型的issue，主要涉及MegatronCore中的MLA是否支持PackedSeqParams，由于MLASelfAttention中的`apply_rotary_pos_emb`被传入4D hidden_states而导致出现了Sizes mismatch的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1397
+这是一个bug报告，涉及的主要对象是转换 Mixtral 8x7B checkpoints from HF to MCore，由于某种原因导致出现了资源清理警告的症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1396
+这是一个bug报告，涉及的主要对象是Megatron-LM中的`test_parallel_state.py`文件。由于`test_different_initialize_order_unconsistency`单元测试总是失败，用户希望这个单元测试能够成功。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1395
+这是一个用户提问类型的issue，主要涉及 MegatronLM 中 MAMBA2 的支持问题。用户询问由于当前主分支不支持 MAMBA2，想知道代码移动至何处以及哪个分支现在支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1394
+这是一个关于功能增强的问题，主要涉及到日志记录的内容和改进。原因可能是为了更好地监控模型性能和进展。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1393
+该issue类型为功能需求，主要涉及到Megatron-LM下的Path对象的多种实现问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1392
+这个issue是对代码的改进和调整，而不是bug报告，主要涉及Megatron-LM项目中的Slurm输出文件命名、模型版本命名，学习率调度等的优化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1391
+这个issue类型是文档bug报告，主要涉及的对象是GPTModel类的`forward`函数的注释。这个问题是由于拼写错误导致的文档问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1390
+这是一个用户提出需求的issue，主要涉及到在TransformerEngine中使用精度感知优化器时将优化器状态的数据类型设置为bf16。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1389
+这是一个文档更新类的issue，涉及的主要对象是GitHub链接。原因是GitHub组织更名导致链接需要更新。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1388
+这是一个bug报告，涉及的主要对象是Megatron-LM中的一个属性qkv_bias。这个bug报告是由于缺少qkv_bias属性而导致的异常错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1387
+这是一个用户提出需求的issue，需要添加有关瑞士AI的说明文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1386
+这是一个用户提出的需求的issue，主要对象是Nemo Megatron在处理缺失的索引文件时没有采用指数退避，导致频繁且不规律的服务器调用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1385
+这是一个关于增强功能的问题，主要对象是在Nemo Megatron中进行checkpointing时进行旧checkpoint文件顺序删除导致效率降低的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1384
+这是一个bug报告，主要涉及到Nemo Megatron中多个节点同时尝试创建检查点文件夹导致错误的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1383
+这是一个bug报告，涉及Nemo Megatron的分布式checkpoint过程中文件写入顺序的问题。原因可能是部分文件以随机顺序写入，影响了在分布式文件系统上的性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1382
+这个issue类型是更新许可证问题，涉及主要对象为软件的授权与版权信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1381
+这个issue是关于用户提出需求的增强型问题，涉及主要对象是增加一种方法来选择topk设备，由于之前的问题已经解决，为了更好的功能扩展，用户提出了这个需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1380
+这是一个关于性能问题的issue，主要涉及到Megatron-LM中的内存使用情况。原因是torch_dist的checkpointing和loading会在rank 0引入大约2GB的GPU内存开销，导致OOM错误，用户希望在成功checkpointing/loading后释放GPU内存以避免对训练过程产生影响。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1379
+这个issue是一个bug报告，涉及主要对象是Megatron-LM中的最后阶段逻辑计算问题。由于ignore_virtual参数设置不准确导致了逻辑计算的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1378
+该issue是一个用户提出的需求，主要涉及Megatron-LM中选择topk设备的方式的改进。由于DeepSeekV2的实现建议使用`max`而非MegatronLM中的方式，用户希望添加选项选择如何为`device_limited_topk`选择topk设备。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1377
+这是用户提出需求的issue，该问题单涉及的主要对象是在Megatron中添加LongRoPE支持，原因是想要在Megatron中实现LongRoPE和其他上下文扩展方法的支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1376
+这是一个bug报告类型的issue，主要涉及——exit-signal-hander特性是否成功启用的问题，由于datalaoder workers拦截了SIGTERM信号导致信号处理程序未生效。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1375
+这是一个关于需求的问题，讨论了MegatronLM是否支持异构并行策略以及如何在多模态训练中如何处理不同组件的并行性要求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1373
+这是一个用户提出需求的issue，涉及到需要添加一个.sh文件。原因可能是用户希望添加一个shell脚本文件以实现特定功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1372
+这是一个bug报告，主要涉及MegatronLM软件的性能下降，用户描述了软件在更新后出现的性能问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1371
+这是一个bug报告，涉及主要对象是在运行multinode GPT3时遇到端口被占用导致RuntimeError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1370
+这是一个用户提出需求的issue，主要涉及Megatron-LM在Python 3.12下无法安装最新版本的问题，原因是缺乏针对Python 3.12的预构建wheel包。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1369
+这个issue是一个bug报告，涉及的主要对象是MegatronLM项目。由于NCCL后端不支持reduce_scatter_tensor_coalesced操作，导致出现了RuntimeError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1368
+这是一个Bug报告issue，主要涉及Megatron-LM中FSDP2 activation recomputation未能节省内存的问题。用户无法在启用激活重计算时增加批次大小，推测可能是手动激活检查点导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1367
+这是一个bug报告，主要涉及Megatron-LM中BERT和GPT345模型的checkpoint下载链接返回`410 Gone`的HTTP响应。用户无法通过提供的方式下载模型checkpoint，可能是由于链接失效或其他原因导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1366
+这是一个缺少内容的Bug报告，该问题主要涉及日志输出功能，“--log-num-zeros-in-grad”选项可能没有正确记录梯度中零值的数量。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1365
+这是一个bug报告，涉及将LLaMA2-7B模型转换为Megatron格式失败导致输出的症状为转换后模型只能重复无意义的数字。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1364
+该issue类型为用户请教问题，主要涉及对象为如何在单机上使用8片A100 GPU训练internlm/internlm220b模型，可能由于用户对MegatronLM的使用流程不熟悉而需要帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1362
+这个issue是一个技术问题，主要涉及到Megatron-LM中GPT模型中的前处理MLP层的操作。问题在于即使num_experts参数为None，仍然能够使用pre_mlp_layernorm，这可能导致不必要的操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1361
+这个issue类型为bug报告，主要涉及Megatron-LM中的pretraining过程，由于toplevel packages中存在多个包导致报错。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1360
+这是一个bug报告，涉及Megatron-LM中MoE模型使用tokens padding训练时出现的问题。原因是一个命名错误导致训练失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1359
+这是一个bug报告，主要涉及到Megatron-LM中的自定义Adam优化器在加载权重时出现类型转换错误导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1358
+这是一个用户提出需求的issue，主要涉及对T5模型的KV-cache机制进行改进。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1357
+这是一个关于bug报告的issue，主要涉及训练4节点MoE模型时出现的错误。造成该错误的原因可能与分布式训练设置或MegatronLM的参数配置有关。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1356
+这是一个bug报告，主要涉及的对象是Megatron-LM项目中的内存使用情况。 由于某种原因导致内存使用异常，用户在此报告中寻求帮助或解决方案。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1355
+这个issue是一个bug报告，涉及主要对象是数据文件的定位和读取问题，可能由于不同节点间的数据路径或种子值不同导致无法找到特定数据文件，引起了文件找不到的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1354
+这是一个用户提出需求的类型的issue，主要涉及MegatronLM在存储checkpoint时无法限制保存数量，导致存储空间快速增长的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1353
+这个issue是一个bug报告，涉及Megatron-LM项目中的一个错误。造成这个bug的原因可能是代码逻辑不正确或者环境配置有问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1352
+这个issue类型是bug报告，主要对象是拼写错误。由于拼写错误导致需要修正。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1351
+这是一个bug报告，涉及的主要对象是Megatron-LM中的saver_mcore模块。由于参数被错误地覆盖，导致了无法通过参数验证，需要将参数添加到args_to_keep列表中以解决这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1350
+这是一个关于Megatron-LM中的bug报告，涉及的主要对象是训练使用fp8精度的小型moe模型。问题是由于模块中缺少共享状态字典而无法加载保存的fp8检查点以及恢复训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1349
+这是一个bug报告类型的issue，涉及Megatron-LM在使用fp16或者bf16时内存使用比使用fp32更多的问题。原因可能是fp16使用更多内存导致了该问题的出现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1348
+这是一个Bug报告的issue，涉及对象是将HF格式的llama2-7b模型转换为Megatron格式。由于尝试安装transformers=4.31/4.32时出现编译tokenizer whl的错误，选择了"pip install transformers"。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1347
+这个issue类型属于文档错误报告，主要涉及到Megatron-LM项目中的MoE README文档，由于拼写错误导致了文档中的一个小错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1346
+这是一个bug报告，主要涉及MegatronLM中的MoE README文件中存在的拼写错误。由于拼写错误导致了文档中内容不准确的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1345
+这是一个功能更新的issue，涉及Megatron-LM项目中理论内存占用公式的更新。该更新涉及到参数计算以及SwiGLU等部分的调整。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1344
+这是一个bug报告类型的issue，主要涉及Megatron-LM中的代码，由于TransformerEngine v1.10或更新版本导致CUDA初始化错误，需要添加特定的方法和函数调用以解决问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1343
+这个issue类型是用户提出问题，主要对象是训练节点的崩溃，用户想知道如何恢复数据集并继续训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1342
+该issue是一个关于提出问题的类型，主要涉及在Megatron-LM中实现具有非相同专家结构的并行计算问题。用户提出了实现有效的梯度计算和同步以及有效的alltoall通信的困惑，并寻求相关示例。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1341
+这是一个关于使用"a2a+p2p"时无法使用原始"get_batch_on_this_cp_rank"功能的问题讨论，涉及到在Megatron-LM项目中的通信和批处理问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1340
+这是一个关于模型性能问题的bug报告，主要涉及Megatron core中的context parallel功能。导致不同配置下模型性能差异的原因需要进一步调试。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1339
+这是一个用户提出需求的 issue，主要涉及将 MegatronLM 的 MAMBA 模型权重文件从 pt 格式转换为 SafeTensor 格式，但通过转换脚本后仍然是 pt 格式。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1338
+这是一个关于使用第三方tokenizer的问题，涉及对象是mixral项目。由于用户不明白为什么mixral项目没有使用自己的tokenizer而是选择了Llama2Tokenizer，因此提出了疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1337
+这是一个bug报告，主要对象是数据预处理模块，由于添加多个json keys可能导致数据处理失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1336
+这个issue是一个bug报告，主要涉及的对象是MegatronLM中的未知tensor名称，导致抛出异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1335
+这是一个关于混合精度数据类型配置的问题，涉及到MegatronLM中FP16和BF16混合精度数据类型的比较，以及为什么BF16在初始时具有FP32参数梯度。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1333
+这个issue是关于技术支持，用户提出了如何将Megatron-LM 0.5训练的checkpoint加载到Megatron-LM 0.7以恢复预训练，但遇到了兼容性错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1332
+这个issue属于需求提出类型，主要对象是创建一个名为python-package.yml的文件。由于为项目创建Python安装包时需要一个配置文件，因此用户提出了创建该文件的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1331
+这是一个bug报告，该问题涉及到MoE load balancing loss累积两次导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1330
+这是一个bug报告，主要涉及Megatron-LM中MoE load balancing loss 在使用 activation checkpointing 时累计两次，导致了不正确的损失累计。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1329
+这是一个bug报告，主要涉及Megatron-LM中使用torchompile时出现的qkv内存布局不受支持的问题。导致这个问题的原因是传入的qkv内存布局与函数描述不符，最终导致了无法支持的错误提示。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1328
+这是一个用户提出问题的issue，主要对象是`GPTDataset`，可能由于最后一个epoch数据分布不同导致训练损失急剧下降。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1327
+这是一个bug报告，涉及Megatron-LM中MoE训练中不同的Token分发器导致精度问题，由于某些expert接收到0 tokens时导致的精度差异。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1326
+这个issue是关于功能需求的，主要涉及Megatron-LM中使用StreamingLLM功能可能性的讨论。这个问题由于用户想了解在训练大模型时是否可以利用StreamingLLM来提高计算效率。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1325
+这是一个bug报告，涉及到Gemmini和TRTLLM export。由于修复问题后导致的问题，可能是导致了导出功能无法正常工作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1324
+这是一个bug报告，主要涉及Megatron-LM中使用不同的分布式策略训练llama3.1-8B模型导致训练损失不一致的问题。导致该问题的原因可能是不同的分布式训练策略的不一致性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1322
+这是一个bug报告，主要涉及Megatron-LM中的FSDP与optimizer不匹配导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1321
+该issue类型为bug报告，该问题单涉及的主要对象是rope模块。由于代码中rope模块被禁用的问题，导致了需要修复这个bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1320
+这是一个用户需求类型的issue，主要涉及添加Mamba TRTLLM支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1319
+这个issue属于用户提出需求，主要涉及网络接口环境变量的更新，由于只为多节点训练设置了接口名称环境变量。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1318
+这个issue类型是用户提出需求，主要涉及对象是更新。由于标题为空，用户很可能是想记录更新信息或请求更新，原因可能是为了更新工程进度或版本改动。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1317
+这个issue类型是用户提出问题，涉及到如何将torch_dist格式的checkpoint转换为torch格式的问题。由于缺少添加saver和loader的步骤，导致出现了退出的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1316
+这个issue是一个空白的issue，类型为无效报告，主要对象为Megatron-LM。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1315
+这个issue是关于使用torch.fx在Megatron中跟踪计算图时出现的错误，问题类型是bug报告，主要涉及的对象是使用Megatron进行模型追踪的用户。这个问题是由于symbolically traced variables无法作为控制流的输入而导致的，用户寻求关于如何使用torch.fx来追踪模型图的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1314
+这是一个关于bug报告的issue，涉及Megatron-LM中使用LLaVA和freezeLM时可能出现的错误。这个问题是由于部分样本使用具有梯度的参数导致`output_tensor[0]`缺少`grad_fn`而引起的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1313
+这个issue是一个用户提出需求的问题，主要涉及Megatron-LM中Attention计算的实现方式的选择，用户想知道如何指定其他Attention计算方法。可能由于默认使用FlashAttention计算方法，用户想尝试指定EFFICIENT_ATTENTION方法。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1312
+这是一个关于技术细节讨论的问题，主要涉及到Megatron-LM中的梯度传播问题。由于作者需要准确描述模型训练中的细节步骤，可能是为了进行进一步的分析和解释。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1311
+这是一个bug报告，主要涉及问题对象为Megatron-LM下的模型预训练，由于参数设置导致UnboundLocalError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1310
+这个issue类型是功能增强（ENHANCEMENT），主要涉及到当调用load_ckpt时可能会导致保存检查点函数出错的问题，可能由于条件判断错误导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1308
+这是一个用户提出问题（Question）类型的issue，主要涉及Megatron-LM中Llama 3 70B模型在使用2x8 80GB GPUs过程中遇到OOM错误的问题，用户寻求关于参数配置和详细信息的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1307
+这是一个Bug报告，主要涉及Megatron-LM的版本0.8.0和0.9.0的发布文件不可用的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1306
+这是一个bug报告，涉及的主要对象是Megatron-LM中的args.mock_data属性，由于提交的commit 7e9ab5c导致的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1305
+这是一个bug报告，主要涉及到函数get_blend_and_blend_per_split()，由于未考虑args.mock_data导致的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1304
+这是一个bug报告，涉及的主要对象是GPT2 Models中的transformer layers。由于pipeline parallelism不能均匀分割导致切分transformer layers时出现问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1303
+这是一个用户提出需求的问题，主要涉及如何在Transform层不均匀的情况下划分pipeline，由于Transform层的数量不能整除pipeline大小，导致在每个GPU上只有2个Transform层，进而导致第一和最后几个GPU的计算负担较重，需要寻找一种更平衡的划分模型的方法。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1302
+这是一个关于代码实现的问题，主要涉及到Megatron-LM中MoE部分的路由器和专家权重初始化不同的问题。这个问题可能由于对混合精度训练的需求而导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1301
+这是一个关于BUG的报告，涉及到MegatronLM中的MOE-MLP(GroupGemm)模块，报告了在运行过程中出现了CUDA错误，由于出现随机性，有时候会报错，有时候不会报错。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1300
+这个issue属于用户提出问题类型，主要涉及Megatron-LM中recompute activations导致OOM问题，用户在backward过程中遇到内存耗尽的症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1299
+这是一个bug报告，涉及到Megatron-LM中使用recompute granularity选项时导致的Segmentation fault错误。原因可能是由于该选项的设置导致了未映射到对象地址的内存访问错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1298
+这个issue类型是bug报告，主要涉及Megatron-LM的训练resumption的精度问题，用户寻求如何使训练resumption在位上可复现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1297
+这是一个bug报告，涉及到代码中的函数`validate_yaml()`和`arguments.py`之间的不同步问题，导致设置`pipeline_model_parallel_size = 2`时无法被正确接受。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1296
+这是一个用户提出需求的issue，主要对象是Megatron-LM中的训练日志打印功能。由于日志打印在rank_last而不是rank0，用户希望将训练日志打印在rank0来提高用户友好性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1295
+该issue属于用户提问类型，主要涉及Megatron-LM中的`deepseekv2`是否与当前代码兼容的问题。用户想知道当前的代码在没有`first_k_dense_replace`的情况下是否完全兼容`deepseekv2`中的moe + multilatent attention功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1293
+这是一个bug报告，涉及Megatron-LM的LLaVA模型实现中存在的代码逻辑问题，可能导致在某些情况下生成的嵌入向量会错误地被附加到视觉模型而不是语言模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1292
+这是一个bug报告，主要涉及Megatron-LM中的分布式处理模块。由于使用了overlap param gather和grad all reduce，并设置了tp=2, pp=4，在进行线性层操作时出现了参数收集错误的症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1291
+这是一个bug报告，涉及主要对象是关于如何将torch_dist格式的checkpoint转换为torch格式的问题。由于没有初始化默认进程组导致出现数值错误提示，表明在进行转换时可能需要首先调用init_process_group方法以初始化默认进程组。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1290
+这是一个功能需求报告，涉及到Megatron-LM项目中的模型参数转换问题，用户需要支持qwen2 hf<->mcore ckpt转换功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1289
+这是一个bug报告，主要涉及到checkpoint文件的命名问题。由于错误地将“sharded”命名成了“common”，导致了checkpoint文件的命名错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1288
+这个issue类型属于功能需求提出，主要涉及对象为Deepseek v2的启用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1287
+这是一个用户询问问题的类型，主要涉及MegatronLM中的分布式优化器中是否支持SGD以及相关的实现细节。原因是用户想要了解为什么有相关的assert语句以及如何支持SGD。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1286
+这个issue是一个bug报告，涉及到Megatron-LM中的多模态模型，其中的bug导致了数据访问问题和模板相关错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1285
+这个issue属于bug报告，涉及的主要对象是Megatron-LM代码中的torch.multiprocessing模块。由于未将`torch.multiprocessing`的start method设置为'spawn'，导致CUDA初始化错误，触发了相应的异常错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1284
+这是一个bug报告，主要涉及OptimizerParamScheduler以及load_checkpoint函数，问题是由于overrideopt_param_scheduler的设置可能导致学习率在训练过程中混合使用旧的和新的设置，给用户带来困惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1283
+这个issue是关于一个问题的提问，主要涉及到Megatron-LM中模型参数和优化器状态的存储以及需要存储两份模型参数的原因。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1282
+该issue类型是关于CI pipeline mi300的问题，涉及主要对象为Megatron-LM项目。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1281
+这是一个需求反馈类型的issue，主要涉及到 "mcore-llava-mistral-7b-instruct-clip336-pretraining" 模型的 tokenizer 下载问题，用户想要获取关于该模型的 tokenizer。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1280
+这是一个bug报告，涉及的主要对象是Megatron-LM和TransformerEngine。这个问题由于TransformerEngine 1.13版本在Megatron-LM中缺少新参数_normalized_shape_而导致不兼容性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1279
+这是一个bug报告，涉及的主要对象是MegatronCore v0.9.0，由于使用CUDA Graphs会导致在backward计算中遇到NaN gradients。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1278
+这是一个bug报告，涉及主要对象为Megatron-LM分布式chkpt保存的问题，由于CUDA和ROCm初始化后推荐使用`spawn`而不是`fork`，导致该问题需要使用`spawn`才能正常工作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1277
+这是一个用户提出问题的issue，涉及到MegatronLM中的moe_expert_capacity_factor参数的限制问题，用户想知道为什么只能在'alltoall'或'alltoall_seq'模式下使用该参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1276
+这是用户提出的一个问题，关于MFU计算的缩放问题。用户困惑于MFU数据与参数类型之间的不匹配，请求帮助解释原因。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1275
+这是一个bug报告，主要涉及Megatron-LM中使用`TEColumnParallelLinear`替换`TELayerNormColumnParallelLinear`时出现的错误。原因可能是在`TEColumnParallelLinear`中误用了`ub_split_rs`和`ub_split_ag`，导致bug发生。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1274
+这是一个关于Megatron-LM中的Bug报告，用户在设置了`--tp-comm-overlap`参数后，训练过程出现崩溃的问题。原因可能是由于MPI bootstrap backend不兼容导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1273
+这是一个bug报告类型的issue，主要对象涉及Megatron-LM中的T5模块。由于需要更新T5的attention mask type，导致出现了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1272
+这是一个用户提出需求的问题，问题涉及主要对象是Megatron-LM，用户想要知道如何在Megatron中可视化反向传播过程中的计算图。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1271
+这是一个bug报告，主要涉及的对象是 t5_model.py 文件。由于更新问题没有具体描述，无法确定导致的bug症状或者用户要求的内容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1270
+这个issue属于功能增强类型，主要涉及添加 z-loss 正则化。由于添加 z-loss 正则化能够稳定训练并防止最后一层的logits爆炸，用户提出了这个增强功能的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1269
+这是一个Bug报告，涉及主要对象为GPTDataset。由于可能在`loss_mask`中意外修改了`self.cached_loss_mask`，导致在训练过程中`lm loss`突然变为0.0，最终导致了问题描述的现象。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1268
+这个issue类型是需求提出，主要对象是对 Megatron-LM进行优化的 huggingface tokenizer 的集成。由于尚未支持该tokenizer，用户提出了希望能够启用该功能的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1267
+这是一个bug报告，主要涉及构建multimodal dockerfile时遇到了问题。由于使用了错误的pip安装命令导致无法成功构建。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1266
+这是一个bug报告，涉及主要对象是Megatron-LM下的loader_mcore模块。由于缺少torch distributed的初始化导致无法加载checkpoint，需要添加相应的初始化步骤来解决。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1265
+这是一个bug报告，主要涉及代码中的语法错误导致的运行时错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1264
+该issue类型为法律审核请求，涉及主要对象为Jinda公司。原因是用户寻求法律方面的建议或审查。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1263
+这是一个用户提出需求的issue，主要涉及Megatron-LM中的学习率调整功能。用户希望实现对特定层的学习率进行调节，在预训练中为某些特定层设置不同的学习率倍数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1262
+该issue是一个功能需求的提出，主要涉及到Megatron-LM中的预训练功能，用户提出了对特定层的学习率缩放，以增强特征学习和避免输出层主导学习过程的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1261
+这是一个功能增强类的issue，主要涉及 Megatron-LM 项目中对于 qk-norm 支持 Apex RMSNorm 的添加问题。原因是之前在设置 normalization 为 "RMSNorm" 时会报错，这个PR通过添加相应的功能来解决这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1260
+这个issue是一个功能需求，主要对象是Megatron-LM，提出需求要求添加支持处理gzip文件，可能是由于现有功能无法处理gzip文件导致用户无法有效使用该功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1259
+这是一个bug报告，涉及的主要对象是Megatron-LM的使用。由于同时指定了--use-mcore-models和--use-flash-attn标志，导致无法应用flash attention，从而引发了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1258
+这是一个关于bug报告的issue，主要涉及Megatron-LM中MoE pre-training在DP维度大于8时无法扩展的问题。用户遇到的问题是在固定EP=8的情况下，随着DP维度（2, 4, 8, 16, 32）的增加，训练速度没有得到提升。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1257
+这是一个关于缺失文件的问题报告，涉及MegatronLM的0.9.0版本缺少了shared_experts.py文件。这可能是由于发布时遗漏文件导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1256
+这是一个关于bug报告的issue，主要涉及Megatron-LM中使用sequence parallel时dropout rng context不正确的问题。这个bug可能导致在训练过程中dropout无法正确使用rng context。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1239
+这是一个用户提出安装困难问题的类型的issue，主要对象是MegatronLM中的Transformer Engine。由于安装难度，用户提出了关于是否必须使用Transformer Engine的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1238
+这是一个关于功能问题的issue，主要涉及到Megatron-LM中的tpoverlap支持灵活序列长度的问题。用户提出了在TP/SP mlp层之后输出形状为`seqlen, args.hidden_size`，但疑惑于qkv_proj和mlp如何适用于`hidden_dim * 3/ tp_size`和`hidden_dim * 2 / tp_size`的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1237
+这是一个bug报告类型的issue，主要涉及Megatron-LM中使用FP8时出现OOM问题。由于使用FP8格式训练7B模型在某些情况下导致内存溢出，但使用bf16格式却可以正常训练，可能的原因需要进一步分析。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1236
+这是一个关于MegatronLM的bug报告，用户提出在使用fp8参数进行训练时发生OOM错误的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1235
+该issue为bug报告，主要涉及的对象是Megatron-LM中的C++ extension和jit_fuser模块。由于Dynamo在Python 3.12+上不受支持，导致jit_fuser模块失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1234
+这个issue是一个bug报告，主要涉及Megatron-LM中的Mamba模型，在保存模型时出现了关于`dt_bias`的错误，导致无法成功保存checkpoint。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1233
+这是一个用户提出需求的issue，主要涉及到在MLP中控制是否使用TE自定义内核作为激活函数的新配置参数，用户希望添加一个名为`use_te_activation_func`的配置参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1232
+这是一个关于技术问题的用户提问，涉及如何在不同并行配置中加载保存的检查点，主要涉及Megatron-LM。由于一些冲突的文档陈述和尝试失败，用户想要示例来展示这一功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1231
+这是一个关于需求提出的问题，主要涉及如何将MOE有效地纳入混合Mamba中，由于参数设置冲突导致无法直接指定MOE参数的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1230
+这个issue属于用户提出需求的类型，涉及的主要对象是Megatron-LM中的multimodal evaluation功能。用户提出该需求是因为当前的multimodal evaluation不支持pipeline parallelism，其中一些multimodal模型的vision模型存在不支持tensor parallelism的情况，需要通过pipeline parallelism来进行评估。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1229
+这是一个关于拼写错误的bug报告，主要涉及到代码中的错误拼写问题。原因可能是由于手误或者疏忽导致代码中存在错误拼写，需要进行修正。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1228
+这是一个关于如何将Llama 3.1 70B预训练模型转换为HuggingFace格式的问题，主要涉及到模型转换和上传操作。用户希望得到关于如何进行这个转换的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1227
+这是一个用户提出问题的issue，主要涉及Megatron-LM中的数据集创建逻辑是否正确，用户对于是否需要为TP组中的中间层的rank 0构建数据集感到困惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1226
+这是一个关于技术细节的问题，主要涉及Megatron-LM中的recompute方法对GPU内存使用的影响。原因在于recompute过程中的临时激活内存可能会导致GPU内存使用不符合预期。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1225
+这是一个bug报告，涉及Megatron-LM中的selective activation recompute功能，用户提出GPU内存使用在训练过程中未如期望降低的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1224
+这是一个Bug报告，主要涉及Megatron-LM中的Circular Dependency问题。该问题由于模块之间的循环依赖导致了ImportError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1223
+这个issue类型是bug报告，该问题单涉及的主要对象是Megatron-LM项目的README文件。由于存在拼写错误，导致需要修正。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1222
+这个issue属于bug报告类型，涉及主要对象是torch.cuda.amp.custom_fwd方法使用过时导致代码无法正常运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1221
+这个issue类型为需求提出，涉及主要对象是支持qwen2和siglip权重转换脚本。由于需要与llavanext和llavaonevision一起训练，因此需求支持权重转换脚本来实现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1220
+这是一个bug报告，主要涉及Megatron-LM中pipeline parallelism训练的错误问题，由于设置pipeline的大小大于1会导致属性错误，造成程序无法正常运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1219
+这个issue类型是用户提出需求，涉及的主要对象是Megatron-LM下的功能。导致用户提出这个问题的原因是他们希望增强某个特定功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1218
+这个issue是一个bug报告，涉及Megatron-LM项目，由于某种原因导致系统出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1217
+这是一个用户提出需求的issue，主要对象是Megatron-LM，用户提出对某个功能的增强需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1216
+这是一个拼写错误修正的问题，主要涉及的对象是Megatron-LM项目。原因是作者在readme文件中将"researchoriented"错误地拼写成了"ressearchoriented"。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1215
+这是一个用户提出的需求。该问题单涉及的主要对象是Megatron-LM。这个需求是为了支持在Megatron-LM中使用Packed_seq_params，只是用于测试。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1214
+这个issue是关于性能优化的讨论，主要涉及微批大小对每个GPU的吞吐量的影响。用户测试发现，随着微批大小的增加，每个GPU的吞吐量也会增加，但具体原因尚不清楚。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1213
+这个issue类型是用户提出需求，主要涉及 Megatron-LM 的tokenizer模块。用户想了解如何在训练过程中使用TikTokenizer，并困惑于如何准备和传入tokenizer的json文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1212
+这个issue属于用户提出需求类型，主要涉及Megatron-LM工具中将checkpoint转换为虚拟管道格式的问题，用户询问是否有其他方法或需要修改相应代码来支持保存虚拟管道模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1211
+这是一个bug报告，主要涉及的对象是Megatron-LM下的initialize.py文件，由于变量'seed'在初始化之前被引用导致了UnboundLocalError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1210
+这个issue属于用户提出问题的类型，主要对象是如何设置使用Megatron-LM进行fp8训练。用户之所以提出这个问题，可能是因为他想了解如何在Megatron-LM中进行fp8精度的训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1209
+这是一个用户提出需求或请教问题的类型，该问题涉及的主要对象是"Embedding"。由于缺少具体的内容描述，无法确定用户具体提出了关于什么问题或寻求什么样的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1208
+这是一个用户提出需求的类型的issue，主要涉及Megatron-LM中添加fused swiglu功能。原因可能是用户希望增加新功能或优化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1207
+这个issue是一个bug报告，涉及的主要对象是Megatron-LM下的训练流程。由于部分节点训练参数列表为空导致了Watchdog caught collective operation timeout，并且提出了需要解决该超时错误的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1206
+这是一个关于用户提出需求的问题，主要涉及如何将Megatron-LM的ckpt文件转换为Nemo格式的问题。该问题由于缺乏相关转换示例，无法直接进行格式转换而导致用户想要使用Nemo工具进行后训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1205
+这是一个bug报告，主要涉及的对象是Dev/optimizer offloading功能。而这个问题可能是由于Dev/optimizer offloading未能如预期工作所导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1204
+这个issue属于用户提出需求类型，涉及的主要对象是"Rachitg/emb"。由于缺少具体内容，无法确定具体问题或需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1203
+这是一个bug报告，并涉及到关于MultiLatentAttention模块的初始化参数不匹配导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1202
+这是一个bug报告，涉及到Megatron-LM项目中多机通信的问题。原因可能是由于Socket Timeout导致程序运行出错。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1201
+这个issue属于用户提出的需求类型，主要涉及Megatron-LM项目的功能改进。由于用户对现有功能的不满或需求新增功能，导致提出了这个请求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1200
+这是一个关于代码修改需求的Issue，涉及Megatron-LM中编码器和解码器的分区问题。由于模型结构调整，导致需要修改代码，用户提出了如何更改代码以支持新模型结构的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1199
+这个issue属于用户提出需求的类型，主要涉及Megatron-LM项目中的功能增强。原因是用户希望解决某个问题，或者有某个特定的功能需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1198
+这是一个功能增强的问题，用户提出了一个关于在Megatron-LM的TransformerEngine中添加图层名称以改善代码调试的建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1196
+该issue为用户提出疑问类型，涉及到训练数据的分布和广播，问题源于对于处理数据加载和广播的逻辑混淆造成困惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1195
+这是一个bug报告，涉及主要对象为代码中的日志消息。由于日志消息不一致导致了bug或者用户提出了关于代码中日志消息一致性的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1166
+这是一个bug报告，主要涉及Megatron-LM中使用pipeline parallel技术时遇到的问题，原因是部分LLM模型参数被冻结导致optimizer出现空参数列表的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1165
+这是一个bug报告类型的issue，涉及的主要对象是Megatron-LM下的LMM模型训练中出现的数值错误。导致这个bug的原因是在pipeline并行大小设定为2或更高时，对LLM模型的部分参数进行冻结导致optimizer接收到了空参数列表，从而触发数值错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1164
+这是一个bug报告，涉及Megatron-LM中LLaVA architecture LMM模型训练中出现的数值错误。由于设置了pipeline parallel size为2或更高，并尝试冻结LLM模型参数，导致optimizer报错。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1163
+这是一个用户提出需求的issue，主要对象是Megatron-LM中的packed_seq_params.py模块，由于需要支持NeMo中的PR，所以提出了这个需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1162
+这是一个关于优化问题的issue，主要涉及Megatron-LM中的梯度归约顺序，提问者关注到了梯度在不同情况下的不同归约顺序可能引起的浮点数相加导致的潜在错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1161
+这是一个关于性能问题的issue，涉及到计算核心和NCCL内核在重叠执行时GPU活动SMs数量不一致的情况，用户想知道为什么会出现这样的现象。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1160
+这是一个bug报告，涉及的主要对象是ModelParallelConfig，由于默认的cp_comm_type 'p2p'与sliding window attention不兼容，导致无法测试context parallel with sliding window attention。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1159
+该issue是关于优化性能的问题，涉及到MegatronLM中初始化过程中每次都调用numpy.arange所导致的潜在性能问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1158
+这是一个bug报告，主要涉及Megatron-LM库中的分布式检查点策略模块，可能由于类型错误导致代码行24出现问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1157
+该issue属于用户提出需求类型，涉及Megatron-LM中Enabling UCC backend for PP communication的功能。由于需要提供接口来启用UCC后端用于PP通信，用户需要设置特定参数，但还需相关NeMo PR的支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1156
+这是一个用户需求问题，主要涉及如何启用ZeRO 2/3阶段。由于用户想要了解如何开启ZeRO 2/3阶段，可能感到在 Megatron-LM 下遇到了相关配置或实现的困难。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1155
+这是一个关于性能优化的issue，涉及到MegatronLM中重置注意力掩码时出现的内存瓶颈问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1154
+这是一个BUG报告，主要涉及Megatron-LM中的分布式异步checkpoint保存功能，在多节点设置下出现某些checkpoint碎片没有保存或者挂起的问题。由于新版本引入的分布式异步checkpoint保存机制，在较大规模的节点配置下（如8节点），保存checkpoint时出现部分碎片未能成功保存导致保存卡住的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1153
+这是一个bug报告，涉及的主要对象是在使用`tools/checkpoint/convert.py`将预训练的Mamba 8b检查点转换为PP>1和/或TP>1时遇到了问题，可能是由于缺少相关参数导致无法成功转换。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1152
+这是一个bug报告类型的issue，主要涉及Megatron-LM中使用FP8和BF16 MoE训练时出现的训练和验证损失明显不一致的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1151
+这是一个BUG报告类型的issue，涉及的主要对象是MegatronLM中的训练脚本。这个问题由于启用了context parallel导致NCCL错误，具体原因可能与NCCL的使用方式有关。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1150
+这是一个Bug报告，涉及主要对象是Megatron-LM中的ColumnParallelLinear/RowParallelLinear模块。由于新增的参数没有被计入`self.params_with_grad`，导致在使用overlap-grad-reduce时出现了`AssertionError`错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1147
+这是一个用户请教问题，关于Megatron-LM中TikTokenizer的两种不同tiktoken模式的解释。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1146
+这是一个需求提出的类型，涉及数据集文档上传，用户正在寻求对开放数据的文档上传。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1145
+这是一个Bug报告，涉及Megatron-LM下的gpt_dataset.py文件中offset mismatched的问题。由于offset计算错误导致了部分数据的input_ids加载错误的现象。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1144
+这是一个关于代码实现细节的问题，涉及到Megatron-LM中通信工具的使用，并讨论了为什么需要调用torch.cuda.synchronize()来解决race condition的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1142
+这是一个bug报告，主要涉及到Megatron-LM中NCCL timeout错误，由于NCCL操作超时导致程序错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1141
+这是一个bug报告类型的issue，涉及的主要对象是Megatron-LM中的NCCL操作，由于NCCL collective operation超时导致第二次迭代出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1140
+这个issue属于bug报告类型，主要涉及Megatron-LM框架下的NCCL timeout错误，可能是由于NCCL操作超时引起的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1139
+这是一个关于优化建议的issue，主要涉及的对象是GPTDataset。导致这个问题的原因可能是为了提高性能或降低内存占用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1138
+这是一个bug报告，涉及的主要对象是Megatron-LM中的learning rate scheduler。由于代码中的错误导致即使设置了新的learning rate scheduler，但学习率仍保持原始的scheduler，导致学习率没有被正确地覆盖。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1137
+这是一个bug报告，主要涉及对象是代码中的一个变量名。由于拼写错误导致的问题，用户提出应该将"lobal_smoothing"改为"label_smoothing"。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1136
+这是一个用户提出需求类的issue，主要涉及到Megatron是否计划使用flux技术。由于需要集成通信和gemm以提高重叠率，用户在询问Megatron是否打算使用flux技术。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1135
+这个issue类型是用户提出的功能需求，主要涉及Megatron-LM中数据预处理脚本的处理逻辑修改，用户希望能够对已分割且压缩的数据进行预处理。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1134
+这是一个关于BUG报告的issue，主要涉及MegatronLM中的模型保存问题。原因可能是在最新的MegatronLM版本中，Optimizer参数出现了空值，导致保存模型时出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1133
+这个issue是一个用户提问类型，涉及的主要对象为安装autoresume SDK。用户询问是否有可能安装autoresume SDK，因为找不到`userlib`这个Python库，导致无法导入AutoResume。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1132
+这是一个关于bug的报告issue，主要涉及Megatron-LM中使用Llama27bchat模型finetune时出现的状态加载错误，导致部分关键键缺失或者多余，造成运行时出错。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1131
+这是一个用户提出需求的问题，主要涉及Megatron-LM中关于使用Context Parallel和packing Inputs功能时是否支持避免交叉感染的注意力问题。原因可能是用户希望同时利用这两种功能来训练长序列模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1130
+这个issue类型属于bug报告，主要涉及Megatron-LM下的qk_layernorm。原因是当前的qk_layernorm实现导致训练无法收敛，需要改变权重的形状以使训练能够按预期进行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1129
+这是一个问题咨询类的issue，涉及到Megatron-LM中参数梯度为None时对训练的影响，用户询问在什么情况下将`param.grad=None`视为不安全。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1128
+这个issue类型为用户提出问题，在探讨如何在训练过程中确定前向函数处理的文档，主要涉及数据处理的方式以及如何追踪前向函数在每个循环中处理的文档内容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1127
+这是一个关于bug报告的issue，主要涉及MegatronLM中使用`trainsamples`参数时出现的问题。由于参数设置不当，导致日志显示的epochs数量与设置的`TRAIN_SAMPLES`值不一致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1126
+这个issue是关于bug报告，主要涉及Megatron-LM中的并行加载收敛问题，由于BF16通信不正确导致了TE bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1125
+这是一个用户提问类型的issue，主要涉及的对象是Megatron-LM中的数据加载器。用户希望了解在开启数据分布选项时，tensor_parallel.broadcast_data的作用及数据广播的过程。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1124
+这是一个讨论性质的问题，主要涉及Loss函数在不同上下文并行（CP）和数据并行（DP）处理方式的差异，用户想了解为什么CP和DP之间的loss reduction行为不同，以及涉及loss需乘以context_parallel_size的原因。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1123
+这是一个bug报告，涉及主要对象为在Megatron-LM中尝试训练纯Mamba2模型时设置NUM_ATTENTION_HEADS=0。引发错误的原因可能是在此设置下触发了多个断言错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1122
+这个issue是关于Bug报告，涉及主要对象是MegatronLM和NGC PyTorch镜像。导致这个bug的原因可能是相关Python包的依赖关系或环境配置出现了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1121
+这是一个用户提出问题的issue，主要涉及Encoder和Decoder在TP_SIZE不同的情况下出现的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1120
+这是一个用户提出需求的issue，主要涉及项目的`pyproject.toml`文件中添加`project`部分。这个需求的提出可能是由于需要使用`uv`来处理docker构建中的pypi依赖项固定，因此需要对NeMo和mcore的打包进行现代化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1069
+这个issue属于用户提出需求类型，主要涉及MegatronLM中的非交错流水线为什么不支持重叠点对点通信，由于非交错流水线调度不支持重叠点对点通信，因此需要禁用重叠P2P通信。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1068
+这是一个关于代码逻辑的疑问类型的问题，涉及到MoE模型的并行计算，问题核心是关于多GPU下全局隐藏状态的gather操作是否多余的讨论。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1067
+这是一个bug报告类型的issue，主要涉及的对象是代码中的错误使用了np.product函数，实际应该使用np.prod函数。导致这个问题的原因是代码中的函数调用错误，造成了错误的结果。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1066
+这是一个用户提出问题的类型，主要涉及Megatron-LM中的pipeline parallelism。用户询问如何在使用pipeline parallelism时实现可变输入长度。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1065
+这个issue属于bug报告类型，涉及的主要对象是Megatron-LM中的DistributedDataParallel模块。由于重复为self.module赋值，导致出现了不必要的操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1064
+这是一个bug报告，涉及主要对象为Megatron-LM的README文件。由于路径错误导致了例子脚本的链接无效。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1063
+这是一个Bug报告，问题涉及Megatron-LM中README.md中示例脚本链接失效，导致用户无法访问相关文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1062
+这是一个关于代码逻辑设计的问题，主要涉及MegatronLM库中IndexedDatasetBuilder类中add_item和add_document函数在处理文档索引的不同。询问为什么在add_item函数中没有扩展文档索引，以及在什么情况下使用add_item。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1061
+这个issue类型是用户提出需求，主要对象是Megatron-LM，用户提出了关于特性增强的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1060
+这是一个bug报告类型的issue，主要涉及Megatron-LM项目中的init_method变量未声明的问题。原因可能是代码中缺少了对init_method的声明，导致出现了与该变量相关的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1059
+这是一个用户需求类型的issue，主要涉及Megatron LLM模型在GPU内存布局上的控制问题。由于GPU内存使用不均匀和不同节点内存占用差异，用户希望调整内存使用来提高模型性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1058
+这是一个bug报告，涉及的主要对象是在Megatron-LM项目中的一个子模块路径为'tests/functional_tests/local_recipes'。这个问题是由于缺少.gitmodules文件导致的，引发了错误消息'No submodule mapping found'。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1057
+这是一个用户提出需求的类型，主要对象是分享关于Medium上的一篇文章的链接。由于链接格式错误导致无法正确访问该文章。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1056
+这是一个bug报告，涉及的主要对象是Megatron-LM中的数据集处理部分。原因是由于使用int32_t导致在一个包含超过`2.6T`文档的bin和idx文件中出现精度问题，造成数据加载异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1055
+这是一个需求提出类型的issue，主要涉及Megatron-LM中的CUDA graph功能，用户希望能够启用可选的kwargs参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1054
+这是一个代码优化建议，主要涉及 torch 模块的使用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1053
+这是一个bug报告，涉及Megatron-LM中的Zarr分布式检查点操作流程，由于缺乏同步器在创建数组的进程中导致分布式优化器状态丢失。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1052
+这个issue是关于bug报告，主要涉及MegatronLM的preprocess_data.py脚本，由于代码中`return`在`if args.partitions==1`后导致无法生成.bin和.idx文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1051
+这个issue属于bug报告类型，主要涉及的对象是NCCL Timeout Error during train_val_test_data_provider，可能是由于通信问题导致的NCCL操作超时错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1050
+这是一个bug报告，涉及主要对象是Megatron-LM下的GPT-3的训练。由于程序在编译和加载融合内核时超时，导致程序无法继续正常运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1049
+这是一个bug报告，主要涉及到Megatron-LM中的transformer_engine相关配置问题，导致无法运行示例脚本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1048
+这个issue是关于bug报告，主要涉及的对象是数据集助手在多节点运行中的编译。这个问题是由于在多节点运行中，当前逻辑只会在节点0上构建数据集助手，导致其他节点出现导入错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1047
+这是一个用户提出的需求报告，主要涉及Megatron-LM中训练过程中变化序列长度的问题。导致用户提出该需求的原因可能是为了实现在训练过程中动态调整序列长度的功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1045
+这是一个bug报告，涉及的主要对象是Megatron-LM下的代码。由于`setuptools`的版本更新导致`packaging`模块的导入方式发生变化，需要修改代码以解决导入错误的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1044
+这是一个提出优化需求的issue，主要涉及到Megatron-LM中的optimizer代码。原因是当前代码在 `_get_param_groups` 方法中使用if-else判断多次，作者认为可以用更简洁清晰的方式实现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1043
+这是一个用户提出需求并请教问题的issue，主要涉及Megatron-LM下的LLaVA模型，在尝试应用pipeline parallelism训练LLaVA时遇到问题，可能由于代码中对LLaVA模型的初始化和通信问题导致训练不正常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1042
+这是一个关于模型性能问题的提问，主要针对Megatron-LM中的Llava VQA模型，用户询问模型在instruction finetuning后的预期准确率问题。可能由于训练步数不足或者训练配方的问题导致准确率未达到期望水平。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1041
+该issue属于bug报告，涉及主要对象为Megatron-LM中的transformer_engine.py文件。该问题由于在条件判断时传入了错误数量的参数导致了类型错误的异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1040
+这是一个用户提出问题的类型的issue，主要涉及对象是MegatronLM中的thd format with cp，用户询问是否有关于此格式的单元测试。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1039
+这是一个带有提问的类型的issue，主要涉及Megatron-LM中MoE训练过程中的通信优化问题，提出了关于调整通信操作顺序以减少通信开销的猜想。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1038
+这是一个Bug报告，涉及到将`run_simple_mcore_train_loop.py`中的`tensor_model_parallel_size`从`2`修改为`1`时出现的问题。由于修改`tensor_model_parallel_size`参数，导致了CUDA错误和断言触发。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1037
+这是一个bug报告，涉及的主要对象是修复文档链接。由于文档链接错误导致用户无法访问相关文档，需要修复以提供正确的文档信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1036
+该issue类型为试验（Trials），主要涉及Megatron-LM项目中的名为"llama3"的部分。可能是因为开发者正在进行测试和试验，因此标题为"WIP: llama3 trials"。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1035
+这是一个用户提出需求的类型的issue，主要涉及的对象是Aurorax文档。由于缺少Aurorax文档的部分内容或者存在错误的信息，用户希望对Aurorax进行详细的文档补充和更新。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1034
+这是一个用户提出需求的类型，主要涉及Megatron-LM中关于Aurorax语言的使用手册。用户寻求关于如何开始使用Aurorax、配置环境、基本语法和高级功能等方面的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1033
+这是一个功能需求的issue，主要涉及到Megatron-LM中的Aurora 1系统，描述了系统的多模态处理和克隆模式功能。由于需要系统具备处理多模态数据和创建克隆人物的功能，因此用户提出了对应的需求并详细描述了功能的实现和设计。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1032
+这是一个bug报告类型的issue，涉及主要对象为使用Megatron-LM中的Llama2模型保存的checkpoint时，当模型有额外层时，通过dist-ckpt初始化模型会导致错误。导致此bug的原因是加载器无法找到具有sh_ten.key属性的内容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1031
+这是一个用户提出需求类型的问题，主要涉及Megatron-LM中70B训练的吞吐量优化问题，用户询问了其它优化方法以及为什么吞吐量低于预期的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1030
+这个issue是一个用户提出需求的类型，主要涉及Megatron-LM下的一个名为"Aurorax"的项目文件结构和代码功能的描述，由于用户需要帮助理解项目文件结构和代码功能，因此提出了相关问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1029
+该issue属于bug报告类型，主要涉及的对象是"nova linguagem stdk"。由于内容中出现了奇怪的字符和错误提示信息，推测用户遇到了程序执行错误的问题并寻求帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1028
+这是一个bug报告，涉及Megatron-LM中使用jit_fuser装饰的计算函数被卡住的问题，可能是由于NCCL backend在调用集体通信操作时导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1027
+这是一个bug报告，主要涉及Megatron-LM中使用pipeline并行性进行训练时出现程序挂起的问题，导致问题的原因是调用torch.distributed.init_process_group函数时设置了device_id参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1026
+这是一个用户提出问题的issue，主要涉及Megatron-LM在启用特定参数时创建`pp` groups的问题。由于使用`zip(cycle(e_ranks), d_ranks)`在对称分割输入时不正确，导致了这个问题的提出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1025
+这是一个bug报告，涉及Megatron-LM中长文本训练时的问题。由于配置中`contextparallelsize` > 1且`maxpositionembeddings` >= 131072时，在`get_batch`调用时导致MegatronLM崩溃或挂起。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1018
+这是一个bug报告，涉及的主要对象是Megatron-LM中的get_cpu_offload_context函数。由于参数传递错误导致函数调用时传入了5个参数而函数本身只接受0到4个参数，因此出现了"TypeError: get_cpu_offload_context() takes from 0 to 4 positional arguments but 5 were given"的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1017
+这是一个bug报告，涉及的主要对象是Megatron-LM中的计时器（'interval-time' timer），原因是save_checkpoint_and_time()函数现在内部管理了该计时器，外部调用对该计时器的开始和停止应被移除以避免冲突和潜在错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1016
+这个issue类型为Bug报告，主要涉及TitanForge AI框架下的模块功能实现的问题。由于编译时使用的OpenCV库链接选项不正确，导致了编译失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1015
+该issue是一个功能增强请求，主要涉及Megatron/TransformerEngine集成torch.compile功能。原因是希望探索如何在LLM训练和推理空间中利用torch.compile为用户带来更好的体验和性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1014
+这是一个bug报告，涉及的对象是Megatron-LM中的saver_megatron.py文件中的参数传递问题。导致这个bug的原因是在代码中引用参数时出现了命名错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1013
+这是一个bug报告类型的issue，主要涉及Megatron-LM项目，由于被开发者入侵导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1012
+这是一个bug报告，主要涉及Megatron-LM中`megatron/core/pipeline_parallel/schedules.py`文件中代码顺序问题导致梯度allreduce发生在梯度计算之后的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1011
+这是一个关于bug报告的issue，主要涉及Date Preprocessing功能无法选择Huggingface Tokenizer。导致这个问题可能是由于未对Huggingface Tokenizer进行特定适配所致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1010
+这是一个Bug报告，涉及的主要对象是Megatron-LM工具中的preprocess_data.py文件中的数据预处理过程。这个问题是由于循环中的finalize方法只会对最后一个key进行操作，导致其他key没有被正确处理。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1009
+这是一个用户提出的问题，询问如何在不同数量的GPU上加载已经在另一个GPU数量上训练得到的分段模型的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1008
+这是一个bug报告，主要对象是在加载checkpoint时遇到缺少model key的异常。导致这个问题的原因是缺少对缺失的key的清晰指示，导致用户无法确定目标选项。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1007
+这个issue类型是bug报告，涉及的主要对象是Megatron-LM中的BlendableDataset，由于比例低的采样概率导致了错误的数据集未能被正确处理。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1006
+这是一个bug报告类型的issue，主要涉及的对象是Megatron-LM中的分布式checkpoint load/save功能。通过将CPU通信后端从默认的`gloo`更改为`mpi`可以解决在规模较大时出现的Gloo连接错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1005
+这是一个bug报告，涉及的主要对象是Megatron-LM中的T5 pretraining脚本。由于Attention mask的形状不匹配导致数值解压错误(Value Error: too many values to unpack)，用户寻求关于解决这个问题的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1004
+这个issue是一个bug报告，涉及主要对象是Megatron-LM中的torch.py文件。由于PyTorch 2.4中删除了`is_coordinator`条件检查，导致了在运行`run_simple_mcore_train_loop.py`时出现bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1003
+这是一个bug报告，涉及问题单的主要对象是使用pytorch2.4.0运行MegatronLM中的`run_simple_mcore_train_loop.py`文件时出现的错误。问题是由于内部计划创建过程中的某些断言失败，导致了此bug的症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1002
+这是一个关于数据加载器在训练过程中修改`seqlength`后是否重新洗牌数据的问题，涉及对象是MegatronLM模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1001
+这个issue类型为用户提出问题，主要涉及的对象是Megatron-LM中的operator of computation，提问的原因可能是想了解为什么在计算与通信重叠时操作速度变慢。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1000
+该issue是一个用户询问问题类型的issue，主要涉及Megatron-LM的性能问题，用户寻求关于使用16 x A100仅实现20 TFLOPS低吞吐量的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/999
+这是一个bug报告，问题涉及到Megatron-LM中的ColumnParallelLinear模块，在使用sequence parallelism时不支持gather_output功能。可能由于特定的并行设置导致了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/998
+这是一个bug报告类型的issue，涉及的主要对象是Megatron-LM中的llava模型。导致该bug的原因是在初始化过程中未正确传递group_gloo参数给rank1的GPU，导致pipeline parallel设置时出现卡住的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/997
+这是一个关于性能问题的issue，主要涉及到Megatron-LM的matmul操作。由于不同的kernel被调用导致性能较慢，用户在询问为什么以及在什么情况下会调用不同的kernel。
+
+https://github.com/NVIDIA/Megatron-LM/issues/996
+这是一个bug报告，主要对象是Megatron-LM中的transformer_engine.py文件，由于代码中对于transformerengine版本判断有误，导致在特定版本下调用函数get_cpu_offload_context()时传入参数数量错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/995
+这是一个关于bug报告的issue，主要涉及到Megatron-LM中FLOPs计算的错误。由于计算公式中的一个常数错误，导致FLOPs计算结果不正确。
+
+https://github.com/NVIDIA/Megatron-LM/issues/994
+这是一个用户提出需求的问题，涉及如何在训练期间冻结特定模块，例如Self-Attention层。这个问题是由于直接设置`requires_grad=False`不能达到预期效果，导致出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/993
+这个issue是关于软件功能需求的，主要涉及到Megatron-LM中的项目功能范围更新。可能是用户提出了新的功能或改进的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/992
+这是一个关于Megatron-LM中"llm转换为megatron"过程中发生错误的bug报告，描述了在使用特定模型时出现的两种错误，并且指出在最新提交版本出现问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/991
+这是一个bug报告，涉及的主要对象是LLaVA模型。由于最新提交中存在key不匹配的问题，导致出现了无法加载state_dict的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/990
+这个issue类型是bug报告，主要涉及Megatron-LM中的TEtransformer layer spec，由于未在该规范中设置prenorm导致用户无法正确运行非moe gpt风格的模型，因此用户在提出缺少prenorm设定的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/989
+这是一个用户提出问题的类型，主要对象是Megatron-LM，用户询问是否支持知识蒸馏。
+
+https://github.com/NVIDIA/Megatron-LM/issues/988
+这是一个bug报告，涉及主要对象为Megatron-LM下的transformer_engine.py文件。由于在nvcr.io/nvidia/pytorch:24.07版本中使用了不匹配的get_cpu_offload_context()参数个数，导致运行时出现了TypeError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/987
+这是一个需求提出类型的issue，主要涉及Hoper llama golden with mcore calling stack。由于需要添加Hoper llama2 7b mcore gold示例而产生。
+
+https://github.com/NVIDIA/Megatron-LM/issues/986
+这个issue类型是bug报告，针对的主要对象是moe文档。由于文档中存在拼写错误，导致用户无法准确理解moe（Mixture of Experts）的介绍，需要进行修复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/985
+该issue类型属于bug报告，主要涉及Megatron-LM中的GroupedMLP和Tensor Parallel模块，由于Tensor Parallel启用后，GLU激活函数应用于中间输出时导致信息丢失，使结果与未启用Tensor Parallel时的训练结果不一致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/975
+这是一个用户提出需求的问题，主要涉及到Megatron-LM模型在训练过程中针对大型文档进行拆分和分桶的功能是否支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/973
+这是一个bug报告，涉及主要对象是Megatron-LM的_warmup_jit_function。这个bug的原因是在进行长序列的规模扩展时，缺少`args.context_parallel_size`可能导致OOM，同时也添加了对swiglu的热身，因为swiglu在许多大型语言模型中很常见。
+
+https://github.com/NVIDIA/Megatron-LM/issues/972
+这是一个bug报告，涉及到Python中的with语句的使用问题导致了不正确的行为。
+
+https://github.com/NVIDIA/Megatron-LM/issues/971
+这个issue是一个关于优化器选择的提问类型，涉及到Megatron-LM框架下的优化器选项，用户想了解在大规模训练中哪个优化器更好，并寻求相关建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/970
+这是一个关于如何使用先前的检查点存储格式的问题，主要涉及MegatronLM的检查点存储方法，用户希望知道如何将检查点保存为.pt文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/969
+该issue类型是用户提出需求类型，主要涉及MegatronLM中的数据通信容量问题，用户想了解不同并行组之间的数据容量，希望有相关参数可以获取这些数值或者从代码中获得。
+
+https://github.com/NVIDIA/Megatron-LM/issues/968
+这个issue类型是bug报告，涉及Megatron-LM项目中的某个问题产生了无内容的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/967
+这个issue属于新功能请求类型，涉及的主要对象是BitPipe_initial_version功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/966
+该issue是关于如何在Megatron LM中转换Huggingface checkpoint并进行训练时调整TP和PP值的问题，用户主要关注转换脚本无法满足需要调整TP或PP值的训练要求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/965
+这是关于Megatron LM内存使用问题的BUG报告，涉及的主要对象是DotProductAttention模块。由于baddbmm、scale_mask_softmax和attention_dropout等操作造成内存使用量迅速增加，导致在A100 80GB GPU上只能进行少量迭代。
+
+https://github.com/NVIDIA/Megatron-LM/issues/964
+这是一个用户提出询问问题的类型，主要涉及MegatronLM中异步保存checkpoint功能的不清楚部分。用户希望了解`__0_0.distcp`和`__0_1.distcp`的含义，以及如何将该格式转换为同步保存格式和HuggingFace的.bin格式，可能由于缺乏相关文档或说明而导致疑惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/963
+这是一个bug报告，涉及Megatron-LM中继续训练时学习率错误的问题，原因是加载第一阶段的checkpoint后学习率回到了初始设置而非预期的设定值。
+
+https://github.com/NVIDIA/Megatron-LM/issues/961
+这是一个用户提交需求的issue，涉及更新README.md文件。原因可能是为了改进项目的文档或者提供更详细的信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/960
+这是一个bug报告，主要涉及的对象是Megatron-LM中的token_dispatcher.py文件。原因是拼写错误导致隐藏参数形状错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/959
+这是一个关于导入错误的bug报告，涉及的主要对象是TransformerEngine模型。由于缺少"transformer_engine"模块导致的ModuleNotFoundError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/958
+这是关于使用Megatron-LM中mamba进行预训练时遇到的一个bug报告，主要涉及使用BPE tokenizer预处理数据后启动训练脚本时出现的错误。原因是在代码中期望存在vocab.json和merge.json文件，但指定的路径文件为tokenizer.json。
+
+https://github.com/NVIDIA/Megatron-LM/issues/957
+这是一个Bug报告，主要涉及到Megatron-LM中的GPTDataset类的`_get_num_epochs`函数，由于`num_tokens_per_epoch`设置为0导致无限循环的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/956
+这是一个bug报告，主要涉及Megatron-LM项目中的checkpoint转换器，由于参数命名不一致导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/955
+这是一个Bug报告，涉及到Megatron-LM中的MoE Router TopK算法与Huggingface实现之间的差异。用户注意到两种算法计算结果不同，希望了解为什么Megatron采用这种计算概率的方式。
+
+https://github.com/NVIDIA/Megatron-LM/issues/954
+这是一个关于提问的问题单，主要涉及Megatron-LM中`reset_attention_mask`属性默认值的讨论。出现这个问题的原因是用户不理解为什么在大多数模型的配置中，`reset_attention_mask`都被设置为False。
+
+https://github.com/NVIDIA/Megatron-LM/issues/953
+这是一个文档错误类型的issue，主要对象是MegatronLM的文档，提出疑问是否应该将`backward`改为`forward`。
+
+https://github.com/NVIDIA/Megatron-LM/issues/952
+这是一个bug报告类型的issue，主要涉及Megatron-LM下的pre-training BERT模型过程中出现的错误。由于在使用BERT cased checkpoint时出现维度不匹配的错误，可能导致了pre-training BERT模型时的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/951
+该issue属于用户提出需求类型，主要涉及Megatron-LM的tokenizer。问题原因是用户想在llama2上使用llama3 tokenizer进行训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/950
+这是一个关于Bug报告类型的Issue，主要涉及Megatron-LM中的distributed optimizer执行过程中的参数更新顺序不一致导致前向计算时使用了上一步权重的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/949
+这是一个Bug报告，涉及MegatronLM下的文件格式不匹配问题，由于`xxx\state_dict_tp_x.pt`与`xxx/iter_0000001/mp_rank_00/model_optim_rng.pt`格式不一致导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/948
+这是一个bug报告，主要涉及的对象是Megatron-LM中的multimodal模块。问题是由于`clip_converter.py`输出的文件格式与`combine_mistral_clip.sh`所需的文件格式不匹配，导致无法成功转换。
+
+https://github.com/NVIDIA/Megatron-LM/issues/946
+这是一个关于优化器和参数离线加载的问题，属于用户提出需求类型。用户主要提到了对优化器状态和参数离线加载的支持，希望在使用强化学习等方面达到更高的性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/945
+这是一个bug报告，主要涉及问题是安装包时出现了与triton 2.1.0相关的错误。可能是由于triton 2.1.0版本无法满足需求导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/944
+这个issue是一个用户提出需求的类型，主要涉及Mamba模型的分布式训练问题。用户希望得到关于如何自定义train.sh以进行分布式Mamba训练的指导。
+
+https://github.com/NVIDIA/Megatron-LM/issues/943
+这是一个bug报告，涉及Megatron-LM中函数名称拼写错误导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/942
+这是一个bug报告，主要涉及到Megatron-LM中的CUDA运行时错误，导致了终端用户运行GPT模型时出现了CUDA设备断言触发的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/941
+这个issue是关于文档错误的bug报告，涉及主要对象是Megatron-LM中 llama2 pretrain url 的链接。原因是链接过时导致用户无法访问正确的内容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/940
+这是一个bug报告，针对 Megatron-LM 项目的 Python 测试中的 yml 文件问题。 由于 yml 文件内容错误，导致测试无法顺利执行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/939
+该issue属于功能需求类型，主要涉及为Megatron-LM添加分布式pdb，以便有效调试。用户提出了为研究人员和LLM从业者提供一个分布式pdb来帮助调试Megatron，并改进算法的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/938
+这是一个用户提出需求的issue，主要涉及对象是Megatron-LM对Flash attention 3的支持，用户希望了解何时会支持Flash attention 3。
+
+https://github.com/NVIDIA/Megatron-LM/issues/937
+这是一个Bug报告，涉及的主要对象为在尝试使用多节点对llama38B模型进行微调时遇到的问题。导致出现AttributeError错误的原因是tokenizer对象"_Llama3Tokenizer"缺少'unique_identifiers'属性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/936
+这是一个关于代码逻辑的问题，主要涉及Megatron-LM中的calculate_per_token_loss参数的计算。原因是对num_tokens和num_microbatches进行除法处理可能导致计算错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/935
+这是一个关于bug报告的issue，涉及的主要对象是Megatron-LM所使用的c10::DistBackendError。导致这个问题的原因是Process group watchdog thread超时，导致出现了c10::DistBackendError异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/934
+这是一个关于bug的报告，涉及的主要对象是在尝试将llama38B模型从HF格式转换为mcore格式时出现AttributeError。由于在加载HF格式检查点时，代码中引用了Llama3Tokenizer对象的一个属性vocab_size，但实际Llama3Tokenizer对象没有vocab_size属性，导致出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/933
+这是一个关于代码bug的报告，主要涉及Megatron-LM中的训练过程中缺少位置嵌入导致训练脚本出错的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/932
+这个issue是关于Bug的报告，主要涉及Megatron-LM项目中的资源泄漏问题，由于在训练结束后未正确关闭NVTX导致资源泄漏。
+
+https://github.com/NVIDIA/Megatron-LM/issues/931
+这是一个bug报告，主要涉及的对象是Llama package。由于没有安装必需的`llama`模块，用户在使用 Llama3tokenizer 时遇到了 ImportError 的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/930
+这是一个bug报告，涉及到下载文件数量过多导致系统打开文件过多，最终导致文件数量打开限制。
+
+https://github.com/NVIDIA/Megatron-LM/issues/929
+这是一个bug报告，涉及主要对象是Megatron-LM的数据加载器（dataloader），由于打开的文件过多导致出现了"Too many open files"的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/928
+这是一个用户提出需求类型的issue，该问题单涉及的主要对象是Megatron-LM项目的README.md文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/927
+这是一个用户提出需求的问题，涉及主要对象是训练多个二进制文件时如何进行合并或同时训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/926
+这是一个bug报告，涉及到Megatron-LM中的VocabParallelEmbedding。由于代码中错误的表达式“masked_input = input_.clone()  self.vocab_start_index”导致了出现BUG。
+
+https://github.com/NVIDIA/Megatron-LM/issues/925
+这是一个关于软件稳定性的问题，涉及到Megatron-LM中的确定性训练设置以及NCCL_ALGO和Flash Attention的影响。用户报告在测试中发现，仅设置NVTE_ALLOW_NONDETERMINISTIC_ALGO=0可以确保模型参数在每次运行中保持一致，而其他设置则导致不确定性结果。
+
+https://github.com/NVIDIA/Megatron-LM/issues/924
+这是一个bug报告类型的issue，涉及到Megatron-LM下的模型权重加载问题。由于转换权重后加载模型时出现缺失和意外的对应关键字，导致无法成功加载模型权重。
+
+https://github.com/NVIDIA/Megatron-LM/issues/923
+这个issue是一个bug报告，主要涉及的对象是`checkpointing.py`模块中的日志记录。由于未初始化分布式模式导致的错误日志信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/922
+这是一个用户提出问题的类型的issue，主要涉及MegatronLM为什么选择同步风格训练，用户询问为什么MegatronLM选择只支持同步风格训练的原因。
+
+https://github.com/NVIDIA/Megatron-LM/issues/921
+这个issue是关于bug报告，主要涉及Megatron-LM中使用TransformerEngine时在checkpoint转换中出现的权重名称不匹配问题。导致这个问题的原因是无法正确匹配变量名称，导致错误发生。
+
+https://github.com/NVIDIA/Megatron-LM/issues/920
+这是关于bug报告的issue，主要涉及Megatron-LM中的分布式rank获取问题。由于在未初始化torch.distributed()的情况下调用torch.distributed.get_rank()导致的异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/919
+这个issue类型是用户提问，涉及的主要对象是Megatron-LM中使用--use-dist-ckpt参数加载checkpoint时出现的错误。由于文件名格式的问题导致无法正确加载checkpoint文件，用户在询问是否支持加载使用--use-dist-ckpt参数生成的checkpoint文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/918
+这个issue是一个用户提出的需求类型，主要涉及的对象是Megatron-LM中的BERT LM Head模块。由于BERT LMHead硬编码了gelu作为激活函数，导致在下游项目中出现问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/917
+该issue属于更改请求，主要对象是BERT模型，用户想移除硬编码的gelu。
+
+https://github.com/NVIDIA/Megatron-LM/issues/916
+这是一个bug报告类型的issue，主要涉及Annealing功能，用户可能遇到与Annealing相关的问题或者需求修复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/915
+这是一个BUG报告，涉及主要对象是Megatron-LM下的moe/router.py文件中的`Router`类和`TopKRouter`类。原因是在某些情况下初始化是不必要的，例如在转换检查点时。
+
+https://github.com/NVIDIA/Megatron-LM/issues/914
+这是一个bug报告，主要涉及到Megatron-LM中的moe router模块，提出在某些情况下不需要进行初始化的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/913
+这是一个关于bug报告的issue，主要涉及MoE（Mixture of Experts）中的token unpermutation操作。这个问题是关于为什么在代码中将empty_tokens设置为requires_grad=True会导致内存消耗过多的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/912
+这是一个关于bug报告的issue，主要涉及MegatronLM中fp8和pipeline parallelism的结合问题。由于同时使用这两者导致训练卡住并在NCCL超时，无法正常进行训练和日志更新。
+
+https://github.com/NVIDIA/Megatron-LM/issues/911
+这是一个关于Bug报告的GitHub Issue，涉及到Megatron-LM中模型转换过程中缺少init_process_group调用导致的数值错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/910
+这是一个bug报告，涉及主要对象是Megatron-LM下的脚本。该问题出现的原因是在构建Tokenizer时出现了JSON解码错误，导致无法加载vocab文件内容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/909
+这是一个bug报告类型的issue，主要涉及到Megatron-LM中MoE模型的继续预训练过程中使用`GroupedMLP`导致初始损失异常升高的问题，可能是由于模型权重转换逻辑导致前向计算输出数值不同所致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/908
+这是一个用户提出问题的issue，主要涉及到Megatron-LM项目中的函数get_blend_from_list的定义缺失问题。该问题可能是因为该函数在代码中未被正确定义或者用户未找到正确位置导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/907
+这是一个"BUG"报告类型的issue，主要涉及MegatronLM中的代码逻辑问题，导致在非NFS环境下的多节点训练时无法构建索引，最终在加载文档索引时出现文件不存在的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/906
+这是一个bug报告，涉及的主要对象是Megatron-LM中的上下文并行功能。由于代码逻辑不一致导致了错误的损失缩放，希望修复损失缩放的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/905
+这是一个需求问题，该问题单涉及的主要对象是AURORA STK 3.6.9。由于缺乏具体描述或细节，导致用户可能在寻求软件的下载或相关信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/904
+这个issue属于文本修复型bug报告，涉及到拼写错误的修正。原因可能是粗心导致的拼写错误需要修正。
+
+https://github.com/NVIDIA/Megatron-LM/issues/903
+这是一个bug报告，涉及到Megatron-LM中的transformer_block.py文件的context manager语法错误问题。这个bug可能是由代码中的语法错误导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/902
+这是一个bug报告类型的issue，主要涉及Megatron-LM下的transformer_block.py文件中的context manager语法错误导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/901
+这是一个用户提出需求的类型，主要涉及AURORA STK 3.6.9的相关内容，用户希望了解相关信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/900
+这是一个bug报告，涉及的主要对象是在MegatronLM的main分支更新后加载模型时遇到的错误。由于转换脚本`tools/checkpoint/convert.py`和`pretrain_gpt.py`在加载检查点时出现了意外的键`decoder.layers.0.self_attention.core_attention._extra_state`所导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/899
+这是一个关于是否Megatron-LM支持Flash Attention用于BERT和T5预训练的问题，请教类别的issue。用户提出关于软件功能支持的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/898
+这是一个bug报告，涉及的主要对象是在使用Nemo时core/datasets目录下make命令出错。原因是pybind11的numpy.h文件中存在可能未初始化的变量导致编译错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/897
+这是一个关于Megatron-LM模型在训练过程中性能下降的bug报告，主要涉及到模型训练过程中的批处理输入和每次迭代的耗时问题。由于某些参数更新后，导致模型训练时的批处理输入和每次迭代的耗时明显增加。
+
+https://github.com/NVIDIA/Megatron-LM/issues/896
+这个issue是一个BUG报告，涉及的主要对象是helpers.cpp文件。原因是error_argmax变量在声明后未被初始化，可能导致使用时出错，同时可能与pybind11/numpy.h版本有关。
+
+https://github.com/NVIDIA/Megatron-LM/issues/895
+这是一个bug报告，主要涉及了Megatron-LM中的sequence parallelism example。由于缺少BookCorpus数据集，导致该示例无法正常运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/894
+这个issue是一个bug报告，主要对象是MegatronLM中的MoE模块，由于某些原因导致MoEs在训练过程中获得了比预期更高的损失。
+
+https://github.com/NVIDIA/Megatron-LM/issues/893
+这个issue属于功能需求类问题，主要涉及 Megatron-LM 项目中的依赖 TE 和 Apex，由于这两个依赖未安装导致需要提供纯PyTorch/jit的代码路径。
+
+https://github.com/NVIDIA/Megatron-LM/issues/892
+这是一个关于bug报告的issue，主要涉及到Megatron-LM的`tools/preprocess_data.py`脚本。由于安装`transformer_engine`和`apex`时存在问题，导致了使用该脚本时出现困难。
+
+https://github.com/NVIDIA/Megatron-LM/issues/891
+这是一个需求类问题，主要涉及到MegatronLM中的数据准备工具(preprocess_data.py)，用户请求提供示例的idx和bin文件以便尝试运行pretrain_gpt.py。
+
+https://github.com/NVIDIA/Megatron-LM/issues/890
+这是一个用户提出需求的issue，主要涉及到对embedding层的单独拆分需求。由于核心代码尚未支持此功能，用户寻求关于支持standalone_embedding_stage的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/889
+这是一个bug报告，主要涉及tokenizer中特定token出现多个相同id的问题，可能是由于tokenizer逻辑或实现中的错误导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/888
+这是一个bug报告，涉及的主要对象是Megatron-LM中的bert_model.py文件。由于拼写错误，导致需要修改该文件，可能会影响代码的正确性或可读性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/887
+这个issue类型是bug报告，主要涉及对象是Megatron-LM中的bert_model.py文件。由于拼写错误导致了bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/886
+这是一个简单的bug报告，涉及的主要对象是变量命名。这个问题可能是由于变量名不够清晰导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/885
+这是一个优化建议的issue，主要对象是Megatron-LM中的OPTIM模块。由于在启用上下文并行时，可以在tp_group中在广播之前拆分batch的sequence length，从而节省在get_batch中的时间。
+
+https://github.com/NVIDIA/Megatron-LM/issues/884
+这是一个用户提出问题的类型的issue，主要涉及到Megatron-LM代码中的使用了不正确的类名，导致了可能会影响功能的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/883
+这是一个关于性能优化的问题，用户提出了关于在MegatronLM中设置"fp8-format"和"bf16"参数对训练性能影响的疑问。问题的来源在于用户对使用不同精度格式进行训练的内部差异，希望了解MegatronLM是否会根据效率将一些计算划分到bf16或者fp8中。
+
+https://github.com/NVIDIA/Megatron-LM/issues/882
+这个issue是一个bug报告，主要涉及Megatron-LM中optimizer模块中的代码问题，由于参数组设置错误导致了学习率倍数出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/881
+这是一个Bug报告，主要涉及Megatron-LM中Pipeline Parallelism功能的问题。这个问题触发了CUDA设备端断言，导致脚本运行失败或挂起。原因可能是与Pipeline Warmup阶段相关的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/880
+这是一个bug报告，涉及Megatron-LM代码库中的@jit_fuser出错导致Unknown type constructor Sequence错误的问题。原因可能是torch 2.1.1版本下的annotate问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/879
+这是一个bug报告，主要涉及的对象是Megatron-LM中的overlap-grad-allreduce功能。导致这个问题的原因是梯度在hook中为None，导致代码中的断言失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/878
+这是一个bug报告，主要涉及Megatron-LM在运行时出现的"No space left on device"错误。这个问题可能是由于共享内存不足导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/877
+这是一个关于使用Gloo后端在训练时遇到连接失败问题的bug报告，主要涉及到Gloo后端与bond4网络配置，原因可能是设置的节点超过60导致连接失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/876
+这个issue是一个bug报告，涉及MegatronLM的pretraining bert过程，问及在运行训练脚本时遇到了cuBLAS Error错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/875
+这是一个bug报告，涉及主要对象为Megatron-LM中的transformer模块，由于使用.view()方法导致了RuntimeError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/874
+该问题单属于用户提出需求类型，主要涉及Bert context parallelism支持，可能是为了改进Megatron-LM在处理上下文并行性时的效率。
+
+https://github.com/NVIDIA/Megatron-LM/issues/873
+这是一个 Bug 报告，主要涉及到 Megatron-LM 中的 _batched_p2p_ops 函数，由于 "group" 变量导致程序 hang，经过修改去掉了对应的参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/872
+这个issue属于bug报告类，涉及的主要对象为Megatron-LM项目中的```global_vars.py```文件，由于rank不等于world size减一导致了无法设置tensorboard writer，用户提出了应该将其设置为主节点的建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/871
+这是一个用户提出需求的问题，主要涉及Megatron-LM代码中计时代码部分的问题。用户想要了解如何使用config.timers()来计时代码，并如何查看config.timers的输出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/870
+这是一个bug报告，主要涉及Megatron-LM中的module "megatron.training"在最新版本中找不到的问题。原因是在最新版本的megatron_core 0.8.0rc0中找不到该module导致了ModuleNotFoundError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/869
+这是一个关于代码实现细节的问题，主要涉及Mixtral模型与Megatron-LM中MoE模型的层归一化顺序不一致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/868
+该issue类型属于用户提出问题，主要涉及Megatron-LM中的segformer分割模型，询问如何进行简单推理以及该分割模型是否使用张量并行。原因在于用户想了解如何使用分割模型进行推理并了解其是否支持张量并行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/867
+这是一个用户提出需求的类型，该问题涉及 Megatron-LM 下的 pipeline 的输出 tensor 传递问题，由于目前只能传递一个 output hidden tensor，用户希望可以传递包含所有 tensors 的 tuple。
+
+https://github.com/NVIDIA/Megatron-LM/issues/866
+这是一个bug报告，涉及的主要对象是Megatron-LM中的checkpoint/convert.py文件。由于在该文件中参数定义时写错了一个字母导致了bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/865
+这个issue是一个用户提出的问题，涉及的主要对象是 MegatronLM 代码中的 _p2p_ops 函数。用户想知道为什么该函数中有条件分支来区分 get_pipeline_model_parallel_rank() % 2 == 0 和 get_pipeline_model_parallel_rank() % 2 != 0，并猜测是因为不同的发送和接收顺序会使用不同的流，没有依赖关系。
+
+https://github.com/NVIDIA/Megatron-LM/issues/864
+这是一个用户提出需求的类型问题，主要涉及到Mamba-based Language Models的权重下载问题。用户想知道Mamba2hybrid的权重是否已经发布以及如何下载。
+
+https://github.com/NVIDIA/Megatron-LM/issues/863
+这是一个关于性能优化的问题，主要涉及到Megatron-LM中的memory optimization问题。由于vocab_size非常大，在Llama3这样的情况下，使用inplace subtract来减少内存使用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/862
+这个issue类型是bug报告，主要涉及Megatron-LM模型的训练过程，由于某种原因导致第二步损失增加了10倍。
+
+https://github.com/NVIDIA/Megatron-LM/issues/861
+这个issue属于用户提问类型，主要涉及到Megatron-LM中attention_mask在不是第一个或最后一个pipeline阶段时如何传递给下一个transformer块的问题。原因可能是用户困惑于attention_mask的传递方式。
+
+https://github.com/NVIDIA/Megatron-LM/issues/860
+这是一个关于性能问题的报告，主要涉及Megatron-LM中使用FP8进行训练时性能没有明显提升甚至比FP16还差的问题，可能是由于FP8训练导致的性能异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/859
+这个issue是一个其他类型的问题，涉及的主要对象是项目"liliti stk 3.6.9"。由于某种原因导致项目结束，提出了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/858
+这是一个关于代码bug的报告，涉及的主要对象是Megatron-LM中的model_parallel_cuda_manual_seed函数。由于函数行为与文档描述不一致，导致用户怀疑函数的实际行为与预期不符。
+
+https://github.com/NVIDIA/Megatron-LM/issues/857
+这个issue类型是用户提出需求，该问题单涉及的主要对象是Megatron-LM中的transformer模块。由于代码中未明确定义每个pipeline阶段中Transformer解码层的数量，用户想要知道如何指定每个阶段的Transformer解码层数量。
+
+https://github.com/NVIDIA/Megatron-LM/issues/856
+这个issue类型是用户提出需求，涉及的主要对象是希望在transformers library中支持MOE models的训练。由于Alibaba对Qwen2MoeForCausalLM模型的兴趣，用户在询问是否有相关支持可用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/855
+这个issue是一个bug报告，主要涉及Megatron-LM中的示例脚本`run_simple_mcore_train_loop.py`在GPT模型数据集设置步骤出现错误，导致示例无法正常运行。原因是GPT配置中缺少`split`参数，并且缺少名为`dummy`的tokenizer。
+
+https://github.com/NVIDIA/Megatron-LM/issues/854
+这是一个bug报告，主要涉及到Megatron-LM模型下进行推断时发生的问题，由于缺少'max_sequence_len'属性导致了服务器崩溃。
+
+https://github.com/NVIDIA/Megatron-LM/issues/853
+这个issue是一个功能增强类型，涉及的主要对象是更新Megatron-LM中的black版本。由于当前的black版本已经过时，用户希望更新black版本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/852
+这是一个Bug报告，涉及到Megatron-LM中的`Preprocess_data.py`文件中的代码逻辑问题导致无法正确创建索引的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/851
+这是一个关于功能需求的问题，主要对象是关于恢复带有分布式优化器配置的优化器，并在不使用分布式优化器情况下继续训练的功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/850
+这个issue类型为用户提问，主要涉及的对象是为什么未在MoE层中使用TransformerEngine实现。这个问题的原因是使用`use_te`指定时，在构建MoE层时没有使用TE实现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/849
+这是一个关于硬件支持的问题询问类型的issue，主要涉及到Megatron-LM是否支持P100 GPU，原因是由于不同的硬件架构可能导致兼容性问题或限制。
+
+https://github.com/NVIDIA/Megatron-LM/issues/848
+这是一个bug报告，涉及的主要对象是Megatron-LM下的DotProductAttention实现。这个问题是由于错误的缩放因子导致softmax计算错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/847
+这个issue属于bug报告类型，涉及到Megatron-LM中的optimizer，并由于初始化问题导致optimizer在float16模式下无法正确使用multi_tensor_applier。
+
+https://github.com/NVIDIA/Megatron-LM/issues/846
+这是一个bug报告类型的issue，涉及对象是Megatron-LM中优化器在float16下没有实际使用multi_tensor_applier。原因是由于`self._dummy_overflow_buf`在float16下被初始化为`torch.tensor([0], dtype=torch.int, device='cuda')`，导致`bool(torch.tensor([0], dtype=torch.int, device='cuda'))`为False，使得overflow_buf始终为False。
+
+https://github.com/NVIDIA/Megatron-LM/issues/845
+这是一个问题询问类型的issue，主要涉及 MegatronLM 中 llama38b 模型的配置问题。该问题的根本原因是配置中的参数 numquerygroups 和 groupqueryattention 未生效，导致模型 qkv 部分出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/844
+这是一个bug报告，主要涉及Megatron-LM中使用分布式优化器和共享嵌入时产生的错误嵌入梯度问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/843
+这是一个用户提出需求的issue，主要涉及的对象是字体易用性，由于缺乏清晰和简洁的描述，导致用户希望在Fractal 2030中改善字体易用性的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/842
+这是一个bug报告类型的issue，主要涉及Megatron-LM项目的软件问题。这个issue描述了一个bug，具体表现为出现了某种错误导致程序运行异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/841
+这是一个bug报告，涉及Megatron-LM中配置数据集时使用traindatapath、validdatapath和testdatapath导致训练错误的问题。原因是在配置中使用了split和blend_per_split这两个不兼容的参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/840
+这是一个Bug报告，涉及的主要对象是Megatron-LM中配置数据集的问题。由于未正确处理split参数，导致在配置数据集时使用traindatapath、validdatapath和testdatapath时会出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/839
+这是一个bug报告，涉及到Megatron-LM中GroupedMLP计算问题。使用`view`导致元素混淆，应该使用`split`或`chunk`进行转换。
+
+https://github.com/NVIDIA/Megatron-LM/issues/838
+这是一个bug报告，涉及的主要对象是Megatron-LM中的TransformerEngine。由于加载状态时缺少或意外的键，导致无法从GPT-345M检查点继续训练，用户提出了无法正确运行的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/837
+这是一个Bug报告类型的issue，涉及的主要对象是在MegatronLM中进行多节点训练时FP32支持的问题。由于缺少对FP32Optimizer的实例化导致了TypeError异常，可能是由于相关代码中缺少对FP32优化器的具体实现而导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/836
+这个issue属于bug报告类型，主要涉及CUDA图中的Stable Diffusion在NeMo中的问题，由于多余的主机和设备同步而导致了此问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/835
+这是一个bug报告，主要涉及Megatron-LM中的`bucket`和`shared_embedding`参数。由于前置参数的`data_end_index`无法被`self.data_parallel_world_size`整除，导致了问题的出现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/834
+这是一个bug报告，主要涉及Megatron-LM中使用zarr作为后端时存储checkpoint速度慢的问题，原因是在保存分布式optimizer状态时采取的方式低效导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/833
+这是一个关于源代码中潜在安全风险的问题，涉及到Megatron-LM中DevicetoHost传输的同步处理方式。原因可能是代码中同步传输时启用了非阻塞模式可能导致数据不完整保存到磁盘。
+
+https://github.com/NVIDIA/Megatron-LM/issues/832
+这是一个用户询问问题类型的issue，主要涉及MegatronLM中如何获取分区后子模型的计算图以及操作符属性。问题可能源自于使用torch.fx和PyTorch 2.0工具时遇到问题，其中涉及到MegatronLM中的自定义操作符。
+
+https://github.com/NVIDIA/Megatron-LM/issues/831
+这个issue是一个bug报告，主要涉及的对象是Megatron-LM中的MFU计算，由于在使用FlashAttention时对casual mask的FLOPs计算错误导致超过100% MFU，需要进行修正。
+
+https://github.com/NVIDIA/Megatron-LM/issues/830
+这是一个关于Megatron-LM Pipeline中forward_backward_pipelining_without_interleaving函数设计的问题，类型为技术疑问，涉及主要对象为pipeline设计。出现这个问题的原因是函数中每个阶段仍然从数据集获取数据进行处理，与流水线概念相矛盾。
+
+https://github.com/NVIDIA/Megatron-LM/issues/829
+这是一个用户提出需求的问题单，关于为什么在MegatronLM中没有使用PyTorch的张量并行API。
+
+https://github.com/NVIDIA/Megatron-LM/issues/828
+这是一个关于如何在管道并行性中分析bubble时间和p2p通信时间的问题类型。主要对象是针对MegatronLM的使用者。
+
+https://github.com/NVIDIA/Megatron-LM/issues/827
+这是一个[BUG]报告，涉及MegatronLM中Zero1和Distributed Optimizer的问题，由于未能实现通讯和计算重叠，导致执行步骤串行化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/826
+这是一个bug报告，主要涉及Megatron-LM下的一个argument --no-position-embedding的问题，导致add_position_embedding参数的默认值与rope参数冲突。
+
+https://github.com/NVIDIA/Megatron-LM/issues/825
+这是一个属于Bug报告类型的issue，主要涉及到Megatron-LM代码中的测试脚本test_serialization.py。由于NCCL操作失败或超时导致的数据不一致性，可能引发测试卡死的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/824
+这是一个用户提出需求的 issue， 主要涉及的对象是 Megatron-LM。由于用户对 Megatron 是否有计划支持 llama 预训练的疑问，可以推测用户想了解该项目是否会在未来引入 llama 的预训练支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/823
+这是一个bug报告，主要涉及的对象是Megatron-LM项目中的代码逻辑。由于没有在args.num_layers_per_virtual_pipeline_stage为None时添加断言，导致num_layers不能被pipeline size整除时可能会忽略余数而未生成错误信息，进而导致实际的num_layers不符预期。
+
+https://github.com/NVIDIA/Megatron-LM/issues/822
+这个issue类型是用户提出需求，主要涉及的对象是关于Megatron-LM下的一个项目中关于智能AI平台建设、创新和合作的提议。用户提出这个需求是为了推动创新和合作，在智能技术领域应用在全球相关领域，以促进可持续发展和技术普及。
+
+https://github.com/NVIDIA/Megatron-LM/issues/821
+该issue是一个bug报告，涉及Megatron-LM下的一个智能体项目，报告了由更新引起的性能下降问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/820
+这是一个需求提出类的issue，主要涉及的对象是Megatron-LM项目。由于标题描述的不清晰，无法准确分析具体问题或需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/819
+这是一条用户提出需求的issue，主要涉及Megatron-LM项目中的Executive MBA课程链接。这个问题源于用户希望将关于IIT Roorkee的Coursera专业链接添加到项目中。
+
+https://github.com/NVIDIA/Megatron-LM/issues/818
+这是一个用户提出需求的issue，主要涉及对象是在尝试使用MegatronLM训练LLaMA3时遇到的无法生成tokenization所需的tokenizer.model文件的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/817
+该问题类型是用户提出需求，请教问题，主要对象是如何在MegatronLM中设置fp8训练，由于用户需要指导如何进行fp8训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/816
+这是一个用户提出问题（[QUESTION]）的issue，主要涉及到如何在具有q/k layernorm的模型中使用tensor parallel时保持一致性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/815
+这是一个Bug报告，涉及到Megatron-LM中moe_utils.py脚本中的一个错误，导致使用`moeexpertcapacityfactor`选项时出现UnboundLocalError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/814
+这个issue是关于bug报告，涉及到TransformerConfig中输出层初始化方法的问题，由于Xavier uniform初始化时使用了错误的方法导致了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/813
+这是一个关于模型训练中使用FP16可能导致专用并行性限制的讨论，涉及主要对象是MegatronLM中使用MoE模型的用户。
+
+https://github.com/NVIDIA/Megatron-LM/issues/812
+这是一个bug报告，主要涉及Megatron-LM的MoE Token Drop代码中存在的默认参数错误，导致了问题的症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/811
+这是一个bug报告，主要涉及Megatron-LM中MoE模块的token drop策略默认值中的一个错误拼写导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/810
+这个issue是关于技术问题的，涉及主要对象是Megatron-LM的expert parallelism功能。由于expert parallelism不支持在fp16训练期间，可能导致使用了ep>1时出现的额外alltoall通信操作而产生困惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/809
+这是一个用户提出需求的issue，主要涉及的对象是关于Megatron-LM下的一个项目"Projeto liliti stk 3.6.9 inteligência artificial multimidal"。用户提出了对于建立智能系统和年轻创新者之间跨领域合作的需求，旨在发展解决全球健康、教育、可持续发展和包容性需求的技术解决方案。
+
+https://github.com/NVIDIA/Megatron-LM/issues/808
+这个issue类型为用户提出需求，涉及主要对象为个人生活和无法获得报酬的工作。用户寻求如何获得报酬来维持家庭生活。
+
+https://github.com/NVIDIA/Megatron-LM/issues/807
+这是一个bug报告，主要涉及Megatron-LM的核心数据集编译错误。造成这个bug的原因可能是最近的MegatronLM fork导致的编译问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/806
+这个issue是关于新功能需求的，主要涉及Megatron-VLM模型的训练和推理，并提出了对ViT模型、管道并行、序列并行等方面的支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/805
+这是一个合并父存储库的问题单，类型为贡献代码。该问题涉及Megatron-LM存储库的代码合并操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/804
+这个issue是bug报告，涉及的主要对象是Megatron-LM项目中的StragglerDetector类。由于traceback.format_exception调用错误导致的bug的症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/803
+这个issue类型为用户提出问题，涉及主要对象为Megatron-Core模型。用户询问Megatron-Core是否支持LLAMA模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/802
+这是一个用户提出需求的类型，主要涉及的对象是Megatron-LM的dataset packing功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/801
+这是一个功能需求类型的issue，主要涉及数据集处理。由于预处理代码中缺少数据集打包功能，用户提出添加该功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/800
+这是一个关于技术疑问的issue，涉及了Megatron-LM中的bf16训练参数和fp32梯度之间的问题，用户询问了为什么在bf16训练中可以有bf16参数和fp32梯度的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/799
+该issue属于用户提出建议/询问问题类型，主要涉及M-Core模块是否应该使用flash attention来加速训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/798
+这个issue是关于bug报告，涉及到Megatron-LM项目中的finalize_model_grads函数。导致该bug出现的可能原因需要进一步查看代码和分析。
+
+https://github.com/NVIDIA/Megatron-LM/issues/797
+这是一个性能优化建议，涉及主要对象是在Megatron-LM下用于创建注意力遮罩的代码。
+
+https://github.com/NVIDIA/Megatron-LM/issues/796
+这是一个bug报告，该问题涉及的主要对象是Megatron-LM中的`broadcast_params`函数。导致此bug的原因是`broadcast_params`函数错误地将`data_parallel_group`的所有rank传递给了`src`参数，而该参数实际上应该期望一个单独的整数作为源，因此需要修正该函数以仅使用进程组的第一个rank作为源。
+
+https://github.com/NVIDIA/Megatron-LM/issues/795
+这是一个用户提出需求的问题，涉及的主要对象是Megatron-LM中的数据集索引构建。问题出现的原因是缺少索引文件，导致在rank 0上构建索引时消耗了相当长的时间。
+
+https://github.com/NVIDIA/Megatron-LM/issues/794
+这是一个bug报告类型的issue，涉及到分布式检查点加载时启用auto-detect-ckpt-format但禁用use-dist-ckpt导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/793
+这是一个"BUG"报告类型的issue，主要涉及MegatronLM和使用CP function进行finetuning时遇到的问题。由于未使用--use-mcore-models选项进行模型预训练，在启用此选项后无法加载先前预训练模型，可能是参数命名不匹配导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/792
+这是一个bug报告，主要涉及MegatronLM中的分布式优化器在数据并行大小为奇数时工作异常的问题。该问题导致训练过程出现NCCL错误，并且训练无法继续进行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/791
+这是一个bug报告类型的issue，主要涉及到Megatron-LM中的BERT预训练功能。由于缺少`attentionsoftmaxinfp32`参数和attention mask形状不匹配，导致了训练崩溃的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/790
+这是一个用户提出需求的issue，主要涉及到Megatron-LM下的MOE/Mixtral模型的checkpoint转换脚本。用户提出了需要一个合适的脚本来帮助他们微调Mixtral模型的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/789
+该issue是关于bug报告，主要涉及Megatron-LM模型并行化GPT预训练脚本的修改，原因可能是为了修复现有的bug或者优化性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/788
+这是一个用户提出需求的issue，主要对象是向Megatron-LM的Baichuan模型添加NormHead实现，用户希望通过在模型配置文件中设置use_normhead=True来启用该功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/787
+这个issue属于用户提出问题类型，问题涉及到Megatron-LM中训练过程中验证损失和PPL上升的情况。这可能是由于超参数设置不合理或模型配置问题导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/786
+该issue类型为bug报告，主要涉及的对象是Megatron-LM。由于缺少具体内容，用户反馈出现了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/785
+这是一个关于算法功能设计的问题，主要涉及Megatron-LM中的优化器以及专家并行性的设置。导致用户提出疑问的原因在于启用专家并行性时，不同优化器在进行梯度规范化时存在数学上的差异。
+
+https://github.com/NVIDIA/Megatron-LM/issues/784
+这是一个bug报告，主要对象是Megatron-LM。由于调用前向步骤函数时缺少参数导致的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/783
+这是一个bug报告，涉及Megatron-LM的训练问题，由于内存不足导致训练 llama2-70b 时出现oom错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/782
+这是一个Bug报告，涉及到Megatron multinode在Docker环境下出现的初始化进程组错误。由于初始化过程中出现了超时错误，导致了这个Bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/781
+这是一个bug报告，主要涉及的对象是Megatron-LM的代码。因为检查条件`num_layers % virtual_pipeline_model_parallel == 0`中，使用了错误的变量`num_layers_per_stage`，导致了问题的产生。
+
+https://github.com/NVIDIA/Megatron-LM/issues/780
+这个issue是bug报告，涉及Megatron-LM模型在继续训练时出现了NaN值的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/779
+这是一个bug报告，主要涉及Megatron-LM中的`average_losses_across_data_parallel_group`函数。用户在使用该函数时可能会遇到错误的分发组。
+
+https://github.com/NVIDIA/Megatron-LM/issues/778
+这个issue是一个bug报告，涉及主要对象为Megatron-LM中的Megatron-core、transformer-impl和flash-attention，该问题由于设置了不正确的选项导致了bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/777
+这是一个Bug报告，主要涉及Megatron-LM中的llama converter。由于问题描述内容为空，无法确定具体bug症状或用户需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/776
+这个issue是有关bug的报告，涉及Megatron-LM中的ConstantGradScaler和loss-scale参数不匹配的问题。这个问题的原因是参数lossscale期望接收一个2的正数幂，但ConstantGradScaler却直接将lossscale设置为实数值而非2的lossscale次幂。
+
+https://github.com/NVIDIA/Megatron-LM/issues/775
+这是一个关于bug的报告，主要涉及Megatron-LM中的梯度同步操作出现重复执行的问题。这是由于当overlap_grad_reduce设置为False时，在同步通信模式下，finish_grad_sync函数会再次调用start_grad_sync函数，导致执行了两次allreduce/reducescatter通信操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/774
+这是一个bug报告，关于传递错误类型的参数给`torch.distributed.broadcast`函数，导致该函数不能正确广播参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/773
+这个issue是一个bug报告，涉及对象是将Hugging Face Transformers中的权重转换为MegatronLM格式。导致这个问题的原因是在权重转换过程中未正确初始化tensor model parallel group。
+
+https://github.com/NVIDIA/Megatron-LM/issues/772
+这个issue类型是bug报告，主要涉及的对象是pretrain_bert.py脚本。由于更新问题或者功能缺陷导致了对该脚本的修改或者修复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/771
+这是一个关于功能需求的问题，主要涉及Megatron-LM中的PackedSeqParams是否还在开发中的询问，用户希望能够使用序列打包功能但避免交叉感染注意力机制。原因是当前PackedSeqParams功能尚不可用，用户希望了解何时可以实现序列打包而无需交叉感染注意力。
+
+https://github.com/NVIDIA/Megatron-LM/issues/770
+这是一个关于性能比较的问题，主要涉及到Megatron LM中使用megatron-core与legacy的性能差异。由于对同一硬件、数据和训练超参数进行比较时，发现megatron-core的速度较慢且使用的GPU内存更多，提出了使用原因分析。
+
+https://github.com/NVIDIA/Megatron-LM/issues/769
+这是一个用户提出问题的issue，主要涉及到Megatron-LM中的VocabParallelEmbedding类。由于替换了F.embedding()为self.weight[]，用户想了解为什么会带来'non-determinism'的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/768
+这是一个功能需求的issue，涉及主要对象是Megatron-LM中的ColumnParallelLinear Layer。由于默认设置下梯度减少功能导致的问题，用户希望有选项可以禁用这一功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/767
+这是一个用户提出问题的issue，主要涉及到如何在MegatronLM中实现特定微批次的检查点。用户询问如何使用提供的参数来启用微批次级别的检查点。
+
+https://github.com/NVIDIA/Megatron-LM/issues/766
+这是一个bug报告，主要涉及Megatron-LM中expert model parallel的问题。由于expert_model_parallel_size大于context_parallel_size，导致ranks列表为空，引发了TypeError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/765
+这个issue类型是bug报告，该问题单涉及的主要对象是代码中的重复行。原因可能是粗心导致代码中出现了重复行，需要对代码进行优化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/764
+这是一个性能优化的Issue，主要涉及Megatron-LM中的embedding fwd。
+
+https://github.com/NVIDIA/Megatron-LM/issues/763
+这是一个bug报告issue，主要涉及Megatron-LM代码中的模块导入问题，导致出现ModuleNotFoundError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/762
+这是一个bug报告，该问题涉及到Megatron-LM中的"fix new bucket when param require new bucket"。由于先前的实现方式，当最后一个参数需要新的bucket时，可能会导致断言错误，并出现问题描述中所提到的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/761
+这个issue是一个bug报告，涉及到Megatron-LM中MOE模块在使用旧的checkpoint时训练损失不一致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/760
+这是一个bug报告类型的issue，主要涉及到Megatron-LM中的模型转换脚本在导入路径`fused_kernels`上发生错误。由于之前的导入路径错误，导致了无法从`megatron.training`中正确导入`fused_kernels`，从而产生了上述的错误提示。
+
+https://github.com/NVIDIA/Megatron-LM/issues/759
+这是一个bug报告，主要对象涉及Megatron-LM中的模型转换脚本，更新了`fused_kernels`的导入路径解决了无法导入的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/758
+该问题类型是用户提出需求，该问题单涉及的主要对象是通信方法。由于原先的通信方法可能存在一些问题或不足，用户希望采用新的方法来进行通信。
+
+https://github.com/NVIDIA/Megatron-LM/issues/757
+这是一个bug报告，主要涉及代码中重复检查的问题。这导致了额外的冗余操作，提出是否可以删除这个检查。
+
+https://github.com/NVIDIA/Megatron-LM/issues/756
+这是一个关于性能优化的问题，主要涉及训练 Megatron-LM 模型时的低吞吐量。原因可能是配置或参数设置不正确导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/755
+这是一个关于性能计算的问题，主要涉及Megatron-LM的训练速度计算，用户寻求确认和建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/754
+这是一个bug报告类型的issue，主要涉及MegatronLM中 loss mask 使用 torch.float32 而非 bool 类型，可能导致死锁情况，并提出了是否考虑使用布尔型mask的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/753
+这是一个技术讨论类的issue，主要涉及CUDA图在LLM上的变化。这个问题可能与Megatron-LM在更新版本中对CUDA图的调整有关。
+
+https://github.com/NVIDIA/Megatron-LM/issues/752
+这是一个bug报告，涉及主要对象为Megatron-LM中的attention_mask参数，由于PP_size>=4的情况下在中间pipeline阶段attention_mask为None，导致不同并行性配置下结果不同的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/751
+这个issue类型是文档问题报告，涉及主要对象为README.md文件。由于作者在README.md文件中存在拼写错误，需要修正。
+
+https://github.com/NVIDIA/Megatron-LM/issues/750
+这是一个关于问题的提问类型的issue，主要涉及MegatronLM中的pipeline-model-parallel模块，用户询问为什么要求size大于2以及使用交错调度。
+
+https://github.com/NVIDIA/Megatron-LM/issues/749
+这是一个bug报告类型的issue，主要涉及到在运行Megatron-LM中的T5 Pretraining时出现了模块缺失的错误。这个错误的原因是缺少了scaled_softmax_cuda模块。
+
+https://github.com/NVIDIA/Megatron-LM/issues/748
+这个issue是用户提出的需求，主要涉及支持在Megatron-LM中使用S3存储进行分布式检查点的保存和加载功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/747
+这是一个Bug报告，涉及的主要对象是Megatron-LM中的QuickStart示例。由于`initialize_distributed()`函数中`world_size`参数设置错误，未考虑实际GPU数量，导致运行命令不一致性，可能导致终端无响应和异常错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/746
+这是一个关于bug报告的issue，主要涉及MegatronLM使用gloo后端时未传递distributedbackend值造成问题，可能导致程序逻辑错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/745
+这是一个用户提出需求的issue，主要涉及Megatron-LM中的Pipelined DGRAD GEMM + RS功能。通过用户提出的需求可以看出，用户希望支持Pipelined DGRAD GEMM + RS功能，但目前该功能可能存在一些问题或者需要进一步改进。
+
+https://github.com/NVIDIA/Megatron-LM/issues/744
+这个issue类型是关于潜在的精度问题讨论，主要涉及到Megatron-LM中的RotaryEmbedding模块，讨论了inv_freq数据类型和相关sin/cos计算的精度选择问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/743
+这是一个bug报告，主要涉及Megatron-LM在训练过程中出现了序列长度错误的问题，可能是由于代码中的维度计算错误导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/742
+这是一个bug报告类型的issue，主要涉及到Megatron-LM中参数同步的时间差过大问题，由于barrier信息在各个rank之间同步缓慢所导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/741
+该issue是用户提出需求，询问如何使用可编辑模式安装该包。用户遇到了无法使用`pip install -e .`安装包的问题，并且在调试过程中发现其他缺陷，例如无法在VSCode中加载包以及快速点击不起作用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/740
+这个issue是关于bug报告，主要涉及Megatron-LM中的`model/classification.py`文件，由于错误传递了不正确的方法名导致出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/739
+这是一个Bug报告，主要涉及的对象是finetune.py文件。这个Bug是由于重复获取args导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/738
+这是一个bug报告，主要涉及Megatron-LM的SHARP功能在使用分布式优化器时可能会被误关闭，导致NCCL在通信时无法正确使用SHARP算法。
+
+https://github.com/NVIDIA/Megatron-LM/issues/737
+这是一个bug报告，涉及的主要对象是Megatron-LM下的cross-entropy loss计算。这个问题由于label smoothing导致mean_log_probs计算不正确，导致loss在不同的tensor parallel ranks上不一致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/736
+这是一个bug报告，主要涉及MegatronLM的训练速度对比以及nsys时间与输出log时间不一致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/735
+该issue是一个关于bug报告的问题，涉及的主要对象是Megatron.core训练moe model时出现的NCCL TIMEOUT错误。导致此问题的原因可能是NCCL操作超时，导致GPU操作可能在损坏/不完整的数据上运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/734
+这是一个bug报告，涉及的主要对象是Megatron-LM代码中的`eval_utils.py`文件。由于import路径过时，导致了代码无法正确导入`get_forward_backward_func`，需要更新路径解决这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/733
+这是一个bug报告，主要涉及的对象是代码文件中的import问题。这个问题由于代码中导入了过时的模块而导致功能无法正常运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/732
+这是一个用户使用问题类型的issue，主要涉及Megatron-LM中的checkpoint_util.py脚本。可能是由于参数配置不正确导致用户无法成功运行该脚本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/731
+这个issue类型是bug报告，主要涉及torch softmax函数的masking问题，由于elementwise multiplication与mask操作在torch softmax之后进行，导致出现错误的结果。
+
+https://github.com/NVIDIA/Megatron-LM/issues/730
+这是一个bug报告，涉及到Megatron-LM中的推理过程需要查询张量长度为1的问题。由于当前推理过程要求查询张量的长度为1，但有一些使用情况下查询张量长度大于1。
+
+https://github.com/NVIDIA/Megatron-LM/issues/729
+这个issue是用户提出需求的类型，主要涉及的对象是Megatron-LM中的数据加载功能。由于需要支持从S3加载数据，用户提出了对IndexedDataset模块的增强需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/728
+这是一个用户提出问题的类型的Issue，主要涉及到Megatron-LM中的`--overlap-param-gather`选项。由于特定的提交（daf0006）引入了限制，导致该选项在训练非mcore模型时被显式禁用，用户想了解为何这种限制是必要的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/727
+这是一个bug报告，涉及主要对象为Megatron-LM中的transformer_engine模块缺失导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/726
+这个issue是一个用户提出的问题，主要涉及Megatron-LM中的梯度操作函数以及通信操作函数，用户想了解为什么必须使用两个共轭函数而不是一个函数来处理通信操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/725
+这是一个功能需求类型的issue，主要涉及到Megatron-LM的数据加载器，用户提出需要添加支持跟踪每个数据分片中消耗的样本数，以便在训练中添加/删除数据分片或重新加权它们后安全地继续训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/724
+这是一个用户提出的功能增强请求，在Megatron-LM项目中希望添加对已消耗样本数量的跟踪支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/723
+这是一个功能需求类型的issue，涉及Megatron-LM中的`new_group`函数的timeout参数问题，由于之前ProcessGroups创建时未设置timeout参数，导致通信使用了默认的timeout阈值而不是用户希望设置的值。
+
+https://github.com/NVIDIA/Megatron-LM/issues/722
+这是一个bug报告，主要涉及的对象是关于Megatron-LM中的FlashAttention实现，问题在于当前的实现未考虑序列并行性，导致在计算注意力时仅针对部分句子，可能导致模型停止关注先前内容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/721
+这是一个Bug报告，涉及到Megatron-LM中MOE+PP模型训练过程中出现的“referenced before assignment”错误。出现这个bug的原因是在非最后的PP阶段没有定义loss变量，导致在后续引用时出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/720
+这是一个bug报告，涉及到在使用tensor parallel size = 8 时，inference server会一直挂起的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/719
+这个issue类型是关于功能需求的，主要涉及Megatron-LM中的ParallelAttention模块，用户询问为什么当前仅支持SelfAttention的'causal' MaskType，以及是否可以支持FlashAttention。
+
+https://github.com/NVIDIA/Megatron-LM/issues/718
+这个issue类型是bug报告，涉及的主要对象是Megatron-LM中的indexed_dataset.py文件。由于数据逻辑转移到核心后，之前可以正常工作的数据集会出现问题，导致该断言错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/717
+这是一个用户提出需求的issue，主要对象是GPT模型，用户希望增加一个名为`--rotary-base`的参数来支持旋转位置编码。
+
+https://github.com/NVIDIA/Megatron-LM/issues/716
+这是一个Bug报告，涉及Megatron-LM中使用MoE层时性能下降的问题。原因是在特定步骤中出现性能下降，主要由于all gather和reduce scatter调用占用了大部分执行时间。
+
+https://github.com/NVIDIA/Megatron-LM/issues/715
+这是一个bug报告，主要涉及输出层初始化方法的关键字错误导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/714
+这是一个bug报告，主要涉及对象是Megatron-LM下的一个模块。导致这个bug的原因是当用户不想使用transformer_engine时，却报告缺少该模块的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/713
+这是一个bug报告，主要涉及对象是Megatron-LM代码中的某些模块。该问题可能是由于缺少名为'transformer_engine'的模块导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/712
+这个issue属于用户提问类型，讨论的主要对象是Megatron-LM模型中用于下游任务评估的检索数据集。由于用户对模型如何使用特定语料库进行检索数据提出了疑问，希望了解模型在不同QA数据集中使用相应语料库用于检索的具体方式。
+
+https://github.com/NVIDIA/Megatron-LM/issues/711
+这是一个bug报告，涉及MegatronLM中启用--fp16和--tp-comm-overlap导致GEMM报告不一致类型错误的问题。原因是在启用tpcommoverlap时，用户缓冲区的类型设置为bfloat16，但后续GEMM计算中存在类型不匹配的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/710
+这是一个bug报告，涉及的主要对象是Megatron-LM中的文本生成模块。由于使用了rope位置嵌入类型导致出现异常500错误，原因可能是提供的qkv内存布局不受支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/709
+这是一个bug报告，主要涉及TransformerEngine与MegatronLM的checkpoint加载问题导致Loss Curve明显变化的情况。由于在加载时strict参数设置为False避免了key名称差异带来的错误，但却导致了checkpoint无法正确加载的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/708
+这个issue属于Bug报告类型，涉及的主要对象是在项目Megatron-LM中尝试使用seq_length大于1024时出现的训练错误。由于尝试将seq_length设置为2048导致训练失败，并在代码运行过程中出现了无法调整大小的存储空间错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/707
+这个issue属于用户提出需求类型，主要涉及Megatron-LM是否有计划支持Gemma。这个问题可能是由于用户对Megatron-LM的功能扩展性感兴趣，想了解是否会支持Gem版本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/706
+这是一个用户提出需求的类型，主要涉及Megatron-LM项目中mcore模块的checkpoint保存和加载功能。由于现有功能不支持mcore模块的checkpoint处理，用户提出需要添加这一功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/705
+这个issue是bug报告，主要涉及Megatron中的数据混合算法，由于在`BlendableDataset`类的`__getitem__`方法中可能出现`sample_idx >= len(self.datasets[dataset_idx])`的情况，导致索引超出范围的`IndexError` bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/704
+这是一个bug报告类型的issue，主要涉及的对象是Megatron-LM代码中的拼写错误。原因是代码中存在拼写错误，需要修复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/703
+这是一个用户提出需求的类型，主要涉及到将hf llama-2模型转换为Megatron，但希望使用mcore模型而不是传统的legacy模型。原因可能是转换过程中出现了问题导致生成的模型不符合用户的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/702
+这是一个关于Megatron-LM安装的问题，用户在使用CUDA 11.6的环境下尝试安装Megatron-LM时出现了模块未找到的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/701
+这是一个关于使用mcore模型的问题，用户询问在pretrain_gpt.py中使用mcore模型和不使用mcore模型有什么区别。
+
+https://github.com/NVIDIA/Megatron-LM/issues/700
+这是一个bug报告，主要涉及Megatron-LM中使用MoE和pipeline_parallel_size > 1时触发的错误。该bug由于变量`loss`在赋值前被引用导致UnboundLocalError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/699
+这是一个Bug报告类型的issue，主要涉及Megatron-LM中使用Faiss时出现的RuntimeError。问题的根本原因是训练点数量和集群数量不匹配，导致Faiss库训练过程中出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/698
+这是一个用户提出需求的issue，主要涉及MegatronLM的数据加载功能扩展。这个问题是由于MegatronLM目前不支持从S3加载数据集而引起的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/697
+这是一个bug报告，涉及到Megatron-LM下的GPTDataset数据集处理逻辑的错误洗牌实现，可能由于数据集在epochs间全局洗牌导致数据处理问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/696
+这是一个Bug报告，涉及的主要对象是MegatronLM中的InstructRetro模块。由于模块中出现了AttributeError，导致了无法找到'transformer_engine'包中的'pytorch'属性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/695
+这是一个bug报告，涉及MegatronLM在运行数据预处理脚本时出现了No Module Error错误。原因是缺少名为'transformer_engine'的模块。
+
+https://github.com/NVIDIA/Megatron-LM/issues/694
+这个issue是一个bug报告，主要涉及的对象是模型转换过程中的参数顺序调整问题，导致加载optimizer时出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/693
+这是一个bug报告，涉及的主要对象是文档（readme）。这个问题产生的原因是在数据预处理示例脚本中需要使用`workers`参数，但在readme文档中缺少了对该参数的说明。
+
+https://github.com/NVIDIA/Megatron-LM/issues/692
+这是一个bug报告，主要涉及的对象是Megatron-LM下的 logging 模块。由于加载器导入错误被吞没，可能导致跟loader相关的实际错误未被正确显示。
+
+https://github.com/NVIDIA/Megatron-LM/issues/691
+这是一个类型为问题咨询的issue，主要涉及到如何在管道并行中准确地分析泡沫时间。由于开发者想要了解如何准确地分析管道并行中的泡沫时间，产生了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/690
+这是一个疑问类型的问题，主要涉及MegatronLM中分布式数据并行（DDP）模块的实现方式，提问者想了解为什么不直接将参数的`grad`映射到梯度缓冲区中，而是通过`main_grad`来实现，然后需要在反向传播钩子中手动将`grad`添加到`main_grad`。
+
+https://github.com/NVIDIA/Megatron-LM/issues/689
+这是一个用户提出的问题类型的issue，主要涉及 MegatronLM 的权重转换工具，用户在转换过程中遇到了信息输出错误的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/688
+这是一个bug报告，涉及的主要对象是Megatron-LM中使用LoRA时出现的权重没有`main_grad`属性的问题。这个问题可能是由于部分权重未设置`require_grad`导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/687
+这是一个用户提出问题的类型，主要涉及Megatron-LM中的forward_backward_pipelining_without_interleaving。用户询问为什么这一特性没有打开overlap_p2p_comm配置项。
+
+https://github.com/NVIDIA/Megatron-LM/issues/686
+这是一个用户问题类型的issue，主要涉及MegatronLM的process group初始化问题，用户尝试重新初始化但失败，可能是由于未成功销毁原始process group导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/685
+这是一个询问性质的问题，用户在寻找关于MegatronLM中`ring_exchange`方法与torch版本的兼容性的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/684
+这是一个用户提出需求的类型，该问题涉及的主要对象是Neft。由于issue标题和内容为空，用户可能在提交问题时忘记填写相关信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/683
+这是一个bug报告，涉及到Megatron-LM项目中的router layer。由于缺少params_dtype参数，导致了某种问题的出现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/682
+这是一个bug报告类型的issue，主要涉及到Megatron-LM中的计算问题，导致在使用`args.swiglu`或指定自定义`args.ffn_hidden_size`时，通过计算吞吐量时会出现不正确的TFLOP/s/GPU统计。
+
+https://github.com/NVIDIA/Megatron-LM/issues/681
+这个issue为用户提出的问题，主要涉及的对象是MegatronLM中的`rotary_seq_len_interpolation_factor`参数，用户想了解如何设置该参数来匹配huggingface的`rope_scaling`设置。
+
+https://github.com/NVIDIA/Megatron-LM/issues/680
+这是关于bug报告的一种类型，涉及到程序退出代码异常的问题，主要对象是Megatron-LM代码。由于文件未找到时程序返回错误状态码为0，导致作业看起来“完成”，需要修复这个错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/679
+这个issue是用户提出需求类型的问题，主要涉及Tiny LLaMA data-loaders和训练脚本，用户需要在Megatron-AxoNN中使用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/678
+这个issue是关于bug报告，主要涉及到Megatron-LM中的pretrain_gpt.py文件中的`get_batch`函数。原因是新代码在增加序列长度时比旧代码慢，导致性能下降。
+
+https://github.com/NVIDIA/Megatron-LM/issues/677
+这是一个bug报告类型的issue，在Megatron-LM下出现了TypeError导致程序无法运行。原因是调用FastLayerNormFN.forward()时缺少了一个必需的参数'memory_efficient'。
+
+https://github.com/NVIDIA/Megatron-LM/issues/676
+这是一个bug报告，主要涉及Megatron-LM工具中pretrain_bert.py数据集分割的问题，可能是由于数据集分割出现错误导致test mapping过程中hang的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/675
+这个issue属于用户提问类型，涉及的主要对象是Megatron-LM中的pipeline并行调度。这个问题由于对变量计算逻辑的困惑而产生，希望得到解释。
+
+https://github.com/NVIDIA/Megatron-LM/issues/674
+这是一个功能需求的issue，主要涉及Megatron-LM工具中`preprocess_data.py`脚本缺少`workers`选项。
+
+https://github.com/NVIDIA/Megatron-LM/issues/673
+这是一个bug报告类型的issue，涉及到Megatron-LM中的loss计算逻辑。由于loss计算中乘以了错误的系数，在context parallel代码逻辑中出现了错误的结果。
+
+https://github.com/NVIDIA/Megatron-LM/issues/672
+这个issue是一个bug报告，主要涉及Loss函数中的loss scale问题。原因可能是某个错误导致了loss scale无法正确修复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/671
+这是一个需求提升类型的issue，涉及主要对象为MCore transformer中缺少的PostLN支持，用户提出了为MCore添加PostLN风格以支持HF Bert的解决方案。
+
+https://github.com/NVIDIA/Megatron-LM/issues/670
+这个issue属于技术问题讨论类型，主要涉及LinearWithFrozenWeight模块，用户询问该模块为何需要单独定义。
+
+https://github.com/NVIDIA/Megatron-LM/issues/669
+这是一个bug报告，涉及Megatron-LM中的moe router layer缺少dtype参数的问题。由于在启用bf16时，模型前向传播会遇到dtype参数的RuntimeError，导致出现了期望标量类型为BFloat16但实际找到了Float的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/668
+这是一个用户提出需求的issue，主要涉及Megatron-LM中的TransformerConfig对象，用户希望添加`core_attention_bias_type`参数以支持alibi transformer engine中的DotProductAttention模块。
+
+https://github.com/NVIDIA/Megatron-LM/issues/667
+这是一个用户提出需求的issue，主要涉及Megatron-LM中对Mixtral 8*7B MOE的支持。由于在Megatron中实现Huggingface的load balancing loss 需要大量修改，因此选择使用原始的sinkhorn算法简化工作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/666
+该issue类型为用户询问问题，主要涉及的对象是Megatron-LM下的两个不同实现中的GPT模型，用户想了解它们之间的区别。
+
+https://github.com/NVIDIA/Megatron-LM/issues/665
+这个issue类型为bug报告，该问题单涉及的主要对象是代码中的函数 `_get_ltor_masks_and_position_ids`。由于数据张量不再是2D张量，导致了index切片 `b` 错误，需要将其移除。
+
+https://github.com/NVIDIA/Megatron-LM/issues/664
+这是一个关于功能需求的问题，主要涉及分布式优化器的使用方式。由于现在需要使用Gloo和TCP，用户提出是否可以使用GPU代替CPU进行状态收集并保存。
+
+https://github.com/NVIDIA/Megatron-LM/issues/663
+这个issue是一个bug报告，涉及的主要对象是Megatron-LM中的参数设置和优化器。该bug导致使用`overlapgatherparameters`和`overlapreducegradients`同时可能阻止损失正常降低，可能是由于参数聚合的重叠导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/662
+该issue为用户询问如何手动释放模型和优化器内存，尝试了多种方法但未成功，寻求帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/661
+这个issue是一个bug报告，涉及的主要对象是Megatron-LM的pretrain_gpt_distributed_with_mp.sh脚本运行过程中出现的NCCL错误，导致出现了重复的GPU检测错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/660
+这个issue类型是用户提出需求，涉及主要对象是num of elements。这个问题可能由于在将检查点加载到新的DP大小时需要重新调整元素数量而提出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/659
+这是一个bug报告，涉及Megatron-LM中分布式优化器在不同节点数量下加载checkpoint出现错误的问题。原因是在加载checkpoint时，每个桶中的元素数量不一致导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/658
+这是一个bug报告，涉及对象为将Llama2 Huggingface检查点格式转换为Megatron格式的过程。由于transformer_engine模块在自引用时未正确导入pytorch属性，导致出现了相关错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/657
+这是一个bug报告，涉及Megatron-LM中pad bucket大小导致loss不一致的问题，由于生成optimizer参数的order依赖，导致使用pad bucket code后产生的optimizer参数顺序不同，进而导致梯度累积顺序不一致，最终导致训练loss与未使用pad bucket code时不一致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/656
+这是一个Bug报告，主要涉及LM（语言模型）头部权重在训练过程中出现解绑的问题，导致LM头部权重在应该被绑定的情况下解绑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/655
+这是一个bug报告，主要涉及Megatron-LM中添加dropout layer到tensor model parallel context时出现的问题，导致了返回了无效的梯度。
+
+https://github.com/NVIDIA/Megatron-LM/issues/654
+这是一个用户提出问题的 issue，主要涉及计算Megatron-LM中权重和优化器的理论内存使用，问题出现的原因可能是关于计算`num_bytes_per_parameter`的逻辑误差。
+
+https://github.com/NVIDIA/Megatron-LM/issues/653
+这是一个用户提出需求的issue，主要涉及的对象是添加一个名为 "is_first_microbatch" 的参数。原因可能是用户希望在特定情况下控制微批次的处理逻辑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/652
+这是一个bug报告，涉及测试代码中的内存缓冲区数值是否正确的问题，用户提出了为什么在随机内存值情况下`obtained_tensor`会与`expected_tensor`相等的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/651
+这是一个需求提案类型的issue，主要涉及Megatron-LM中的模型训练过程。由于保存checkpoint到存储需要较长时间，导致训练中断时间过长，用户希望通过异步保存checkpoint的方式来减少训练中断的时间。
+
+https://github.com/NVIDIA/Megatron-LM/issues/650
+这是一个bug报告类型的issue， 主要涉及的对象是Megatron-LM项目下的Docker构建过程。由于在安装特定版本的`megatron_core`（0.4.0）时出现了错误，可能是由于缺少必要的构建依赖项导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/649
+这个issue类型是用户提出需求，主要对象是Megatron-LM，用户在询问是否有支持Mixtral 8x7B的计划。
+
+https://github.com/NVIDIA/Megatron-LM/issues/648
+这是一个用户提出需求的issue，主要涉及Megatron-LM中的视觉模型，并询问是否支持张量并行和流水线并行，即是否可以使用超过1的tensormodelparallelsize或pipelinemodelparallelsize。
+
+https://github.com/NVIDIA/Megatron-LM/issues/647
+这是一个bug报告，主要涉及Megatron-LM项目中加载checkpoint继续训练时在验证过程中出现卡顿的问题。这个问题的原因可能是在指定参数"noloadoptim"和"noloadrng"时，加载checkpoint后继续训练时出现卡顿现象。
+
+https://github.com/NVIDIA/Megatron-LM/issues/646
+这个issue是一个bug报告，涉及的主要对象是Megatron-LM代码中的overlap_param_gather功能。由于缺少assert语句，可能导致潜在的错误或不一致性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/645
+这是一个需求提出的issue，主要涉及的对象是Megatron-LM的optimizer state，在加载过程中需要根据不同的数据并行大小进行填充，可能导致加载错误或者性能问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/644
+这是一个bug报告，主要涉及的对象是Megatron-LM代码中的param_buffer问题。由于使用`torch.tensor(storage)`会导致高峰内存使用，可能造成OOM，提出了使用`tensor.view(dtype)`来解决该问题的建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/643
+这是一个bug报告，主要涉及到Megatron-LM中的RotaryEmbedding模块，由于RotaryEmbedding返回的是float32类型的embedding而不是float16类型，导致TransformerEngine出现断言失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/642
+这个issue属于bug报告类型，主要涉及Llama2Tokenizer对象，由于问题访问pad eos bos属性导致了错误出现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/641
+这是一个bug报告，主要涉及的对象是LlamaTokenizer。由于self._pad_id, self._eos_id, self._bos_id的初始化不正确，导致无法访问LlamaTokenizer的属性pad，eos，bos，进而出现了AttributeError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/640
+这是一个bug报告类型的issue，主要涉及到Megatron-LM在pre training过程中GPU内存占用异常增加的问题，用户寻求解决方案。
+
+https://github.com/NVIDIA/Megatron-LM/issues/639
+这个issue是关于一个bug报告，涉及Megatron-LM的Retro模块中构建数据库时缺少args.json文件，导致在验证步骤中出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/638
+这是一个用户提出问题的类型，主要涉及Megatron-LM应用程序的性能分析工具nsys profile的使用问题，可能是由于命令hang导致无法生成性能分析文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/637
+这是一个关于bug报告的issue，主要涉及Megatron-LM中的OOM（内存耗尽）问题，用户询问为什么在运行pretrain_gpt_distributed_with_mp.sh脚本时的第10次迭代后突然报告OOM错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/636
+这个issue类型为用户提出问题，主要涉及CUDA_DEVICE_MAX_CONNECTIONS参数对计算和通信重叠的影响，用户想了解为何在设置CUDA_DEVICE_MAX_CONNECTIONS为1时仍然可以实现部分重叠，但有些部分却会被阻塞。
+
+https://github.com/NVIDIA/Megatron-LM/issues/635
+这个issue类型是需求提出，主要对象是代码中的log_string输出格式。由于希望统一日志输出格式，提出了更新training.py中log_string格式的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/634
+这个issue是关于用户提出需求，询问是否有计划在Megatron-LM中支持LLM预训练与FSDP的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/633
+该问题是一个关于待处理Pull Request的issue，涉及主要对象为TransformerEngine项目。原因是用户提交了一个将Sliding window attention/akoumparouli功能添加到Megatron-LM中的请求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/632
+这是一个bug报告，该问题涉及MegatronLM加载checkpoint时出现错误，提示缺少common.pt文件的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/631
+这是一个bug报告，主要涉及Megatron-LM中的Rotary embeddings。由于对输入向量进行变换之前需要将其分成奇偶部分，而当前实现未正确分割输入向量，导致了旋转嵌入中的小bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/630
+这是一个关于bug的报告，主要涉及MegatronLM下的激活重新计算(full activation recomputation)功能出现了错误。由于某些情况下NoneType对象缺少'requires_grad'属性，导致了AttributeError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/629
+这是一个Bug报告，主要涉及Megatron-LM中MCore模型中关于重复转换权重格式的问题。由于权重在微批次间未发生变化，导致在每次调用`optimizer.step()`时，MCore模型会重复将权重从bf16转换为fp8，从而降低性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/628
+这是一个用户提出需求的类型，主要对象是优化输出日志格式，希望增加冒号来标记迭代，可能是为了统一输出格式而提出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/627
+这是一个关于增强功能的issue，涉及到torch ddp支持的融合内核。
+
+https://github.com/NVIDIA/Megatron-LM/issues/626
+这个issue是一个功能增强请求，主要涉及Megatron-LM中的test_fused_kernels，由于当前测试脚本只使用cuda:0进行数据计算，导致测试只能在gpu 0上运行，用户希望为测试脚本添加device参数并使torch ddp在test_fused_kernels.py中正常工作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/625
+这是一个Bug报告，主要涉及到Megatron-LM的 fused_kernels test，导致测试无法正常工作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/624
+这是一个bug报告，涉及主要对象是Megatron-LM的fused kernels测试。由于load()函数缺少必需的参数'args'，导致了测试无法通过。
+
+https://github.com/NVIDIA/Megatron-LM/issues/623
+这是一个关于bug报告的issue，主要涉及对象是MegatronLM中的embedding table OOB check，由于Llama2Tokenizer中的pad_id为1，在数据使用pad_id进行填充时，导致了检查失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/622
+这是一个bug报告，主要涉及Megatron-LM中的变量序列长度启用时通信形状出现的问题，原因是在特定情况下未指定pipeline_model_parallel_group进行通信造成的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/621
+这是一个关于无法执行设备上的CUDA内核图像导致的bug问题报告，主要涉及到Megatron-LM下的GPT预训练脚本的运行。由于CUDA错误，导致出现了无法执行设备上的CUDA内核图像的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/620
+这是一个Bug报告，涉及Megatron-LM中的通信问题，导致在特定设置下无法正确传递张量形状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/619
+这是一个bug报告，主要涉及Megatron-LM中的router同步问题，由于同时启用了sequence parallelism、tensor parallelism和moe导致router权重未同步，造成训练过程中router权重差异。
+
+https://github.com/NVIDIA/Megatron-LM/issues/618
+这是一个需求类型的issue，主要涉及Megatron-LM中的ZB调度程序的内存设置问题。可能是用户希望在不同的ZB进度表中使用不同的FBW内存设置。
+
+https://github.com/NVIDIA/Megatron-LM/issues/617
+这个issue是一个功能需求提议，主要涉及时间分解分析工具，用户提出了一个新的工具用于在单次迭代中分解所花费的时间以便做出理论模型训练时间的预测。
+
+https://github.com/NVIDIA/Megatron-LM/issues/616
+这是一个bug报告，主要涉及使用allgather时对GPU内存和D2D操作的额外分配，建议使用_all_gather_base替换all_gather以减少内存占用和D2D操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/615
+这是一个bug报告，涉及到在设置特定的参数条件下无法加载checkpoint的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/614
+这是一个bug报告，涉及主要对象为在使用Megatron-LM中的VIT模型时出现了TypeError。导致这个问题可能是由于VIT模型初始化参数中出现了未知的关键字参数 'post_layer_norm'。
+
+https://github.com/NVIDIA/Megatron-LM/issues/613
+这是一个bug报告，主要涉及使用torch.autograd.graph.saved_tensors_hooks在Megatron-LM中导致GPU内存消耗异常增加的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/612
+这是一个用户提出问题类型的issue，主要对象是Megatron-LM中的代码。用户询问是否可以根据阶段信息来确定输入数据来源，而不是强制性地设置输入张量。
+
+https://github.com/NVIDIA/Megatron-LM/issues/611
+该issue是关于用户提出问题的类型，主要涉及训练中消耗的token数量以及json文件转换成.bin和.idx文件后如何计算所有token数量，可能是由于用户对Megatron-LM的一些概念和操作步骤不够清晰所导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/610
+这是一个拼写错误的bug报告，主要涉及Megatron-LM项目中的参数文件。由于单词拼写错误导致了bug症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/609
+这是一个缺少内容的issue，用户提出了关于评估代码的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/608
+这是一个bug报告，用户在启用 "--tp-comm-overlap" 选项时在 `examples/pretrain_gpt_distributed_with_mp.sh` 脚本中遇到崩溃问题。原因可能是与 MegatronLM 中特定的通信重叠设置相关。
+
+https://github.com/NVIDIA/Megatron-LM/issues/607
+这是一个 bug 报告，涉及 Megatron-LM 中的 FP8+PP+Recompute+GA>1 导致 loss 为 nan 的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/606
+这是一个由CUDA内存不足错误引起的bug报告，用户尝试使用A100 40G GPU在finetuning LLAMA2-7b时遇到问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/605
+这是一个关于如何使用自定义分词器训练模型的问题，主要涉及目标是在Megatron-LM下训练GPT、BERT和T5样式模型的用户。用户提出了关于如何使用自己的sentencepiece tokenizer模型进行预处理和训练的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/604
+这是一个用户提出的需求报告，主要涉及Megatron-LM项目中的数据类型处理问题。造成这个问题的原因是代码中在处理较大词汇表大小时，使用了int32类型，导致出现异常症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/603
+这是一个Bug报告，涉及Megatron-LM中使用preprocess_data.py处理数据时出现模块未找到的错误。可能是由于缺少名为'change_data_ptr'的模块导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/602
+这是一个bug报告，涉及对象是Megatron-LM下的optimizer状态在save-interval=20时为空，导致KeyError: 'exp_avg'。
+
+https://github.com/NVIDIA/Megatron-LM/issues/601
+这是一个bug报告，主要涉及的对象是Megatron-LM项目中的一个拼写错误。可能是由于粗心大意或输入错误导致这个问题的出现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/600
+这是一个BUG报告，主要涉及到在NLP集合中运行unittests需要在内部CI机器上才能成功运行的问题。产生这个问题的原因是unittests依赖于``/home/TestData``文件夹的正确版本，缺少该文件夹导致unittests无法在非NVIDIA CI机器上成功运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/599
+这是一个bug报告，主要涉及Megatron-LM中SwitchMLP模块的权重在启用张量并行时未按照组内同步的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/598
+这是一个bug报告，主要涉及数据处理过程中的整数溢出问题，导致了在训练过程中出现了错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/597
+该issue类型是用户询问问题类型，主要涉及计算内存使用相关参数。该问题由于用户想准确计算基于操作参数的内存使用而提出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/596
+这是一个bug报告，该问题涉及的主要对象是Megatron-LM中的模型训练过程。由于从分布式训练切换到单机训练时出现了错误配置的值，导致出现了NCCL错误和无法启动训练的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/595
+这是一个用户提出需求类型的issue，主要涉及HF llama的转换以及target-pipeline-parallel-size参数设置。由于用户想要设置target-pipeline-parallel-size参数大于1，因此提出了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/594
+这个issue是用户提出的问题，主要涉及Megatron-LM代码库中的MLM和TE版本选择问题，由于MLM代码库不稳定，用户需要指导选择合适的MLM版本和对应的TE版本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/593
+这是一个bug报告，涉及的主要对象是Megatron-LM中的FusedLayerNormAffineFunction。导致问题的原因是该函数在使用时缺少了必需的参数 memory_efficient，导致出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/592
+这是一个需求询问类型的Issue，主要涉及Megatron LM是否支持使用其他模型，并寻求关于如何调用接口进行适配的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/591
+这是一个用户提出需求的 issue，涉及 Megatron-LM 中支持在启用 interleaved schedule 的情况下转换检查点的问题。这个需求是由于当前代码库无法使用新的策略继续训练从旧检查点开始的模型所导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/590
+这是一个用户提出需求的issue，涉及Megatron-LM在运行generations过程中的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/589
+这是一个需求增强类型的issue，主要涉及Megatron-LM框架下的分布式优化器，用户请求支持zero2来降低GPU内存使用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/588
+这是一个bug报告，涉及Megatron-LM中使用RoPE embeddings在分布式训练时导致NCCL错误的问题。由于尝试使用RoPE embeddings时出现NCCL错误，可能是由于相关的CUDA函数调用失败导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/587
+这是一个用户就术语理解问题提出的疑问，主要涉及Megatron-LM项目中的"subgraphs"和"relevant files"。根据描述，用户可能对这些术语的具体含义感到困惑，需要更详细的解释或示例帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/586
+这是一个关于Megatron-LM中模型并行性中进程间和层间通信的问题，主要涉及如何传递信息和与同一张量并行性组中的其他进程通信，以及如何在层之间传递结果的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/585
+这个issue属于用户提出需求的类型，主要涉及Megatron-LM在多GPU上训练多个子图的相关文件，用户可能寻求关于如何实现此功能的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/584
+这是一个关于性能问题的用户提问，主要涉及Megatron-LM在lustre文件系统上的数据预处理操作，由于频繁的文件打开和关闭操作导致性能下降。
+
+https://github.com/NVIDIA/Megatron-LM/issues/583
+这是一个用户提出需求的类型，主要涉及到Megatron-LM的文件级fim添加问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/582
+这是用户提出需求的类型的issue，主要涉及RL PPO算法在Megatron-LM中的支持。由于用户希望了解是否有计划支持RL算法来微调基础模型，因此提出了相关问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/581
+这是一个用户提出问题的issue，主要涉及 MegatronLM 的使用指导问题，询问关于如何启动 Llama2 的内容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/580
+这是一个bug报告，涉及主要对象为使用了use-distributed-optimizer的情况下调用clip_grad_norm函数时出现的问题，导致梯度计算不再是全局的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/579
+这是一个关于如何在llama2上使用megatron-lm进行推理的问题，用户提出了寻求帮助的请求。由于缺乏具体的问题描述，可能是由于配置或使用方面的困难导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/578
+这是一个bug报告，主要涉及到Megatron-LM中的DDP class和distributed layers，由于未判断weight是否具有main_grad属性，导致在进行allreduce时出现异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/577
+这是一个bug报告， 主要涉及的对象是Megatron-LM下的模块transformer_engine。由于模块引入路径错误导致了ModuleNotFoundError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/576
+这是一个用户提出需求的issue，主要涉及的对象是数据处理工具。原因可能是要新增加一个名为Llama2Tokenizer的数据处理工具。
+
+https://github.com/NVIDIA/Megatron-LM/issues/575
+这是一个bug报告，涉及到在保存checkpoint时出现同步问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/574
+这个issue类型是用户提出需求，关于参数设置的问题，主要涉及 Megatron-LM 和 Hugging Face 代码库之间的比较，用户询问为什么 Megatron-LM 中没有类似 HF 中的 rope_base 参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/573
+这是一个用户提出需求的issue，主要涉及工具saver_megatron和输出虚拟管道并行大小设置相关的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/572
+这是一个bug报告类型的issue，主要涉及Megatron-LM项目中的training.py文件，因为变量命名不一致导致混乱。
+
+https://github.com/NVIDIA/Megatron-LM/issues/571
+这是一个bug报告， 主要涉及Megatron-LM中的`pipeline-parallel schedules`， 由于`get_tensor_shapes()`函数在`schedules.py`中没有考虑到上下文并行size，导致了错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/570
+这是一个bug报告，该问题涉及到在使用`return_output_log_probs=True`和`pipeline_model_parallel_size>1`时出现的不连续错误。这个问题由于在`generation.generate_tokens_probs_and_return_on_first_stage`中对`output_log_probs[:, :context_length]`进行处理时使其不连续，从而导致了在后续的`broadcast_from_last_to_first_pipeline_stage`中引发了关于非连续的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/569
+这是一个优化性能的建议类型的issue，主要涉及的对象是cross_entropy.py，由于原地操作会减少中间内存使用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/568
+这是一个bug报告类型的issue，涉及的主要对象是fix repeat_interleave函数。由于repeat_interleave函数存在问题，导致出现了某种症状的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/567
+这是一个用户提出需求的issue，主要涉及到Megatron-LM项目的发布流程。由于距上一个发布版本已经有4个月时间，用户请求项目管理者发布一个新的稳定版本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/565
+这是一个Bug报告，主要涉及的对象是在Megatron-LM中使用SwitchMLP和distributed_optimizer时出现的问题。这个问题的原因是SwitchMLP的参数没有被optimizer更新，导致在训练过程中这些参数始终保持不变。
+
+https://github.com/NVIDIA/Megatron-LM/issues/564
+这个issue是关于bug报告，涉及主要对象是MegatronLM中的'distributed-timeout-minutes'参数，由于没有将该参数传递给'torch.distributed.new_group' API，导致设置的超时时间无效。
+
+https://github.com/NVIDIA/Megatron-LM/issues/563
+这是一个关于需求的问题，用户询问是否有计划在Megatron中引入`torch.compile`来加速训练性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/562
+该issue为用户寻求文档/论文并询问问题的类型，主要涉及到专家和上下文并行相关主题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/561
+这是一个提问问题类型的Issue，主要涉及到代码中如何确保梯度桶大小能够被数据并行世界大小整除的逻辑。由于缺乏对应的验证代码，用户提出了这个疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/560
+这是一个关于代码正确性的问题，涉及到Megatron-LM中RoPE（Rotary Positional Embedding）实现的逻辑正确性。原因可能是对于序列长度如何正确拆分以及每个rank需要对应的sin和cos值是否实现正确的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/559
+这是一个问题询问类型的issue，主要涉及Megatron中的Tensor Parallel MLP blocks，用户询问关于反向传播中的All-Reduce位置的问题，希望得到关于矩阵求导的数学证明帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/558
+这是一个bug报告类型的issue，主要涉及到Megatron-LM中的参数设置问题。由于启用了`overlap-grad-reduce`参数，导致出现了无法处理的AssertionError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/557
+这是一个用户提出需求的问题，主要涉及Megatron-LM中文本生成时如何在推理阶段启用序列并行处理。用户询问如何在推理阶段实现这一功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/556
+这是一个关于优化Tensor Parallel调度的建议问题，主要涉及Megatron-LM的性能限制和通信优化的讨论。
+
+https://github.com/NVIDIA/Megatron-LM/issues/555
+这是一个关于脚本参数错误的bug报告，涉及Megatron-LM下的文本生成服务器脚本运行失败的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/554
+这是一个用户提出需求的类型。该问题涉及支持LoRA/QLoRA的功能。由于目前在Megatron-LM中并未集成LoRA，用户想知道未来是否会支持LoRA/QLoRA。
+
+https://github.com/NVIDIA/Megatron-LM/issues/553
+这
+
+https://github.com/NVIDIA/Megatron-LM/issues/552
+这个issue是一个bug报告，该问题涉及Megatron-LM中的dist opt加载时发生的错误，导致当尝试更改dp_size时可能出现无法scatter张量的现象。
+
+https://github.com/NVIDIA/Megatron-LM/issues/551
+这是一个用户提出需求的类型，主要涉及对象是Megatron-LM模型，用户希望在代码中添加max z loss功能来稳定训练并提高推断的鲁棒性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/550
+这是一个用户提出需求的issue，主要对象是需要添加一个bash脚本示例。
+
+https://github.com/NVIDIA/Megatron-LM/issues/549
+这个issue是关于bug报告，涉及主要对象是在finetune llama2-7B时出现CUDA错误。由于CUDA错误CUBLAS_STATUS_NOT_INITIALIZED导致cublasCreate(handle)调用时出错，导致程序无法正常运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/548
+这个issue属于bug报告，主要涉及的对象是Megatron-LM中的Tensor Parallel layers，由于设置某些层的`.requires_grad = False`时，与渐变累积合并结合时导致反向传播假定该层具有渐变。
+
+https://github.com/NVIDIA/Megatron-LM/issues/547
+这是一个用户提出需求的类型，主要涉及到在Megatron-LM中如何均匀混合多个数据集。用户询问应该如何设置参数才能实现从两个数据集中均匀抽样，而不进行上采样或下采样，可能由于对数据集混合方式的不确定性而导致疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/546
+这是一个关于bug报告类型的issue，主要涉及Megatron-LM下的模型训练过程中的一个问题。由于特定条件下模型保存逻辑的bug导致lm_head权重无法保存。
+
+https://github.com/NVIDIA/Megatron-LM/issues/545
+这是一个用户提出需求的issue，主要涉及Megatron-LM项目中的使用分布式优化器时的问题，由于要求每个桶的缓冲区大小必须可以整除2，导致在某些设置下使用分布式优化器时断言失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/544
+这个issue类型为功能改进，主要涉及对象为Megatron中的transformer模块，用户提出了对cache attention calculation的修改。
+
+https://github.com/NVIDIA/Megatron-LM/issues/543
+这个issue类型是bug报告，主要涉及Megatron-LM最新版本在GPU利用率方面存在性能下降问题，可能是由于不明确的同步操作(repeat_interleave)导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/542
+这个issue属于bug报告类型，主要涉及layernorm1p变量类型的问题。原因是False类型应该是boolean而不是string，导致了错误的类型匹配问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/541
+这是一个用户提出需求的issue，主要对象是MegatronLM源代码的benchmarking实验，用户提出需要计算训练吞吐量并提供了参考代码链接。
+
+https://github.com/NVIDIA/Megatron-LM/issues/540
+这是一个用户提出需求的问题，主要涉及的对象是 Megatron-LM 中的 fused_kernels，用户询问如何避免在训练过程中构建 megatron/fused_kernels 以加快训练速度。
+
+https://github.com/NVIDIA/Megatron-LM/issues/539
+这是一个关于功能增强提议的issue，用户提出关于在Megatron-LM框架中是否实现了BPipe的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/538
+这是一个bug报告，涉及的主要对象是Rotary Position Embedding，在实例化RotaryEmbeddings时缺少了rotary_percent参数导致错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/537
+这是一个bug报告，主要涉及Megatron-LM下的attention.py和transformer.py中的repeat_interleave操作，由于存在不必要的repeat_interleave语句，在特定条件下可能导致性能下降。
+
+https://github.com/NVIDIA/Megatron-LM/issues/536
+这是一个关于模型注意力机制设置的问题，用户询问Megatron-LM中的llama或类似gpt模型是否应该具有填充注意力掩码，并对Huggingface transformers库中有关该问题的设定提出疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/535
+这是一个bug报告，主要涉及Megatron-LM中的RoPE `seq`在启用`fp16`时丢失小数位的问题，导致LM模型无法正确识别位置。
+
+https://github.com/NVIDIA/Megatron-LM/issues/534
+这是一个bug报告，涉及到Megatron-LM中的clip_grads.py文件中的import错误，导致了import语句错误的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/533
+这是一个用户问问题的issue，主要涉及Megatron-LM中设置CUDA_DEVICE_MAX_CONNECTIONS=1的问题，用户希望了解为什么在启用seq_parallel后需要进行这样的配置设置。
+
+https://github.com/NVIDIA/Megatron-LM/issues/532
+该issue类型为bug报告，涉及的主要对象是Megatron-LM代码库。由于Bias-Dropout-Add融合导致性能问题，同时Attention中的torch.interleave操作插入了不必要的内核，以及缺乏用户缓冲区/张量并行通信重叠支持，因此用户提出了性能改进的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/531
+这是一个bug报告，主要涉及Megatron-LM中的GQA和RoPe bug，由于低精度浮点表示的缺乏精度导致了位置编码的碰撞问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/530
+这是一个关于优化性能的类型，针对AxoNN's TP的并行化问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/529
+这是一个bug报告类型的issue，主要涉及Megatron-LM工具中的数据预处理过程。由于多进程导致"Broken Pipe"错误，用户在尝试降低workers数量后仍未解决问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/528
+这是一个关于使用问题的issue，该问题涉及到如何使用Megatron-LM中的llama 2进行fine tuning。用户想知道应该将哪个脚本用于启动模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/527
+这是一个用户提出需求的issue，主要涉及对MLP层的并行化问题，请求使用AxoNN的张量并行性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/526
+该issue类型为功能需求，主要对象是在Megatron-LM中使用MPI进行torch分布式初始化，以更容易适应其他集群。
+
+https://github.com/NVIDIA/Megatron-LM/issues/525
+这是一个由用户提出的问题，主要涉及Megatron-LM在训练过程中需要更多内存空间导致出现CUDA内存溢出错误的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/524
+这个issue属于bug报告，涉及的主要对象是Megatron-LM中的sharded_state_dict函数。由于删除了函数签名中未存在的参数导致该bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/523
+这是一个Bug报告，涉及到Megatron-LM中的FLOPs计算问题。报告者指出公式中存在差异，询问原因。
+
+https://github.com/NVIDIA/Megatron-LM/issues/522
+这个issue是一个bug报告，主要涉及Megatron-LM中的PEFT，由于调用sharded_state_dict输入不正确导致问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/521
+这是一个bug报告，主要涉及Megatron-LM中的初始化代码，由于缩进错误导致当手动初始化进程组时会出现`RuntimeError: trying to initialize the default process group twice!`错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/520
+这是一个bug报告，涉及mainly the SwiGLU模块的dense_h_to_4h权重的处理。这个问题产生的原因是在inference过程中权重dense_h_to_4h必须先被分块，然后再进行TPshard处理，而此前并未进行相应的处理，导致了bug的发生。
+
+https://github.com/NVIDIA/Megatron-LM/issues/519
+这是一个bug报告，涉及主要对象为Megatron-LM中的schedules.py文件。由于重复逻辑设置了no_sync_func，导致无论模型类型为何，no_sync_func都会被错误地选择为contextlib.nullcontext。
+
+https://github.com/NVIDIA/Megatron-LM/issues/518
+这是一个用户提出的问题，主要涉及Megatron-LM中的分布式参数反向传播处理，询问为什么在参数反向传播钩子注册时需要对参数进行扩展操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/517
+这是一个用户提出问题的issue，主要涉及到MegatronLM中使用ViT模型在tinyimagenet和imagenet2012数据集上训练时收敛困难的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/516
+这是一个关于Megatron-LM的bug报告，用户在单节点（8个A100 GPU）训练时出现错误。该问题涉及到pretrain_gpt.py脚本的使用。导致此问题的原因可能是信号7（SIGBUS）导致程序中断。
+
+https://github.com/NVIDIA/Megatron-LM/issues/515
+这是一个用户提出需求的issue，主要涉及到Megatron-LM中Transformer Engine的问题，由于需要添加一个虚拟的moe loss值才能使激活检查点运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/514
+该issue是一个Bug报告，主要涉及Megatron-LM项目下的一个问题。报告者描述了一个bug，并提供了复现步骤和期望行为，但未提供具体的修复建议或链接。
+
+https://github.com/NVIDIA/Megatron-LM/issues/513
+这个issue类型是bug报告，主要涉及的对象是两种不同方法计算偏移量导致结果不同。
+
+https://github.com/NVIDIA/Megatron-LM/issues/512
+这是一个bug报告，涉及Megatron-LM的Tensorboard功能在使用"--log-timers-to-tensorboard"参数时无法显示相关计时器信息的问题。造成这个问题的原因可能是参数配置或代码逻辑问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/511
+这是一个bug报告，涉及的主要对象是Megatron-LM下的pretrain_bert.py脚本。由于找不到'make'命令，导致了无法编译数据集索引构建器，从而触发了该问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/510
+这个issue类型是用户提出需求，涉及将单位缩放特征合并到哪个代码文件中进行Float8训练，由于要实现FP8训练的方便方法，根据单位缩放理论可以比transformerengine更快。
+
+https://github.com/NVIDIA/Megatron-LM/issues/509
+该issue是一个用户提出需求的问题，主要涉及的对象是Megatron-LM的batch size设置。用户想知道为什么在设置相同global_batch_size但不同micro_batch_size时，较小的micro_batch_size会导致更快的训练时长。
+
+https://github.com/NVIDIA/Megatron-LM/issues/508
+这是一个用户提出需求的类型问题，主要涉及对象是优化器，用户希望在MegatronLM项目中使用自定义优化器。这个问题可能是由于用户希望实现更好的优化器而产生的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/507
+这是一个bug报告，涉及的主要对象是Megatron-LM中的数据处理模块。由于数据处理时将int64类型的值赋给int32类型，当数值超出int32范围时会导致堆栈错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/506
+这个issue类型是功能增强需求，主要涉及Megatron-LM项目，用户提出对某功能的改进请求，可能由于现有功能不够清晰或不满足用户需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/505
+这是一个用户提出需求的类型为Enhancement的Issue，主要涉及Megatron-LM项目，其问题是提出了功能增强的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/504
+这是一个bug报告，主要涉及对象是在embedding操作中对大张量进行转置操作。这个问题导致了性能下降以及资源耗尽的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/503
+这是一个用户提出的空白内容的问题报告，针对的主要对象是“Copy”，由于用户可能在创建该issue时未填写具体内容，导致了空白内容的问题描述。
+
+https://github.com/NVIDIA/Megatron-LM/issues/502
+这是一个关于Megatron-LM框架中计算方法的问题，类型为用户提出需求，请教问题。该问题主要涉及bfloat16和fp16的梯度计算方法的差异，询问导致这种差异的特殊原因。
+
+https://github.com/NVIDIA/Megatron-LM/issues/501
+这个issue是关于一个bug报告，涉及主要对象是preprocess_data.py文件中的Partition.process_json_file()函数。BUG是由于在代码中对未定义的变量key进行操作导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/500
+这是一个用户提出需求和询问问题的issue，主要涉及Megatron-LM中分布式检查点功能的当前状态和未来计划。用户提出了关于分布式检查点功能包括实现状态、适用模型以及与PyTorch之间交互等方面的问题，希望得到相关更新和计划。
+
+https://github.com/NVIDIA/Megatron-LM/issues/499
+该issue为用户提出问题，涉及的主要对象是使用Megatron-LM的用户。由于原因引起用户不确定是否要使用"so as to"或者"or even to"，需要寻求帮助或者澄清用法。
+
+https://github.com/NVIDIA/Megatron-LM/issues/498
+这是一个bug报告，主要涉及的对象是`mpu.destroy_tensor_model_parallel()`方法。由于该方法未被定义，在特定代码位置调用时导致了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/497
+这是一个用户提出的需求类型的issue，主要涉及到NCCL配置的通信器。由于默认值设置，未指定配置值时会导致通信器使用默认NCCL通信器设置。
+
+https://github.com/NVIDIA/Megatron-LM/issues/496
+这是一个建议更改项目名称的问题，涉及主要对象是Megatron-LM项目。用户提出这个问题是因为不喜欢项目名称中的“megatron”这个角色名，希望将名称改为“optimus”。
+
+https://github.com/NVIDIA/Megatron-LM/issues/495
+这是一个bug报告，涉及的主要对象是MegatronLM中的'Distributed Optimizer'功能。由于节点数量超过10，导致在使用该功能时遇到错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/494
+这是一个用户提出需求的issue，主要涉及Megatron-LM支持在计算FFN时对序列维度进行扫描的功能。用户提出此需求的原因是在训练大范围的LLMs时遇到内存不足错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/493
+这是一个问题提问类型的issue，主要涉及MegatronLM的数据布局问题。由于原数据布局导致了内存密集的转置操作，因此改变数据布局可以提高性能，并使得可以使用strided batched GEMM kernels。
+
+https://github.com/NVIDIA/Megatron-LM/issues/492
+这个issue是一个需求提升（ENHANCEMENT）类型，主要涉及Megatron-LM下的分布式数据预处理工具。由于最近更新了“indexed_dataset”文件格式，用户希望更新相关工具以匹配新的文件格式。
+
+https://github.com/NVIDIA/Megatron-LM/issues/491
+这是一个功能需求类型的issue，主要涉及到Megatron-LM中的数据预处理过程并非需要GPU，但是却会导入不必要的`apex`包并在没有GPU时失败的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/490
+这是一个用户提出需求的issue，主要涉及Megatron-LM中的AMAX reduction功能。由于需要在AMAX reduction组中应用SHARP，用户提出了设置相应的环境变量的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/489
+这是一个bug报告，涉及的主要对象是``indexed_dataset.py``中的``element_sizes``字典。由于之前未定义``np.uint16``类型，在相应的代码中导致无法正确处理该数据类型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/488
+这是一个用户提出需求的issue，主要涉及到对MegatronLM GPTModel训练过程中资源消耗和通信数据的离线分析工具。用户提出此需求是因为当前无法准确估计模型训练所需资源，无法确定训练配置是否会导致内存溢出错误，以及无法了解最小需求GPU卡数量等问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/487
+这是一个用户提出需求的issue，涉及添加RMSNorm功能，由于当前版本需要transformer_engine，用户希望添加支持不依赖transformer_engine的RMSNorm功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/486
+这是一个bug报告，涉及的主要对象是Megatron-LM中的TransformerLanguageModel类。由于`encoder_decoder_attn_mask`没有被正确传递给T5模型的`forward`方法，导致了这个问题的出现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/485
+这是一个bug报告，主要涉及Megatron-LM下的FP8 TE和pipeline parallel存在的程序hang问题，原因是未正确初始化`fp8_group`参数导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/484
+这是一个用户寻求帮助的issue，主要涉及到如何在Python中下载特定版本的MegatronLM，可能是由于用户需要使用特定版本的软件或库而导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/483
+这是一个bug报告，涉及到Megatron-LM中的distopt allgathers with interleaved pipeline parallelism for old MCore出现的问题。原因是由于旧MCore的问题导致了相应的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/482
+这个issue类型是需求提出，主要对象是MegatronLM下的Analysis Tool。由于用户需要禆述离线分析MegatronLM GPTModel培训中记忆需求和通信信息的工具，以帮助用户预测GPU培训模型所需的内存量和通信需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/481
+这是一个bug报告，涉及的主要对象是`megatron.core.dist_checkpointing`包。由于最新版本的nemo中无法找到`megatron.core.dist_checkpointing`，导致了该问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/480
+这是一个关于用户提出需求的问题，主要涉及MHA到GQA的转换问题。用户询问是否有计划提供转换脚本将现有的MHA检查点转换为GQA检查点，因为尝试手动转换时遇到了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/479
+这是一个Bug报告，问题涉及到重复的代码行。原因可能是粗心导致了代码重复，需要进行修复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/478
+这个issue是一个用户提出的需求，涉及到MegatronLM对数据效率的增强。用户提出了对输入序列长度固定性的疑问，并希望团队能够考虑应用更高效的序列打包方法以避免资源浪费。
+
+https://github.com/NVIDIA/Megatron-LM/issues/477
+这是一个bug报告，主要涉及到TransformerEngine库中的inference_params，由于未进行向后兼容性处理导致在推理过程中出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/476
+这个issue是关于Megatron-LM如何与SHARP集成的问题，主要涉及到Megatron在请求太多process groups时导致SHARP资源不足的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/475
+这是一个用户提出问题的issue，主要涉及MegatronLM中的`persistent layer norm kernel`概念，用户想了解这个概念的含义。
+
+https://github.com/NVIDIA/Megatron-LM/issues/474
+这是一个用户提出需求的问题，主要涉及到如何合并sequence-parallel LayerNorm 的权重，由于在不同的rank上LayerNorm权重不同，用户想要将这些权重合并成单个GPU上可以运行的完整权重集。
+
+https://github.com/NVIDIA/Megatron-LM/issues/473
+这是一个bug报告，涉及到Megatron-LM项目中`--rotary-percent`参数帮助信息中`%`符号的逃逸问题。造成这个问题的原因可能是`%`符号没有被正确转义导致无法正确显示帮助信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/472
+这是一个Bug报告类型的issue，主要涉及Megatron-LM项目中关于argparse %转义错误导致无法显示帮助信息的问题。原因是`rotarypercent`中的`%`没有正确转义所导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/471
+这个issue属于bug报告类型，涉及MegatronLM在使用GQA和Mcore时出现死锁的问题。原因可能是在特定配置下的调用及参数设置导致了代码卡住无法继续执行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/470
+这是一个bug报告，主要涉及的对象是在scalar all-reduce操作之前添加NaN检查断言，其目的是为了在训练发散时提供更精细的信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/469
+这是一个bug报告，主要涉及的对象是Megatron-LM中的Datapath设置为数据集列表时导致错误。由于数据集列表的使用导致了在blendable_dataset.py文件中的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/468
+这是一个bug报告，主要涉及Megatron-LM中的num_layers参数，发现num_layers必须能被transformer_pipeline_model_parallel_size和virtual_pipeline_model_parallel_size整除的问题。由于当前逻辑缺陷，导致实际运行的模型层数不符合预期，需要对代码进行调整来解决这一问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/467
+这是一个关于bug报告的issue，主要涉及`len(sizes)`和`len(doc_idx)`，症状是发现`_doc_count = _len + 1`，用户想了解`_doc_count`的作用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/466
+这是一个用户提出需求的issue，主要对象是P2P overlap功能，由于当前只支持interleaved pipeline scheduler，用户希望支持1F1B pipeline scheduler。
+
+https://github.com/NVIDIA/Megatron-LM/issues/465
+这是一个用户提出需求的类型的issue，主要涉及到 Megatron-LM 中的 P2P overlap 功能是否可以在 1F1B pipeline scheduler 中实现的问题。这个问题是基于对不同调度器功能的理论探讨。
+
+https://github.com/NVIDIA/Megatron-LM/issues/464
+这个issue类型为用户提出问题，主要涉及Megatron-LM模型中flash attention和selective recomputation之间的功能重叠问题。用户关注是否flash attention会消除selective recomputation的优化机会。
+
+https://github.com/NVIDIA/Megatron-LM/issues/463
+这个issue类型为bug报告，涉及主要对象为代码中的不必要赋值操作。原因可能是代码中存在多余的赋值操作导致性能低下或代码执行效率降低。
+
+https://github.com/NVIDIA/Megatron-LM/issues/462
+这是一个Bug报告，涉及的主要对象是Megatron-LM中的task/eval_utils.py文件。导致该Bug的原因是之前版本的import错误导致无法成功导入模块，用户提出了修复建议更改import路径的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/461
+这是一个bug报告，涉及主要对象为代码中的文件命名。由于命名错误导致代码无法正确执行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/460
+这是一条用户回复issue，不属于bug报告。主要涉及的对象是代码优化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/459
+这是一个特性需求的issue，涉及的主要对象是Megatron-LM中的RMSNorm，用户提出需要添加对RMSNorm的支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/458
+这是一个bug报告，涉及主要对象是Megatron-LM中的T5 SwiGLU。因为实现中存在错误，导致SwiGLU的功能与预期不符。
+
+https://github.com/NVIDIA/Megatron-LM/issues/457
+这个issue类型是用户请教问题，主要涉及的对象是Megatron-LM中的BlendableDataset。由于权重变化导致数据损失和重复，用户在询问如何避免数据损失和重复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/456
+这个issue是用户提出需求的类型，主要涉及Megatron-LM中的`grad_sync_func`函数，用户想了解如何使用该函数来重叠数据并行reduce-scatter操作，并指出在`training.py`中似乎没有使用该函数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/455
+这是一个bug报告，主要对象是Megatron-LM的README.md文件。因为README.md中存在拼写错误，用户想要修正这些错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/454
+这是一个由于提升IDE整合质量而进行的重构问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/453
+这是一个BUG报告，涉及Megatron-LM中RoPE实现不考虑`resetpositionids`的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/452
+这个issue 是用户提出需求，询问是否可以生成多个数据片段。主要对象是Megatron-LM中的preprocess_data.py脚本。这个问题由于1T tokens数据集太大无法保存，用户寻求解决方案，希望能生成多个数据片段。
+
+https://github.com/NVIDIA/Megatron-LM/issues/451
+这个issue属于用户询问问题类型，用户提出关于在huggingface中使用pytorch_model.bin格式文件作为预训练初始化权重的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/450
+这个issue是关于bug报告，主要涉及Megatron-LM在使用Docker环境下出现的NCCL错误。原因可能是与NCCL的版本或配置有关。
+
+https://github.com/NVIDIA/Megatron-LM/issues/449
+这是一个关于训练速度问题的提问，主要涉及 Megatron-LM 框架下的 GPT2 模型在 V100 上训练速度过慢的情况。原因是训练时间长，每次迭代耗时过多。
+
+https://github.com/NVIDIA/Megatron-LM/issues/448
+这个issue属于用户提出需求，并涉及主要对象是如何用sharded dataset训练模型。用户提出了由于数据集过大导致内存无法一次加载的问题，并寻求如何将数据集分片并逐个加载的解决方案。
+
+https://github.com/NVIDIA/Megatron-LM/issues/447
+这是一个bug报告，涉及的主要对象是数据集预处理器。这个问题是由于数据集预处理器中的问题导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/446
+这是一个用户提出需求的 issue，主要涉及 Megatron-LM 的 lmeval server 。由于什么样的原因导致症状或用户提出问题，目前无法确定。
+
+https://github.com/NVIDIA/Megatron-LM/issues/445
+这个issue属于Bug报告类型，涉及的主要对象是在使用tensor parallel时计算cross_entropy损失的实现，导致了与torch.nn.functional.cross_entropy计算结果相差1%的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/444
+这是一个关于数据预处理的问题，涉及Megatron-LM中的内存占用和速度问题。造成这个问题的原因可能是数据量大，导致内存消耗过多。
+
+https://github.com/NVIDIA/Megatron-LM/issues/443
+这是一个问题咨询类型的issue，主要涉及到Megatron-LM中sequence parallelism场景下layernorm优化器中为什么需要额外的allreduce操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/442
+这个issue是一个bug报告，涉及到使用amax_reduction_group替代data_parallel_group作为fp8_group的问题，由于使用不当导致FP8训练在迭代次数达到1000左右后发散。
+
+https://github.com/NVIDIA/Megatron-LM/issues/441
+这是一个需求问题，涉及Megatron-LM中的数据集初始化和读取过程，并提出了为什么每个pipeline层应该共享相同输入数据的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/440
+这个issue类型是功能改进提议，涉及主要对象为代码中的位置嵌入类型。根据描述，由于缺乏枚举的支持，导致了维护性和灵活性方面的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/439
+这是一个用户提出的问题类型的issue，主要涉及Megatron-LM下的gpt模型结构设置错误的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/438
+这是一个bug报告，主要涉及对象是Megatron-LM项目中的代码。由于没有判断key是否在args中，导致在使用getattr时会抛出异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/437
+这是一个BUG报告，涉及Megatron-LM中的GQA（Groups Query Attention）功能在使用pipeline parallel时出错。导致此问题的原因是在某个A100机器上启用了groups_query_attention并设置了numquerygroups=2和pipelinemodelparallelsize=2时，在attention计算中的view操作错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/436
+这是一个关于软件bug报告的问题，涉及MegatronLM中的分布式运行，报告中提到了无法找到`bond1`地址的错误。原因可能是网络配置或运行环境设置不正确，导致无法建立网络连接。
+
+https://github.com/NVIDIA/Megatron-LM/issues/435
+这个issue类型是关于需求的问题，涉及到Gloo组的创建，用户想知道是否必须同时使用Gloo和NCCL，并且由于Gloo组创建导致了一些问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/434
+该issue类型为用户提出问题，主要涉及GPT预训练目标设定。用户询问为何标签`labels`与输入`tokens`共享条目，是否假设是通过逐渐增加输入标记并对其进行掩码来生成下一个标记，最终将预测的标记与标签对齐并计算损失。
+
+https://github.com/NVIDIA/Megatron-LM/issues/433
+这是一个关于性能改进问题的用户提问，涉及的主要对象是Megatron-LM模型中的FlashAttention模块。由于FlashAttention训练后未观察到明显性能提升，用户可能在寻求性能问题的原因或者FlashAttention模块的使用建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/432
+该issue属于用户提出需求类型，主要涉及Megatron-LM中的FlashAttention2模块，主要原因是想要在GPT预训练中允许使用非变长的FlashAttention。
+
+https://github.com/NVIDIA/Megatron-LM/issues/431
+这是一个bug报告，主要涉及数据预处理脚本中eos token未正确计算长度导致数据处理错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/430
+这个issue属于bug报告，涉及到方法`set_virtual_pipeline_model_parallel_world_size`的重复问题，可能由于代码重构或错误导致了重复方法的存在。
+
+https://github.com/NVIDIA/Megatron-LM/issues/429
+这是一个bug报告，涉及主要对象是MegatronLM下的sequence parallel和1f1binterleave schedule，并因为尝试在元组类型的对象上进行项目赋值而触发错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/428
+该问题类型属于功能需求，用户关注的主要对象是是否在Megatron-LM中添加了torch DDP与管道并行的功能。 由于当前本地DDP的通信方式不具有与反向传播重叠的效率，所以用户提出了这个需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/427
+这个issue是关于代码实现逻辑的疑问，主要涉及Megatron-LM中的模型初始化操作是否会影响可复现性，可能导致一些关于初始嵌入权重和后续all_reduce操作的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/426
+这个issue类型是bug报告，涉及的主要对象是Megatron-LM中的sequence parallel和1f1b-interleave schedule。由于对tuple对象进行了不支持的项目赋值，导致了TypeError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/425
+这是一个bug报告，涉及到数据类型顺序更改问题，用户关注之前6和7对应的数据类型改变是否会对程序产生影响。
+
+https://github.com/NVIDIA/Megatron-LM/issues/424
+这个issue属于bug报告，主要涉及的对象是arguments.py文件。原因可能是参数不匹配导致程序出错。
+
+https://github.com/NVIDIA/Megatron-LM/issues/423
+这是一个用户提出需求的类型，关于增强对LLaMA和LLaMA-2的支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/422
+这是一个关于bug的问题，主要涉及cuda graph的使用及与1F1B的结合，导致训练过程中出现nan grad。
+
+https://github.com/NVIDIA/Megatron-LM/issues/421
+这是一个关于代码逻辑的问题，涉及对象为`CoreAttention`模块中的`matmul_input_buffer`变量，用户提出了关于该变量在`torch.baddbmm`函数中使用的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/420
+这是一个关于代码逻辑的问题，主要涉及Megatron-LM中P2P通信部分的同步操作；疑问在于为什么在计算CUDA流等待P2P通信后还要添加额外的同步操作，以及可能导致训练过程挂起的可能性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/419
+这个issue是关于bug报告，主要涉及Megatron-LM下的分布式优化器，由于Apex Adam在NGC 23.03 docker镜像中未更新，导致可能触发`IndexError list index out of range`错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/418
+这个issue属于bug报告类型，主要涉及的对象是在finetuning阶段中使用梯度累积（microbatches>1）时出现的问题。原因是任务中的finetune_utils.py文件不支持microbatches大于1，导致无法进行梯度累积的finetuning。
+
+https://github.com/NVIDIA/Megatron-LM/issues/417
+这是一个用户提出需求的issue，主要涉及的对象是缓存输入激活，该需求可能是为了提高模型训练效率。
+
+https://github.com/NVIDIA/Megatron-LM/issues/416
+该issue属于用户提出需求类型，主要涉及Megatron-LM中使用code parrot数据集预训练GPT模型的演示代码。由于需要在两个A10 GPU上利用序列并行性，提供了基于torchrun的运行脚本，并介绍了如何在NVIDIA Docker容器中进行训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/415
+这是一个关于功能需求的问题，涉及主要对象是Megatron-LM中的flash attention模块。由于Megatron在使用"reset-position-ids"时未传递attention mask给flash attention，导致不同输入具有不同的attention masks，用户提出了关于此情况的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/414
+这是一个bug报告，主要涉及Megatron-LM中的代码实现中的`checkpoint_saver_megatron.py`文件。由于`world_size`参数在处理时被`checkpoint_args`覆盖导致了错误的状况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/413
+这个issue是关于bug报告，主要涉及Megatron-LM在减少数据并行世界大小时出现CUDA内存溢出问题的修复以及使no_save_optim在dist_opt中变得更加有效。由于相关操作导致CUDA内存不足，用户提出了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/412
+这是一个bug报告，主要涉及Megatron-LM中Rotary embeddings在微批次推理中的问题。由于使用微批处理时，后续调用只有批处理偏移量而不是序列偏移量，导致出现了特定条件下的推理错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/411
+这是一个bug报告，涉及到`FlashSelfAttention`类，由于在eval模式下运行`forward`会导致`dropout_p`永远变为0的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/410
+这个issue类型是bug报告，涉及到部分变量未定义的问题，主要对象是Megatron-LM代码中的相关函数。由于某些变量在特定函数中未定义，导致了bug报告。
+
+https://github.com/NVIDIA/Megatron-LM/issues/409
+这是一个bug报告，主要涉及的对象是Megatron-LM中的模型训练过程，由于Tensor维度处理不当导致了运行时错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/408
+这是一个bug报告，涉及的主要对象是代码中缺少了一个import语句。这个bug的症状是在使用此部分代码时会出现错误提示或无法正常运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/407
+这个issue是关于bug报告，涉及的主要对象是Megatron-LM中的preprocessing script for RETRO。由于更新后的脚本缺少必要的参数，导致无法正确运行预处理数据的脚本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/406
+这是一个bug报告，涉及的主要对象是代码中的变量命名。由于代码顺序错误导致出现了未定义变量的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/405
+这是一个bug报告，主要涉及的对象是Megatron-LM中的解码器。这个问题由于在使用解码器模型时，`decoder_seq_len`被错误地处理导致一些症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/404
+这个issue属于bug报告类型，涉及到MegatronLM代码中的变量`tensor_shape[0]`未定义导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/403
+这是一个bug报告，主要涉及到`TransformerConfig`中`recomputegranularity`和`recomputemethod`之间的配置逻辑问题，可能导致设置不正确时出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/402
+这是一个bug报告，涉及到程序代码中的变量访问。由于在迁移到`TransformerConfig`的使用时，某些变量访问被遗漏了，导致了这个bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/401
+这个issue是一个功能增强请求，主要涉及Megatron-LM中的位置嵌入功能。主要原因是为了改进位置信息管理和动态性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/400
+这是一个bug报告，主要涉及的对象是变量未定义，导致了程序中部分变量无法被正确识别。
+
+https://github.com/NVIDIA/Megatron-LM/issues/399
+这个issue属于Bug报告类型，主要涉及Megatron-LM中GPTDataset生成的序列长度超出预期的问题，可能由代码中的逻辑错误导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/398
+这是一个用户提出需求的issue，主要涉及创建一个名为"stale.yml"的文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/397
+这是一个关于更新问题模板的issue，类型为需求反馈，主要涉及到项目的问题模板。
+
+https://github.com/NVIDIA/Megatron-LM/issues/396
+这是一个关于性能问题的报告，主要涉及Megatron-LM的fp8 transformer engine的使用效果。用户反馈仅获得了35%的速度提升，而非预期中的100%，可能存在使用fp8 transformer engine时的配置或操作问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/395
+这是一个用户提出问题类型的issue，主要涉及对象是要使用发布在HuggingFace上的整个数据集。用户提出问题的原因是数据集被压缩为.xz文件，他不知道如何将其转换为.json文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/394
+这是一个Bug报告，问题涉及到Megatron-LM中的pretrain_gpt.py脚本的参数--activations-checkpoint-method无法识别并导致错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/393
+这是一个bug报告，涉及主要对象是Megatron-LM下的pretrain_gpt.py文件。由于在代码中使用了一个未定义的参数'overlap_p2p_comm'导致了AttributeError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/392
+这个issue属于bug报告，主要涉及到Megatron-LM在初始化时不应该重新初始化的问题，导致现有torch分布式环境无法正确初始化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/391
+该issue属于用户提出需求类型，主要涉及的对象是Megatron-LM中的`DistributedOptimizer`。这个问题的提出是因为用户希望在训练过程中能够将collective communication与backward computation重叠，以提高效率。
+
+https://github.com/NVIDIA/Megatron-LM/issues/390
+这是一个关于代码实现更改的问题，涉及到Megatron-LM中的tensor_parallel模块。原因是NeMo计划在Megatron模型中添加量化支持，但当前的实现需要复制整个前向函数，因此需要对megatron.core和apex之间的实现进行调整。
+
+https://github.com/NVIDIA/Megatron-LM/issues/389
+这是一个代码优化类型的issue，主要涉及到了Megatron-LM代码中的冗余的`save_for_backward`函数调用。由于多余的`save_for_backward`导致代码冗余，需要进行精简优化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/388
+这是关于Megatron-LM中数据过程中数据共享的一个bug报告，问题涉及到数据并行进程和数据抽样的代码耦合问题，导致不同数据并行进程中的样本在不同epoch中发生重叠，引起了数据采样的错误行为。
+
+https://github.com/NVIDIA/Megatron-LM/issues/387
+这个issue属于bug报告，主要涉及Pre-training中使用lazy mode时的问题，由于IndexedDataset不支持get方法，导致了无法设置datasetimpl为lazy的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/386
+这是一个关于bug报告的issue，主要涉及Megatron-LM在使用NCCL通信时出现的Socket Timeout导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/385
+这个issue类型是用户提出需求，主要涉及的对象是优化器和学习率调度器的应用，由于MegatronLM目前仅支持一个优化器用于整个模型，用户希望能够针对GPT模型的不同部分应用不同的优化器和学习率调度器。
+
+https://github.com/NVIDIA/Megatron-LM/issues/384
+该issue属于功能需求类型，主要涉及到设置初始热身学习率参数的问题，用户希望可以从非零值开始进行线性热身。
+
+https://github.com/NVIDIA/Megatron-LM/issues/383
+这个issue类型是用户提问，主要涉及对象是Megatron-LM的checkpoint加载过程。由于不同tp_rank可能包含不同的layernorm参数，导致用户问到是否只需要使用tp_rank 0的layernorm参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/382
+这是一个用户提出需求的类型，该问题涉及分布式训练功能。由于外部集群存在2个节点，用户希望在内部集群上增加2个节点的分布式训练支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/381
+该issue属于用户提出需求类型，涉及主要对象为如何在使用pipeline并行时不均匀地拆分层数；由于MegatronLM要求num_layers必须被pipeline_model_parallel_size整除，因此用户想知道如何在不均匀拆分的情况下设定num_layers。
+
+https://github.com/NVIDIA/Megatron-LM/issues/380
+这是一个bug报告，主要涉及的对象是Megatron-LM下的分布式优化器。导致这个bug的原因是当使用dpindependent检查点时，在减小训练规模时有时会导致GPU内存耗尽。
+
+https://github.com/NVIDIA/Megatron-LM/issues/379
+这是一个bug报告，主要涉及对象是Megatron-LM中的PyTorch版本检查功能。由于比较方法不完善，导致PyTorch 2.x无法通过版本检查。
+
+https://github.com/NVIDIA/Megatron-LM/issues/378
+这是一个bug报告，涉及的主要对象是Megatron-LM中的数据处理模块。由于使用`--data-impl cached`参数导致出现了`AttributeError: 'IndexedCachedDataset' object has no attribute 'get_doc_idx'`的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/377
+这是一个bug报告，涉及Megatron-LM中的命令参数错误和缺失。更新命令时需要将```vocab```替换为```vocabfile```, 并添加```workers```和```chunksize```参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/376
+这是一个用户提出需求或寻求帮助的问题，主要涉及Megatron-LM模型中的enums模块，由于无法安装megatron.enums，用户询问如何获取该模块及安装的相关信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/375
+这是一个bug报告，主要涉及到Megatron-LM下的GPT模型预训练过程中出现的"NaN or Inf found in input tensor."错误提示，可能是由于损失计算错误导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/374
+这是一个关于特定参数无法正确输出模型参数数量的bug报告，涉及Megatron-LM中GPT模型的参数信息。用户希望找到整个模型参数的数量，但目前打印出的值并不符合预期，可能是由于参数设置不正确导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/373
+这是一个优化性质的issue，涉及主要对象是代码中的_get_epoch函数，由于原先的代码在tokens_per_epoch较小时存在效率问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/372
+这是一个提出问题的类型，主要涉及Megatron-LM中的bf16模式和fp32积累通信问题。该问题探讨了为什么bf16模式必须与在fp32中累积allreduce grads一起使用的原因。
+
+https://github.com/NVIDIA/Megatron-LM/issues/371
+这是一个bug报告，主要涉及MegatronLM在GPT2模型上进行预训练时新版本的吞吐量下降的问题。可能由于某些因素导致当前版本的迭代时间明显变长，造成了性能回归的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/370
+这是一个bug报告，主要涉及到Megatron-LM中shingles的错误。由于某些原因导致了shingles出现错误，需要解决该问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/369
+这是一个关于需求的问题，主要涉及Megatron-LM对于自动选择不同类型网络卡的支持问题。由于无法建立高速IB网络连接，用户希望实现在异构集群间进行分布式训练，因此提出了关于网络卡自动检测和配置的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/368
+这是一个bug报告，涉及的主要对象是Megatron-LM中的batch sampler实现，由于长度计算方式不符合预期导致了疑惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/367
+这是一个bug报告，关于在加载检查点时缺少错误消息导致的潜在hang问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/366
+这是一个Bug报告，涉及到Megatron-LM下的一个issue，用户在导入模块时遇到了ImportError。由于缺少符号_ZN3c106detail19maybe_wrap_dim_slowEllb，导致了这个错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/365
+这是一个用户请求寻求帮助的issue，主要涉及到在Megatron-LM项目中使用PP/TP训练VIT模型的问题，用户希望得到关于这方面代码的建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/364
+这个issue类型为改进建议，主要涉及的对象为`_build_doc_idx`函数实现。这个问题被提出是因为原有的递归实现复杂，希望简化代码以提高可读性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/363
+这是一个bug报告，涉及的主要对象是Megatron-LM项目中的代码。由于某个模块没有特定的属性，导致了AttributeError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/362
+这个issue属于bug报告，主要涉及到使用Bert模型在训练时遇到单句文档导致的问题。导致此问题的原因可能是未指定`bertnobinaryhead`参数时，在生成训练/验证/测试索引时出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/361
+该issue类型为用户提出需求，主要涉及Megatron-LM训练中如何在恢复训练时扩展数据并行的规模。由于在64个节点上使用Zero1时，优化器状态在dp=2之间分裂，需在128个节点上重新分配dp2优化器状态到dp4。
+
+https://github.com/NVIDIA/Megatron-LM/issues/360
+这是一个bug报告，主要涉及Megatron-LM中的Swiglu激活函数，问题是在TP > 1时计算可能出错，导致Swiglu激活函数的计算不符合原始设计要求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/359
+这个issue属于特性请求类型，主要涉及代码库的分支合并操作，由于需要将指定commit之前的代码合并至主分支。
+
+https://github.com/NVIDIA/Megatron-LM/issues/358
+这是一个bug报告，涉及的主要对象是Megatron-LM中的indexed_dataset.py文件。这个问题是由于NumPy 1.20版本中废弃了np.float导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/357
+这是一个用户提出问题类型的issue，主要涉及了Megatron-LM中的sequence parallel实现。用户表达了对transformer输出以及allgather操作的困惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/356
+这是一个bug报告，涉及到在没有共享存储的虚拟化环境下运行问题，原因是其他节点无法访问主节点的文件路径。
+
+https://github.com/NVIDIA/Megatron-LM/issues/355
+这是一个bug报告，涉及到Megatron-LM中transformer.py中的ParallelAttention类的forward函数参数传递顺序错误。由于参数顺序错误导致了使用activation checkpoints和rotary position embedding时的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/354
+该issue类型为代码优化建议，涉及的主要对象是ensemble_classifier.py文件中的get_threshold和calc_threshold函数，由于代码中存在冗余和性能问题，导致了优化建议的提出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/353
+这是一个建议性质的issue，主要对象是代码中的argument parsing部分，原因是提出使用argparse模块代替自定义函数并提供更标准灵活的命令行参数处理。
+
+https://github.com/NVIDIA/Megatron-LM/issues/352
+这是一个用户提出需求的issue，主要涉及distrib_optimizer.py 文件，用户试图添加缺失的_copy_model_params_to_main_params函数。原因可能是为了改进分布式优化器的功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/351
+这是一个关于Flash Attention模块在Megatron-LM中使用的问题，用户提出对cu_seqlens_k参数的困惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/350
+这是一个bug报告，主要涉及的对象是distrib_optimizer.py中的变量名错误，导致未定义的变量错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/349
+这是一个bug报告，涉及到Megatron-LM中的finetuning功能。这个问题可能是由于bf16和DistributedOptimizer的使用导致的两个bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/348
+这个issue属于bug报告类型，涉及MegatronLM项目中的np.float替换为float导致的运行时错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/347
+这是一个bug报告，涉及主要对象是MegatronLM。导致问题的原因是numpy 1.20中废弃了np.float，使用最新版本的numpy导致了MegatronLM在启用logvalidationppltotensorboard时出现运行时错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/346
+这是一个bug报告，主要对象是Megatron-LM下的mlp-bias在使用swiglu时未正确处理，导致合并checkpoint后的推断结果不正确。
+
+https://github.com/NVIDIA/Megatron-LM/issues/345
+这是一个用户提出需求的问题，主要涉及GPT模型的参数冻结操作。用户想要解决如何正确冻结模型参数的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/344
+这是一个bug报告，主要涉及Megatron-LM中LayerNorm在不同dtype输入下的问题。由于Apex代码中的LayerNorm未考虑先前Megatron中的代码，在使用bf16或fp16时无法正常使用layernorm功能，导致了这个问题的提出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/343
+这是一个bug报告，主要涉及Megatron-LM的分布式运行问题导致"Address already in use"错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/341
+该issue是关于提出需求的问题，主要涉及到"NVIDIA/Megatron-LM"项目，由于需要在混合IB/Socket设置中操控NCCL_NET而导致此需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/340
+这是一个bug报告，主要涉及到Megatron-LM项目中的torch.TypedStorage对象的属性错误导致的异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/339
+这是一个用户提出问题的issue，主要涉及Vit（Vision Transformer）的pipeline parallel实现。由于用户想了解Megatron中是否实现了Vit的pipeline parallel，因此提出了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/338
+这是一个bug报告，该问题涉及到模块导入错误，导致在执行过程中出现了错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/337
+这是一个用户提出需求的issue，该问题涉及的主要对象是Megatron-LM。
+
+https://github.com/NVIDIA/Megatron-LM/issues/336
+这是一个bug报告，主要涉及Megatron-LM代码中的init_process_group功能，由于某次提交未正确修改行为，导致了重复的初始化进程组操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/335
+这是一个文档更新的issue，主要涉及README.md文件，用户希望在文件中添加与参数有效学习有关的论文。
+
+https://github.com/NVIDIA/Megatron-LM/issues/334
+这个issue属于README.md文件的更新，不是bug报告。该问题主要涉及的对象是与Megatron-LM相关的文档。
+
+https://github.com/NVIDIA/Megatron-LM/issues/333
+这是一个Bug报告，主要涉及Megatron-LM中的DistributedOptimizer对象，由于在使用DistributedOptimizer进行模型微调时，出现了缺少属性'_copy_model_params_to_main_params'的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/332
+这是一个用户提出问题的issue，主要涉及Megatron-LM中数据加载策略的选择问题。用户询问了不同策略的性能和工作方式，以及为什么在preprocess_data.py中需要指定加载策略。
+
+https://github.com/NVIDIA/Megatron-LM/issues/331
+这是一个优化通信的问题，涉及Megatron-LM下的NeMoMegatron支持的恢复，主要针对pipeline并行性能进行优化，解决GPU空闲导致性能下降的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/330
+这是一个Bug报告，主要涉及Megatron-LM库中的Transformer引擎层问题，用户反馈在使用特定配置时性能表现低下。
+
+https://github.com/NVIDIA/Megatron-LM/issues/329
+这个issue类型是bug报告，涉及的主要对象是Megatron-LM的PyPi包。由于之前的megatronlm包被移除，导致用户无法正常使用新版本的替代包。
+
+https://github.com/NVIDIA/Megatron-LM/issues/328
+这是一个bug报告，涉及主要对象为Megatron-LM下的clip_grads.py文件，由于PyTorch删除了torch._six模块导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/327
+这个issue类型是bug报告，涉及的主要对象是Megatron-LM中的indexed_dataset.py文件。由于`np.float`被弃用，导致了代码中出现了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/326
+这是一个bug报告，涉及Megatron-LM中的pipeline模块，问题是由于模型结构与参数配置不匹配导致部分层没有被分配到设备的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/325
+这是一个需求优化类型的issue，主要涉及1f1b interleaved schedule的调度逻辑，该问题是关于代码难以理解。
+
+https://github.com/NVIDIA/Megatron-LM/issues/324
+这是一个用户询问问题类型的issue，主要涉及到如何获取模型参数量和大小的问题，用户想要在训练特定模型时了解这些信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/323
+这是一个bug报告，涉及Megatron-LM中的sequence parallel backward模式下的通信操作是否必要的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/322
+这是一个文档问题，涉及主要对象为README.md文件。由于拼写错误导致错别字，用户提出了修正错误的建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/321
+这是一个bug报告，涉及主要对象为更新pretrain_gpt.py文件。由于Megatron-LM项目中的pretrain_gpt.py脚本需要更新，用户提出了更新的请求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/320
+这是一个bug报告，主要涉及的对象是Megatron-LM中的transformer.py文件。由于未正确传递scale参数到FlashAttention，导致出现了一个bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/319
+这是一个bug报告，涉及的主要对象是Megatron-LM代码中的fused kernels，在编译过程中出现了NVHPC编译器不支持的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/318
+这是一个bug报告，涉及主要对象是Megatron-LM中的FlashAttention模块。原因是最近的修复引入了一个问题，导致在训练过程中第一次评估后可能会出现不正确的行为。
+
+https://github.com/NVIDIA/Megatron-LM/issues/317
+这是一个bug报告，主要涉及Megatron-LM中transformer.py中的FusedScaleMaskSoftmax实现的问题，由于重复处理了query-key-layer-scaling导致了不必要的计算。
+
+https://github.com/NVIDIA/Megatron-LM/issues/316
+这是一个bug报告，主要涉及的对象是Megatron-LM下的distribute training，由于硬件为rtx2080ti，使用docker:pytorch:22.03py3环境和webtext数据集，导致出现了Bus error: nonexistent physical address with signal 7的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/314
+这个issue是一个bug报告，主要涉及到Megatron-LM中的模型训练过程中保存checkpoint时出现的异常情况。由于文件写入失败导致了位置偏移异常，最终触发了RuntimeError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/313
+这是一个用户提出需求的类型，主要涉及的对象是Megatron-LM中复现RETRO的权重。由于用户想要获取已复现的RETRO权重，因此提出此问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/312
+这是一个用户请教问题类型的issue，主要涉及Megatron-LM框架下如何从中文语料资源生成vocab.json和merge.txt文件。用户希望了解如何生成这两个文件以进行中文NLP预训练任务。
+
+https://github.com/NVIDIA/Megatron-LM/issues/311
+这是一个bug报告类型的issue，主要涉及的对象是Megatron-LM的docker image更新问题。由于docker image与代码不一致导致'gradient_accumulation_fusion'参数在column parallel class中引发错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/310
+这是一个bug报告，涉及到缺少索引映射文件导致建立索引过程中出现警告的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/309
+这是一个用户提出需求的issue，主要涉及到Megatron-LM代码中的tokens_per_epoch参数。由于缺少打印tokens_per_epoch的功能，用户提出了希望在输出中打印tokens_per_epoch参数的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/308
+这是一个bug报告，涉及的主要对象是在CUDA 11.7版本下使用compute_90（Hopper架构）的兼容性问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/307
+这是一个关于bug报告的issue，主要涉及Megatron-LM在使用`selective` recompute granularity / activation checkpointing时导致GPU内存使用不平衡的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/306
+这是一个bug报告，主要涉及的对象是Megatron-LM中的ZeRO optimizer。这个问题是由于torch版本的更迭导致param buffers初始化时无法找到`_untyped`属性而产生的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/305
+这是一个用户询问如何合并多个checkpoint到一个文件的问题，属于用户询问问题类型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/304
+这个issue属于bug报告类型，主要对象是Megatron-LM代码中的"attention maske"拼写错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/303
+这是一个bug报告，涉及的主要对象是Megatron-LM中的dataset_utils.py文件。这个问题可能是由于修复mpu到parallel_state中的错误导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/302
+这是关于bug的问题单，主要涉及的对象是在Megatron-LM中的dataset_utils.py文件中的mpu模块。由于代码中未正确调用parallel_state，在使用并行状态时可能出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/301
+这是一个bug报告，涉及到Megatron-LM的run_text_generation_server_345M.sh脚本。该问题是由于地址协议不受支持导致的套接字初始化错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/300
+这是一个用户提出需求的issue，涉及到Megatron-LM中的VocabParallelEmbedding，用户询问为什么要使用分布式词汇嵌入。
+
+https://github.com/NVIDIA/Megatron-LM/issues/299
+该issue属于用户提出问题类型，主要涉及Megatron-LM代码中的初始嵌入权重问题，可能由于对代码设计逻辑的理解不清导致提问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/298
+这是一个Bug报告，主要涉及MegatronLM在多节点上编译依赖关系时出现的问题。原因是在多节点情况下，仅在节点0的本地等级为0的进程中构建依赖关系，导致其他节点的进程无法构建依赖关系，从而导致了ImportError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/297
+这是一个用户提出如何fine-tune llama-65b的疑问，涉及对象是Megatron-LM。
+
+https://github.com/NVIDIA/Megatron-LM/issues/296
+这是一个bug报告，涉及到如何更改模型的`tensormodelparallelsize`参数。产生这个问题的原因是现有模型使用了`tensormodelparallelsize 1`进行训练，但用户想将该参数设为2以应对GPU内存限制，导致了checkpoint参数不匹配的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/295
+这个issue属于bug报告，主要涉及的对象是Megatron-LM下的text_generation_cli工具，问题是由于使用了Python3不兼容的urllib2导致无法运行，这次提交修复了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/294
+这是一个bug报告，涉及对象是 torch six import 错误，由于导致 torch 2.0 中的 torch six import 错误而引起。
+
+https://github.com/NVIDIA/Megatron-LM/issues/293
+这是一个bug报告类型的issue，涉及的主要对象为Megatron代码在PyTorch 2.0下的兼容性。由于PyTorch 2.0中torch._six模块已被弃用，导致Megatron优化器代码无法正常运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/292
+这是一个用户提出需求的问题，主要涉及如何在SQuAD上对BERT进行微调。用户寻求关于如何在SQuAD上对BERT进行微调的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/291
+这是一个bug报告，主要涉及到Megatron-LM中的BERT和T5 dataset以及GPT tokenizer，问题是已损坏索引的处理不正确以及GPT tokenizer词汇表大小不包括特殊标记。
+
+https://github.com/NVIDIA/Megatron-LM/issues/290
+这是一个bug报告，涉及的主要对象是Megatron-LM中的uniform activation checkpointing功能。这个问题由于在`recomputenumlayers`大于1时，导致原始隐藏状态被错误传递给所有层，而不是更新后的激活状态。
+
+https://github.com/NVIDIA/Megatron-LM/issues/289
+这是一个bug报告，涉及的主要对象是在Triton推理服务器上部署Nemo Megatron T5 3B模型。可能是由于模型执行过程中出现了std::out_of_range异常导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/288
+这是一个用户提交需求的issue，主要涉及到在Megatron中添加对MegaBlocks MoEs的支持。由于用户希望在Megatron中使用MegaBlocks的dMoE和MoE层，因此提出了这项修改请求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/287
+这个issue类型是功能增强请求，主要涉及添加MegaBlocks MoEs支持至Megatron-LM中，由于需要扩展支持到其他预训练脚本，且计划在未来的PR中扩展MegaBlocks支持的tensor模型并行化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/286
+这是一个关于Megatron-LM中"Megablocks migration"的类型为需求提出的issue，主要涉及的对象是模块迁移。原因可能是用户寻求关于迁移Megablocks的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/285
+这个issue是关于论文内容的错误报告，讨论的是Megatron 3论文中一个公式的正确性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/284
+这是一个bug报告，涉及Megatron-LM库中的文件未找到错误，导致用户在训练'damo/nlp_gpt3_textgeneration_2.7B'时出现问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/283
+这是一个Bug报告，涉及Megatron-LM中的文件缺失错误，并且影响了用户训练'damon/nlp_gpt3_textgeneration_2.7B'。
+
+https://github.com/NVIDIA/Megatron-LM/issues/282
+这是一个用户提出需求的issue，主要涉及Megatron-LM下的GPT模型如何自定义参数数量。用户想知道是否有设置可以自定义GPT模型的参数数量，例如6.7B参数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/281
+这个issue是用户提出需求，询问是否有其他的layer norm函数可用，如RMSNorm或DeepNorm。
+
+https://github.com/NVIDIA/Megatron-LM/issues/280
+该issue属于用户提出需求类型，主要涉及Megatron-LM项目是否支持OpenAI的Whisper模型。用户询问关于项目支持更多模型以及如何将Whisper模型集成到该项目的建议或示例。
+
+https://github.com/NVIDIA/Megatron-LM/issues/279
+这是一个bug报告，涉及主要对象是Megatron-LM中的`--no-query-key-layer-scaling`参数，由于计算因子被两次应用导致无效，可能仅用于数值稳定性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/278
+这个issue类型是bug报告，涉及的主要对象是Megatron-LM项目。导致这个bug的原因是当前代码在A100 GPU环境下编译失败，报错消息显示不支持 'compute_90' 架构。
+
+https://github.com/NVIDIA/Megatron-LM/issues/277
+这是一个bug报告，涉及Megatron-LM中使用flash attention时需要检查头维度是否小于等于128，由于未对头维度进行检查导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/276
+这是一个bug报告，主要涉及到在使用model parallel进行预训练时加载预训练检查点时出现的问题。由于加载预训练检查点时，在model parallel下存在bug，导致训练过程出错。
+
+https://github.com/NVIDIA/Megatron-LM/issues/275
+这是一个关于调试问题的类型，主要涉及MegatronLM的BERT模型通过DDP进行训练时AllReduce函数调用次数异常增多的情况。原因可能是某些层之间的同步导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/274
+这是一个用户提出需求的issue，主要涉及Megatron-LM下的pipeline stages自定义功能。由于当前支持的功能是一个要么虚拟pipeline，要么自定义pipeline的情况，用户希望支持同时使用虚拟pipeline和自定义pipeline。
+
+https://github.com/NVIDIA/Megatron-LM/issues/273
+这是一个bug报告，涉及主要对象为Megatron-LM中的模块'megatron.core.parallel_state'，可能由于修改了代码中的一处引用导致了错误消息"AttributeError: module 'megatron.core.parallel_state' has no attribute 'parallel_state'"。
+
+https://github.com/NVIDIA/Megatron-LM/issues/272
+这是一个需求提出，主要对象是为Megatron-LM添加支持HF tokenizer的功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/271
+这个issue是bug报告，主要涉及的对象是numpy类型的问题。这个问题由于将PR提交到了错误的仓库而产生。
+
+https://github.com/NVIDIA/Megatron-LM/issues/269
+这是一个用户提出需求的issue，主要对象是Megatron-LM模型。由于长时间没有发布新版本，用户在询问是否会发布包含更多高性能操作和适配PyTorch 2.0等功能的新版本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/268
+这是一个功能增强的issue，涉及Megatron-LM下的UL2数据采样和预训练功能的添加。
+
+https://github.com/NVIDIA/Megatron-LM/issues/267
+这是一个特性添加的问题，主要涉及将FlashAttention集成到MegatronLM中。这个需求可能是为了增加模型训练的灵活性或性能优化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/266
+这个issue是一个bug报告，主要涉及的对象是T5模型在单个GPU上运行时出现了torch.distributed初始化错误，导致程序无法正常启动。
+
+https://github.com/NVIDIA/Megatron-LM/issues/265
+这是一个关于代码格式的需求提出问题，主要涉及MegatronLM代码库的代码格式。由于缺乏统一的代码格式规范，用户试图提出PR来改善代码格式，以便与上游同步。
+
+https://github.com/NVIDIA/Megatron-LM/issues/264
+这个issue类型是错误提交，涉及的主要对象是上传的内容到错误的存储库。
+
+https://github.com/NVIDIA/Megatron-LM/issues/263
+这是一个用户提出需求的类型，主要涉及到Megatron-LM下的GPT模型。这个问题是由于需要在使用张量并行性进行微调GPT模型时，仅有合并的检查点而没有支持管道并行性，因此用户编写了一个脚本来解决这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/262
+这是一个bug报告，主要涉及Megatron-LM不同版本之间的模型加载兼容性问题，导致使用旧版本Megatron加载最新版本checkpoint时输出结果异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/261
+这是一个bug报告，主要对象是Megatron-LM中的版本3.0模型检查点（ckpt）。由于某种原因，用户无法获取或使用该模型的检查点文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/260
+这是一个关于Bug报告的Issue，主要涉及Megatron-LM中的`scaled_upper_triang_masked_softmax`函数在最大序列长度为4096时的支持问题。原因可能是该函数尚未针对4096长度进行支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/259
+这是一个关于bug报告的issue，主要涉及Megatron-LM中使用BF16 optimizer时需要检查`cur_scale`属性的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/258
+这是一个关于性能比较的issue，主要涉及Megatron-LM中Tensor Parallel和Pipeline Parallel之间的速度对比。原因可能是由于计算量和通信步骤不同导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/257
+这个issue类型为bug报告，涉及主要对象为Megatron-LM下的一个参数（saver argument）。导致这个bug的原因是参数帮助信息中存在拼写错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/256
+这是一个用户提出的问题，主要涉及对象是Megatron-LM中的`token2use`参数。由于`token2use`参数要求设置为`[:,prev_context_length:context_length]`，导致token长度始终为1，用户想要了解为什么必须这样设置。
+
+https://github.com/NVIDIA/Megatron-LM/issues/255
+这是一个bug报告，主要涉及Megatron-LM pretrain_bert_distributed.sh示例脚本在运行时出现了卡住的情况。原因可能是脚本中使用的nccl库存在某种问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/254
+这是一个用户提出需求的问题，关于如何在自定义改动PyTorch的情况下达到与NGC PyTorch相同性能的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/253
+这是一个bug报告，主要涉及preprocess阶段。该问题可能由于某种情况导致preprocessing过程中没有响应。
+
+https://github.com/NVIDIA/Megatron-LM/issues/252
+这是一个功能需求的issue，主要涉及到添加`setup.py`文件，目的是为了对项目进行设置和安装。
+
+https://github.com/NVIDIA/Megatron-LM/issues/251
+这是一个Bug报告，涉及到Megatron-LM模块，由于内存非连续导致了view size不兼容的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/250
+这是一个bug报告类型的issue，主要涉及到在使用GPT2模型进行微调时出现的问题。原因可能是在进行微调时程序错误地使用了之前预训练模型的样本数据，导致无法正常加载新的数据集进行微调。
+
+https://github.com/NVIDIA/Megatron-LM/issues/249
+这个issue类型是关于bug报告，主要涉及的对象是Megatron-LM模型在不同mp参数下的训练收敛情况。由于mp参数不同导致了收敛表现差异，用户寻求分析和解决这一问题的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/248
+这是一个关于bug报告的issue，主要涉及Megatron-LM中的ColumnParallelLinear和torch.nn.Linear之间的数值差异问题。导致这种情况可能是在特定条件下，对于不同的输入数据类型（如fp32，fp16，bf16），ColumnParallelLinear和torch.nn.Linear的参数值会出现不一致，导致算法结果也不一致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/247
+这是一个关于功能需求的问题，涉及Megatron-LM对于变长序列长度的unpad策略支持。由于MLPerf Bert训练中使用unpad策略可以提高性能，用户想知道Megatron是否支持或将支持这一策略。
+
+https://github.com/NVIDIA/Megatron-LM/issues/246
+该issue类型为功能需求，涉及到在多节点训练作业中不使用分布式文件系统时的支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/245
+这是关于一个bug报告，涉及Megatron-LM中的Moe pipelining功能，由于收敛性问题而存在。
+
+https://github.com/NVIDIA/Megatron-LM/issues/244
+这是一个bug报告，主要涉及Megatron-LM中的optimizer/distrib_optimizer.py文件中的变量使用问题，并指出在第335行出现了参数 `param.type()` 中的 `param` 未定义的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/243
+这个issue类型是需求修改，主要涉及的对象是修改Megatron-LM中的最大序列长度参数。原因是用户想要使用比2048更长的序列长度，所以需要将最大序列长度从2048修改为8192。
+
+https://github.com/NVIDIA/Megatron-LM/issues/242
+这是一个用户提出的问题，主要涉及的对象是GPT模型的tensor并行。这个问题可能由于加载了tensor并行模型后，在预测时出现了解码错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/241
+这是一个bug报告，主要涉及到内存状态报告的问题，可能由于使用了`grad_scaler`，导致在学习率不为零时优化器状态可能尚未初始化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/240
+这是一个bug报告，主要涉及优化器模型参数在使用"--no-load-optim"标志时重新加载的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/239
+这是一个bug报告，涉及主要对象是Megatron-LM，由于模型使用超过2048长度的序列导致错误出现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/238
+这是一个用户提出需求的issue，主要关注的对象是Megatron库。由于缺乏类型支持，用户感到使用时容易出错，且很难找到特定函数的输出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/237
+这是一个文档更新类的问题，主要涉及到代码配置项的修改。原因可能是为了统一命名规范或者代码更易理解。
+
+https://github.com/NVIDIA/Megatron-LM/issues/236
+这是一个Bug报告，该问题涉及到Megatron-LM中的RowParallelLinear操作函数。由于在使用sequence parallel时，输出结果需要广播到张量并行区域，所以需要对bias进行广播以实现正确的反向传播。
+
+https://github.com/NVIDIA/Megatron-LM/issues/235
+这个issue类型是修复问题（bug report），涉及的主要对象是MegatronLM工具中的评估脚本 merge_mp_partitions.py。由于缺少融合内核加载、DDP进程/数据并行组初始化以及数据类型错误，导致需要修复问题并创建 pull request。
+
+https://github.com/NVIDIA/Megatron-LM/issues/234
+这是一个用户询问类型的issue，主要涉及Megatron-LM 175B模型训练时使用的是fp16还是bfloat16的问题，用户想了解具体的训练精度信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/233
+这个issue是用户提出需求类型的，主要涉及对象是Megatron-LM的checkpointing脚本和模型代码，用户提出了需要添加用于合并和拆分checkpoint的脚本以及修复运行脚本时的一些问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/232
+这是一个用户提出需求的issue，主要涉及到Megatron-LM中的model parallel partitions。导致问题出现的原因是当前脚本只提供了一部分功能，用户希望能够实现更多功能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/231
+这个issue属于用户请教问题类型，主要涉及Megatron-LM的多节点多GPU模型预训练，原因可能是用户想了解如何进行这方面的操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/230
+这是一个关于需求的问题，主要涉及Megatron-LM下的MSDP模型缺少提到的检查点。这可能是由于部分内容未能包含在代码中导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/229
+这是一个bug报告，提出关于禁用特定融合功能的问题。原因是在启动特定融合之前需要先确定相关参数的状态。
+
+https://github.com/NVIDIA/Megatron-LM/issues/228
+这是一个bug报告，主要涉及Megatron-LM中运行GPT训练时出现程序退出的问题，导致的症状是torch.distributed.elastic.agent.server.api接收到1个死亡信号，从而关闭了workers。
+
+https://github.com/NVIDIA/Megatron-LM/issues/227
+这是一个用户提出需求的类型，主要对象是获取用于合并管道并行模型分区的脚本。用户希望提供这些脚本以便更好地进行相关操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/226
+这个issue类型是bug报告，涉及的主要对象是在使用远程Python解释器时编译helper.cpp失败。导致这个问题的原因是缺少ninja-build工具，安装该工具后问题得以解决。
+
+https://github.com/NVIDIA/Megatron-LM/issues/225
+这是一个bug报告，主要涉及的对象是Megatron-LM中的数据加载器创建代码。原因是代码中创建数据加载器的逻辑与注释描述不一致，导致数据加载器不是只在模型并行组中的第一个进程上创建。
+
+https://github.com/NVIDIA/Megatron-LM/issues/224
+这是一个空白的issue，无法确定具体类型，涉及的主要对象可能与“nf”有关。
+
+https://github.com/NVIDIA/Megatron-LM/issues/223
+这是一个需求提出的issue，主要涉及对象是Megatron-LM项目。由于用户想要使用类似于Oxford Union辩论的方式进行辩论，所以提出了这个问题询问是否有相关功能实现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/222
+这个issue类型是用户提出需求，请教问题，主要涉及的对象是Megatron LM模型。由于用户希望能够保存计算结果并在中间点后继续计算，可能会导致操作性不足或功能不完整。
+
+https://github.com/NVIDIA/Megatron-LM/issues/221
+这是一个bug报告，涉及主要对象是运行Megatron-LM的用户。由于模型权重尺寸不匹配导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/220
+这是一个bug报告，涉及Megatron-LM中GPT文本生成时出现无法理解的token生成问题。可能是由于模型参数或代码中的错误导致了诡异的token生成。
+
+https://github.com/NVIDIA/Megatron-LM/issues/219
+这是一个用户提出的问题， 主要涉及的对象是Megatron-LM中的Encoder部分。该问题是关于代码中的注释不清晰导致用户困惑，疑问是关于在encoderonly阶段为什么add_encoder会被设置为False。
+
+https://github.com/NVIDIA/Megatron-LM/issues/218
+这是一个文档改进类型的issue，其中提到的主要对象是Megatron-LM文档。原因可能是文档可读性较差，需要对其进行改进。
+
+https://github.com/NVIDIA/Megatron-LM/issues/217
+这是一个bug报告类型的issue，主要涉及到在尝试在slurm上对MNLI进行微调时出现的构建错误。问题出现的原因是找不到支持的gcc/g++主机编译器，导致构建失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/216
+这个issue类型为用户请教问题，主要涉及对象是T5模型。这个问题是由于用户想要在翻译任务上使用T5模型，但目前只找到了预训练模型，因此寻求如何在翻译任务上使用T5模型的帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/215
+这是一个用户提出需求的issue，主要对象是在多GPU上实现推理。用户想要使用预训练模型在多GPU上进行推理，希望能够实现模型并行化。
+
+https://github.com/NVIDIA/Megatron-LM/issues/214
+这是一个用户提出问题的issue，主要涉及到Megatron-LM中sequence parallel implementation的细节问题。用户提出了关于代码中延迟和`async_op=True`的使用以及不同process groups之间通信同步的疑惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/213
+这是一个用户提出需求的issue，主要关注模型参数的唯一数量，问题可能源于用户想要获得特定模型的详细信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/212
+这是一个bug报告，主要涉及Megatron-LM中的激活函数配置错误问题，可能是由于拼写错误导致了无法正确调用激活函数的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/211
+这是一个Bug报告，主要涉及文档中的拼写错误，导致出现了错误的单词。
+
+https://github.com/NVIDIA/Megatron-LM/issues/210
+这是一个bug报告，主要涉及到load_checkpoint函数中的model对象类型判断问题，导致在合并检查点分区时可能会出错。
+
+https://github.com/NVIDIA/Megatron-LM/issues/209
+这是一个关于bug报告的issue，主要涉及Megatron-LM中使用pipeline parallelism时出现的Pytorch distributed runtime check failure问题。这个问题导致了在运行`pretrain_gpt_distributed_with_mp.sh`时出现了运行时错误，可能是由于torch.distributed.P2POp创建函数导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/208
+这是一个bug报告，涉及的主要对象是Megatron-LM下的txt_generation_cli.py文件。由于Python 3不支持urllib2，导致了该bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/207
+这是一个bug报告，主要涉及Megatron-LM中的msdp预训练模型；由于模型尺寸不同导致设定的Sep_length限制使得回复提示被截断。
+
+https://github.com/NVIDIA/Megatron-LM/issues/206
+这个issue是关于bug报告， 主要涉及Megatron-LM中的随机状态变量在不同TP之间不同步，导致一些层（如nn.Dropout）受影响。
+
+https://github.com/NVIDIA/Megatron-LM/issues/205
+这是一个用户提出问题的类型，主要涉及Megatron-LM模型中的参数梯度处理机制，用户想了解在何种情况下需要使用参数--accumulate-allreduce-grads-in-fp32标志，以及为什么会有必要使用此标志来强制梯度缓冲区使用float32数据类型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/204
+该issue类型是代码合并（merge）请求，涉及的主要对象是F1STAT分支。
+
+https://github.com/NVIDIA/Megatron-LM/issues/203
+这个issue是用户寻求关于如何调整训练参数以适应服务器GPU数量不足的帮助类型。该问题涉及到Megatron-LM下的T5模型在训练参数调整上的适配性问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/202
+这是用户提出的需求，询问关于Megatron-LM中 visual transformer 的训练示例或说明的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/201
+这是一个Bug报告，主要涉及到Megatron-LM的代码中缺少一个参数导致多个数据集时训练崩溃。
+
+https://github.com/NVIDIA/Megatron-LM/issues/200
+这是一个关于软件是否在 macOS M1 上运行的问题，属于用户提问类型，用户想了解该软件是否支持在 macOS M1 上运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/199
+这个issue是bug报告类型，主要涉及修复解释文字以提高可读性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/198
+这是一个bug报告，涉及到在不同的模型并行设定下加载状态检查点导致参数大小不匹配的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/197
+这是一个bug报告，主要涉及代码中create_masked_lm_predictions函数中的条件判断问题导致的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/196
+这是一个Bug报告，涉及的主要对象为Megatron-LM中的`dataset_utils.py`文件中的`create_masked_lm_predictions`函数。由于条件判断和`continue`关键字没有起到作用，导致未正确跳过处理`covered_indexes`和`select_indexes`中的`index`，引发了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/195
+这是一个bug报告类型的issue，主要涉及到学习率的更新。由于learning_rates.py代码可能存在问题，导致用户提出需要更新此文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/194
+这是一个bug报告，涉及主要对象为Megatron-LM中的Transformer layers。由于Transformer layer在代码中均匀分布导致四个节点的负载不均衡，可能由于前后进行了一些计算操作，导致rank 0和rank 3节点负载高于rank 1和rank 2节点。
+
+https://github.com/NVIDIA/Megatron-LM/issues/193
+这是一个标记为"Solved"的用户提出的问题。问题涉及主要对象为Megatron-LM中的pretrain_gpt.py文件的forward_step函数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/192
+这是一个Bug报告，涉及的主要对象是Megatron-LM中的模块加载问题。由于缺少名为'fused_mix_prec_layer_norm_cuda'的模块，导致了ModuleNotFoundError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/191
+这是一个需求讨论类型的issue，主要涉及Megatron-LM中的fused softmax操作范围问题，由于操作范围过于紧凑导致实验结果不理想，用户提议是否可以改变操作范围。
+
+https://github.com/NVIDIA/Megatron-LM/issues/190
+这是一个用户提出需求的issue，主要涉及到如何获取论文中提到的指标，并询问软件是否提供相关接口。该问题的原因是用户想了解如何获得Megatron-LM软件的性能指标，如吞吐量和浮点运算次数。
+
+https://github.com/NVIDIA/Megatron-LM/issues/189
+这个issue类型是功能需求，主要涉及支持MixtureofStudents（MoS），旨在减少MixtureofExperts模型的大小。
+
+https://github.com/NVIDIA/Megatron-LM/issues/188
+这是一个bug报告类型的issue，主要涉及的对象是Megatron-LM中训练过程中的内存使用情况。问题的原因可能是与fp16计算造成的内存使用超出预期。
+
+https://github.com/NVIDIA/Megatron-LM/issues/186
+该issue类型为用户提出问题类型，主要涉及Megatron-LM中的cross_entropy.py代码，用户提出为何在其中不使用exp函数，以及询问为何要进行loss和gradient的scale up操作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/185
+这个issue类型是bug报告，涉及的主要对象是在Megatron-LM中的模型加载问题。由于`generate_samples_gpt.py`脚本无法加载检查点文件，并报错找不到特定的检查点文件路径，可能是由于文件命名格式不正确或加载逻辑存在问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/184
+这是一个关于性能问题的bug报告，主要涉及Megatron-LM中T5预训练在微批量大小大于1时生长较慢的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/183
+这个issue是关于需求的，主要对象是README中的report tables。由于缺乏明确的GPU和节点尺寸信息以及模型并行大小列的解释，导致用户难以理解报告表格内容。
+
+https://github.com/NVIDIA/Megatron-LM/issues/182
+这是一个关于需求的问题，涉及到Megatron-LM中继续使用BERT-base权重进行进一步预训练的情况。用户希望能够利用公开的bertbaseuncased模型作为同样结构的Megatron模型的检查点，但由于资源限制无法使用默认大小的Megatron进行预训练。
+
+https://github.com/NVIDIA/Megatron-LM/issues/181
+这是一个bug报告类型的issue，主要涉及Megatron-LM项目中的参数命名问题。由于`knowledge_gen_file`参数名称不正确，导致在预处理过程中出现错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/180
+这是一个Bug报告，涉及到Megatron-LM下的`eval_resp_generation.sh`脚本，主要问题是F1和KF1评估在脚本中提供的代码是相同的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/179
+这是一个关于如何加载finetuned DPR模型进行MSDP预处理的问题，涉及的主要对象是如何在MegatronLM中加载ParlAI提供的finetuned DPR模型，可能是由于缺乏模型类的定义而导致无法正确加载模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/178
+这是一个用户提出需求的issue，主要涉及对象是如何将MegatronT5模型转换为HuggingFace T5模型。用户提出这个问题可能是由于希望能够使用官方脚本来实现这一转换过程。
+
+https://github.com/NVIDIA/Megatron-LM/issues/177
+这是一个用户提出需求的issue，主要涉及如何使用Megatron对T5进行微调。用户想要在下游任务中微调T5模型，希望示例代码能够帮助解决这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/176
+这是一个bug报告，涉及的主要对象是Megatron-LM中的pretrain_gpt.sh脚本。由于最后一个epoch的样本数量超过了最大值，导致了AssertionError，问题可能是由于数据不足引起的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/175
+这是一个关于bug报告的issue，主要涉及Megatron中的scaled softmax实现问题。原因是在计算attention_score时，分子和分母均被layer_index缩放，导致两个缩放操作互相抵消，最终导致每个encoder层的缩放因子相等。
+
+https://github.com/NVIDIA/Megatron-LM/issues/174
+这是一个bug报告，主要涉及到Optimizer在加载模型权重时会保留未加载的模型权重，导致参数更新后模型权重会意外恢复到随机初始化的模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/173
+该issue类型是bug报告，涉及的主要对象是项目中的README文件。由于拼写错误或者语法错误导致的症状，导致用户提出了更新README文件的请求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/171
+这个issue属于bug报告类型，涉及主要对象为在文本生成过程中的DistributedDataParallel对象。由于未对模型进行unwrap操作，导致在调用`set_input_tensor()`时出现了错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/170
+这是一个用户提出需求的类型。该问题涉及到Megatron-LM框架不再支持lazy dataloader。用户提出需求是希望能够支持lazy dataloader，因为预训练语料库可能庞大且无法被存储为单个文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/169
+这是一个关于代码实现差异产生疑问的issue，涉及到Megatron-LM中的计算问题，原因可能是对于不同训练策略的处理方式上存在差异。
+
+https://github.com/NVIDIA/Megatron-LM/issues/168
+这是一个bug报告，涉及的主要对象是README.md文件。由于README.md文件中存在重复的项目符号，导致需要将重复的项目符号移除。
+
+https://github.com/NVIDIA/Megatron-LM/issues/167
+这是一个bug报告，主要涉及到Megatron-LM中的p2p_communication.py文件中torch.cuda.synchronize()方法可能不必要的问题。该问题指出了在使用`batch_isend_irecv()`方法时对cuda设备进行显式同步可能是多余的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/166
+这是一个bug报告，主要涉及Megatron-LM在多个节点进行pretraining时出现<Signals.SIGSEGV: 11>错误。用户寻求关于如何在两个节点上训练时出现的问题的指导。
+
+https://github.com/NVIDIA/Megatron-LM/issues/165
+这是一个用户提出需求的 issue，主要对象是为当前的 Megatron-LM 添加 BigBird 支持。
+
+https://github.com/NVIDIA/Megatron-LM/issues/164
+这是一个bug报告类型的issue，主要涉及Megatron-LM中关于延迟权重梯度计算的问题，用户提出了关于延迟时间、任务顺序及代码逻辑的疑问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/163
+这是一个bug报告，涉及主要对象是MegatronLM项目中的数据预处理代码。由于使用了'cached'类型的datasetimpl，但在运行pretrain_bert.py时出现了'IndexedDataset' object没有'get_doc_idx'属性的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/162
+这是一个bug报告类型的issue，涉及主要对象是MegatronLM项目中的tokenizer模块。由于无法导入Tokenizer模块，导致出现了ImportError错误，用户在寻找Tokenizer库的位置并寻求帮助。
+
+https://github.com/NVIDIA/Megatron-LM/issues/161
+这是一个关于文本标点标准化的问题类型，主要涉及对象是从维基百科中提取的语料库。导致这个问题的原因可能是用户想要对从维基百科中提取的语料库进行标点标准化处理。
+
+https://github.com/NVIDIA/Megatron-LM/issues/160
+这是一个bug报告类型的issue，涉及 Megatron-LM 模型中的一个属性错误，导致了无法加载预训练模型的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/159
+这个issue是一个bug报告，涉及的主要对象是Megatron-LM中的数据集处理函数`_build_train_valid_test_datasets`，由于缺少`max_seq_length_dec`参数导致bug出现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/158
+这是一个用户提出需求的问题，主要涉及如何在线上进行推理的问题，由于无法在服务器中使用特定的PyTorch镜像而导致提问。
+
+https://github.com/NVIDIA/Megatron-LM/issues/157
+这是一个用户提出问题的issue，主要涉及Megatron-LM中的`usecpuinitialization`标志的使用和作用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/156
+这是一个bug报告类型的issue，主要涉及到Megatron-LM中关于T5模型不支持PP特性的问题。由于最近的更改导致了README.md文件中的说明不准确。
+
+https://github.com/NVIDIA/Megatron-LM/issues/155
+这个issue类型是bug报告，主要涉及到代码中的拼写错误和README.md文件的修正。这个问题产生的原因可能是在代码编写和编辑README.md文件时出现了拼写错误，导致内容不完整或者存在语法错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/154
+这是一个关于性能问题的用户需求问题，主要涉及数据集构建过程，由于数据集过大导致进程中止。
+
+https://github.com/NVIDIA/Megatron-LM/issues/153
+这是一个关于软件升级和代码更改的讨论，涉及到Megatron-LM中模型依赖于apex.transformer而不是mpu的问题。原因可能是为了改善代码组织或模型性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/152
+该issue类型是用户提出需求，该问题单涉及的主要对象是softmax kernel的实现。由于使用scale upper triangular mask softmax时未应用pad mask，用户询问是否有计划将pad mask添加到该kernel中。
+
+https://github.com/NVIDIA/Megatron-LM/issues/151
+这是一个bug报告，主要涉及的对象是Megatron-LM下的fused softmax kernel，问题可能是由于`scale`参数输入方式不正确导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/150
+这是一个建议性issue，讨论是否使用fused layernorm较好，主要涉及对象是Megatron-LM中的layernorm实现。由于对比torch layernorm，提出不再需要使用fused layernorm，希望得到其他人的看法。
+
+https://github.com/NVIDIA/Megatron-LM/issues/149
+这是关于bug报告的issue。主要涉及对象是 Megatron-LM 中的 BERT 模型。导致这个bug的原因是在合并使用模型并行训练的BERT检查点时，BERT模型没有实现`__len__`方法，导致出现了类型错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/148
+这是一个关于bug报告的issue，涉及主要对象是`use_checkpoint_lr_scheduler`功能，问题在于为什么会检查`cls_value == sd_value`。
+
+https://github.com/NVIDIA/Megatron-LM/issues/147
+这个issue是关于bug报告，涉及主要对象为Megatron-LM中GPT生成文本任务。由于缺少名为'amp_C'的模块导致出现错误信息"No module named 'amp_C'"。
+
+https://github.com/NVIDIA/Megatron-LM/issues/146
+这是一个类型为bug报告的issue，主要涉及Megatron-LM库中的CUDA运行时错误；由于CUDA库未正确初始化导致出现`CUBLAS_STATUS_NOT_INITIALIZED`的错误，用户请求解决此问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/145
+这是一个bug报告，涉及到Megatron-LM中preprocess.py文件的运行错误。这个错误是因为Namespace对象缺少'model_parallel_size'属性引起的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/144
+这是一个bug报告，涉及的主要对象是Megatron-LM的分布式预训练。导致这个问题的可能原因是多节点运行时，后向计算步骤花费的时间明显多于单节点运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/143
+这是一个bug报告，涉及Megatron-LM中的helpers.cpp文件，由于无法正确导入C++编译的helpers模块到Python中，导致出现ImportError错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/142
+这个issue属于bug报告类型，涉及到Megatron-LM项目中的代码显示问题，导致forward pass执行顺序不正确。
+
+https://github.com/NVIDIA/Megatron-LM/issues/141
+这个issue是关于bug报告的，主要涉及Megatron-LM中的ring_exchange API。出现混淆的原因是无法在PyTorch中找到该函数，用户怀疑这个函数是否是内部使用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/140
+这个issue属于bug报告，涉及到README.md文件的修复，因为`GPTPretraining`出现了重复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/139
+这个issue类型是用户提出需求，主要涉及的对象是加载T5预训练模型时遇到的困难，由于加载预训练模型时需要处理模型结构和手动分割检查点的繁琐过程，用户提出了如何更好地处理这些问题的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/138
+这个issue类型是bug报告，该问题单涉及的主要对象是文本中的拼写错误。由于疏忽未在内容中指出拼写错误，导致了这个issue。
+
+https://github.com/NVIDIA/Megatron-LM/issues/137
+这是一个关于功能需求的问题，涉及Megatron-LM和BigScience Megatron-LM fork的新功能导入。由于代码库开始分化，可能导致难以轻松导入新功能，需要协作者的额外资源进行处理。
+
+https://github.com/NVIDIA/Megatron-LM/issues/136
+这是一个bug报告，主要涉及Megatron-LM中的BERT预处理过程在系统内存占满时出现故障的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/135
+这是一个用户提出问题的issue，主要涉及Megatron-LM中权重初始化和交叉注意力的实现方式，用户想了解为什么需要使用相同的随机数发生器状态进行权重初始化以及为什么需要分别初始化Q和KV。
+
+https://github.com/NVIDIA/Megatron-LM/issues/134
+这是一个bug报告，主要涉及Megatron-LM中的destroy_model_parallel函数所清除的变量不足以满足某些测试的需求，导致测试出现异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/133
+这个issue类型是bug报告，主要涉及Megatron-LM中的fused softmax layer，由于`ELEMENTS_PER_LDG_STG` bug导致了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/132
+这个issue是关于bug报告，主要涉及到Megatron-LM项目中的fused softmax kernel的错误。由于调用的fused softmax layer与原始的torch softmax layer结果不一致，可能是由于软件实现中的问题而导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/131
+这是一个关于Megatron-LM下的ORQA finetuning代码中loss scaling问题的请教问题，用户询问为什么需要进行额外的loss scaling步骤。
+
+https://github.com/NVIDIA/Megatron-LM/issues/130
+这是一个bug报告，主要涉及Megatron-LM中的未初始化数据使用，导致了潜在的数据不安全性和可能出现的NaN值问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/129
+该issue属于bug报告类型，主要涉及Tensorboard logging问题，由于条件判断错误导致了部分进程无法正确记录速率相关指标。
+
+https://github.com/NVIDIA/Megatron-LM/issues/128
+这是一个需求问题，主要涉及Megatron-LM项目中T5实现缺少`relative_attention_bias`功能的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/127
+这是一个bug报告类型的issue，主要涉及的对象是代码中的拼写错误。可能是由于疏忽导致的拼写错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/126
+这是一个bug报告类型的issue，主要涉及Megatron-LM下的ICT Pretraining过程中出现的KeyError错误，具体涉及到了缺少'query_model' 字段的加载错误。可能是由于模型不兼容或者缺少必要的参数导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/125
+这是一个bug报告，该问题涉及的主要对象是torch.distributed初始化过程。由于指定的地址已被使用，导致出现了"address already in use"错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/124
+这个issue类型为用户提出需求，主要涉及到ORQA任务中关于SQuAD格式数据集的细节。用户想了解是否可以针对SQuAD格式数据集进行监督微调和评估，并询问如何实现。
+
+https://github.com/NVIDIA/Megatron-LM/issues/123
+这是一个修复拼写错误的bug报告，主要涉及到代码中的"mappings.py"文件，可能由于书写错误导致了程序无法正常运行。
+
+https://github.com/NVIDIA/Megatron-LM/issues/122
+这是一个bug报告，主要涉及Megatron-LM中文档要求有两个以上的句子，原因可能是代码实现导致了单句文档无法成功索引映射。
+
+https://github.com/NVIDIA/Megatron-LM/issues/121
+这是一个用户提出需求的issue，主要对象是Megatron-LM的example scripts。由于当前需要手动编辑环境变量才能运行脚本，用户希望能够设置环境变量并传递给脚本，以便更轻松地在不同节点上运行脚本。
+
+https://github.com/NVIDIA/Megatron-LM/issues/120
+这个issue类型是bug报告，涉及到拼写错误，由于输入错误导致了需要修复一个错别字的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/119
+这是一个bug报告类型的issue，涉及主要对象为Megatron-LM中的数据集。这个问题可能是由于数据格式不符合预期导致的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/118
+这个issue类型是bug报告，涉及的主要对象是在将节点数从10个减少到5个后，继续使用不同配置从现有检查点中进行预训练时出现的 AssertionError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/117
+这是一个关于需求的问题，主要涉及到Megatron-LM/BERT的数据处理和训练过程。由于预处理生成了大量的.idx和.bin文件，导致在BERT预训练中无法直接使用多个文件的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/116
+这是一个bug报告，涉及的主要对象是Megatron-LM中的distributed BERT例子。由于缺乏`seqlength`参数，导致代码在解析参数时出错，最终引发了 AssertionError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/115
+这是一个bug报告，涉及主要对象是在使用FP16训练T5时出现不稳定问题，原因可能是损失尺度下降过快导致训练过程不稳定。
+
+https://github.com/NVIDIA/Megatron-LM/issues/114
+该issue类型是用户提出需求，主要涉及的对象是对于Megatron-LM支持替代fine-tuning的算法。由于用户认为fine-tuning对于大型模型造成负担，因此提出支持类似Ptuning和LoRA这样的替代算法的建议。
+
+https://github.com/NVIDIA/Megatron-LM/issues/113
+这是一个文档修改类型的 issue，主要涉及到代码库中的 ParallelMLP 类。原因可能是文档中存在误导性的拼写错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/112
+这是一个bug报告，该问题涉及到模型训练过程中梯度计算的问题。由于部分模块的参数在当前前向传播计算中未参与，导致这些模块的参数在反向传播时没有被计算梯度，最终引发了'Parameter' object has no attribute 'main_grad'的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/111
+这是一个bug报告类型的issue，主要涉及到Megatron-LM中的model parallel问题。由于2way MP和4way DP混合训练导致在训练后期损失上升，用户提出了帮助解决模型并行性问题的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/110
+这是一个关于用户提出问题的issue，主要涉及内容是关于T5数据处理的tokenizer类型选择和是否需要使用'append_eod'参数。可能是由于提示信息不清晰或文档不完整导致用户对数据预处理步骤存在疑惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/109
+这是一个bug报告，涉及Megatron-LM中预训练T5模型过程中运行超时导致的Socket Timeout错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/108
+这是一个关于代码文档不清晰的issue，主要涉及到ICT预训练数据的获取问题。由于pretrain_ict.sh文件中未提供关于TITLE_DATA_PATH和TEXT_DATA_PATH的信息，导致用户无法准确获得ICT预训练数据，提出了这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/107
+这是一个关于潜在问题的bug报告，涉及到Megatron-LM项目中的distributed training all-reduce order。这个问题可能导致在同时启用数据并行和张量模型并行时，出现不确定的allreduce执行顺序，可能导致程序hang住。
+
+https://github.com/NVIDIA/Megatron-LM/issues/106
+这是一个bug报告，主要涉及的对象是Megatron LM中的optimizer部分。由于参数grad为None导致了 AttributeError 错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/105
+这个issue是一个修改建议，主要涉及Megatron-LM中的t5预处理，并涉及环境变量和命令行参数的修复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/104
+这是一个文档错误修正类的issue，主要对象是README.md文件。原因是README.md中有拼写错误，导致了文档的准确性问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/103
+这是一个bug报告，涉及的主要对象是代码中的参数。该问题可能是由于错误的复制粘贴操作导致的参数误删除。
+
+https://github.com/NVIDIA/Megatron-LM/issues/102
+该issue是一个用户提出需求的类型，主要涉及Megatron-LM下的GPT2(1.5B)在使用openWebText数据集训练时表现不如预期，用户询问为何相同参数大小的MegatronLM训练在一个更大的数据集下（包括Wikipedia、CCStories、RealNews、和OpenWebText）的准确率低于OpenAI GPT2在仅使用OpenWebText数据集训练时的准确率。
+
+https://github.com/NVIDIA/Megatron-LM/issues/101
+这是一个bug报告，涉及Megatron-LM下的模型加载问题。由于代码中对模型进行了类型判断，但实际传入的是列表形式的模型，导致出现了错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/100
+这是一个bug报告类型的issue，主要涉及的对象是Megatron-LM库中的MegatronBertForMaskedLM模块。由于无法从Transformers库中导入MegatronBertForMaskedLM模块，导致用户在Google Colab中运行Megatron BERT模型时出现ImportError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/99
+这是一个关于如何将GPT-2导出为ONNX模型的问题，涉及到ONNX模型导出时的protobuf大小限制问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/98
+这个issue是关于bug报告，主要对象是Megatron-LM中的checkpoint下载功能。由于指向错误的下载链接导致无法成功下载文件，用户提出了该问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/97
+这个issue属于用户提出需求的类型，主要涉及PyTorch中的in-place操作，用户提出在Megatron-LM中添加mark_dirty的建议，维护原始张量数据的一致性。
+
+https://github.com/NVIDIA/Megatron-LM/issues/96
+这是一个bug报告，该问题涉及 Megatron-LM 下的 README 文件中的错误引用链接，导致无法正确下载 BERT 345M uncased 模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/95
+这是一个bug报告，主要涉及Megatron-LM模型中隐藏层大小与脚本设置不匹配的问题，可能是由于设置中隐藏层大小与原始BERT模型隐藏层大小不一致导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/94
+该issue类型为用户提出需求，请教问题，涉及主要对象是Megatron-LM的数据预处理步骤，由于用户不清楚在使用"/create_doc_index.py"之前是否需要先使用preprocess.py脚本，所以寻求了相关信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/93
+这是一个关于使用前处理脚本的问题，不是bug报告。该问题涉及到数据集的加载和预处理。
+
+https://github.com/NVIDIA/Megatron-LM/issues/92
+这是一个bug报告，涉及的主要对象是Megatron-LM。由于vocab_size很大导致内存溢出错误，需要解决OOM问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/91
+这是一个关于使用Megatron创建嵌入向量时出现错误的bug报告，主要涉及Megatron-LM工具库的使用。原因可能是参数配置不正确导致错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/90
+这是一个Bug报告，涉及MegatronLM的代码运行时出现了AttributeError错误。可能是因为代码中调用了torch库的一个不存在的属性导致的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/89
+这是一个bug报告，该问题涉及的主要对象是Megatron-LM的开源项目。这个问题是由于缺少特定的模块导致`cleanup_dataset.py`脚本无法运行，需要将缺失的模块补充完整。
+
+https://github.com/NVIDIA/Megatron-LM/issues/88
+这是一个bug报告，涉及的主要对象是MegatronBert的数据加载器。由于数据集过大，导致随机种子过大导致的数值溢出问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/87
+这是一个需求提出的issue， 主要涉及到支持LAMB optimizer的问题。由于当前MegatronLM仅支持Adam optimizer，用户希望添加对LAMB optimizer的支持，这将使得可以实现更大的batch size和更短的训练时间，从而可以更好地处理大型数据集。
+
+https://github.com/NVIDIA/Megatron-LM/issues/86
+这是一个bug报告，问题涉及MegatronLM中pretraining BERT过程中出现的奇怪损失曲线。可能由于参数设置不同或代码实现问题导致损失收敛曲线异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/85
+这是一个bug报告类型的issue，涉及主要对象为Megatron-LM中的pretrained BERT模型和提供的词汇文件。由于Hugging Face更新了词汇文件，导致预训练模型的词汇大小与提供的词汇文件不匹配。
+
+https://github.com/NVIDIA/Megatron-LM/issues/84
+这是一个bug报告，主要涉及到Megatron-LM下的MMapIndexedDatasetBuilder对象，因_doc_idx导致merge_file_无法正常工作。
+
+https://github.com/NVIDIA/Megatron-LM/issues/83
+这是一个Bug报告类型的Issue，涉及主要对象为数据预处理脚本。由于首个文档为空导致数据预处理脚本报错的IndexError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/82
+这个issue类型是bug报告，主要涉及的对象是Megatron-LM下的fused_kernels编译问题，导致程序在编译过程中卡住在"using torch.float16 for parameters ..."。
+
+https://github.com/NVIDIA/Megatron-LM/issues/81
+这是一个bug报告，涉及的主要对象是Megatron-LM下的MMapIndexedDatasetBuilder类。由于`merge_file_`函数未正确处理`_doc_idx`变量，导致在合并数据后，在运行使用合并数据的训练过程中出现了断言错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/80
+这是一个bug报告类型的issue，涉及到Megatron-LM项目中无法找到scaled_masked_softmax.cpp文件，可能是由于安装或设置错误导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/79
+这是一个用户就如何在多个AWS实例上进行训练的问题，涉及主要对象是Megatron-LM库。原因可能是环境变量设置不正确导致了"Torch distributed initializing"阻塞。
+
+https://github.com/NVIDIA/Megatron-LM/issues/78
+这是一个关于bug报告的issue，主要涉及Megatron-LM在单机内部利用GPU内存不均衡的情况。原因可能是代码实现上的问题或者资源分配方面的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/77
+这个issue类型是bug报告，主要涉及的对象是Megatron-LM代码中的GPU内存管理，可能由于代码中的某些错误或设计缺陷导致rank 0在单台机器上消耗更多的GPU内存。
+
+https://github.com/NVIDIA/Megatron-LM/issues/76
+这是用户提出关于如何计算LM模型的FLOPS的问题，涉及GPU利用率和计算性能的分析。
+
+https://github.com/NVIDIA/Megatron-LM/issues/75
+这个issue是一个bug报告，主要涉及Megatron-LM中的函数和模块名称错误，由于未更改某些名称而导致了错误，如`NameError: name 'get_model_parallel_rank' is not defined`。
+
+https://github.com/NVIDIA/Megatron-LM/issues/74
+这是一个用户提出需求的issue，主要涉及GLUE任务的缺失问题。由于GLUE任务中只包含了MNLI和QQP，用户想知道是否将来会添加其他任务的评估。
+
+https://github.com/NVIDIA/Megatron-LM/issues/73
+这是一个bug报告，主要涉及的对象是Megatron-LM下的BERTlarge模型在不同GPU上的利用率差异。由于单独在A100 GPU上测试时，GPU利用率较低（约65%），而在V100上测试时接近98%，可能是由于硬件架构或配置的不同导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/72
+这个issue是关于提出需求的类型问题，主要涉及Megatron-LM中的position embedding使用可训练embedding而非绝对正弦编码的原因。
+
+https://github.com/NVIDIA/Megatron-LM/issues/71
+这是一个bug报告，涉及Megatron-LM中的NCCL错误，导致RuntimeError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/70
+这是一个关于bug报告的issue，主要涉及到Megatron-LM中pretrain_bert.py在处理小型文本语料时出现的问题。由于设置的参数可能导致执行过程卡住，表现为无法完成索引映射的构建。
+
+https://github.com/NVIDIA/Megatron-LM/issues/69
+这是一个关于功能需求的问题，主要涉及Megatron-LM是否支持在“分片”数据集上训练，用户想要按顺序在多个小数据集上训练模型，但不知道如何实现此操作，可能是因为预处理大数据集耗时导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/68
+这是一个bug报告类型的issue，主要涉及的对象是Megatron-LM项目中的样本数据。由于拼写错误导致错误的示例数据，用户提出需要修复这个问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/67
+这是一个bug报告，涉及的主要对象是Megatron-LM下的bert pretraining example。原因是在训练过程中出现了“no sample to consume: 0”的错误，可能是数据加载或数据处理部分出现了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/66
+这个issue是关于bug报告，涉及到Megatron-LM中的文本生成示例的问题。由于在运行示例时出现了KeyError错误，可能是由于对tokenizer或decoder中的特定token造成的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/65
+这是一个bug报告，涉及到Megatron-LM下的模型加载后推断结果不正确的问题。由于加载模型后进行推断时准确率显著下降，可能是由于模型保存/加载过程中的问题或推断过程中的错误操作导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/64
+这是一个用户提出需求的issue，涉及到Megatron-LM项目的依赖问题。由于requirements.txt中没有包含apex相关信息，导致用户在运行Megatron时需要先安装具有cpp扩展的Apex，因此希望更新readme以包含apex安装/要求信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/63
+这个issue是一个bug报告，涉及到在使用`torch.distributed.launch`进行多节点训练时，由于多个进程同时编译`fused_kernels`导致的意外错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/62
+这个issue属于bug报告类型，涉及的主要对象是Data Preprocess脚本。该问题是由于第一个处理的条目文本为空导致在特定情况下出现了IndexError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/61
+这是一个bug报告类型的issue，涉及到Megatron-LM中运行时出现的RuntimeError。由于在去除recompute标志后运行脚本导致矩阵大小错误，最终触发了RuntimeError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/60
+这是一个bug报告，主要涉及Megatron-LM中使用指定参数训练GPT-2时出现OOM（内存溢出）的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/59
+这个issue属于bug报告类型，主要涉及到数据预处理的 readme 指令失败。由于缺少 nltk 库和缺少 vocba.txt 文件导致了相应的错误信息。
+
+https://github.com/NVIDIA/Megatron-LM/issues/58
+这是一个bug报告，涉及主要对象为保存checkpoint时出现model parallel size > 1的情况。这个bug是由于多个model parallel ranks同时尝试创建相同文件夹导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/57
+这是一个bug报告，主要涉及Megatron-LM中的merge_mp_partitions.py工具，由于缺少对RNG状态的设置而导致异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/56
+这个issue属于功能需求类型，主要涉及到Megatron-LM模型训练过程中的超参数保存问题，用户提出了需要保存模型结构相关的超参数，以确保后续的finetuning或文本生成过程中能够保持参数一致，避免出现任务失败的情况。
+
+https://github.com/NVIDIA/Megatron-LM/issues/55
+这是一个用户提出需求的issue，主要涉及到Megatron-LM模型在使用现有模型微调或生成文本时需要保存词汇和合并文件，原因是为了方便继续使用相同的词汇和合并文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/54
+这是一个关于pretrained model中vocab文件大小不匹配的问题，属于bug报告，涉及主要对象是Bert345m模型。由于vocab文件大小不一致，用户提出了如何获取正确vocab文件或者提供相应文件的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/53
+这是一个bug报告，主要对象是Megatron-LM中的`text_generation_utils.py`，由于当前版本在生成文本时未排除填充标记，导致填充标记可能被选中导致异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/52
+这是一个bug报告类型的issue，主要涉及 MegatronLM 模型中生成文本时忽略填充标记导致异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/51
+这是关于bug报告的issue，主要涉及Megatron-LM中GPT模型的问题。可能是由于下载的模型或文件有问题导致WIKITEXT103验证结果不佳。
+
+https://github.com/NVIDIA/Megatron-LM/issues/50
+这是一个bug报告，涉及的主要对象是MegatronLM中的GPT2BPETokenizer.EncodeAsTokens()方法。这个issue是因为在该方法中存在拼写错误，虽然文件已被弃用，但依然存在这个错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/49
+这个issue类型为bug报告，主要涉及Megatron-LM项目中的参数组标题错误，导致了帮助消息显示不正确。
+
+https://github.com/NVIDIA/Megatron-LM/issues/48
+这个issue类型是用户请教问题，关于如何复现达到71.9 TFlops吞吐量的基准性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/47
+这是一个bug报告，主要涉及Megatron-LM应用中的help消息内容。由于`split`命令帮助消息中包含未转义的`%`符号，与`%`格式化冲突，导致`help`功能失败，报错提示`TypeError: %o format: an integer is required, not dict`。
+
+https://github.com/NVIDIA/Megatron-LM/issues/46
+这是一个bug报告，涉及的主要对象是Megatron-LM的openwebtext dataset准备过程。由于URL列表中包含恶意域名，导致了安全漏洞，用户建议更新黑名单以避免下载数据时受到影响。
+
+https://github.com/NVIDIA/Megatron-LM/issues/45
+这是一个关于需求的问题，涉及Megatron-LM中的优化器使用半精度训练的主题。用户提出了想要实现完全半精度优化器的需求。
+
+https://github.com/NVIDIA/Megatron-LM/issues/44
+这是一个用户提出需求的issue，主要涉及的对象是MegatronLM和DeepSpeed项目。该问题由于DeepSpeedExamples项目中使用的MegatronLM版本较旧，缺乏最新更新，用户询问是否考虑支持集成最新版本的MegatronLM和DeepSpeed项目。
+
+https://github.com/NVIDIA/Megatron-LM/issues/43
+这是一个bug报告，涉及主要对象是模型在分布式训练过程中出现的参数大小不匹配的问题。由于模型加载时参数形状不一致，导致出现了初始化错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/42
+这个issue类型是bug报告，主要涉及的对象是代码中的拼写错误。由于拼写错误导致了功能不正确，需要修复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/41
+这是一个bug报告，主要涉及的对象是代码中的拼写错误。由于拼写错误导致了一个小bug，需要修复。
+
+https://github.com/NVIDIA/Megatron-LM/issues/40
+这是一个关于系统扩展性的需求提出。这个问题单涉及的主要对象是Megatron LM，用户想知道是否容易将其扩展到175B规模。
+
+https://github.com/NVIDIA/Megatron-LM/issues/39
+这是用户提出需求的类型issue，主要涉及到获取8.3B参数模型的问题。原因可能是用户想使用更大参数的模型，但当前链接指向的是较小参数的模型。
+
+https://github.com/NVIDIA/Megatron-LM/issues/38
+这是一个bug报告类型的issue，主要涉及到在训练使用共享文件系统的多节点集群时出现FileExistsError错误。该问题由于尝试创建已存在的文件夹而导致文件已存在的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/37
+这是一个关于技术兼容性的问题，涉及对象是Huggingface和Megatron-LM之间的模型权重转换。用户寻求在两者之间转换模型权重的方法，希望能够实现持续预训练和模型权重转换。
+
+https://github.com/NVIDIA/Megatron-LM/issues/36
+这是一个Bug报告，涉及主要对象是Megatron-LM项目中的float32训练设置。由于将`fp16`选项注释掉导致在使用`optimizer.zero_grad(set_grads_to_None=True)`时出现了错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/35
+这个issue是一个bug报告，主要涉及到了在运行分布式训练时出现的文件缺失错误，可能由于不同服务器之间的数据共享导致在node1上找不到所需的文件。
+
+https://github.com/NVIDIA/Megatron-LM/issues/34
+这是一个关于bug报告类型的issue，主要对象是Megatron-LM代码中的tensorboard logging功能，由于代码绕过了"log_interval"设定，在每次更新时都向tensorboard写入学习率，导致不必要的运算量和性能下降。
+
+https://github.com/NVIDIA/Megatron-LM/issues/33
+这是一个bug报告，问题涉及到`openwebtext/clean_dataset.py`脚本中的`tokenizer.py`文件缺失所导致的ImportError。
+
+https://github.com/NVIDIA/Megatron-LM/issues/32
+这是一个关于模型训练表现的问题，主要涉及Megatron's BERT的训练和验证损失不一致，可能是由不同的批处理大小引起的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/31
+这是一个用户提出需求的问题，主要对象是 Megatron 的 BERT 模型，在询问如何评估在所有 GLUE 任务上的性能。
+
+https://github.com/NVIDIA/Megatron-LM/issues/30
+这是一个修正拼写错误的issue，主要涉及Megatron-LM的README文件，由于文档中的一些拼写错误导致了问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/29
+这是一个关于训练BERT模型过程中损失不下降导致性能较低的bug报告。
+
+https://github.com/NVIDIA/Megatron-LM/issues/28
+这是一个关于代码实现问题的用户提问，主要涉及Megatron-LM中BERT xlarge模型的LayerNorm实现，用户询问代码中是否缺少了论文中提到的层次重排的改动。
+
+https://github.com/NVIDIA/Megatron-LM/issues/27
+这是一个用户提出需求的issue，主要涉及Megatron modelparallel模型在V100 GPU上运行时如何从每次迭代的耗时计算TFLOPS性能，用户希望了解如何根据模型配置计算TFLOPS/PFLOPS，可能由于缺乏直接获取TFLOPS性能数据的方法而导致这个问题的提出。
+
+https://github.com/NVIDIA/Megatron-LM/issues/26
+这是一个bug报告，主要涉及Megatron-LM项目中的dropout功能调用是否正确包裹在`get_cuda_rng_tracker`函数中，导致了潜在的功能错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/25
+这是一个bug报告，主要涉及test set返回错误数据类型的问题，原因可能是返回时出现了维度为0的对象。
+
+https://github.com/NVIDIA/Megatron-LM/issues/24
+该issue为用户提出需求，主要涉及GPT2模型在不同任务上进行评估参数设置的问题，用户想要模仿GPT2论文中报告的结果。
+
+https://github.com/NVIDIA/Megatron-LM/issues/23
+这是一个bug报告，涉及的主要对象是Megatron-LM项目中的GPT-2生成样本功能。由于函数调用中传递的参数个数与函数定义中不匹配，导致了参数缺失的bug。
+
+https://github.com/NVIDIA/Megatron-LM/issues/22
+这是一个bug报告，涉及到Megatron-LM下的bert模型编码错误，导致UnicodeDecodeError异常。
+
+https://github.com/NVIDIA/Megatron-LM/issues/21
+该issue类型为用户提出需求，主要涉及的对象是`torch.multiprocessing.spawn`下的数据加载部分，用户提出了关于并行训练中数据加载的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/20
+这是一个用户询问问题类型的issue，主要涉及对象是代码中的`mpu.vocab_parallel_cross_entropy`函数。用户提出的问题是询问该函数是否与一般分类问题中的交叉熵相同。
+
+https://github.com/NVIDIA/Megatron-LM/issues/19
+这个issue类型是bug报告，涉及主要对象是_Megatron_LM中的_CopyToModelParallelRegion函数，由于backward函数调用了_reduce函数而引起了症状。
+
+https://github.com/NVIDIA/Megatron-LM/issues/18
+这是一个关于使用不同文本语料库进行训练的问题，涉及到数据分割和数据加载的bug报告。用户尝试将单个文件拆分为多个部分，并创建包含多个json对象的松散json文件，但在将新语料库作为单个json对象提供时失败。原因可能是手动拆分数据影响了采样和批处理过程。
+
+https://github.com/NVIDIA/Megatron-LM/issues/17
+这是一个bug报告，涉及Megatron-LM模型在TensorFlow中使用NEGOTIATE_ALLREDUCE时出现较长时间的问题。这可能是由使用Horovod库时的问题所导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/16
+这是一个请求更名的issue，主要对象是项目中的命令，原因是为了与readme文件中的命令名称保持一致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/15
+这是一个bug报告类型的issue，主要涉及Megatron-LM项目中的脚本运行问题。由于代码中对一个0d数组进行了迭代，导致出现了TypeError的错误。
+
+https://github.com/NVIDIA/Megatron-LM/issues/14
+这是一个bug报告，主要涉及Megatron-LM下的学习率不变和训练损失过快下降的问题。问题可能由学习率衰减设置或者数据集大小等因素导致。
+
+https://github.com/NVIDIA/Megatron-LM/issues/13
+这是一个bug报告，涉及的主要对象是Megatron-LM代码。该问题由于缺少'apex'模块而导致相关功能调用失败。
+
+https://github.com/NVIDIA/Megatron-LM/issues/12
+这是一个用户提出的问题，主要涉及到在使用Megatron-LM库的过程中，用户对收集Wikipedia训练数据部分的理解出现了误解。该问题的原因可能是用户对命令行工具的使用方式产生了困惑。
+
+https://github.com/NVIDIA/Megatron-LM/issues/11
+这个issue是关于用户提出需求的类型，主要对象是是否发布预训练模型。这是因为用户想知道是否有预训练模型可供使用。
+
+https://github.com/NVIDIA/Megatron-LM/issues/10
+这个issue类型是用户提出需求，主要对象是希望获取Megatron LM工具的输出示例。由于缺少输出样本，用户想要了解工具的实际效果而不是必须运行才能确认。
+
+https://github.com/NVIDIA/Megatron-LM/issues/9
+这是一个缺少详细信息的issue，主要对象是valid-data line。缺少详细信息可能是由于疏忽导致的。
+
+https://github.com/NVIDIA/Megatron-LM/issues/8
+这个issue是关于支持最新PyTorch RNG state API的需求，主要对象是Megatron-LM项目。原因是需要修复对PyTorch 1.2的支持问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/7
+这是一个bug报告，主要涉及的对象是Megatron-LM库。由于PyTorch 1.2版本中缺少_cuda_setRNGState属性，导致了出现错误信息中描述的问题。
+
+https://github.com/NVIDIA/Megatron-LM/issues/6
+这是一个bug报告，该问题涉及Megatron-LM中运行gpt2 wikitext评估时出现的困惑度过高的问题。原因是可能存在模型训练数据缺失或配置参数设置不当。
+
+https://github.com/NVIDIA/Megatron-LM/issues/5
+这是一个bug报告，主要涉及Megatron-LM中的预训练BERT脚本运行时出现的错误。导致这个问题的原因是在tokenization.py文件中出现了空值NoneType，导致无法访问属性'max_len'。
+
+https://github.com/NVIDIA/Megatron-LM/issues/4
+这个issue类型是用户询问问题的类型，主要涉及的对象是关于PySOL库。用户提出这个问题是因为他们在Google搜索中未找到关于PySOL的有意义结果。
+
+https://github.com/NVIDIA/Megatron-LM/issues/3
+这个issue属于用户提出需求类型，主要涉及Megatron-LM下的GPT2模型和tokenizer与pytorch-transformers包的兼容性问题，用户想了解如何将训练好的模型和tokenizer导入pytorch-transformers包以进行进一步的微调。
+
+https://github.com/NVIDIA/Megatron-LM/issues/2
+这个issue属于用户反馈问题，主要对象是Megatron-LM中的参数命名。原因是参数命名不清晰导致用户混淆。
+
+https://github.com/NVIDIA/Megatron-LM/issues/1
+这是一个用户提出需求的issue，主要对象是Megatron-LM的dataloader merge功能。由于dataloader merge操作速度较慢，用户希望提升其性能。
+

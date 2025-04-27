@@ -1,0 +1,486 @@
+DeepSpeed,这是一个关于开发环境中loss聚合问题的用户提问，主要涉及如何处理使用DPO loss时的loss聚合问题，可能由于数据处理方式不同导致。,https://github.com/deepspeedai/DeepSpeed/issues/6841
+DeepSpeed,这个issue属于用户请教问题类型，主要涉及DeepSpeed中的Ulysess和RingAttention模块，询问为什么Ulysess需要all2all来处理QKV，而RingAttention只需要在上下文并行下交换KV。,https://github.com/deepspeedai/DeepSpeed/issues/6808
+DeepSpeed,"这个issue属于用户询问问题类型，主要涉及DeepSpeed框架中如何配置将张量转移到NVMe设备的问题。用户因为对如何配置""offload_param""和""offload_optimizer""以训练使用ZeROInfinity的语言模型感到困惑。",https://github.com/deepspeedai/DeepSpeed/issues/6752
+DeepSpeed,这是一个用户提出问题的issue，主要涉及DeepSpeed下的fp6_linear_kernel函数如何设置Split_K参数，由于无法覆盖所有常用模型的out_channel值，用户需要确定适合的Split_K值以提高GPU利用率。,https://github.com/deepspeedai/DeepSpeed/issues/6676
+DeepSpeed,该issue类型是关于代码实现中的设计疑问，主要涉及OptimizedLinear中的QuantizedParameter和FP_Quantizer类，疑问是关于这两个类中量化方式的不一致性导致的问题。,https://github.com/deepspeedai/DeepSpeed/issues/6647
+DeepSpeed,这是一个用户请教问题的issue，主要涉及的对象是DeepSpeed中的TP + zero3模块。由于用户想要使用TP + zero3来训练预训练模型，但不清楚如何操作，因此提出了如何使用TP + zero3训练LLM的问题。,https://github.com/deepspeedai/DeepSpeed/issues/6523
+DeepSpeed,这是一个用户提出疑问的issue，主要涉及DeepSpeed中Flops Profiler的使用，问题是关于不同计时器选项的区别以及如何在使用Flops Profiler时做出选择。,https://github.com/deepspeedai/DeepSpeed/issues/6466
+DeepSpeed,"这是一个关于DeepSpeed配置设置问题的用户提问，涉及主要对象是参数分区中的训练过程。用户针对DeepSpeed zero3在训练LLava1.513B时，发现设置""allgather_bucket_size""配置无效，同时对参数持久化的机制和训练过程中的参数分区问题表示困惑。",https://github.com/deepspeedai/DeepSpeed/issues/6420
+DeepSpeed,这是一个用户询问关于在DeepSpeed Ulysses中使用Ring Attention是否会出现问题的类型问题，主要涉及到DeepSpeed Ulysses和Ring Attention的结合使用。,https://github.com/deepspeedai/DeepSpeed/issues/5492
+DeepSpeed,这个issue类型是用户请教问题，主要涉及DeepSpeed下的ZERO++ paper中关于reduction操作的不理解，用户想了解reduction操作的具体含义。,https://github.com/deepspeedai/DeepSpeed/issues/5440
+DeepSpeed,这是一个用户提出问题的issue，主要涉及DeepSpeed下ZERO3权重加载问题，可能由于权重加载问题导致出现错误提示并寻求解决方法。,https://github.com/deepspeedai/DeepSpeed/issues/5326
+DeepSpeed,该issue类型为用户提出问题，主要涉及DeepSpeed中推断（Inference）相关方法的区别和最佳实践。原因可能是作者对DeepSpeed文档中的推断部分存在困惑，想了解不同方法对内存友好程度及70b参数模型的支持情况，以及针对70b llama模型的最佳推断实践。,https://github.com/deepspeedai/DeepSpeed/issues/5310
+DeepSpeed,这个issue类型为用户提出问题，主要涉及的对象是DeepSpeed中的bf16_optimizer。由于初始时BF16_Optimizer执行了self.optimizer.step()，导致在训练的第一步中权重值与更新后的权重值不一致，用户提出了疑问：1. 这样的权重衰减是否有误？2. 在使用warmup LR时，该权重衰减中的学习率是使用Base LR还是warmup时的第一个LR。,https://github.com/deepspeedai/DeepSpeed/issues/5151
+DeepSpeed,这是一个用户提出问题的issue，主要涉及DeepSpeed中的`ignore_unused_parameters`参数，用户在训练多模型模型过程中可能遇到了问题，怀疑该参数是否对解决问题有帮助。,https://github.com/deepspeedai/DeepSpeed/issues/4948
+DeepSpeed,这个issue属于用户提出问题类型，主要涉及DeepSpeed软件包的安装和配置，用户问到是否需要配置环境变量来使用特定的构建选项。,https://github.com/deepspeedai/DeepSpeed/issues/4884
+DeepSpeed,这是一个用户寻求帮助的issue，主要涉及针对MCR-DL的查询和获取指向其代码库的请求。,https://github.com/deepspeedai/DeepSpeed/issues/4751
+DeepSpeed,这个issue类型是用户提出问题，主要对象是DeepSpeed V2，由于DeepSpeed V2不能使用原始模型结构，用户提出了寻求帮助的问题。,https://github.com/deepspeedai/DeepSpeed/issues/4744
+DeepSpeed,这个issue属于用户提问类型，主要涉及DeepSpeed配置中关于fp16/bf16设置的含义以及是否属于纯16位训练或混合精度训练的问题。用户想了解这些设置是如何影响优化器组件和训练过程的。,https://github.com/deepspeedai/DeepSpeed/issues/4725
+DeepSpeed,该issue属于用户提问类型，主要涉及DeepSpeed在梯度累积过程中是取平均还是求和的问题。用户希望DeepSpeed能够支持梯度求和的方式以适应不同GPU上token数量不同的情况。,https://github.com/deepspeedai/DeepSpeed/issues/4662
+DeepSpeed,"该issue类型为用户提出问题，主要涉及DeepSpeed中的设置""profile"": true后如何找到结果，可能由于缺乏相关文档或指导而导致用户无法准确找到所需信息。",https://github.com/deepspeedai/DeepSpeed/issues/4600
+DeepSpeed,这个issue类型是用户提出问题，主要涉及DeepSpeed安装问题。由于路径错误导致无法找到nvcc，用户询问如何解决这个问题。,https://github.com/deepspeedai/DeepSpeed/issues/4553
+DeepSpeed,这是一个用户提出问题的issue，主要针对DeepSpeed在不同GPU上分配数据的方式进行询问。,https://github.com/deepspeedai/DeepSpeed/issues/4402
+DeepSpeed,该issue属于用户提问类型，主要涉及DeepSpeed中的ZeRO和Inference版本的区别、70Bparameterllama模型的推理效率问题以及OOM错误的解决。,https://github.com/deepspeedai/DeepSpeed/issues/4234
+DeepSpeed,"该issue属于用户询问问题类型，主要涉及DeepSpeed下的一个名为""ZeroQuant-V2""的代码查找问题。由于用户想要找到关于'ZeroQuantV2: Exploring Posttraining Quantization in LLMs from Comprehensive Study to Low Rank Compensation'的代码，因此提出了寻找该代码的请求。",https://github.com/deepspeedai/DeepSpeed/issues/4227
+DeepSpeed,这个issue是关于用户提供帮助翻译的类型，主要涉及DeepSpeed Ulysses的中文博客翻译。,https://github.com/deepspeedai/DeepSpeed/issues/4210
+DeepSpeed,这个issue类型是用户请教问题，主要涉及的对象是DeepSpeed库的文档和模型加载到GPU的问题。由于用户在加载模型到GPU时遇到内存不足的问题，希望在不加载模型到CPU的情况下，使用DeepSpeed的init_inference方法将模型加载到GPU，并咨询了关于直接加载模型到GPU、量化模型和部分权重下放等方面的问题。,https://github.com/deepspeedai/DeepSpeed/issues/4178
+DeepSpeed,该issue类型为用户提出问题，主要涉及DeepSpeed中pipeline模型在使用zero_stage大于1时的限制和梯度计算重复的问题。,https://github.com/deepspeedai/DeepSpeed/issues/4164
+DeepSpeed,这是一个用户询问问题的issue，主要涉及DeepSpeedExamples中的BingBertGlue示例，用户想知道在该示例中应该使用哪个checkpoint来替代模型文件。,https://github.com/deepspeedai/DeepSpeed/issues/4155
+DeepSpeed,该issue类型为用户提出询问问题，询问内容主要涉及是否可以在torch_xla中使用CPU优化器。原因是XLA不包装优化器，用户想要确认是否可以在这种情况下使用CPU优化器。,https://github.com/deepspeedai/DeepSpeed/issues/4096
+DeepSpeed,这是一个用户询问关于DeepSpeed加载LLAMA2模型的问题，类型是用户寻求帮助。,https://github.com/deepspeedai/DeepSpeed/issues/4074
+DeepSpeed,这个issue属于问题提问类型，主要涉及的对象是DeepSpeedDataLoader，由于在`__iter__`中创建了一个dataloader并将所有数据存储在self.data中，用户询问为什么不直接迭代self.dataloader会有什么区别。,https://github.com/deepspeedai/DeepSpeed/issues/3665
+DeepSpeed,"该问题是关于用户提出的一个疑问，主要涉及DeepSpeed下的一个名为""deepspeed-chat training""的功能。用户对于训练过程中数据batch的组成方式产生了疑问，认为在某个步骤中只包含了两个相同提示的样本不合理。",https://github.com/deepspeedai/DeepSpeed/issues/3558
+DeepSpeed,这是一个用户就代码实现细节进行询问的issue，主要涉及DeepSpeed中的tensor parallel模块，在推断过程中的实现情况，以及关于`replace_with_kernel_inject`和`all_reduce`的疑问。,https://github.com/deepspeedai/DeepSpeed/issues/3374
+DeepSpeed,这是一个用户询问类型的issue，针对DeepSpeed多节点环境下不同服务器的Python和CUDA环境是否需要一致的问题。,https://github.com/deepspeedai/DeepSpeed/issues/3321
+DeepSpeed,这是一个用户提出问题的issue，主要涉及的对象是DeepSpeed的train功能。由于用户遇到了一个问题，需要寻求关于训练的帮助。,https://github.com/deepspeedai/DeepSpeed/issues/3307
+DeepSpeed,这个issue类型是询问问题，主要对象是DeepSpeed的15倍加速原则。这个问题可能是由于用户想了解DeepSpeed中如何实现15倍加速而提出的。,https://github.com/deepspeedai/DeepSpeed/issues/3225
+DeepSpeed,这是一个用户提出问题的issue，主要涉及DeepSpeed中的pipeline模型，用户想知道当num_state大于1时，是否需要每次迭代都使用相同的输入大小。,https://github.com/deepspeedai/DeepSpeed/issues/3143
+DeepSpeed,这是一个用户提出疑问的issue，主要涉及DeepSpeed的pipeline engine中关于micro-batch加载的问题，用户想了解为何在最后阶段还需要加载microbatch。,https://github.com/deepspeedai/DeepSpeed/issues/3055
+DeepSpeed,这是一个用户询问如何在DeepSpeed中使用多个节点以Docker环境启动作业的问题，源于用户想要在两个节点上同时运行ds_pretrain_gpt2zero3.sh脚本但遇到了错误。,https://github.com/deepspeedai/DeepSpeed/issues/2920
+DeepSpeed,该问题类型为用户提出问题（Question），主要涉及 DeepSpeed 框架中使用 Vision Transformer 模型训练时 GPU 内存使用情况。可能原因是模型规模或 GPU 数量导致类似的内存使用，用户想了解在何种规模下应该能够观察到差异。,https://github.com/deepspeedai/DeepSpeed/issues/2787
+DeepSpeed,这是一个用户提出问题的类型，主要涉及的对象是DeepSpeed Inference论文中关于通讯优化的内容。这个问题是由于用户对论文中关于奇数号GPU和偶数号GPU处理不同层的激活函数这一部分感到困惑，希望能得到更多细节和示例以及相关代码文件。,https://github.com/deepspeedai/DeepSpeed/issues/2751
+DeepSpeed,这个issue属于用户提出问题，主要涉及DeepSpeedDiffusersAttentionFunction中的操作pad_transform_fp16，用户请求获得纯PyTorch版本的对应操作。,https://github.com/deepspeedai/DeepSpeed/issues/2710
+DeepSpeed,这是一个用户询问类型的issue，主要涉及DeepSpeed中Flan-T5模型的`injection_policy`使用问题，用户想了解如何找出正确的`injection_policy`以及验证其是否正确。,https://github.com/deepspeedai/DeepSpeed/issues/2689
+DeepSpeed,这是一个用户寻求帮助的问题，主要涉及如何在 Docker 容器中训练机器学习模型的使用问题。由于缺乏关于使用 dockerized 程序或库进行开发其他应用的信息，用户试图了解如何在 IDE 中导入 DeepSpeed Docker 容器并使用其功能。,https://github.com/deepspeedai/DeepSpeed/issues/2568
+DeepSpeed,这是一个关于需要帮助的问题类型的issue，主要涉及DeepSpeed中的CUDA图支持及模型并行情况，用户询问为何在模型并行情况下不能使用CUDA图以及导致程序中断的原因。,https://github.com/deepspeedai/DeepSpeed/issues/2456
+DeepSpeed,该issue属于用户提出问题类型，主要涉及DeepSpeed中Pipeline layerization的实现方式和无法对涉及多次传递结果的操作进行描述，用户想知道如何在层描述中参考先前的结果，同时也提到TiedLayer的不清楚解释和文档问题。,https://github.com/deepspeedai/DeepSpeed/issues/2435
+DeepSpeed,这是一个关于使用DeepSpeed中PipelineModule和LayerSpec在CIFAR10训练中遇到问题的用户提问，属于问题疑惑类。主要涉及对象是对DeepSpeed的使用和理解。由于对LayerSpec如何配置以及在forward函数中如何指定特殊操作的理解不清，导致在调用`deepspeed_initialize`时出现问题。,https://github.com/deepspeedai/DeepSpeed/issues/2388
+DeepSpeed,这是一个用户提问的类型问题，涉及的主要对象是DeepSpeed的overlap_comm功能。由于在阶段1中，overlap_comm和contiguous grads在深度加速库中被忽略和无效，因此用户询问为什么不能在此阶段使用overlap_comm以减少更多的延迟。,https://github.com/deepspeedai/DeepSpeed/issues/2295
+DeepSpeed,这是一个用户询问问题类型的issue，主要涉及对DeepSpeed中压缩功能（zero_quant方法）中使用Conv1D模型需要转换为Linear的疑问。,https://github.com/deepspeedai/DeepSpeed/issues/2294
+DeepSpeed,这是一个用户提出问题的issue，主要是关于如何在DeepSpeed中进行多节点推理，原因可能是找到的示例只涉及多节点训练，用户寻求关于多节点推理的指导。,https://github.com/deepspeedai/DeepSpeed/issues/2112
+DeepSpeed,这个issue是询问关于在DeepSpeed中使用NVMe SSD的性能评估，属于需求提出类型问题。用户关注在NVMe SSD上使用DeepSpeed是否有对应的性能评估数据。,https://github.com/deepspeedai/DeepSpeed/issues/2033
+DeepSpeed,这是一个用户提出问题的issue，涉及的主要对象是DeepSpeed的初始化过程与类似GNN模型结构的适配问题。导致问题的原因是模型引擎和代码风格与用户的实际使用场景不匹配。,https://github.com/deepspeedai/DeepSpeed/issues/2029
+DeepSpeed,这是一个用户询问问题的issue，主要涉及SparseSelfAttention中key_padding_mask的使用。询问是在SparseSelfAttention中如何使用key_padding_mask来避免在local attention中参与某些attend keys。,https://github.com/deepspeedai/DeepSpeed/issues/1993
+DeepSpeed,这是一个用户提出问题的issue，主要涉及DeepSpeed初始化状态的检查，由于最新版本删除了`deepspeed.utils.is_initialized`函数，用户询问如何现在检查DeepSpeed是否已经初始化，以便在torch和DeepSpeed的激活检查点功能之间做出编程选择。,https://github.com/deepspeedai/DeepSpeed/issues/1870
+DeepSpeed,该问题为用户询问是否可以使用 DeepSpeed 推断 fairseq 训练的 GPT 模型。,https://github.com/deepspeedai/DeepSpeed/issues/1824
+DeepSpeed,这个issue是关于DeepSpeed-Inference的问题询问类型，在探讨在特定条件下DeepSpeed-Inference功能是否适用于非标准HuggingFacestyle transformer等问题。,https://github.com/deepspeedai/DeepSpeed/issues/1610
+DeepSpeed,这是一个用户请教问题类型的issue，主要涉及DeepSpeed下的使用PyCharm和其调试器功能训练模型的相关问题。用户想了解是否可以使用PyCharm和其Debugger功能训练带有DeepSpeed优化器的模型。,https://github.com/deepspeedai/DeepSpeed/issues/1586
+DeepSpeed,这是一个用户提出问题的类型，主要涉及了ZeRO-Infinity论文中关于Equation (5)的疑问。用户提出这个问题是因为对Equation (5)中的一些细节有疑惑，希望获得更详细的解释。,https://github.com/deepspeedai/DeepSpeed/issues/1551
+DeepSpeed,"这是一个用户询问问题类型的issue，主要涉及DeepSpeed中的两个kernel函数""launch_attn_softmax_backward_v2""和""launch_attn_softmax_backward""之间的区别。用户询问这两个kernel函数之间的具体差异是什么。",https://github.com/deepspeedai/DeepSpeed/issues/1413
+DeepSpeed,这是一个用户提出疑问的类型，主要关注DeepSpeed中的zero和optimizer offload功能间的依赖关系。根据用户描述可能是在深入了解为什么开启 optimizer offload 必须同时开启 zero 的不同阶段时遇到了疑问。,https://github.com/deepspeedai/DeepSpeed/issues/1403
+DeepSpeed,这是一个用户请教问题的类型，涉及DeepSpeed中加载通过管道模型训练得到的检查点文件进行推理的问题，用户寻求帮助以实现最佳性能。,https://github.com/deepspeedai/DeepSpeed/issues/1379
+DeepSpeed,"该issue类型是用户提问，主要涉及如何使用Python执行脚本，导致了用户想要了解如何转换使用命令""deepspeed my_script.py""运行的脚本到直接使用""python my_script.py""执行。",https://github.com/deepspeedai/DeepSpeed/issues/1320
+DeepSpeed,这是一个用户请教问题的issue，主要涉及DeepSpeed Inference在C++中的运行问题，用户想了解如何在C++中运行DeepSpeed Inference，并询问是否将init_inference()生成的模型转换为TorchScript是有效的方法。,https://github.com/deepspeedai/DeepSpeed/issues/1319
+DeepSpeed,这是一个关于ZeRO-Infinity论文的提问类型的issue，主要涉及内容是关于为什么优化器状态要包括FP32梯度，问题可能由于作者对梯度计算和参数更新使用的数据类型之间的差异产生疑惑而提出。,https://github.com/deepspeedai/DeepSpeed/issues/1245
+DeepSpeed,这是一个用户询问类型的issue，主要涉及到DeepSpeed下的模型加载和推理过程中可能需要的文件。用户在finetuning后发现一些额外的文件，想知道这些文件是否只用于训练或者推理中也需要。,https://github.com/deepspeedai/DeepSpeed/issues/1196
+DeepSpeed,这是一个用户提出问题类型的issue，主要对象是DeepSpeed中的bucket处理机制。用户询问由于Autograd引擎的并行图执行特性，导致不同进程梯度准备顺序不一致，想要了解DeepSpeed是如何处理bucket来保证严格的AllReduce顺序的。,https://github.com/deepspeedai/DeepSpeed/issues/1186
+DeepSpeed,这是一个关于实现细节的疑问，主要涉及DeepSpeed中Stage 3的实现。由于未在Nvidia工具Nsight System的时间轴中看到nccl reducescatter核心，用户想了解为什么实现没有使用broadcast和reduce-scatter。,https://github.com/deepspeedai/DeepSpeed/issues/1173
+DeepSpeed,这个issue属于询问类问题，涉及的主要对象是DeepSpeed中的模型并行性实现，主要问题是关于推断引擎中的模型并行实现的具体细节以及参数广播的机制。,https://github.com/deepspeedai/DeepSpeed/issues/1161
+DeepSpeed,这是一个用户询问问题的issue，主要涉及DeepSpeed中的activation checkpointing以及配置中的mpu_参数。用户在尝试在模型训练中集成zero offload和activation checkpointing时遇到问题，他想知道如何处理mpu_参数以实现所需的功能。,https://github.com/deepspeedai/DeepSpeed/issues/1080
+DeepSpeed,这是用户询问如何在DeepSpeed中使用torch.save()来保存模型参数的问题。,https://github.com/deepspeedai/DeepSpeed/issues/1054
+DeepSpeed,这是一个用户询问问题的issue， 主要涉及对象是DeepSpeed中的nn Linear patching模块。通过这个问题可以推测用户想要了解如何在特定模块中禁用nn Linear patching功能。,https://github.com/deepspeedai/DeepSpeed/issues/975
+DeepSpeed,这是一个用户提出问题的类型的issue，主要涉及到DeepSpeed中的外部参数（external parameters）。由于外部参数没有注册，可能导致代码在处理模型时出现问题，用户担心是否会收到警告，模型会默默失败，或者在参数错误分区时可能导致崩溃。,https://github.com/deepspeedai/DeepSpeed/issues/930
+DeepSpeed,该issue属于用户提出问题类型，主要涉及DeepSpeed的pipeline源代码中关于梯度累积阶段和管道阶段之间的关系的疑惑，请求详细描述。由于用户对代码中梯度累积阶段和管道阶段的关系感到困惑，需要进一步的解释和澄清。,https://github.com/deepspeedai/DeepSpeed/issues/808
+DeepSpeed,该issue类型为用户请教问题，主要涉及DeepSpeed中的pipeline parallelism机制，由于用户对其操作机制不够清楚，提出了寻求详细描述的请求。,https://github.com/deepspeedai/DeepSpeed/issues/794
+DeepSpeed,该issue类型为比较和咨询，主要涉及DeepSpeed、Megatron和FairScale三个库的pipeline parallelism实现比较。用户希望了解它们之间的差异、性能评估和进一步研究方向。,https://github.com/deepspeedai/DeepSpeed/issues/784
+DeepSpeed,这是一个用户询问问题类型的issue，主要涉及DeepSpeed如何在Azure计算集群上进行训练调度。这个问题是因为用户想要在Azure计算集群上使用DeepSpeed进行训练，但由于数据量巨大，需要一些关于如何在Azure计算集群上启动DeepSpeed的指导。,https://github.com/deepspeedai/DeepSpeed/issues/759
+DeepSpeed,这是一个用户询问如何在DeepSpeed命令中启用pdb调试工具的问题，涉及对象为调试功能的启用方式及在PyCharm中的设置。这个问题可能是由于DeepSpeed命令不支持直接启用pdb或用户不清楚如何在DeepSpeed环境中使用pdb而导致的。,https://github.com/deepspeedai/DeepSpeed/issues/703
+DeepSpeed,这是一个用户询问问题的类型，用户关注的主要对象是 DeepSpeed optimizer，由于用户想要了解如何从 DeepSpeed optimizer 中获取当前的学习率。,https://github.com/deepspeedai/DeepSpeed/issues/702
+DeepSpeed,这是一个用户提出问题的类型的issue，主要涉及DeepSpeed下的Pipeline文档中的一些疑问。原因可能是文档中一些表述不清晰或者缺少示例导致用户困惑。,https://github.com/deepspeedai/DeepSpeed/issues/659
+DeepSpeed,这是一个用户询问问题类型的issue，主要涉及到DeepSpeed在使用多个InfiniBand卡进行多GPU通信时的支持问题。由于用户想要了解如何使用DeepSpeed支持在一个节点上使用多个InfiniBand卡进行训练，可能是由于需要提高训练性能或者优化分布式训练设置。,https://github.com/deepspeedai/DeepSpeed/issues/658
+DeepSpeed,这是一个用户询问问题的类型的issue，主要涉及的对象是DeepSpeed软件。用户因为想要在没有CUDA的环境下安装DeepSpeed而提出了问题。,https://github.com/deepspeedai/DeepSpeed/issues/609
+DeepSpeed,这是一个用户提出问题的issue，主要涉及DeepSpeed中的'partition_activations'参数。用户困惑于该参数在配置文件的'activation_checkpointing'部分中的作用，以及当启用'partition_activations'时，DeepSpeed会如何处理输入张量。,https://github.com/deepspeedai/DeepSpeed/issues/580
+DeepSpeed,这是一个用户提出问题的issue，主要涉及DeepSpeed的OneBitAdam在TCP/eth网络环境下的使用问题。用户询问是否支持这种配置，并请求有关如何在此类网络上启用OneBitAdam的详细信息。,https://github.com/deepspeedai/DeepSpeed/issues/575
+DeepSpeed,这是一个提出疑问的问题类型的issue，主要涉及DeepSpeed中block sparse attention的定义，用户想了解不同`attention`选项对token之间的影响。,https://github.com/deepspeedai/DeepSpeed/issues/519
+DeepSpeed,这是一个用户询问问题类型的issue，主要涉及DeepSpeed中的transformer cuda kernel的hidden_dim约束问题。用户想知道为什么存在这种约束以及是否有计划支持任意维度，以及如何使`hidden_dim=4096`或`8192`起作用。,https://github.com/deepspeedai/DeepSpeed/issues/491
+DeepSpeed,该issue类型是用户提出问题，主要涉及对象是对Invertible Softmax实现的搜索和理解，用户提出了关于在DeepSpeed中查找可逆Softmax实现的问题。,https://github.com/deepspeedai/DeepSpeed/issues/229
+DeepSpeed,这是一个用户寻求帮助的issue，主要涉及DeepSpeed在本地容器中分布式运行的问题。原因可能是在进行分布式运行时出现了错误。,https://github.com/deepspeedai/DeepSpeed/issues/174
+DeepSpeed,该issue类型是用户询问问题，涉及的主要对象是DeepSpeed是否支持torch 1.3.1版本。,https://github.com/deepspeedai/DeepSpeed/issues/172
+DeepSpeed,这个issue类型是用户提出问题，主要涉及的对象是DeepSpeed的ZeRO optimizer实现。造成这个问题的原因可能是用户在阅读DeepSpeed源代码时遇到了某些理解困难的部分，希望从社区获得帮助理解DeepSpeed的实现。,https://github.com/deepspeedai/DeepSpeed/issues/169
+DeepSpeed,这是一个用户询问问题的类型，询问了在单个GPU上使用DeepSpeed库是否能获得优化效果。,https://github.com/deepspeedai/DeepSpeed/issues/64
+DeepSpeed,这是一个用户提出问题的issue，主要涉及DeepSpeed库中关于训练数据加载和批处理大小设置的问题。,https://github.com/deepspeedai/DeepSpeed/issues/62
+Megatron-LM,这是一个提出问题的类型，主要涉及路由缩放因子设置，问询如何确定,https://github.com/NVIDIA/Megatron-LM/issues/1504
+Megatron-LM,这是一个询问类型的issue，主要涉及Megatron-LM中forward和backward passes的时间比较，用户想了解为何forward pass时间略长的问题。,https://github.com/NVIDIA/Megatron-LM/issues/1488
+Megatron-LM,这是一个关于用户提问的问题，主要涉及在Megatron框架下如何使用训练好的模型进行推断。由于用户想了解如何更轻松地设置一个模型，提出了关于提供JSON文件来描述模型结构的建议。,https://github.com/NVIDIA/Megatron-LM/issues/1479
+Megatron-LM,这是一个用户提出疑问的类型问题，主要涉及MegatronLM中的`use_shared_expert_gate`参数参考的来源，用户想了解该参数来源的原因。,https://github.com/NVIDIA/Megatron-LM/issues/1467
+Megatron-LM,这个issue是一个问题提问，涉及主要对象是Megatron-LM中的训练速度。用户询问由于何种原因导致使用DeepEP时训练速度比传统all-to-all方法慢的现象，并寻求其他测试结果作为参考。,https://github.com/NVIDIA/Megatron-LM/issues/1456
+Megatron-LM,这是一个用户提出问题的issue，主要涉及到如何在Megatron-LM中保存和加载检查点，以及如何在训练中从上次的检查点继续进行。问题由于参数不匹配导致了错误。,https://github.com/NVIDIA/Megatron-LM/issues/1449
+Megatron-LM,该issue为用户的疑问类型，涉及主要对象为`torch.distributed.ring_exchange()`和`batch_isend_irecv`，用户想了解这两者的区别以决定是否值得自行实现。,https://github.com/NVIDIA/Megatron-LM/issues/1443
+Megatron-LM,这是一个问题询问类型的issue，主要涉及Megatron框架中添加自定义Transformer块的问题。导致出现问题的原因可能是在创建独立单层Transformer块时，与checkpointing或分布式训练发生了干扰。,https://github.com/NVIDIA/Megatron-LM/issues/1436
+Megatron-LM,这个issue属于用户提出的疑问类型，主要涉及到Megatron-LM中的moe_utils.py文件。由于代码中在不同地方处理了'probs_for_aux_loss'和'routing_map'，用户质疑为什么不在'sequence_load_balancing_loss_func'函数中也对'routing_map'进行gather操作。,https://github.com/NVIDIA/Megatron-LM/issues/1406
+Megatron-LM,这是一个用户提问类型的issue，主要涉及 MegatronLM 中 MAMBA2 的支持问题。用户询问由于当前主分支不支持 MAMBA2，想知道代码移动至何处以及哪个分支现在支持。,https://github.com/NVIDIA/Megatron-LM/issues/1395
+Megatron-LM,该issue类型为用户请教问题，主要涉及对象为如何在单机上使用8片A100 GPU训练internlm/internlm220b模型，可能由于用户对MegatronLM的使用流程不熟悉而需要帮助。,https://github.com/NVIDIA/Megatron-LM/issues/1364
+Megatron-LM,这个issue类型是用户提出问题，主要对象是训练节点的崩溃，用户想知道如何恢复数据集并继续训练。,https://github.com/NVIDIA/Megatron-LM/issues/1343
+Megatron-LM,该issue是一个关于提出问题的类型，主要涉及在Megatron-LM中实现具有非相同专家结构的并行计算问题。用户提出了实现有效的梯度计算和同步以及有效的alltoall通信的困惑，并寻求相关示例。,https://github.com/NVIDIA/Megatron-LM/issues/1342
+Megatron-LM,这是一个用户提出问题的issue，主要对象是`GPTDataset`，可能由于最后一个epoch数据分布不同导致训练损失急剧下降。,https://github.com/NVIDIA/Megatron-LM/issues/1328
+Megatron-LM,这个issue类型是用户提出问题，涉及到如何将torch_dist格式的checkpoint转换为torch格式的问题。由于缺少添加saver和loader的步骤，导致出现了退出的问题。,https://github.com/NVIDIA/Megatron-LM/issues/1317
+Megatron-LM,这是一个用户提出问题（Question）类型的issue，主要涉及Megatron-LM中Llama 3 70B模型在使用2x8 80GB GPUs过程中遇到OOM错误的问题，用户寻求关于参数配置和详细信息的帮助。,https://github.com/NVIDIA/Megatron-LM/issues/1308
+Megatron-LM,这个issue属于用户提出问题类型，主要涉及Megatron-LM中recompute activations导致OOM问题，用户在backward过程中遇到内存耗尽的症状。,https://github.com/NVIDIA/Megatron-LM/issues/1300
+Megatron-LM,该issue属于用户提问类型，主要涉及Megatron-LM中的`deepseekv2`是否与当前代码兼容的问题。用户想知道当前的代码在没有`first_k_dense_replace`的情况下是否完全兼容`deepseekv2`中的moe + multilatent attention功能。,https://github.com/NVIDIA/Megatron-LM/issues/1295
+Megatron-LM,这是一个用户询问问题的类型，主要涉及MegatronLM中的分布式优化器中是否支持SGD以及相关的实现细节。原因是用户想要了解为什么有相关的assert语句以及如何支持SGD。,https://github.com/NVIDIA/Megatron-LM/issues/1287
+Megatron-LM,这个issue是关于一个问题的提问，主要涉及到Megatron-LM中模型参数和优化器状态的存储以及需要存储两份模型参数的原因。,https://github.com/NVIDIA/Megatron-LM/issues/1283
+Megatron-LM,这是一个用户提出问题的issue，涉及到MegatronLM中的moe_expert_capacity_factor参数的限制问题，用户想知道为什么只能在'alltoall'或'alltoall_seq'模式下使用该参数。,https://github.com/NVIDIA/Megatron-LM/issues/1277
+Megatron-LM,这是一个关于技术问题的用户提问，涉及如何在不同并行配置中加载保存的检查点，主要涉及Megatron-LM。由于一些冲突的文档陈述和尝试失败，用户想要示例来展示这一功能。,https://github.com/NVIDIA/Megatron-LM/issues/1232
+Megatron-LM,这是一个用户提出问题的issue，主要涉及Megatron-LM中的数据集创建逻辑是否正确，用户对于是否需要为TP组中的中间层的rank 0构建数据集感到困惑。,https://github.com/NVIDIA/Megatron-LM/issues/1227
+Megatron-LM,这个issue属于用户提出问题的类型，主要对象是如何设置使用Megatron-LM进行fp8训练。用户之所以提出这个问题，可能是因为他想了解如何在Megatron-LM中进行fp8精度的训练。,https://github.com/NVIDIA/Megatron-LM/issues/1210
+Megatron-LM,该issue为用户提出疑问类型，涉及到训练数据的分布和广播，问题源于对于处理数据加载和广播的逻辑混淆造成困惑。,https://github.com/NVIDIA/Megatron-LM/issues/1196
+Megatron-LM,这是一个用户请教问题，关于Megatron-LM中TikTokenizer的两种不同tiktoken模式的解释。,https://github.com/NVIDIA/Megatron-LM/issues/1147
+Megatron-LM,这个issue是一个用户提问类型，涉及的主要对象为安装autoresume SDK。用户询问是否有可能安装autoresume SDK，因为找不到`userlib`这个Python库，导致无法导入AutoResume。,https://github.com/NVIDIA/Megatron-LM/issues/1133
+Megatron-LM,这是一个问题咨询类的issue，涉及到Megatron-LM中参数梯度为None时对训练的影响，用户询问在什么情况下将`param.grad=None`视为不安全。,https://github.com/NVIDIA/Megatron-LM/issues/1129
+Megatron-LM,这个issue类型为用户提出问题，在探讨如何在训练过程中确定前向函数处理的文档，主要涉及数据处理的方式以及如何追踪前向函数在每个循环中处理的文档内容。,https://github.com/NVIDIA/Megatron-LM/issues/1128
+Megatron-LM,这是一个用户提问类型的issue，主要涉及的对象是Megatron-LM中的数据加载器。用户希望了解在开启数据分布选项时，tensor_parallel.broadcast_data的作用及数据广播的过程。,https://github.com/NVIDIA/Megatron-LM/issues/1125
+Megatron-LM,这是一个用户提出问题的issue，主要涉及Encoder和Decoder在TP_SIZE不同的情况下出现的问题。,https://github.com/NVIDIA/Megatron-LM/issues/1121
+Megatron-LM,这是一个关于代码逻辑的疑问类型的问题，涉及到MoE模型的并行计算，问题核心是关于多GPU下全局隐藏状态的gather操作是否多余的讨论。,https://github.com/NVIDIA/Megatron-LM/issues/1068
+Megatron-LM,这是一个用户提出问题的类型，主要涉及Megatron-LM中的pipeline parallelism。用户询问如何在使用pipeline parallelism时实现可变输入长度。,https://github.com/NVIDIA/Megatron-LM/issues/1066
+Megatron-LM,这是一个关于模型性能问题的提问，主要针对Megatron-LM中的Llava VQA模型，用户询问模型在instruction finetuning后的预期准确率问题。可能由于训练步数不足或者训练配方的问题导致准确率未达到期望水平。,https://github.com/NVIDIA/Megatron-LM/issues/1042
+Megatron-LM,这是一个用户提出问题的类型的issue，主要涉及对象是MegatronLM中的thd format with cp，用户询问是否有关于此格式的单元测试。,https://github.com/NVIDIA/Megatron-LM/issues/1040
+Megatron-LM,这是一个带有提问的类型的issue，主要涉及Megatron-LM中MoE训练过程中的通信优化问题，提出了关于调整通信操作顺序以减少通信开销的猜想。,https://github.com/NVIDIA/Megatron-LM/issues/1039
+Megatron-LM,"这是一个用户提出问题的issue，主要涉及Megatron-LM在启用特定参数时创建`pp` groups的问题。由于使用`zip(cycle(e_ranks), d_ranks)`在对称分割输入时不正确，导致了这个问题的提出。",https://github.com/NVIDIA/Megatron-LM/issues/1026
+Megatron-LM,这个issue类型为用户提出问题，主要涉及的对象是Megatron-LM中的operator of computation，提问的原因可能是想了解为什么在计算与通信重叠时操作速度变慢。,https://github.com/NVIDIA/Megatron-LM/issues/1001
+Megatron-LM,该issue是一个用户询问问题类型的issue，主要涉及Megatron-LM的性能问题，用户寻求关于使用16 x A100仅实现20 TFLOPS低吞吐量的帮助。,https://github.com/NVIDIA/Megatron-LM/issues/1000
+Megatron-LM,这是一个用户提出问题的类型，主要对象是Megatron-LM，用户询问是否支持知识蒸馏。,https://github.com/NVIDIA/Megatron-LM/issues/989
+Megatron-LM,这是一个用户提出询问问题的类型，主要涉及MegatronLM中异步保存checkpoint功能的不清楚部分。用户希望了解`__0_0.distcp`和`__0_1.distcp`的含义，以及如何将该格式转换为同步保存格式和HuggingFace的.bin格式，可能由于缺乏相关文档或说明而导致疑惑。,https://github.com/NVIDIA/Megatron-LM/issues/964
+Megatron-LM,这是一个关于提问的问题单，主要涉及Megatron-LM中`reset_attention_mask`属性默认值的讨论。出现这个问题的原因是用户不理解为什么在大多数模型的配置中，`reset_attention_mask`都被设置为False。,https://github.com/NVIDIA/Megatron-LM/issues/954
+Megatron-LM,这是一个用户提出问题的类型的issue，主要涉及MegatronLM为什么选择同步风格训练，用户询问为什么MegatronLM选择只支持同步风格训练的原因。,https://github.com/NVIDIA/Megatron-LM/issues/922
+Megatron-LM,这个issue类型是用户提问，涉及的主要对象是Megatron-LM中使用--use-dist-ckpt参数加载checkpoint时出现的错误。由于文件名格式的问题导致无法正确加载checkpoint文件，用户在询问是否支持加载使用--use-dist-ckpt参数生成的checkpoint文件。,https://github.com/NVIDIA/Megatron-LM/issues/919
+Megatron-LM,这是一个用户提出问题的issue，主要涉及到Megatron-LM项目中的函数get_blend_from_list的定义缺失问题。该问题可能是因为该函数在代码中未被正确定义或者用户未找到正确位置导致。,https://github.com/NVIDIA/Megatron-LM/issues/908
+Megatron-LM,这是一个用户提出问题的类型的issue，主要涉及到Megatron-LM代码中的使用了不正确的类名，导致了可能会影响功能的问题。,https://github.com/NVIDIA/Megatron-LM/issues/884
+Megatron-LM,该issue类型属于用户提出问题，主要涉及Megatron-LM中的segformer分割模型，询问如何进行简单推理以及该分割模型是否使用张量并行。原因在于用户想了解如何使用分割模型进行推理并了解其是否支持张量并行。,https://github.com/NVIDIA/Megatron-LM/issues/868
+Megatron-LM,这个issue属于用户提问类型，主要涉及到Megatron-LM中attention_mask在不是第一个或最后一个pipeline阶段时如何传递给下一个transformer块的问题。原因可能是用户困惑于attention_mask的传递方式。,https://github.com/NVIDIA/Megatron-LM/issues/861
+Megatron-LM,这个issue类型为用户提问，主要涉及的对象是为什么未在MoE层中使用TransformerEngine实现。这个问题的原因是使用`use_te`指定时，在构建MoE层时没有使用TE实现。,https://github.com/NVIDIA/Megatron-LM/issues/850
+Megatron-LM,这是一个关于硬件支持的问题询问类型的issue，主要涉及到Megatron-LM是否支持P100 GPU，原因是由于不同的硬件架构可能导致兼容性问题或限制。,https://github.com/NVIDIA/Megatron-LM/issues/849
+Megatron-LM,这是一个问题询问类型的issue，主要涉及 MegatronLM 中 llama38b 模型的配置问题。该问题的根本原因是配置中的参数 numquerygroups 和 groupqueryattention 未生效，导致模型 qkv 部分出现错误。,https://github.com/NVIDIA/Megatron-LM/issues/845
+Megatron-LM,这是一个用户询问问题类型的issue，主要涉及MegatronLM中如何获取分区后子模型的计算图以及操作符属性。问题可能源自于使用torch.fx和PyTorch 2.0工具时遇到问题，其中涉及到MegatronLM中的自定义操作符。,https://github.com/NVIDIA/Megatron-LM/issues/832
+Megatron-LM,这是一个用户提出问题（[QUESTION]）的issue，主要涉及到如何在具有q/k layernorm的模型中使用tensor parallel时保持一致性。,https://github.com/NVIDIA/Megatron-LM/issues/816
+Megatron-LM,这个issue类型为用户提出问题，涉及主要对象为Megatron-Core模型。用户询问Megatron-Core是否支持LLAMA模型。,https://github.com/NVIDIA/Megatron-LM/issues/803
+Megatron-LM,这是一个关于技术疑问的issue，涉及了Megatron-LM中的bf16训练参数和fp32梯度之间的问题，用户询问了为什么在bf16训练中可以有bf16参数和fp32梯度的情况。,https://github.com/NVIDIA/Megatron-LM/issues/800
+Megatron-LM,这个issue属于用户提出问题类型，问题涉及到Megatron-LM中训练过程中验证损失和PPL上升的情况。这可能是由于超参数设置不合理或模型配置问题导致的。,https://github.com/NVIDIA/Megatron-LM/issues/787
+Megatron-LM,这是一个用户提出问题的issue，主要涉及到Megatron-LM中的VocabParallelEmbedding类。由于替换了F.embedding()为self.weight[]，用户想了解为什么会带来'non-determinism'的问题。,https://github.com/NVIDIA/Megatron-LM/issues/769
+Megatron-LM,这是一个用户提出问题的issue，主要涉及到如何在MegatronLM中实现特定微批次的检查点。用户询问如何使用提供的参数来启用微批次级别的检查点。,https://github.com/NVIDIA/Megatron-LM/issues/767
+Megatron-LM,这是一个关于问题的提问类型的issue，主要涉及MegatronLM中的pipeline-model-parallel模块，用户询问为什么要求size大于2以及使用交错调度。,https://github.com/NVIDIA/Megatron-LM/issues/750
+Megatron-LM,这是一个用户提出问题的类型的Issue，主要涉及到Megatron-LM中的`--overlap-param-gather`选项。由于特定的提交（daf0006）引入了限制，导致该选项在训练非mcore模型时被显式禁用，用户想了解为何这种限制是必要的。,https://github.com/NVIDIA/Megatron-LM/issues/728
+Megatron-LM,这个issue属于用户提问类型，讨论的主要对象是Megatron-LM模型中用于下游任务评估的检索数据集。由于用户对模型如何使用特定语料库进行检索数据提出了疑问，希望了解模型在不同QA数据集中使用相应语料库用于检索的具体方式。,https://github.com/NVIDIA/Megatron-LM/issues/712
+Megatron-LM,这是一个类型为问题咨询的issue，主要涉及到如何在管道并行中准确地分析泡沫时间。由于开发者想要了解如何准确地分析管道并行中的泡沫时间，产生了这个问题。,https://github.com/NVIDIA/Megatron-LM/issues/691
+Megatron-LM,这是一个疑问类型的问题，主要涉及MegatronLM中分布式数据并行（DDP）模块的实现方式，提问者想了解为什么不直接将参数的`grad`映射到梯度缓冲区中，而是通过`main_grad`来实现，然后需要在反向传播钩子中手动将`grad`添加到`main_grad`。,https://github.com/NVIDIA/Megatron-LM/issues/690
+Megatron-LM,这是一个用户提出问题的类型，主要涉及Megatron-LM中的forward_backward_pipelining_without_interleaving。用户询问为什么这一特性没有打开overlap_p2p_comm配置项。,https://github.com/NVIDIA/Megatron-LM/issues/687
+Megatron-LM,这是一个询问性质的问题，用户在寻找关于MegatronLM中`ring_exchange`方法与torch版本的兼容性的帮助。,https://github.com/NVIDIA/Megatron-LM/issues/685
+Megatron-LM,这个issue属于用户提问类型，涉及的主要对象是Megatron-LM中的pipeline并行调度。这个问题由于对变量计算逻辑的困惑而产生，希望得到解释。,https://github.com/NVIDIA/Megatron-LM/issues/675
+Megatron-LM,该issue类型为用户询问问题，主要涉及的对象是Megatron-LM下的两个不同实现中的GPT模型，用户想了解它们之间的区别。,https://github.com/NVIDIA/Megatron-LM/issues/666
+Megatron-LM,这是一个用户提出问题的 issue，主要涉及计算Megatron-LM中权重和优化器的理论内存使用，问题出现的原因可能是关于计算`num_bytes_per_parameter`的逻辑误差。,https://github.com/NVIDIA/Megatron-LM/issues/654
+Megatron-LM,这是一个用户提出问题的类型，主要涉及Megatron-LM应用程序的性能分析工具nsys profile的使用问题，可能是由于命令hang导致无法生成性能分析文件。,https://github.com/NVIDIA/Megatron-LM/issues/638
+Megatron-LM,这个issue类型为用户提出问题，主要涉及CUDA_DEVICE_MAX_CONNECTIONS参数对计算和通信重叠的影响，用户想了解为何在设置CUDA_DEVICE_MAX_CONNECTIONS为1时仍然可以实现部分重叠，但有些部分却会被阻塞。,https://github.com/NVIDIA/Megatron-LM/issues/636
+Megatron-LM,这是一个用户提出问题类型的issue，主要对象是Megatron-LM中的代码。用户询问是否可以根据阶段信息来确定输入数据来源，而不是强制性地设置输入张量。,https://github.com/NVIDIA/Megatron-LM/issues/612
+Megatron-LM,该issue是关于用户提出问题的类型，主要涉及训练中消耗的token数量以及json文件转换成.bin和.idx文件后如何计算所有token数量，可能是由于用户对Megatron-LM的一些概念和操作步骤不够清晰所导致。,https://github.com/NVIDIA/Megatron-LM/issues/611
+Megatron-LM,该issue类型是用户询问问题类型，主要涉及计算内存使用相关参数。该问题由于用户想准确计算基于操作参数的内存使用而提出。,https://github.com/NVIDIA/Megatron-LM/issues/597
+Megatron-LM,"这是一个用户就术语理解问题提出的疑问，主要涉及Megatron-LM项目中的""subgraphs""和""relevant files""。根据描述，用户可能对这些术语的具体含义感到困惑，需要更详细的解释或示例帮助。",https://github.com/NVIDIA/Megatron-LM/issues/587
+Megatron-LM,这是一个关于性能问题的用户提问，主要涉及Megatron-LM在lustre文件系统上的数据预处理操作，由于频繁的文件打开和关闭操作导致性能下降。,https://github.com/NVIDIA/Megatron-LM/issues/584
+Megatron-LM,这是一个用户提出问题的issue，主要涉及 MegatronLM 的使用指导问题，询问关于如何启动 Llama2 的内容。,https://github.com/NVIDIA/Megatron-LM/issues/581
+Megatron-LM,该issue为用户寻求文档/论文并询问问题的类型，主要涉及到专家和上下文并行相关主题。,https://github.com/NVIDIA/Megatron-LM/issues/562
+Megatron-LM,这是一个提问问题类型的Issue，主要涉及到代码中如何确保梯度桶大小能够被数据并行世界大小整除的逻辑。由于缺乏对应的验证代码，用户提出了这个疑问。,https://github.com/NVIDIA/Megatron-LM/issues/561
+Megatron-LM,这是一个问题询问类型的issue，主要涉及Megatron中的Tensor Parallel MLP blocks，用户询问关于反向传播中的All-Reduce位置的问题，希望得到关于矩阵求导的数学证明帮助。,https://github.com/NVIDIA/Megatron-LM/issues/559
+Megatron-LM,这是一个用户提出问题的issue，主要涉及到MegatronLM中使用ViT模型在tinyimagenet和imagenet2012数据集上训练时收敛困难的问题。,https://github.com/NVIDIA/Megatron-LM/issues/517
+Megatron-LM,"该issue为用户提出问题，涉及的主要对象是使用Megatron-LM的用户。由于原因引起用户不确定是否要使用""so as to""或者""or even to""，需要寻求帮助或者澄清用法。",https://github.com/NVIDIA/Megatron-LM/issues/499
+Megatron-LM,这是一个问题提问类型的issue，主要涉及MegatronLM的数据布局问题。由于原数据布局导致了内存密集的转置操作，因此改变数据布局可以提高性能，并使得可以使用strided batched GEMM kernels。,https://github.com/NVIDIA/Megatron-LM/issues/493
+Megatron-LM,这是一个用户寻求帮助的issue，主要涉及到如何在Python中下载特定版本的MegatronLM，可能是由于用户需要使用特定版本的软件或库而导致的。,https://github.com/NVIDIA/Megatron-LM/issues/484
+Megatron-LM,这是一个用户提出问题的issue，主要涉及MegatronLM中的`persistent layer norm kernel`概念，用户想了解这个概念的含义。,https://github.com/NVIDIA/Megatron-LM/issues/475
+Megatron-LM,这个issue类型为用户提出问题，主要涉及Megatron-LM模型中flash attention和selective recomputation之间的功能重叠问题。用户关注是否flash attention会消除selective recomputation的优化机会。,https://github.com/NVIDIA/Megatron-LM/issues/464
+Megatron-LM,这个issue类型是用户请教问题，主要涉及的对象是Megatron-LM中的BlendableDataset。由于权重变化导致数据损失和重复，用户在询问如何避免数据损失和重复。,https://github.com/NVIDIA/Megatron-LM/issues/457
+Megatron-LM,这个issue属于用户询问问题类型，用户提出关于在huggingface中使用pytorch_model.bin格式文件作为预训练初始化权重的问题。,https://github.com/NVIDIA/Megatron-LM/issues/451
+Megatron-LM,这是一个关于训练速度问题的提问，主要涉及 Megatron-LM 框架下的 GPT2 模型在 V100 上训练速度过慢的情况。原因是训练时间长，每次迭代耗时过多。,https://github.com/NVIDIA/Megatron-LM/issues/449
+Megatron-LM,这是一个问题咨询类型的issue，主要涉及到Megatron-LM中sequence parallelism场景下layernorm优化器中为什么需要额外的allreduce操作。,https://github.com/NVIDIA/Megatron-LM/issues/443
+Megatron-LM,该issue类型为用户提出问题，主要涉及GPT预训练目标设定。用户询问为何标签`labels`与输入`tokens`共享条目，是否假设是通过逐渐增加输入标记并对其进行掩码来生成下一个标记，最终将预测的标记与标签对齐并计算损失。,https://github.com/NVIDIA/Megatron-LM/issues/434
+Megatron-LM,这个issue是关于代码实现逻辑的疑问，主要涉及Megatron-LM中的模型初始化操作是否会影响可复现性，可能导致一些关于初始嵌入权重和后续all_reduce操作的问题。,https://github.com/NVIDIA/Megatron-LM/issues/427
+Megatron-LM,这是一个用户提出问题类型的issue，主要涉及对象是要使用发布在HuggingFace上的整个数据集。用户提出问题的原因是数据集被压缩为.xz文件，他不知道如何将其转换为.json文件。,https://github.com/NVIDIA/Megatron-LM/issues/395
+Megatron-LM,这个issue类型是用户提问，主要涉及对象是Megatron-LM的checkpoint加载过程。由于不同tp_rank可能包含不同的layernorm参数，导致用户问到是否只需要使用tp_rank 0的layernorm参数。,https://github.com/NVIDIA/Megatron-LM/issues/383
+Megatron-LM,这是一个提出问题的类型，主要涉及Megatron-LM中的bf16模式和fp32积累通信问题。该问题探讨了为什么bf16模式必须与在fp32中累积allreduce grads一起使用的原因。,https://github.com/NVIDIA/Megatron-LM/issues/372
+Megatron-LM,这是一个用户提出问题类型的issue，主要涉及了Megatron-LM中的sequence parallel实现。用户表达了对transformer输出以及allgather操作的困惑。,https://github.com/NVIDIA/Megatron-LM/issues/357
+Megatron-LM,这是一个用户提出问题的issue，主要涉及Vit（Vision Transformer）的pipeline parallel实现。由于用户想了解Megatron中是否实现了Vit的pipeline parallel，因此提出了这个问题。,https://github.com/NVIDIA/Megatron-LM/issues/339
+Megatron-LM,这是一个用户提出问题的issue，主要涉及Megatron-LM中数据加载策略的选择问题。用户询问了不同策略的性能和工作方式，以及为什么在preprocess_data.py中需要指定加载策略。,https://github.com/NVIDIA/Megatron-LM/issues/332
+Megatron-LM,这是一个用户询问问题类型的issue，主要涉及到如何获取模型参数量和大小的问题，用户想要在训练特定模型时了解这些信息。,https://github.com/NVIDIA/Megatron-LM/issues/324
+Megatron-LM,这是一个用户请教问题类型的issue，主要涉及Megatron-LM框架下如何从中文语料资源生成vocab.json和merge.txt文件。用户希望了解如何生成这两个文件以进行中文NLP预训练任务。,https://github.com/NVIDIA/Megatron-LM/issues/312
+Megatron-LM,这是一个用户询问如何合并多个checkpoint到一个文件的问题，属于用户询问问题类型。,https://github.com/NVIDIA/Megatron-LM/issues/305
+Megatron-LM,该issue属于用户提出问题类型，主要涉及Megatron-LM代码中的初始嵌入权重问题，可能由于对代码设计逻辑的理解不清导致提问。,https://github.com/NVIDIA/Megatron-LM/issues/299
+Megatron-LM,这是一个用户提出如何fine-tune llama-65b的疑问，涉及对象是Megatron-LM。,https://github.com/NVIDIA/Megatron-LM/issues/297
+Megatron-LM,这是一个用户询问类型的issue，主要涉及Megatron-LM 175B模型训练时使用的是fp16还是bfloat16的问题，用户想了解具体的训练精度信息。,https://github.com/NVIDIA/Megatron-LM/issues/234
+Megatron-LM,这个issue属于用户请教问题类型，主要涉及Megatron-LM的多节点多GPU模型预训练，原因可能是用户想了解如何进行这方面的操作。,https://github.com/NVIDIA/Megatron-LM/issues/231
+Megatron-LM,这个issue类型为用户请教问题，主要涉及对象是T5模型。这个问题是由于用户想要在翻译任务上使用T5模型，但目前只找到了预训练模型，因此寻求如何在翻译任务上使用T5模型的帮助。,https://github.com/NVIDIA/Megatron-LM/issues/216
+Megatron-LM,这是一个用户提出问题的issue，主要涉及到Megatron-LM中sequence parallel implementation的细节问题。用户提出了关于代码中延迟和`async_op=True`的使用以及不同process groups之间通信同步的疑惑。,https://github.com/NVIDIA/Megatron-LM/issues/214
+Megatron-LM,这是一个用户提出问题的类型，主要涉及Megatron-LM模型中的参数梯度处理机制，用户想了解在何种情况下需要使用参数--accumulate-allreduce-grads-in-fp32标志，以及为什么会有必要使用此标志来强制梯度缓冲区使用float32数据类型。,https://github.com/NVIDIA/Megatron-LM/issues/205
+Megatron-LM,这个issue是用户寻求关于如何调整训练参数以适应服务器GPU数量不足的帮助类型。该问题涉及到Megatron-LM下的T5模型在训练参数调整上的适配性问题。,https://github.com/NVIDIA/Megatron-LM/issues/203
+Megatron-LM,该issue类型为用户提出问题类型，主要涉及Megatron-LM中的cross_entropy.py代码，用户提出为何在其中不使用exp函数，以及询问为何要进行loss和gradient的scale up操作。,https://github.com/NVIDIA/Megatron-LM/issues/186
+Megatron-LM,这是一个关于代码实现差异产生疑问的issue，涉及到Megatron-LM中的计算问题，原因可能是对于不同训练策略的处理方式上存在差异。,https://github.com/NVIDIA/Megatron-LM/issues/169
+Megatron-LM,这是一个用户提出问题的issue，主要涉及Megatron-LM中的`usecpuinitialization`标志的使用和作用。,https://github.com/NVIDIA/Megatron-LM/issues/157
+Megatron-LM,这是一个用户提出问题的issue，主要涉及Megatron-LM中权重初始化和交叉注意力的实现方式，用户想了解为什么需要使用相同的随机数发生器状态进行权重初始化以及为什么需要分别初始化Q和KV。,https://github.com/NVIDIA/Megatron-LM/issues/135
+Megatron-LM,这是一个关于Megatron-LM下的ORQA finetuning代码中loss scaling问题的请教问题，用户询问为什么需要进行额外的loss scaling步骤。,https://github.com/NVIDIA/Megatron-LM/issues/131
+Megatron-LM,这是一个关于用户提出问题的issue，主要涉及内容是关于T5数据处理的tokenizer类型选择和是否需要使用'append_eod'参数。可能是由于提示信息不清晰或文档不完整导致用户对数据预处理步骤存在疑惑。,https://github.com/NVIDIA/Megatron-LM/issues/110
+Megatron-LM,这个issue类型是用户请教问题，关于如何复现达到71.9 TFlops吞吐量的基准性能。,https://github.com/NVIDIA/Megatron-LM/issues/48
+Megatron-LM,这是一个关于代码实现问题的用户提问，主要涉及Megatron-LM中BERT xlarge模型的LayerNorm实现，用户询问代码中是否缺少了论文中提到的层次重排的改动。,https://github.com/NVIDIA/Megatron-LM/issues/28
+Megatron-LM,这是一个用户询问问题类型的issue，主要涉及对象是代码中的`mpu.vocab_parallel_cross_entropy`函数。用户提出的问题是询问该函数是否与一般分类问题中的交叉熵相同。,https://github.com/NVIDIA/Megatron-LM/issues/20
+Megatron-LM,这个issue类型是用户询问问题的类型，主要涉及的对象是关于PySOL库。用户提出这个问题是因为他们在Google搜索中未找到关于PySOL的有意义结果。,https://github.com/NVIDIA/Megatron-LM/issues/4
+vllm,这是一个关于如何在vllm中运行特定模型推理的询问类型的issue，主要涉及对象是dynamo模块在vllm主分支的集成情况。可能是由于用户对如何结合vllm进行推理不熟悉，才提出了这个问题。,https://github.com/vllm-project/vllm/issues/15606
+vllm,"这个issue是关于改善CLI帮助显示的问题，类型为用户需求反馈，主要涉及对象是CLI帮助显示功能。原因可能是希望在显示帮助时不再包含""the detected info""。",https://github.com/vllm-project/vllm/issues/15455
+vllm,该issue属于用户提出问题类型，主要涉及如何在OpenVINO后端上运行推理时利用多个GPU或GPU + CPU，导致用户对VLLM的分布式推理支持产生疑问。,https://github.com/vllm-project/vllm/issues/14933
+vllm,这是一个用户寻求安装帮助的issue，主要涉及安装vllm时的环境和步骤。用户询问关于安装vllm的建议或指导。,https://github.com/vllm-project/vllm/issues/14398
+vllm,这是一个用户请教问题的类型，主要涉及chat templates中如何设置date_string变量。用户想要了解如何设置date_string变量以及相关操作。,https://github.com/vllm-project/vllm/issues/14344
+vllm,这个issue是关于技术疑问，涉及vLLM中的请求分配到多个微批次的逻辑，用户寻找相关源码但未找到，并询问分配请求的具体过程发生在哪个组件中。,https://github.com/vllm-project/vllm/issues/14213
+vllm,这是一个用户提出问题的issue，主要涉及vllm中`max_num_batched_tokens`和`max_model_len`参数之间的关系，用户询问了这两个参数对输入和输出token的限制以及在使用`max_model_len` = 64k时，为何serving model只支持2k tokens的问题。,https://github.com/vllm-project/vllm/issues/13875
+vllm,这个issue为用户疑问类型，涉及主要对象为vllm中的KV缓存生成，用户询问了关于如何在进行推测推断时生成kv缓存的问题。,https://github.com/vllm-project/vllm/issues/13845
+vllm,这是用户询问如何从OpenAI Embedding Client获取稀疏嵌入的问题，属于用户提出需求。用户主要关注的是如何获取稀疏嵌入，可能是因为在运行embedding模型时需要在在线服务器上使用。,https://github.com/vllm-project/vllm/issues/13609
+vllm,该issue类型属于用户请教问题，涉及主要对象是如何使用vllm来分析多节点上的deepseek-r1，用户提出问题是关于如何使用profiler来进行推断的特定模型。,https://github.com/vllm-project/vllm/issues/13410
+vllm,这是一个寻求帮助的问题，主要涉及vLLM的版本迁移和缓存相关代码问题，由于版本不同导致用户无法找到获取计算kv缓存的代码。,https://github.com/vllm-project/vllm/issues/13327
+vllm,该issue是关于用户提出问题的类型，主要涉及Groupedquery attention (GQA)的实现是否包含在vLLM中。由于用户对vLLM模型是否使用GQA功能存疑，因此提出了这个问题。,https://github.com/vllm-project/vllm/issues/13222
+vllm,该issue属于用户提出问题，主要涉及LLama-2-7b-hf中运算符功能的对应检查。原因可能是环境信息收集时的一些数据未能完整采集导致用户需求无法实施。,https://github.com/vllm-project/vllm/issues/13010
+vllm,这是一个用户询问问题的issue，主要涉及的对象是如何使用vllm进行推理特定模型。此问题可能是由于用户不知道如何集成vllm导致的。,https://github.com/vllm-project/vllm/issues/12817
+vllm,这是一个用户询问如何在多机环境中部署vllm的问题，涉及主要对象是vllm的多机部署。,https://github.com/vllm-project/vllm/issues/12766
+vllm,这是一个用户询问如何在多机环境下部署vllm的问题，主要对象是vllm多机部署。由于环境信息中展示了PyTorch版本与CUDA信息，用户可能遇到了在多机部署时的问题或困惑。,https://github.com/vllm-project/vllm/issues/12764
+vllm,这个issue类型是用户请教问题，主要涉及对象是如何在多机环境下部署vllm。由于环境信息显示使用的PyTorch版本不兼容，可能导致出现问题或无法成功完成多机部署。,https://github.com/vllm-project/vllm/issues/12762
+vllm,这是一个用户请教问题的issue，主要涉及对deepseek V3/R1在NVIDIA和AMD硬件上的性能优化及上下文长度选择的问题。,https://github.com/vllm-project/vllm/issues/12493
+vllm,这个issue类型为用户询问问题，主要涉及LLMEngine的使用和Qwen-VL的集成。用户提出了如何在MLLM中运行推理QwenVL并将其与vllm集成的问题。,https://github.com/vllm-project/vllm/issues/12305
+vllm,这是一个用户询问如何将多模态输入传递给LLM.encode()方法的问题，类型为功能需求。用户提出了关于如何在同时传递文本和图像作为输入时调用LLM.encode()的问题。,https://github.com/vllm-project/vllm/issues/11499
+vllm,这个issue是关于如何使用torch_compile的用户提问，主要涉及的对象是torch_compile功能。此问题是由于当前环境PyTorch版本与其他依赖库版本不匹配导致的。,https://github.com/vllm-project/vllm/issues/11323
+vllm,这是一个用户寻求帮助的issue，涉及主要对象是尝试在vllm上运行Microsoft GraphRAG，出现了API未找到的错误。,https://github.com/vllm-project/vllm/issues/11017
+vllm,这是一个问题提问的issue，涉及主要对象是kuberay，问题由于缺乏对于在多个pod上运行超大模型的支持而导致。,https://github.com/vllm-project/vllm/issues/11015
+vllm,"这是一个用户提出问题的issue，主要涉及的对象是关于参数""max_model_len""的影响。用户想确认该参数只影响输入数据和scheduler，而不影响实际模型的max_position_embeddings。",https://github.com/vllm-project/vllm/issues/10788
+vllm,这是一个用户请教问题的issue，主要涉及如何在离线推断中设置`max_lora_rank`参数。用户提出这个问题可能是由于不了解如何将特定模型集成到vllm中。,https://github.com/vllm-project/vllm/issues/10157
+vllm,这是一个关于技术问题的询问，主要对象是vllm模型的推断过程，用户想了解在使用w8a8量化模型进行推断时是否保留int8上的矩阵运算，寻求具体实现逻辑代码的位置。,https://github.com/vllm-project/vllm/issues/10068
+vllm,这是一个用户请教问题的issue，主要涉及vllm的使用和整合，问题来源于用户想要对特定模型进行推断但不清楚如何与vllm集成。,https://github.com/vllm-project/vllm/issues/9743
+vllm,这是一个用户寻求帮助的issue，主要涉及到如何在Vllm中托管用户fine-tuned Llama -3-8b instruct模型。该用户在集成部分遇到困难，需要关于使用Vllm的指导以及学习链接建议。,https://github.com/vllm-project/vllm/issues/9361
+vllm,该issue类型是用户寻求关于vllm推理代码的帮助，涉及主要对象是特定模型推理集成问题。用户希望了解如何在vllm中运行特定模型的推理，由于缺乏集成指引而提出疑问。,https://github.com/vllm-project/vllm/issues/9270
+vllm,该issue属于用户请教问题类型，涉及主要对象为如何使用Raw query在Prometheus中计算vllm部署模型服务的QPS指标，用户想了解如何通过Raw query来计算在线模型服务的请求并发量。,https://github.com/vllm-project/vllm/issues/9211
+vllm,这是一个关于如何进行vLLM引擎后端独立调试和性能评估的询问类型issue，主要涉及vLLM引擎的调试和性能测量。 ,https://github.com/vllm-project/vllm/issues/8586
+vllm,该issue属于用户提出问题类型，主要涉及SamplingType.RANDOM_SEED和SamplingType.RANDOM的差异，以及关于SamplingParams中'seed'参数的使用疑问。,https://github.com/vllm-project/vllm/issues/8569
+vllm,"这是一个用户询问的问题类型的issue，主要涉及到vllm中关于max-num-seqs, max-num-batched-tokens 和 max-model-len的关系。在该issue中，用户想讨论如何计算每个批处理中处理的最大标记数以及max-num-batched-tokens与max-num-seqs*max-model-len之间的关系。",https://github.com/vllm-project/vllm/issues/8418
+vllm,这个issue属于用户提出问题类型，主要涉及VLLM的API Server以及使用`AsyncLLMEngine`来提供单个模型实例的服务。用户想了解在这种情况下是否推荐直接使用`AsyncLLMEngine`。,https://github.com/vllm-project/vllm/issues/8033
+vllm,这是一个用户询问如何在离线推理过程中获取GPU虚拟块利用率日志的问题，问题类型是用户提出需求。,https://github.com/vllm-project/vllm/issues/7997
+vllm,这个issue是用户询问关于VLLM安装的问题，主要涉及VLLM不同版本的区别和针对特定CUDA版本的安装需求。,https://github.com/vllm-project/vllm/issues/7988
+vllm,这是一个用户寻求帮助的问题，涉及主要对象为vLLM模型的部署和集成。用户想要运行ColPali的推理，但不清楚如何将其与vLLM集成，因为ColPali使用了PaliGemma和一些适配器。,https://github.com/vllm-project/vllm/issues/7983
+vllm,这个issue类型是用户提问，涉及的主要对象是vLLM版本升级。该用户关注同一版本代码下载后差异以及日志输出和代码行号的不同，可能导致症状为代码差异。,https://github.com/vllm-project/vllm/issues/7949
+vllm,这个issue类型是用户提出问题，并寻求关于如何测试VLLM服务器返回时间的帮助，主要对象是VLLM下的minicpm-v-2.6服务。,https://github.com/vllm-project/vllm/issues/7891
+vllm,这是一个关于如何在vllm中生成独立样本的提问，属于用户请教问题类型。用户主要关注如何确保生成的样本是独立的，由于不确定最佳操作方式，提出了关于如何设置参数以生成独立样本的问题。,https://github.com/vllm-project/vllm/issues/7808
+vllm,这个issue属于用户询问问题类型，主要涉及vllm在quantization设置上的疑惑。原因是用户想确认使用的quantization类型，并咨询是否有支持8bit quantization。,https://github.com/vllm-project/vllm/issues/7738
+vllm,这是一个用户请教问题类型的issue，主要涉及到如何在vllm中使用guided_decoding_backend功能。用户询问如何实现在vllm中运行特定模型的推理，表明对集成vllm的方式缺乏了解。,https://github.com/vllm-project/vllm/issues/7677
+vllm,这是一个寻求帮助的issue，主要涉及TTFT profiling with respect to prompt length。用户在测试中发现当prompt长度小于400时，TTFT似乎保持在一个水平值约100ms，但对此结果感到困惑，希望得到解释。,https://github.com/vllm-project/vllm/issues/7635
+vllm,这个issue属于用户提问类型，主要对象是VLLM模型的特殊 tokens 输出问题，可能是由于更新VLLM到最新版本后导致的。,https://github.com/vllm-project/vllm/issues/7033
+vllm,这个issue类型为用户请教问题，主要涉及的对象是vllm工具中的max_num_seqs和max_model_len参数。用户询问这两个参数的作用和操作阶段，以及由于何种原因导致设置参数后仍可以处理超过预期长度的输入。,https://github.com/vllm-project/vllm/issues/6641
+vllm,这是一个用户请教问题的issue，主要涉及的对象是vllm项目中的encoder-only模型，用户想了解vllm是否支持类似BAAI/bgem3的embedding模型，并如何使用。由于用户对vllm中的RAG模型的支持情况以及如何使用某些特定模型存在疑问，因此提出了这个问题。,https://github.com/vllm-project/vllm/issues/5737
+vllm,这个issue类型是用户提出问题，主要涉及async_llm_engine.py中出现的错误信息，用户请求帮助理解该错误信息的含义。,https://github.com/vllm-project/vllm/issues/5712
+vllm,这是一个用户请教问题的类型的issue，涉及主要对象是vllm中的PagedAttention和Cuda Graphs，用户提出了关于如何在PagedAttention中使用Cuda Graphs的问题。,https://github.com/vllm-project/vllm/issues/5382
+vllm,这是一个用户向VLLM项目提交的寻求帮助的问题，主要关于如何在文本生成模型中获取输出嵌入的问题。该问题的根源是当前环境下的方法LLM.encode()仅适用于嵌入模型，用户想对文本生成模型进行操作却不知如何在VLLM中集成。,https://github.com/vllm-project/vllm/issues/5266
+vllm,这个issue类型是用户请教问题，主要涉及的对象是如何在vllm模型中运行推理并释放GPU内存。用户可能遇到问题是由于缺乏集成指南或指导，无法成功实现运行推理操作。,https://github.com/vllm-project/vllm/issues/5211
+vllm,这是一个用户在询问关于性能问题的issue，主要涉及vLLM中的键值缓存（kv cache）和注意力计算的效率问题。用户关注在decode阶段的计算效率，其疑惑是键值缓存中的token是否非连续存储会导致内存拷贝耗时增加或计算效率降低。,https://github.com/vllm-project/vllm/issues/4823
+vllm,这是一个用户寻求帮助的问题，主要涉及vllm框架与OpenAI服务器批量请求接口的问题，原因是v1/chat/completions端点不支持批处理，用户想知道如何实现请求的批处理。,https://github.com/vllm-project/vllm/issues/4746
+vllm,这是一个关于特性实现疑问的issue，主要涉及vLLM中的continuous batching特性的具体实现方式。用户提出了关于该特性具体实现方式的问题，可能由于文档缺乏详细说明而导致用户困惑。,https://github.com/vllm-project/vllm/issues/4316
+vllm,这是一个寻求使用帮助的issue，主要涉及vllm模型在模型并行运行时的集成问题。由于缺乏对vllm集成的了解，用户无法实现特定模型的推理操作。,https://github.com/vllm-project/vllm/issues/4144
+vllm,该issue类型是用户提出问题，主要涉及的对象是fp8和fp8_e5m2。由于当前PyTorch环境的CUDA版本和硬件配置导致了用户对于何时使用fp8和何时使用fp8_e5m2的疑问。,https://github.com/vllm-project/vllm/issues/3990
+vllm,这是一个用户询问关于获取稳定版本的docker镜像的问题，主要涉及vllm的安装和使用。用户可能遇到启动报错的问题，希望找到可用的稳定版本docker镜像解决该问题。,https://github.com/vllm-project/vllm/issues/3930
+vllm,这是一个用户询问问题类型的issue，主要涉及对象是vllm和tensorRT。用户提出了如何将vllm与tensorRT集成以运行特定模型推断的问题。,https://github.com/vllm-project/vllm/issues/3792
+vllm,这个issue是用户请教问题类型的，主要涉及VLLM模型的paged attention部分的测试代码缺失，用户寻求了帮助以理解该模型的实现和功能。,https://github.com/vllm-project/vllm/issues/3681
+vllm,这是一个用户提出问题的issue，主要涉及VLLM下如何知道或配置并发请求（令牌数量）的问题，提问者关心不同参数的含义及配置对模型并发请求处理能力的影响。,https://github.com/vllm-project/vllm/issues/3561
+vllm,这是一个寻求帮助的问题，主要涉及Qwen1.5模型如何使用本地路径。据描述，出现问题的代码无法正常工作。,https://github.com/vllm-project/vllm/issues/3223
+vllm,这个issue类型为用户提出问题，主要涉及的对象是关于VLLM服务器生成token数的度量，用户询问如何准确计算服务器的token生成速率问题。,https://github.com/vllm-project/vllm/issues/3189
+vllm,这是一个用户询问问题的类型，主要涉及的对象是关于使用fused_moe kernel实现专家并行性的问题。用户想了解当前kernel实现是否能够支持实现专家并行性。,https://github.com/vllm-project/vllm/issues/3138
+vllm,这个issue类型是用户请教问题，主要涉及如何在使用docker部署的LLM中消费LLM API。询问者希望了解如何在Langchain VLLMOPENAI中使用LLM API。,https://github.com/vllm-project/vllm/issues/2849
+vllm,这是一个用户提出问题的issue。主要讨论了输入tokens中的prompt_logprobs和输出tokens中的logprobs之间的计算区别。由于计算逻辑的差异，用户可能遇到了与prompt_logprobs和logprobs相关的问题或需要进一步了解这两者之间的区别。,https://github.com/vllm-project/vllm/issues/2848
+vllm,该issue是用户询问如何在使用多Lora推理时调整生成长度的问题，属于用户请教问题类型。,https://github.com/vllm-project/vllm/issues/2805
+vllm,这是一个用户询问问题的类型，主要涉及的对象是在cpp文件中如何使用vllm。,https://github.com/vllm-project/vllm/issues/2732
+vllm,这个issue类型是用户请教问题，主要对象是如何使用vllm模型。,https://github.com/vllm-project/vllm/issues/2541
+vllm,这是一个用户询问问题的类型，主要涉及VLLM模型中的预填充和解码阶段，用户想了解如何分开进行测试。,https://github.com/vllm-project/vllm/issues/2524
+vllm,这个issue类型是用户提出了疑问，主要涉及对象是vLLM模型和HuggingFace模型，用户想了解这两者结构是否完全相同。,https://github.com/vllm-project/vllm/issues/2504
+vllm,这是一个用户请教问题类型的issue，主要涉及对象是如何设置`max_num_batched_tokens`和`max_num_seqs values`以达到最大推理性能，问题出现在设置不同的`max_num_batched_tokens`和`max_num_seqs`时导致输出token不一致，原因可能是参数设置不当。,https://github.com/vllm-project/vllm/issues/2492
+vllm,这是一个关于系统性能问题的用户询问，主要对象是VLLM模型在推理过程中使用显存过多导致OOM错误。,https://github.com/vllm-project/vllm/issues/2430
+vllm,这是一个用户咨询问题，主要涉及设置LLAMA结构中的张量并行大小和管道并行大小。用户对于如何在4块A6000上部署hf 70b模型，针对不同的tp和pp组合哪个超参数更好提出了疑问。,https://github.com/vllm-project/vllm/issues/2280
+vllm,这个issue类型是用户提出问题，涉及vLLM在线服务场景中的连续批处理技术是否包含批处理大小概念，用户想了解连续批处理技术中是否包含批处理大小的概念。,https://github.com/vllm-project/vllm/issues/2257
+vllm,这个issue属于用户提出问题的类型，主要对象是vllm的本地模型加载，可能由于加载时间长导致用户感到困扰或者产生疑虑。,https://github.com/vllm-project/vllm/issues/2253
+vllm,这是一个用户请教问题类型的issue，主要涉及的对象是`generate`函数和`sampling_params`参数。用户想了解在使用特定参数生成N个样本时，这些生成的N个样本的质量是否彼此独立。,https://github.com/vllm-project/vllm/issues/2241
+vllm,"这是一个用户询问问题类型的issue，主要涉及到了该项目中各部分（model, kvcache等）的内存消耗情况。提问者想了解如何获取每个部分的内存占用。",https://github.com/vllm-project/vllm/issues/2194
+vllm,这是一个用户提交询问问题类型的issue，涉及主要对象是Llama2架构的自定义优化。用户询问有关Ray、Torchrun和Deepspeed分布式性能的比较，以及如何为Llama2架构进行定制优化。,https://github.com/vllm-project/vllm/issues/2168
+vllm,这个issue类型是用户请教问题，主要涉及对象是chattemplate的使用。用户提出问题的原因是对如何使用chattemplate进行chatbot构建不够清楚。,https://github.com/vllm-project/vllm/issues/2130
+vllm,这个issue属于用户提出问题类型，主要涉及的对象是Dockerfile中的`nvcc`安装位置，用户询问了vllm/vllmopenai镜像中如何构建nvcc的疑问。,https://github.com/vllm-project/vllm/issues/2113
+vllm,这个issue类型是用户提问，主要涉及的对象是破壁机的用途和区别。用户提出了关于破壁机是否可以用来制作果汁的问题。,https://github.com/vllm-project/vllm/issues/2097
+vllm,这是用户寻求关于如何在 Docker 上运行模型并使用 Gradio 构建聊天界面的帮助。,https://github.com/vllm-project/vllm/issues/2091
+vllm,这是一个关于项目是否遵循官方代码的询问，属于用户提出需求类型。主要涉及对象是 Mixtral 实现。由于用户想确认 Mixtral 实现是否遵循官方发布的 Mixtral 代码，因此提出了这个问题。,https://github.com/vllm-project/vllm/issues/2023
+vllm,这是一个用户询问类型的issue，主要涉及的对象是vllm-0.2.1版本和Baichuan2，用户因为某些原因需要使用vllm-0.2.1版本，但不确定该版本是否支持Baichuan2。,https://github.com/vllm-project/vllm/issues/2010
+vllm,这个issue属于询问类型，主要涉及KV cache的分配问题，用户想了解源码中KV cache的分配位置以及gpu_cache的作用。,https://github.com/vllm-project/vllm/issues/2006
+vllm,这是一个用户提出问题的issue，主要涉及VLLM后端在benchmark_throughput.py运行时请求的批处理大小是多少的问题。,https://github.com/vllm-project/vllm/issues/1961
+vllm,这是一个用户询问问题的类型的issue，主要涉及Baichuan213B量化模型的支持问题。由于用户对vllm是否支持Baichuan213B量化模型感到困惑，导致需要解决这个问题。,https://github.com/vllm-project/vllm/issues/1960
+vllm,该issue为关于项目是否支持cuda version 11.6的询问，类型为技术支持。,https://github.com/vllm-project/vllm/issues/1907
+vllm,这是一个用户提出问题的issue，主要涉及的对象是PagedAttention模块。用户询问为什么在PagedAttention中使用`memory_efficient_attention_forward`，并询问能否替换为普通的attention。,https://github.com/vllm-project/vllm/issues/1895
+vllm,这是一个用户提出问题的issue，主要涉及VLLM模型的执行过程，用户怀疑存在懒加载机制导致执行时间短暂的问题。,https://github.com/vllm-project/vllm/issues/1798
+vllm,这是一个寻求帮助的问题，主要涉及到如何使用`nvcc`将`vllm`中的`csrc`部分编译成目标文件。问题出现的可能原因是编译CUDA内核时遇到了错误。,https://github.com/vllm-project/vllm/issues/1793
+vllm,这是一个用户询问问题的类型的issue，主要涉及到C++ API中的`c10::optional`类型在Rust bindings中的转换问题。这个问题是由于`c10::optional`是一个类而不是枚举类型，导致用户在生成Rust bindings时遇到困难，请求如何将其转换为Rust中的对应类型。,https://github.com/vllm-project/vllm/issues/1786
+vllm,这是一个用户询问类型的issue，主要涉及到如何检查输入的模型架构是否被VLLM支持，并询问最佳做法。原因可能是用户想知道如何在模型选择方面做出最佳决策。,https://github.com/vllm-project/vllm/issues/1757
+vllm,这个issue类型为用户请教问题，主要涉及的对象是参数logits_processors。由于用户想知道如何使用logits_processors来修改当前的logit。,https://github.com/vllm-project/vllm/issues/1728
+vllm,该issue属于用户提出问题类型，主要涉及对象是LLM项目中的设置CUDA设备问题。由于未指定CUDA设备，导致代码默认在设备0上运行，用户需要知道如何更改设备。,https://github.com/vllm-project/vllm/issues/1650
+vllm,这个issue类型是用户提出问题，主要涉及的对象是数据存储方式。用户询问为什么数据要以16字节的块进行存储，推测与cuda内核有关。,https://github.com/vllm-project/vllm/issues/1630
+vllm,这个issue类型是问题询问，主要对象是关于如何使用Python 3.9构建该项目。这可能是因为用户想要更新到Python 3.9版本，但不清楚如何在该项目中进行构建操作。,https://github.com/vllm-project/vllm/issues/1626
+vllm,这个issue属于用户提出问题的类型，主要涉及VLLM中Llama engine的实现方式，用户询问为何无法找到Llama engine的具体实现代码并询问其生成多个选择的机制。,https://github.com/vllm-project/vllm/issues/1537
+vllm,这个issue是在询问一个特定函数的使用情况，属于用户提出问题类型，主要涉及到函数gather_cached_kv()的使用情况。用户不清楚该函数的具体用途和在何处被调用，因此提出了这个问题。,https://github.com/vllm-project/vllm/issues/1513
+vllm,这是一个提出问题的issue，主要涉及到vLLM模型在处理大于24832上下文长度时的问题。原因是vLLM在检查时使用了float32位宽，导致限制了模型上下文长度的设定。,https://github.com/vllm-project/vllm/issues/1506
+vllm,这是一个用户询问安装问题的issue，用户希望在特定环境下安装vllm但遇到了依赖更新torch和cuda的问题。,https://github.com/vllm-project/vllm/issues/1498
+vllm,这是一个关于兼容性问题的询问，涉及到vLLM模型与CUDA版本兼容性的讨论。,https://github.com/vllm-project/vllm/issues/1391
+vllm,这是一个询问类别的问题，主要围绕vllm是否使用Flash-Decoding算法展开讨论。,https://github.com/vllm-project/vllm/issues/1362
+vllm,这是一个用户提出问题类型的issue，主要涉及到如何编写Aquila api pload。用户提出了关于如何编写api prompt的问题，由于之前给出的示例是错误的，导致无法正确执行命令。,https://github.com/vllm-project/vllm/issues/1349
+vllm,这是一个用户询问问题类型的issue，主要涉及对象是如何在VLLM中调用像transformers这样的模型功能。用户提出此问题可能是由于在使用VLLM时遇到了无法调用相应函数的困惑。,https://github.com/vllm-project/vllm/issues/1342
+vllm,这是一个关于调度器问题的疑问，涉及对象为服务在流模式下的请求处理。由于请求在调度器中被打断导致重新计算，可能引发错误。,https://github.com/vllm-project/vllm/issues/1329
+vllm,这是一个用户提出问题的issue，主要涉及vLLM中attention设计的问题，询问如何确保当`num_prompt_tokens > 0`时，`num_generation_tokens == 0`。原因可能是在代码中未找到相应实现。,https://github.com/vllm-project/vllm/issues/1277
+vllm,这个issue是用户询问有关实验中使用的批处理参数的问题，属于用户提问类型。该问题涉及了VLLM（Very Large Language Model）和TGI。用户的疑问可能源于对实验参数选择的好奇，希望了解在比较实验中为什么选择了特定的批处理参数。,https://github.com/vllm-project/vllm/issues/1119
+TensorRT-LLM,这是一个用户询问相关硬件支持的问题，主要涉及对象为NVIDIA的Jetson Orin Nano 8 GB开发套件和TensorRT的Vision Language Model。由于用户需要确认该硬件和软件环境是否支持特定的TensorRT模型。,https://github.com/NVIDIA/TensorRT-LLM/issues/3273
+TensorRT-LLM,该issue属于用户请教问题类型，主要涉及了TensorRT-LLM中的Batch Scheduling Policies。用户提出了关于`Guaranteed_no_evict`和`Max_Utilization`两种Batch Scheduling Policies的具体行为及代码实现细节的疑问。,https://github.com/NVIDIA/TensorRT-LLM/issues/3169
+TensorRT-LLM,这是一个用户提出问题类型的issue，主要涉及到在TensorRT中实现query和value具有不同隐藏维度的注意力机制。用户询问如何在导出注意力层时处理这种情况。,https://github.com/NVIDIA/TensorRT-LLM/issues/3121
+TensorRT-LLM,这个issue属于用户提问类型，主要涉及TensorRT-LLM下的GPT模型参数删除导致的疑问。,https://github.com/NVIDIA/TensorRT-LLM/issues/2970
+TensorRT-LLM,这是一个寻求帮助的问题，涉及主要对象是如何在docker上设置TensorRT-LLM以便将模型从huggingface转换为TensorRTLLM并执行推理。,https://github.com/NVIDIA/TensorRT-LLM/issues/2799
+TensorRT-LLM,该问题类型为用户询问问题，主要涉及对象是针对使用TensorRT-LLM来为ComfyUI实现功能的可行性验证。由于用户觉得TensorRT-LLM在SDXL上速度很快，希望了解是否可以将其应用到ComfyUI，以提高在diffusers方面的效率。,https://github.com/NVIDIA/TensorRT-LLM/issues/2784
+TensorRT-LLM,这是一个用户询问是否支持Mixtral8x7B平滑量化的问题，属于功能需求类型。,https://github.com/NVIDIA/TensorRT-LLM/issues/2759
+TensorRT-LLM,这是一个用户询问问题的issue，主要涉及Quantized Model using AWQ and Lora Weights。询问是否TensorRTLLM支持使用AWQ和lora weights量化的模型。,https://github.com/NVIDIA/TensorRT-LLM/issues/2703
+TensorRT-LLM,这是用户提出需要请教关于如何在TensorRT-LLM中使用多个GPU进行推断的问题。,https://github.com/NVIDIA/TensorRT-LLM/issues/2680
+TensorRT-LLM,这是一个提出问题的问题报告，主要涉及到TensorRT-LLM 中 f16xs8 混合gemm实现与本地cutlass 例子中不同之处。由于实现中加入了dequantization scale，用户询问了TRT-LLM相较于cutlass原生实现在性能或准确性上的优劣，并对使用LDS而非LDSM来加载操作数B(s8)的细节提出了疑问。,https://github.com/NVIDIA/TensorRT-LLM/issues/2659
+TensorRT-LLM,这是一个用户寻求帮助的问题，主要涉及TensorRT-LLM中模型部署的相关教程。用户完成了引擎生成步骤，现在希望找到下一步部署的相关示例教程。,https://github.com/NVIDIA/TensorRT-LLM/issues/2565
+TensorRT-LLM,这是一个用户询问如何使用TensorRT-LLM MultiShot allreduce算法的问题，不属于bug报告。询问的主要对象是TensorRT-LLM，用户想知道如何使用这个算法，因为在这个仓库中找不到相关信息。,https://github.com/NVIDIA/TensorRT-LLM/issues/2521
+TensorRT-LLM,该issue类型为用户询问问题，主要涉及对象是重复使用Gemini模型，疑问是如何进行量化。,https://github.com/NVIDIA/TensorRT-LLM/issues/2450
+TensorRT-LLM,该issue是关于用户询问如何通过C++执行器API来支持在TensorRT-LLM中使用草稿模型进行推理。,https://github.com/NVIDIA/TensorRT-LLM/issues/2424
+TensorRT-LLM,这个issue属于用户提出问题类型，主要涉及TensorRT-LLM框架中的`enable_context_fmha`和`use_paged_context_fmha`参数的工作原理及其对模型性能的影响，用户想了解为什么chunked context需要两者一同使用，以及`use_paged_context_fmha`是否影响解码阶段的attention kernel。,https://github.com/NVIDIA/TensorRT-LLM/issues/2408
+TensorRT-LLM,这是一个用户提出疑问的类型，主要涉及stop_words_list和end_id之间的关系。用户询问他们是否有必要同时使用stop_words_list和end_id，以及如果他们在stop_words_list中提到了end_id是否有价值。,https://github.com/NVIDIA/TensorRT-LLM/issues/2383
+TensorRT-LLM,这个issue属于用户请教问题类型，主要涉及TensorRT-LLM在TTS中的使用情况，用户想知道在TTS的llm代码中，是否适合使用TensorRT-LLM，建议参考哪个Demo。,https://github.com/NVIDIA/TensorRT-LLM/issues/2342
+TensorRT-LLM,该issue属于用户提出问题的类型，主要涉及AllReduce、AllGather和Send/Recv等异步操作的支持，用户希望了解Send/Recv kernel是否也是异步操作。,https://github.com/NVIDIA/TensorRT-LLM/issues/2296
+TensorRT-LLM,这个问题是用户请教问题类型，涉及主要对象是Mistral和LLAMA，由于用户想知道是否可以将LLAMA的量化方法应用于Mistral，因此提出了这个问题。,https://github.com/NVIDIA/TensorRT-LLM/issues/2281
+TensorRT-LLM,这是一个用户询问如何在TensorRT-LLM中运行多批次（multi-batch）的问题，请求帮助。,https://github.com/NVIDIA/TensorRT-LLM/issues/2261
+TensorRT-LLM,这是一个用户询问兼容性问题的类型，涉及主要对象是CUDA和TensorRT-LLM版本。问题是由于CUDA版本不匹配，用户想知道可以安装的最高版本的TensorRT-LLM。,https://github.com/NVIDIA/TensorRT-LLM/issues/2256
+TensorRT-LLM,这是一个用户提出问题的issue，主要涉及的对象是TensorRT-LLM中的PDL机制，用户询问了PDL的含义以及为什么需要使用它。,https://github.com/NVIDIA/TensorRT-LLM/issues/2194
+TensorRT-LLM,这个issue类型属于技术问题咨询，主要涉及对象是使用TensorRT-LLM进行推理时如何预处理一个int4模型。由于用户自行将模型量化为int4，现在不知道如何安排int4的权重布局。,https://github.com/NVIDIA/TensorRT-LLM/issues/2103
+TensorRT-LLM,这是一个用户提出问题的类型，涉及主要对象是TensorRT-LLM的cpp benchmarks，用户询问了gptManagerBenchmark和gptSessionBenchmark之间的区别及示例使用场景。,https://github.com/NVIDIA/TensorRT-LLM/issues/2092
+TensorRT-LLM,这是一个用户询问问题的类型，主要涉及的对象是TensorRT-LLM中的Executor构造函数，用户询问如何调用该构造函数。,https://github.com/NVIDIA/TensorRT-LLM/issues/2073
+TensorRT-LLM,这是一个用户提出问题的issue，主要涉及如何使用prompt_table来解决在转换模型时出现的问题，因为GenerationSession似乎只接受input_ids作为输入，但用户想尝试使用prompt_table来结合input_ids和vit输出，但不知道在哪里合并它们。,https://github.com/NVIDIA/TensorRT-LLM/issues/2048
+TensorRT-LLM,这是一个关于软件使用问题的询问，主要涉及TensorRT-LLM下的Python运行时是否支持inflight batching。,https://github.com/NVIDIA/TensorRT-LLM/issues/2027
+TensorRT-LLM,这个issue类型是用户请教问题，主要涉及auto_parallel中的node_sharding_weight和edge_resharding_weight，用户想了解这些权重的作用。,https://github.com/NVIDIA/TensorRT-LLM/issues/1996
+TensorRT-LLM,这个issue类型属于用户提出问题，涉及的主要对象是TensorRT-LLM中的CUDA代码。问题在于为什么要将最小缩放因子设置为1.0f / (FP8_E4M3_MAX * 512.f)，用户询问这个值为何是512。,https://github.com/NVIDIA/TensorRT-LLM/issues/1981
+TensorRT-LLM,这个issue是用户在寻求关于如何使用Medusa来支持非llama模型的帮助，涉及到的主要对象是Bloom7b1模型。由于用户需要修改bloom/model.py以支持其他类型的模型，但修改后的精度很差，因此提出了两个问题。,https://github.com/NVIDIA/TensorRT-LLM/issues/1946
+TensorRT-LLM,这是一个技术问题咨询，主要涉及TensorRT-LLM下的GEMM计算中的FP8类型使用。由于文档中指明FP8的compute_type必须为FP32，在使用cublasLtMatmul进行FP8 GEMM时，compute_type被配置为FP32，引发了用户关于操作类型opAopB是否仍然为FP8的疑问。,https://github.com/NVIDIA/TensorRT-LLM/issues/1940
+TensorRT-LLM,这是一个用户询问问题的issue，主要涉及TensorRT-LLM在构建过程中可调节的性能参数以及构建过程带来的性能优化的话题。,https://github.com/NVIDIA/TensorRT-LLM/issues/1750
+TensorRT-LLM,这个issue类型是用户询问问题类型，主要涉及对象是TensorRT-LLM中的ModelRunner和ModelRunnerCpp，问题源于用户想了解这两者之间的区别并寻求相关文档资料。,https://github.com/NVIDIA/TensorRT-LLM/issues/1744
+TensorRT-LLM,这个issue类型是用户询问问题，主要对象是关于TensorRT-LLM下的部署模型在基准测试中的表现情况，原因是想了解以TensorRTLLM部署的Llama 3模型在评估基准中的结果是否与报告的Llama 3性能相一致。,https://github.com/NVIDIA/TensorRT-LLM/issues/1699
+TensorRT-LLM,这是一个用户请教问题类型的issue，主要涉及的对象是关于TensorRT-LLM中的`RowLinear`和`ColumnLinear`使用问题。用户提出了不清楚如何选择合适的`Linear`层的困惑，希望了解何时使用`RowLinear`和`ColumnLinear`的情况。,https://github.com/NVIDIA/TensorRT-LLM/issues/1643
+TensorRT-LLM,这是一个用户提出疑问的issue，涉及对象为如何构建LLM模型引擎过程中是否有中间转换为onnx文件，并询问相关文件的位置。,https://github.com/NVIDIA/TensorRT-LLM/issues/1605
+TensorRT-LLM,这是一个用户提出问题的issue，主要涉及部署经过剪枝的模型时遇到的困惑。由于pruned模型中每个层的qkv维度不同，并且使用了torch.save来存储模型而不是save_pretrained，导致用户不清楚如何在TensorRT-LLM中使用此模型。,https://github.com/NVIDIA/TensorRT-LLM/issues/1600
+TensorRT-LLM,这个issue属于用户提出问题类型，主要涉及到支持输入log概率的问题，用户询问当前是否支持C++ inflight batching backend。造成此问题的原因可能是缺乏当前支持的功能或者实现在这个版本或者后续版本中的需求。,https://github.com/NVIDIA/TensorRT-LLM/issues/1593
+TensorRT-LLM,"这是一个用户提出问题的issue，主要涉及对象是""int4_gptq on Mixtral 8x7b""。由于`convert_checkpoint.py`需要一个`modelopt_quant_ckpt_path`参数，用户不清楚如何生成这个参数而引发了问题。",https://github.com/NVIDIA/TensorRT-LLM/issues/1581
+TensorRT-LLM,该issue属于用户询问支持是否支持Mistral-7B v0.2，涉及主要对象为TensorRT-LLM。原因可能是用户想要在系统中使用A100 GPU（40GB）的TensorRT-LLM模型，但存在一些不确定性导致需要确认支持性。,https://github.com/NVIDIA/TensorRT-LLM/issues/1503
+TensorRT-LLM,该问题类型为用户寻求帮助，主要涉及对象是Mistral在不同GPU（A100和A5500）上的运行，并困扰用户如何设置多GPU的参数以获得所需的配置。,https://github.com/NVIDIA/TensorRT-LLM/issues/1491
+TensorRT-LLM,这是一个关于用户提出问题的issue，主要涉及对象是`gptManagerBenchmark`方法。用户想了解在`gptManagerBenchmark`中采样策略是如何设置的。,https://github.com/NVIDIA/TensorRT-LLM/issues/1482
+TensorRT-LLM,这是一个用户提出问题的类型，主要涉及对象是在使用TensorRT-LLM进行量化方法时是否需要替换数据集。 用户可能对是否需要使用自己的数据集来配置模型进行量化方法产生疑惑。,https://github.com/NVIDIA/TensorRT-LLM/issues/1468
+TensorRT-LLM,该issue是一个用户提问类型的，并且涉及TensorRT-LLM中的<image> token添加问题。用户询问在使用transformers中的llava-hf时，是否需要添加<image> token到prompt。,https://github.com/NVIDIA/TensorRT-LLM/issues/1465
+TensorRT-LLM,这个issue是用户询问关于TRT-LLM 0.9.0是否支持A6000和相关性能评测的问题，属于用户提出需求及请教问题类型。,https://github.com/NVIDIA/TensorRT-LLM/issues/1452
+TensorRT-LLM,这是一个用户提出问题的issue，主要涉及TensorRT-LLM中的指标解释，包括tokens_per_sec和generation_tokens_per_second，用户询问这两个指标是表示总tok/s还是tok/s/GPU。,https://github.com/NVIDIA/TensorRT-LLM/issues/1450
+TensorRT-LLM,这是一个用户询问如何在Transformer层中添加额外操作的问题，涉及TensorRT-LLM下的Cohere模型中的qknorm操作。由于TensorRT-LLM目前仅支持输入和后置归一化，用户不清楚如何将qknorm编译到引擎中，因此提出了这个问题。,https://github.com/NVIDIA/TensorRT-LLM/issues/1443
+TensorRT-LLM,这是一个用户询问如何使用自己的提示生成数据集的问题，主要涉及的对象是生成tokens的脚本。由于用户无法找到在脚本中生成tokens的位置，因此提出了如何使用包含大量句子的文件生成tokens的疑问。,https://github.com/NVIDIA/TensorRT-LLM/issues/1437
+TensorRT-LLM,这是一个关于TensorRT-LLM中的prequant_scaling_factor问题的疑问，用户请求关于prequant_scaling_factor的解释。,https://github.com/NVIDIA/TensorRT-LLM/issues/1334
+TensorRT-LLM,这是一个用户就如何在构建模型时使用多个quantized_npz文件的疑问，属于用户提出问题类型。由于quantize.py工具在处理tp值大于1时会导致生成多个npz文件，用户想了解如何正确传递多个文件给build函数。,https://github.com/NVIDIA/TensorRT-LLM/issues/1186
+TensorRT-LLM,这是一个用户询问关于系统支持int16的issue，主要对象是TensorRT-LLM。用户询问是否TensorRT-LLM支持int 16量化，由于无人回应可能导致现象是用户无法确定系统对int16的支持情况。,https://github.com/NVIDIA/TensorRT-LLM/issues/1178
+TensorRT-LLM,该issue属于用户提出问题类型，主要涉及TensorRT-LLM中的Medusa解码相关功能，用户对medusa_choices参数的含义和实现细节产生困惑，希望得到详细介绍。,https://github.com/NVIDIA/TensorRT-LLM/issues/1163
+TensorRT-LLM,这个issue类型是用户询问问题，涉及主要对象为TensorRT-LLM中的Gemma模型。由于找不到`tmp_vocab.model`文件和版本兼容性问题，导致用户无法进行推断和选择合适的Triton Server版本运行。,https://github.com/NVIDIA/TensorRT-LLM/issues/1138
+TensorRT-LLM,这是一个用户询问类的问题，涉及对象是在TensorRT-LLM中部署qwen1.5模型。由于原因不明，用户想知道是否能够使用TensorRT-LLM部署qwen1.5模型。,https://github.com/NVIDIA/TensorRT-LLM/issues/1119
+TensorRT-LLM,"这是一个用户询问问题类型的issue，主要涉及对象是TensorRT-LLM中的""prefix caching""功能，用户询问是否有关于此功能的文档。",https://github.com/NVIDIA/TensorRT-LLM/issues/1043
+TensorRT-LLM,这个issue类型是用户提出问题，涉及的主要对象是关于TensorRT-LLM下的gpt_attention模块的输入参数。由于用户需要确认关于输入参数和实现Qwen's lognscaling插件的细节，因此提出了这个问题。,https://github.com/NVIDIA/TensorRT-LLM/issues/991
+TensorRT-LLM,"这是一个用户询问问题的issue， 主要涉及的对象是TensorRT-LLM中的""enableBlockReuse""配置，用户想知道如何将其设置为True。",https://github.com/NVIDIA/TensorRT-LLM/issues/864
+TensorRT-LLM,这是一个关于技术问题的提问，涉及到TensorRT-LLM中关于Smooth quant int8 gemm的处理过程中的疑问，主要涉及对象为int8 gemm输出的fake quant操作，用户询问是否这一步骤是必要的。,https://github.com/NVIDIA/TensorRT-LLM/issues/845
+TensorRT-LLM,这是一个用户提出问题的issue，主要涉及到SmoothQuant在tp>1情况下的支持，由于Linear hook在tp>1时出现问题导致模型运行时内存溢出。,https://github.com/NVIDIA/TensorRT-LLM/issues/837
+TensorRT-LLM,这个issue属于用户提出问题类型，主要涉及对象是GptManager和GptSession之间的关系。原因是用户想了解GptManager和GptSession之间的关系以及GptManager是否使用GptSession来管理和调用TensorRT引擎。,https://github.com/NVIDIA/TensorRT-LLM/issues/833
+TensorRT-LLM,这是一个用户询问类型的issue，询问了TensorRT-LLM中-这两种MultiHeadAttention的不同之处。,https://github.com/NVIDIA/TensorRT-LLM/issues/830
+TensorRT-LLM,这是一个寻求帮助的问题，主要涉及TensorRT-LLM中的Context Phase和Generation Phase概念定义不明确，导致用户困惑并寻求标准定义。,https://github.com/NVIDIA/TensorRT-LLM/issues/816
+TensorRT-LLM,这是一个用户提问类型的issue，主要涉及对象是TensorRT-LLM。由于用户不熟悉docker，提出了关于安装、部署和使用的疑问。,https://github.com/NVIDIA/TensorRT-LLM/issues/798
+TensorRT-LLM,这个issue类型为用户提出问题，主要涉及对象是summarize.py脚本运行时的得分计算，由于用户想要了解关于rouge指标得分的计算解释。,https://github.com/NVIDIA/TensorRT-LLM/issues/769
+TensorRT-LLM,这是一个用户请教问题的类型的issue，主要涉及对象为TensorRT-LLM中的qwen-vl模块。由于用户想要了解如何在TensorRT-LLM中构建qwenvl，因此提出了这个问题。,https://github.com/NVIDIA/TensorRT-LLM/issues/728
+TensorRT-LLM,这个issue属于用户提问类型，主要涉及TensorRT-LLM中关于`activation size`和`workspace`的问题，用户询问`activation size`是否等于`workspace`，以及关于多层计算中工作空间释放和复用的情况。,https://github.com/NVIDIA/TensorRT-LLM/issues/704
+TensorRT-LLM,这个issue是一个关于询问使用8位GPTQ量化模型的问题，主要涉及对象是在构建引擎时选择合适的权重精度选项，可能由于对不同精度选项的理解不清晰导致用户提出了关于选择int8、int4、int4_awq、int4_gptq之间的区别和最佳选择的问题。,https://github.com/NVIDIA/TensorRT-LLM/issues/683
+TensorRT-LLM,该issue类型为用户询问问题，主要涉及如何测试批处理运行的转换模型，用户想知道应该使用哪些命令或更改哪些代码。,https://github.com/NVIDIA/TensorRT-LLM/issues/665
+TensorRT-LLM,这是一个用户询问问题类型的issue，主要涉及对象为获取`FLayerInfo`对象，可能由于缺少对 `FLayerInfoMemo.instance().create()` 和 `FLayerInfoMemo.instance().add()` 方法的调用而导致无法获取所需的 `FLayerInfo` 对象。,https://github.com/NVIDIA/TensorRT-LLM/issues/657
+TensorRT-LLM,这是一个用户提出问题的issue，主要涉及TensorRT-LLM下greedy sample的设置导致结果不含eos标记。,https://github.com/NVIDIA/TensorRT-LLM/issues/646
+TensorRT-LLM,这是一个询问类型的issue，用户想知道TensorRT-LLM是否支持在A10或4090上进行推断。,https://github.com/NVIDIA/TensorRT-LLM/issues/578
+TensorRT-LLM,这个issue属于用户提出问题类型，主要涉及TensorRT-LLM中模型性能的疑问，可能是由于文档内容不一致导致的困惑。,https://github.com/NVIDIA/TensorRT-LLM/issues/536
+TensorRT-LLM,该issue属于用户提出问题类型，问题主要涉及到构建Docker时缺少特定版本信息。这可能是由于缺少特定版本的软件包而导致的。,https://github.com/NVIDIA/TensorRT-LLM/issues/530
+TensorRT-LLM,这是一个用户提出疑问的类型，涉及主要对象是TensorRT-LLM中的GatedMLP和swiglu。其中，用户想了解为什么存在两种等效实现而没有合并成一种，对于这种情况可能感到困惑。,https://github.com/NVIDIA/TensorRT-LLM/issues/529
+TensorRT-LLM,这是一个用户请教问题类型的issue，涉及主要对象是关于调用weight_only_batched_gemv_launcher函数的问题，用户想知道如何直接从C++端调用该函数并寻求相关帮助。,https://github.com/NVIDIA/TensorRT-LLM/issues/514
+TensorRT-LLM,这是一个用户询问问题的issue，主要涉及如何在gptManagerBenchmark中设置采样参数，用户想知道如何设置topk topp参数。,https://github.com/NVIDIA/TensorRT-LLM/issues/510
+TensorRT-LLM,这个issue类型为用户询问问题，主要涉及对象是TensorRT-LLM模型。用户询问是否可以在不同GPU上转移相同的模型，是否需要为不同GPU构建不同的模型。这个问题的出现主要是因为用户对模型的跨GPU可移植性存在疑惑。,https://github.com/NVIDIA/TensorRT-LLM/issues/495
+TensorRT-LLM,这是一个用户询问如何在已通过pip安装TensorRT的情况下构建wheel的问题，属于用户提出需求询问类型。用户遇到了由于已通过pip安装TensorRT而需要通过源文件构建wheel的困惑。,https://github.com/NVIDIA/TensorRT-LLM/issues/477
+TensorRT-LLM,这个issue属于用户询问问题类型，主要涉及对象是TensorRT-LLM中的FlashAttention集成。用户询问是TensorRT-LLM中的FlashAttention集成使用的是版本1还是已更新至新版本FlashAttention 2，可能由于版本更新引起功能差异导致疑惑。,https://github.com/NVIDIA/TensorRT-LLM/issues/439
+TensorRT-LLM,这是一个关于询问CUDA graph mode的类型为问题咨询，主要涉及TensorRT-LLM项目中关于CUDA graph mode的使用及其限制的问题，用户想了解这种模式的优势和劣势。,https://github.com/NVIDIA/TensorRT-LLM/issues/413
+TensorRT-LLM,该issue属于用户提出问题类型，主要涉及Triton Server的最大输出长度的设置，可能是由于请求输出令牌数量超过最大输出长度限制所导致。,https://github.com/NVIDIA/TensorRT-LLM/issues/411
+TensorRT-LLM,这是一个用户提出问题的issue，询问有关如何获得第一个令牌延迟的最佳实践。,https://github.com/NVIDIA/TensorRT-LLM/issues/406
+TensorRT-LLM,这个issue类型是用户提出疑问，主要对象是TensorRT-LLM中的`encoder_input_lengths`变量。根据描述，用户提出了关于`encoder_input_lengths`在解码器自回归生成中的作用以及不同长度导致不同输出的疑问。,https://github.com/NVIDIA/TensorRT-LLM/issues/356
+TensorRT-LLM,这是一个用户询问如何在没有使用Docker容器的情况下构建项目的问题。该问题涉及到项目构建时依赖Docker容器的限制。,https://github.com/NVIDIA/TensorRT-LLM/issues/342
+TensorRT-LLM,这是一个关于性能问题的用户提问，主要涉及TensorRT-LLM的内存使用情况，用户想测试实际内存占用并确认是否成功启用kvint8功能。,https://github.com/NVIDIA/TensorRT-LLM/issues/211
+TensorRT-LLM,这是一个用户提出问题的issue，主要涉及的对象是C++ benchmark的构建，可能是由于缺乏构建指导导致用户无法构建benchmark。,https://github.com/NVIDIA/TensorRT-LLM/issues/185
+TensorRT-LLM,这是一个用户请教问题类型的issue，主要涉及模型的前向传播操作。用户想要通过一次前向传播获取模型的logits，可能由于现有示例中直接调用生成函数获取结果而困惑。,https://github.com/NVIDIA/TensorRT-LLM/issues/158
+TensorRT-LLM,这个issue属于用户提出问题类型，主要涉及限制topk大小为1024这一设计选择。由于仅能使用1024大小的topk，用户想要了解设计者的原因。,https://github.com/NVIDIA/TensorRT-LLM/issues/61
+TensorRT-LLM,该issue类型为用户提出问题，涉及主要对象为评估Throughput (tokens/s)，用户想了解关于该评估的方法及计算过程是否包括上下文处理。,https://github.com/NVIDIA/TensorRT-LLM/issues/43
+ColossalAI,这是一个寻求帮助类issue，主要涉及DeepSeek 671B Fine-Tuning模型以及如何加载原始模型和lora模型进行测试的问题。,https://github.com/hpcaitech/ColossalAI/issues/6222
+ColossalAI,这个issue类型为用户提问，主要涉及对象是关于ColossalAI中的deepseek 671B模型和使用的GPU设置。用户提出了关于最小GPU数量需求以及GRPO和LoRA在训练中的适用性的疑问。,https://github.com/hpcaitech/ColossalAI/issues/6219
+ColossalAI,这是一个用户提出问题的issue，涉及主要对象为Hybrid Parallel Plugin和deepspeed，用户想了解为什么Hybrid Parallel Plugin下TP显存比同配置下deepspeed要高。,https://github.com/hpcaitech/ColossalAI/issues/6161
+ColossalAI,这个issue属于用户提出问题类型，主要对象是ColossalAI在MacOS上的运行情况。用户想在Mac电脑上使用ColossalAI，但不确定是否可行。,https://github.com/hpcaitech/ColossalAI/issues/5880
+ColossalAI,这是一个用户询问类型的issue，主要涉及ColossalAI是否支持rocm。由于用户可能希望使用rocm平台，因此提出了关于ColossalAI是否支持该平台的问题。,https://github.com/hpcaitech/ColossalAI/issues/5669
+ColossalAI,这是一个帮助标注文本内容的issue，涉及ColossalAI中的SFT NPU Flash Attention Version。可能是一次测试性质的操作。,https://github.com/hpcaitech/ColossalAI/issues/5320
+ColossalAI,这个issue类型是用户提出问题，涉及主要对象是ColossalAI中双重损失函数的初始化和训练方式。这个问题的原因是用户询问如何正确初始化和训练同时使用nn.CrossEntropyLoss()和CircleLoss损失函数的模型。,https://github.com/hpcaitech/ColossalAI/issues/4761
+ColossalAI,这是一个用户询问类的问题单，主要涉及GeminiDDP是否包含DP、PP和TP，用户想了解GeminiDDP与这些内容的关系。,https://github.com/hpcaitech/ColossalAI/issues/4425
+ColossalAI,这是用户请教问题类型的issue，主要涉及对象是ns3gym的架构。用户询问关于ns3gym架构的问题。,https://github.com/hpcaitech/ColossalAI/issues/3983
+ColossalAI,该issue类型是用户提出问题，主要涉及Chat的reward_model.py代码中的操作逻辑。由于代码中去掉了最后一个元素，用户疑惑是否会影响最终计算的结果。,https://github.com/hpcaitech/ColossalAI/issues/3950
+ColossalAI,这是一个询问问题类型的issue，主要涉及PPO训练参数设置问题，导致训练难以收敛。,https://github.com/hpcaitech/ColossalAI/issues/3543
+ColossalAI,这是一个用户请教问题的类型的issue，涉及主要对象是ColossalAI中的 LoRA 模型。这个问题是关于在阶段2中如何将 laro 模型应用到 rm 训练，原因可能是用户想要在后续训练中利用先前训练好的模型。,https://github.com/hpcaitech/ColossalAI/issues/3249
+ColossalAI,该issue类型为用户询问问题，主要涉及对象为数据集的准备和下载，用户寻求关于数据集准备及开源数据集下载的帮助。,https://github.com/hpcaitech/ColossalAI/issues/3112
+ColossalAI,这个issue类型是用户提出疑问，涉及的主要对象是ColossalAI下的ChatGPT模块中的Critic类。用户提出了关于Critic函数依赖当前状态和动作的疑问。,https://github.com/hpcaitech/ColossalAI/issues/3038
+ColossalAI,这是一个用户提出问题的类型的issue，主要涉及ColossalAI下旧版本的ZeRO文档相关的问题，包括关于ZeRO1的使用方式、性能表现和未来可能被弃用的问题。,https://github.com/hpcaitech/ColossalAI/issues/3003
+ColossalAI,这个issue类型是用户寻求帮助，主要对象是ColossalAI的硬件选型，由于使用LLM 11B和RewardModel 1B，用户想知道在两个选项中哪个可以运行PPO模型。,https://github.com/hpcaitech/ColossalAI/issues/2862
+ColossalAI,这是一个用户请教问题类型的issue，涉及主要对象是chatgpt模块，用户提出了关于如何进行SFT fine-tuning以及代码已经实现与否的疑问。,https://github.com/hpcaitech/ColossalAI/issues/2859
+ColossalAI,这是一个用户询问源代码和配置信息的问题，涉及的主要对象是ColossalAI论文和DeepSpeed GPT2脚本。用户提出这个问题可能是因为对ColossalAI和DeepSpeed GPT2性能比较感兴趣，想了解基准源代码和配置的具体位置。,https://github.com/hpcaitech/ColossalAI/issues/2100
+mindnlp,这是一个用户请教问题类型的issue，主要涉及mindnlp中的models模块下的modeling_pix2struct.py文件中的is_torch_fx_proxy函数的替换问题。由于迁移mindnlp时，用户需要知道该函数如何替换或直接删除。,https://github.com/mindspore-lab/mindnlp/issues/1490
+mindnlp,这个issue类型是问题询问，主要涉及对象是如何加载CLIP模型的预训练权重。用户提出了关于加载CLIP预训练权重的问题，是否需要手动转换hugginface.co上的权重。,https://github.com/mindspore-lab/mindnlp/issues/875
+mindnlp,这是一个缺少完整内容或者格式错误的用户提问类型的问题，用户提出了关于mindnlp训练用例报错的问题。,https://github.com/mindspore-lab/mindnlp/issues/606
+mindnlp,这是一个用户请教问题类型的issue，主要涉及的对象是GPT相关模型。由于缺乏对在Ascend 910上使用GPT模型的了解，用户提出了关于如何使用该模型的问题并寻求帮助。,https://github.com/mindspore-lab/mindnlp/issues/485
+mindnlp,这是一个用户提出问题的issue，主要涉及mindnlp的兼容性问题。由于未完整提供链接，用户可能遇到了无法查看贡献者指南的问题。,https://github.com/mindspore-lab/mindnlp/issues/447
+MindSpeed,这个issue属于用户提出问题类型，主要涉及参数复用实现中静态内存的测试以及分布式优化器对应代码的修改，用户想要了解如何测试静态内存及如何修改loadparameterstate和getparameterstate函数。,https://gitee.com/ascend/MindSpeed/issues/IB3CUK
+MindSpeed,这是用户在询问关于MegatronLM适配性的问题，主要对象是MegatronLM适配模块。,https://gitee.com/ascend/MindSpeed/issues/IAUHQ4
+MindSpeed,这是一个用户提出问题的issue，主要涉及CANN文档中的方法和代码不一致问题。该问题可能是由于AscendSpeed中缺少指定模块导致用户在进行大模型迁移时无法顺利操作。,https://gitee.com/ascend/MindSpeed/issues/I9ASVC
+mindformers,这是一个用户提出问题的类型的issue，主要涉及的对象是1.3.2版本中的select_recompute和select_comm_recompute功能。这个问题是由于用户想了解在该版本中这两个功能是否已经实现而提出的。,https://gitee.com/mindspore/mindformers/issues/IBW328
+mindformers,这是一个用户询问类型的issue，主要涉及Llama 2模型只支持使用based model进行评测任务而不支持微调后的模型，用户想了解是否只能使用初始权重进行评测的问题。,https://gitee.com/mindspore/mindformers/issues/IBJBO1
+mindformers,这是一个关于兼容性问题的用户提问，主要涉及mindformers 1.2.0和mindspore 2.4之间的兼容性。,https://gitee.com/mindspore/mindformers/issues/IBBOOS
+mindformers,该issue属于用户问题咨询类型，主要涉及的对象是whisperlargev3模型，用户询问该模型是否支持中文识别。,https://gitee.com/mindspore/mindformers/issues/IBBJHV
+mindformers,这是一个用户寻求帮助的问题，涉及主要对象为在使用fastapi框架中调用多卡推理的原理。用户提出了多进程持久化模型时出现的推理错误，希望找到在不使用MindIe的情况下解决这个问题的方法。,https://gitee.com/mindspore/mindformers/issues/IB8AOP
+mindformers,这个issue类型是用户询问问题，主要涉及对象是Mindspore测试工具。由于缺乏具体描述和背景信息，用户提出了关于Mindspore测试精度工具的疑问，希望得到帮助解决问题。,https://gitee.com/mindspore/mindformers/issues/IB5T4A
+mindformers,这是一个关于查询支持openai的服务接口的类型为询问问题的issue，主要涉及的对象是mindformers1.0版本。用户可能因为想要了解版本支持的功能范围而提出了这个问题。,https://gitee.com/mindspore/mindformers/issues/IAYST6
+mindformers,该issue类型为疑问提出，主要涉及“增量推理”和“自回归推理”，探讨它们的区别和适用场景。,https://gitee.com/mindspore/mindformers/issues/IA8ULF
+mindformers,这是一个询问问题类型的issue，主要涉及对象是chat_web模块加载research模型，用户可能遇到无法正常加载模型的问题。,https://gitee.com/mindspore/mindformers/issues/IA8U7D
+mindformers,这是一个用户询问是否有关于chatweb的说明文档的问题，属于用户提出疑问类型的issue。该问题主要涉及chatweb的说明文档缺失。,https://gitee.com/mindspore/mindformers/issues/IA8U6K
+mindformers,这是一个用户提出问题的issue，主要对象是chatweb，由于用户想了解chatweb是否支持并发。,https://gitee.com/mindspore/mindformers/issues/IA8U51
+mindformers,这是一个用户提出问题的issue，主要涉及的对象是代码库中的两个参数load_checkpoint和checkpoint_name_or_path，用户想要了解它们之间的区别。,https://gitee.com/mindspore/mindformers/issues/IA8U2S
+mindformers,该issue属于用户询问问题的类型，主要涉及对象是设备910a和Mixtral8x7B，用户想知道是否可以在910a上运行Mixtral8x7B。,https://gitee.com/mindspore/mindformers/issues/IA8TXP
+mindformers,这是一个向开发者请教问题的issue，主要涉及的对象是300I DUO和GLM36B推理。用户问询在300I DUO上是否可以使用mindformers跑GLM3的推理，或者使用哪个仓库来运行大模型推理，问题可能是由于未知的兼容性或配置问题导致。,https://gitee.com/mindspore/mindformers/issues/IA7R12
+mindformers,"这是一个问题询问类型的issue，主要涉及对象是""altas 300I单卡""，用户想知道是否支持lora微调。",https://gitee.com/mindspore/mindformers/issues/IA6IXL
+mindformers,这是一个请教问题类型的issue，涉及到EpochCtrlOp线程数设置，由于用户对算子间队列关系不清楚而提出。,https://gitee.com/mindspore/mindformers/issues/IA5IJJ
+mindformers,这个issue类型为寻求帮助，主要涉及初学者在安装过程中未找到作用指引的问题。,https://gitee.com/mindspore/mindformers/issues/IA56XB
+mindformers,这是一个用户提出问题的issue，主要涉及MindSpore /mindformers项目中基于Generate推理可设置的参数及文档情况。由于用户不清楚如何指定推理参数，导致他在部署推理服务时遇到困惑。,https://gitee.com/mindspore/mindformers/issues/I9T8YK
+mindformers,该issue类型是用户提出问题，主要涉及部署Qwen1.514B和推理结果模块，可能是由于重复的最后几条内容导致问题。,https://gitee.com/mindspore/mindformers/issues/I9ELP5
+mindformers,这是一个用户询问问题类型的issue，主要涉及的对象是910A与baichuan213b的配置兼容性。用户可能由于混淆配置选项而产生困惑，想知道如何在使用910A卡时选择正确的配置。,https://gitee.com/mindspore/mindformers/issues/I9AP6R
+mindformers,这是一个关于模型微调效果问题的用户提问，主要涉及使用baichuan13Bchat进行全参微调时，数据较少导致模型效果不佳的情况。,https://gitee.com/mindspore/mindformers/issues/I9AOJC
+mindformers,这是一个询问问题类型的issue，主要涉及对象是ERNIE3.0大模型华为昇腾，用户询问是否已经适配。由于适配情况不明确，用户提出了相关问题。,https://gitee.com/mindspore/mindformers/issues/I98R66
+mindformers,这个issue类型是用户询问问题，主要涉及gradient_aggregation_group参数与dp/mp/pp值之间的关系，可能由于对这些参数之间的关系和影响不清楚而引发提问。,https://gitee.com/mindspore/mindformers/issues/I94U37
+mindformers,这个issue属于用户提出问题类型，主要涉及的对象是在Ascend平台安装torch后能否在atlas平台上使用deepspeed/megatron等并行策略。由于用户想知道在atlas平台上是否能够使用torch的dp/mp/pp，并行策略，表明用户希望实现在atlas平台上利用相关并行策略进行深度学习任务。,https://gitee.com/mindspore/mindformers/issues/I94MGW
+mindformers,这是一个用户询问问题类型的issue，主要对象是关于mindformer r1.0的官方镜像及使用问题，由于x86机器无法找到对应镜像，用户询问如何在x86机器上运行mindformer r1.0代码。,https://gitee.com/mindspore/mindformers/issues/I92KUU
+mindformers,这是一个用户询问类型的issue，主要涉及对象是Mindformers是否支持昇腾310P卡的chatglm36b大模型的推理，用户在此寻求关于兼容性的帮助。,https://gitee.com/mindspore/mindformers/issues/I92IJG
+mindformers,这是一个用户请教问题的issue，主要涉及到梯度通信算子融合组参数gradient_aggregation_group的具体功能问题，用户想了解其作用是否与gradient accumulation steps相同。,https://gitee.com/mindspore/mindformers/issues/I8YHHA
+mindformers,这是一个询问如何使用LoRA微调后的权重进行推理并合并权重的问题，主要涉及的对象是Ascend910A以及模型的权重处理，用户可能对如何将微调后的权重应用于推理操作以及如何合并权重产生了疑惑。,https://gitee.com/mindspore/mindformers/issues/I8VJMD
+mindformers,这个issue属于问题询问类型，主要涉及对象是获取下一个词的生成概率，可能是由于用户需要执行相关任务而寻求帮助。,https://gitee.com/mindspore/mindformers/issues/I8VGN9
+mindformers,这是一个用户提出疑问的issue，涉及主要对象为glm2/3的maxlen配置。用户疑问的原因可能是对模型配置的疑惑，希望了解为何官方训练配置文件中的maxlen参数未使用到8k的情况。,https://gitee.com/mindspore/mindformers/issues/I8TJY5
+mindformers,这是一个用户寻求帮助的issue，主要涉及到调用KeyWordGenDataset函数时发生的错误，原因可能是无法找到对应的函数位置或GPT分析错误。,https://gitee.com/mindspore/mindformers/issues/I8RWSI
+mindformers,这个issue类型为用户提问，主要涉及多级多卡训练操作，由于文档未提供相关操作指导，导致用户不清楚如何处理分布式权重。,https://gitee.com/mindspore/mindformers/issues/I8RTZK
+mindformers,这是一个包含关于llama2训练、推理精度相关问题的用户提问，主要涉及llama2模型评测、迁移存在的不一致性和性能指标低下等主题。,https://gitee.com/mindspore/mindformers/issues/I8PNP3
+mindformers,这是一个用户提出问题的issue，主要涉及MindSpore框架中是否可以在910B上运行glm，并且用户环境符合要求。原因可能是用户遇到了运行glm时的问题或者疑问。,https://gitee.com/mindspore/mindformers/issues/I8OIXP
+mindformers,这是一个寻求帮助类的问题单，涉及主要对象为moxing模块的引用。由于用户需要指导如何正确导入moxing模块，故提出了这个问题。,https://gitee.com/mindspore/mindformers/issues/I8NDXD
+mindformers,这是一个用户询问问题的类型的issue，主要涉及Mindformers框架在性能方面与torch的比较，以及多用户同时请求并发推理功能和fastchat支持情况。由于用户对框架性能和功能的关注，导致提出了相关问题。,https://gitee.com/mindspore/mindformers/issues/I8KAAX
+mindformers,这是一个关于LLama27b训练的用户提问，涉及LLama2和CodeLlama的参数转换和训练操作。问题是由于参数输入类型不一致导致的。,https://gitee.com/mindspore/mindformers/issues/I8K5HP
+mindformers,这个issue属于用户提问类型，主要涉及分布式并行方式中几种配置方式的选择原则，由于用户想了解configs/*.yaml配置文件中的并行方式semiauto，auto和hybird的区别以及如何选择适合的方式。,https://gitee.com/mindspore/mindformers/issues/I8I4NF
+mindformers,该issue类型是用户询问问题，主要涉及llama2权重转换和离线权重切分，用户询问是否需要联网进行自动权重转换以及如何在离线状态下对llama2权重进行切分，可能由于用户需要在没有网络连接的情况下进行相关操作或者对权重处理流程不清楚而提出这些问题。,https://gitee.com/mindspore/mindformers/issues/I8DS61
+mindformers,这是一个用户就单机多卡推理生成rank file的问题寻求帮助的issue。该问题涉及的主要对象是机器上的NPU。由于用户想进行单机多卡推理，但遇到了生成rank file的问题，不清楚如何解决以及是否需要将两个卡插到一个group中。,https://gitee.com/mindspore/mindformers/issues/I8BJVX
+mindformers,这是一个用户询问问题的类型，主要涉及对象是在昇腾910服务器上使用CPU执行LLaMA 2的推理，原因可能是相关文档缺失导致用户不清楚如何在CPU上执行推理。,https://gitee.com/mindspore/mindformers/issues/I8AFET
+mindformers,这是一个用户请教问题的issue，主要涉及到auto_trans_ckpt参数的使用。由于Baichuan2模型要求使用该参数，而其他模型没有相应的说明，用户想了解该参数应该如何使用。,https://gitee.com/mindspore/mindformers/issues/I86UNE
+mindformers,这是一个用户请教问题的issue，主要涉及yaml文件中自定义输出需求的操作方式，由于源码中是从callback中操作的，用户想知道如何入手修改，并需要注意哪些问题。,https://gitee.com/mindspore/mindformers/issues/I85LT3
+mindformers,这个issue属于用户提出问题类型，主要涉及BERT模型的权重保存和加载问题，可能由于缺乏对应的加载接口导致加载失败。,https://gitee.com/mindspore/mindformers/issues/I82IAD
+mindformers,这是一个用户提出问题的issue，主要涉及n卡机器上单机多卡训练报错，用户询问在这种情况下应该如何处理。原因是使用ascend机器的hccl无法在n卡机器上正常执行训练导致报错。,https://gitee.com/mindspore/mindformers/issues/I82BIA
+mindformers,这是一个用户提出问题的类型issue，主要涉及的对象是glm模型中的position_ids参数，用户询问该参数的含义如何以及如何正确给定其数值。,https://gitee.com/mindspore/mindformers/issues/I7SPF3
+mindformers,该issue类型为用户询问问题类型，涉及主要对象是LLAMA模型。由于用户想了解LLAMA模型是否能用于翻译任务，所以提出了这个问题。,https://gitee.com/mindspore/mindformers/issues/I7RP8N
+mindformers,该issue类型为用户请教问题，主要涉及对象为如何使用sentence Transformers库中的嵌入模型。由于用户不清楚如何操作及实例化模型，导致提出了关于如何获取和使用该模型的问题。,https://gitee.com/mindspore/mindformers/issues/I7R3K1
+mindformers,这是一个用户提出问题的类型，主要涉及LLAMA模型在单机8卡训练过程中保存计算图的问题，可能由于参数设置或并行训练限制导致保存的图未能正确生成或保存在期望路径。,https://gitee.com/mindspore/mindformers/issues/I7MIDT
+mindformers,该issue类型是用户请教问题，涉及主要对象为分布式训练参数设置。由于用户对模型并行训练中模型切分方式和参数设置理解有疑问，需更清楚了解在单机八卡环境下模型与卡之间的分配关系。,https://gitee.com/mindspore/mindformers/issues/I7LQ0H
+mindformers,这是一个用户提出问题的类型，主要关注mindsporegpt2微调过程中数据格式的理解。可能由于用户对于数据格式理解存在歧义或不清楚，导致提问这个问题。,https://gitee.com/mindspore/mindformers/issues/I7L58S
+mindformers,这个issue类型为用户提问，涉及对象是mindformer模块。由于requirements.txt未列明依赖和Python版本要求，用户提出是否需要依赖mindspore以及Python版本的问题。,https://gitee.com/mindspore/mindformers/issues/I7JJMM
+mindformers,该issue类型为用户提问，涉及主要对象为如何微调模型，用户想了解如何微调特定模型（例如gpt2）的具体步骤。,https://gitee.com/mindspore/mindformers/issues/I71HHY
+mindformers,这是一个用户提问类型的issue，涉及mindformer中ckpt文件数量限制的设置，问题主要询问如何调整保存ckpt文件数量的限制。,https://gitee.com/mindspore/mindformers/issues/I6BLVE
+mindformers,这是用户询问问题类型的issue，主要涉及如何显示网络编译info日志的配置问题，由于设置GLOG_v=1无效，用户希望了解如何正确配置config以显示Info日志。,https://gitee.com/mindspore/mindformers/issues/I6BE1X

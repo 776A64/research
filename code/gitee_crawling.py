@@ -5,12 +5,13 @@ import time
 import re
 import os
 
-# 配置
-OWNER = "mindspore"   # 仓库所属用户或组织
-REPO = "mindspore"  # 仓库名称
+OWNER = "ascend"   # 仓库所属用户或组织
+REPO = "MindSpeed"  # 仓库名称
+
 ACCESS_TOKEN = os.getenv("gitee_token")
 if not ACCESS_TOKEN:
     raise ValueError("未找到环境变量 gitee_token")
+print(ACCESS_TOKEN)
 
 def clean(text): # 净化文本内容
     if not text:
@@ -38,8 +39,8 @@ BASE_URL = "https://gitee.com/api/v5/repos/{owner}/{repo}/issues"
 COMMENTS_URL = "https://gitee.com/api/v5/repos/{owner}/{repo}/issues/{issue_id}/comments"
 
 # CSV 文件初始化
-csv_file = "gitee_issues.csv"
-csv_columns = ["number", "title", "body", "Created At", "Tags", "State", "Reactions", "Comments_count", "Link", "Comments"]
+csv_file = fr".\research\data\{REPO}.csv"
+csv_columns = ["name", "title", "body", "Created At", "Tags", "State", "Reactions", "Comments_count", "Link", "Comments"]
 
 # 创建 CSV 文件并写入标题行
 with open(csv_file, mode="w", newline="", encoding="utf-8") as file:
@@ -81,6 +82,7 @@ def get_comments(issue_id):
 
 # 获取 Issue 的详细信息
 def process_issue(issue, cnt):
+    name = issue.get('user', {}).get('name', '')
     issue_title = clean(issue['title'])
     issue_body = clean(issue.get('body', ""))
     issue_created_at = issue['created_at']
@@ -103,7 +105,7 @@ def process_issue(issue, cnt):
     # 保存数据到 CSV 文件
     with open(csv_file, mode="a", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
-        writer.writerow([cnt, issue_title, issue_body, issue_created_at, issue_labels, issue_state, issue_reactions, issue_comments_count, issue_url, *comment_texts])
+        writer.writerow([name, issue_title, issue_body, issue_created_at, issue_labels, issue_state, issue_reactions, issue_comments_count, issue_url, *comment_texts])
 
 # 主函数
 def main():

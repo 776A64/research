@@ -8,7 +8,7 @@ access_token = os.getenv("GITHUB_TOKEN")
 if not access_token:
     raise ValueError("未找到环境变量 GITHUB_TOKEN")
 
-repo_list = [('NVIDIA', 'TensorRT-LLM')]
+repo_list = [('mindspore-lab', 'mindnlp')]
 
 headers = {
     "Authorization": f"Bearer {access_token}"
@@ -54,7 +54,10 @@ def get_github_repository_issues(page, csv_filename, owner_name, repo_name):
     while True:
         issues = requests.get(issues_url, headers=headers, params=params).json()
         if not issues:
-            break
+            time.sleep(20)
+            issues = requests.get(issues_url, headers=headers, params=params).json()
+            if not issues:
+                break
         for issue in issues:
             try:
                 issue_url = f"https://api.github.com/repos/{owner_name}/{repo_name}/issues/{issue['number']}"
@@ -90,7 +93,7 @@ def get_github_repository_issues(page, csv_filename, owner_name, repo_name):
                 cnt += 1
                 
             except:
-                time.sleep(5)
+                time.sleep(10)
                 continue
                 
         params['page'] += 1
@@ -99,4 +102,4 @@ def get_github_repository_issues(page, csv_filename, owner_name, repo_name):
 if __name__ == '__main__':
     for repo in repo_list:
         csv_filename = rf"C:\pyprogram\research\data\{repo[1]}.csv"
-        get_github_repository_issues(26, csv_filename, repo[0], repo[1])
+        get_github_repository_issues(1, csv_filename, repo[0], repo[1])
