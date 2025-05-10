@@ -7,24 +7,24 @@ import string
 
 nltk.data.path.append(r'C:\Users\THEWJ\AppData\Roaming\nltk_data')
 csv.field_size_limit(10 * 1024 * 1024)
-lemmatizer = WordNetLemmatizer()
 
-data_name = 'tensorflow'
+data_name = 'pytorch'
 
 keywords = [
-    "llm", "langchain", "llama", "chromadb", "finetuning", "mistral", "peft",
-    "rag", "pinecone", "gpt", "agent", "transformer", "langgraph", "lmstudio",
-    "claude", "dspy", "anthropic", "flowise", "gemma", "langsmith", "baichuan",
-    "glm", "chat", "qwen", "deepseek", "yi", "pangu", "mixtral", "llava", "grok", "opensora", "vlm"
+    "llm", "langchain", "llama", "chromadb", "finetuning", "mistral", "peft", "few shot", "text chunking"
+    "rag", "pinecone", "gpt", "agent", "transformer", "langgraph", "lmstudio", "amazon bedrock"
+    "claude", "dspy", "anthropic", "flowise", "gemma", "langsmith", "baichuan", "text generation"
+    "glm", "chat", "qwen", "deepseek", "yi", "pangu", "mixtral", "llava", "grok", "opensora", "vlm", "large language model"
 ]
 
-keyphrases = [
-    ["large", "language", "model"],
-    ["text", "generation"], 
-    ["amazon", "bedrock"],
-    ["few", "shot"], 
-    ["text", "chunking"]
-]
+with open(rf'C:\pyprogram\research\data\1.csv', 'r', encoding='utf-8') as file:
+    reader = csv.reader(file)
+    for i in reader:
+        if i[0] == 'PyTorch':
+            keywords.append(i[1])
+
+keywords = [word.lower() for word in keywords]
+print(keywords)
 
 def filter_csv(input_file, output_file):
     
@@ -39,41 +39,19 @@ def filter_csv(input_file, output_file):
         for row in reader:
             key = ''
             flag = False
-            text = row[1] + row[2]  # 根据有无用户名调整
-            
-            # 去除特殊字符
-            text = re.sub(r'[^\w\s,.\-]', '', text)
-            # 转小写
-            text = text.lower()
-            # 去除标点符号
-            text = text.translate(str.maketrans('', '', string.punctuation))
-            # 分词
-            words = word_tokenize(text)
-            #词形还原
-            words = [lemmatizer.lemmatize(word) for word in words]
+            text = (row[1] + row[2]).lower()  # 根据有无用户名调整
 
             for i in keywords:
-                for word in words:
-                    if i in word: 
-                        flag = True
-                        key = i
-
-            # 是否有keyphrase
-            for keyphrase in keyphrases:
-                if all([any([key in word for word in words]) for key in keyphrase]):
-                    key = keyphrase
+                if i in text: 
                     flag = True
+                    key = i
                     
             if flag:
-                if isinstance(key, str):
-                    writer.writerow([key] + row)
-                else:
-                    writer.writerow([' '.join(key)] + row)
-                    print("1")
+                writer.writerow([key] + row)
     
     outfile.close()
 
 # 示例调用
-for year in range(2022, 2026):
-    input_csv = rf'C:\pyprogram\research\data\{data_name}\{year}\{data_name}_{year}.csv'
+for year in range(2025, 2026):
+    input_csv = rf'C:\pyprogram\research\data\{data_name}\{year}\{data_name}_{year}_user.csv'
     filter_csv(input_csv, rf'C:\pyprogram\research\data\{data_name}\{year}\{data_name}_{year}_filtered.csv')

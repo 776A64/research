@@ -1,0 +1,31 @@
+大类,问题的根因,问题的症状描述
+bug,模块导入缺失,ModuleNotFoundError
+bug,扩展模块编译失败,RuntimeError
+bug,参数配置冲突,TypeError: got multiple values for argument
+bug,版本不兼容,模型转换或推理时报错
+bug,拼写错误,ModuleNotFoundError 或 AttributeError
+bug,数据路径多文件导致读取错误,报错无法定位权重或数据文件
+bug,算子编译失败,编译失败或缺少符号错误
+bug,并行配置或网络通信问题,collective operation timeout
+bug,内存调度或动态内存建模失败,AutoTuning 报错
+bug,数值异常,nan 值或 loss 发散
+bug,维度不匹配,attention mask 维度错误
+bug,环境或依赖解析错误,安装报错或 ImportError
+bug,性能分析影响模型更新,单步多次更新权重
+bug,算子复用指针失效,segment fault
+bug,功能逻辑实现缺陷,功能不生效无算子调用
+bug,精度异常,开启功能后精度大幅变化
+bug,文件缺失,功能失效
+bug,依赖版本不匹配,编译失败
+question,缺乏静态内存测试和分布式优化器接口的文档与示例,用户不清楚如何测试静态内存或修改参数状态相关函数
+question,适配模块的支持范围与兼容性不明确,用户对MegatronLM的适配性存在疑问
+question,文档内容与实际实现不一致，且缺少必要模块,用户在根据CANN文档操作时无法完成大模型迁移
+requirement,特性支持缺失,“用户无法使用LoRA、FP8、MC2通算融合、CosyVoice等新功能，或无法在Megatron Core 0.7.0上运行”
+question,配置文档不足,“用户不清楚如何配置CPU offloading、FSDP、Zero+CPU并行、PP自动并行、Profiling工具或 ONNX 推理流程”
+question,兼容性与适配问题,“用户不确定NPU 910A是否支持flashattention，或不知道如何在MindSpeed与DeepSpeed、llama factory之间切换”
+requirement,依赖安装复杂,“用户觉得transformer engine依赖安装过于繁琐，难以快速运行”
+bug,性能实现缺陷,“用户发现transformer模块中dot_product_attention_forward_wrapper函数生成的attention_mask覆盖了外部传入的mask，导致冗余”
+question,文档或引用致谢缺失,“用户希望在AscendSpeed项目中看到对feifeibear/longcontextattention的引用和致谢信息”
+question,发布进度透明度不足,“用户想了解MindSpeed项目新版本的发布时间或发布进度”
+question,长上下文推理需求,“用户不知道如何使用MindSpeed在长上下文推理任务中进行高效推理”
+question,算子融合开发进度未知,“用户想了解VocabParallelCrossEntropy等融合算子的开发或上线计划”

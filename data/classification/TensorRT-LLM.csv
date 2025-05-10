@@ -1,0 +1,931 @@
+大类,问题的根因,问题的症状描述
+bug,并发处理逻辑错误,高并发时出现错误（如py_decoding_iter错误、greedy search结果不一致）
+bug,测试设计缺陷,测试用例执行失败或非确定性失败（如测试依赖执行时间、参数设置错误）
+bug,内存管理不当,内存泄漏或未释放张量导致OOM错误
+bug,构建/安装配置错误,构建/安装过程中出现错误（如GEMM配置缺失、CMake版本不兼容）
+bug,功能实现错误,特定功能异常（如lookahead decoding形状不兼容、未正确支持模型参数）
+bug,依赖兼容性问题,环境/版本不兼容导致异常（如Python/Ubuntu版本、CUDA架构设置）
+bug,资源管理缺陷,线程泄漏或请求处理异常（如请求取消后继续处理、调度器逻辑错误）
+bug,CUDA相关配置问题,CUDA功能异常（如cuda graph输出错误、FP8 FMHA编译失败）
+bug,参数校验缺失,参数设置错误导致异常（如no_repeat_ngram_size=0触发错误）
+bug,模型转换错误,模型转换失败或输出不一致（如Hugging Face模型转换异常）
+bug,路径配置错误,路径设置问题导致功能异常（如glm-4-9b路径错误）
+bug,代码逻辑错误,功能实现错误（如未归一化draft logits导致采样错误）
+bug,文档不完善,集成测试指南需要细化
+bug,功能支持缺失,不支持特定配置（如PP+MTP配置不支持、负数结果不支持）
+bug,优化引入副作用,代码优化导致运行时错误（如替换CudaEvent引发测试失败）
+bug,内核实现缺陷,缩放因子布局不匹配导致断言错误（如FP8 blockwise gemm kernel）
+bug,测试框架限制,测试列表中不支持文件名导致功能需求未被满足
+bug,资源调度异常,Slurm系统无法正常退出导致进程hang住
+bug,参数校验不充分,特定参数设置引发功能异常（如lookahead decoding形状不兼容、模型输出无法停止）
+bug,环境配置错误,系统配置问题导致CUDA设备绑定失败
+bug,进程管理缺陷,多进程/多GPU场景下程序hang住（如mgmn组件、trtllm-llmapi-launch命令）
+bug,缓存管理异常,KV Cache管理问题导致hang或内存使用不准确（如CacheTransceiver hang、KV cache重用问题）
+bug,构建系统缺陷,CMake宏逻辑错误导致构建失败（如find_library_create_target未正确处理缺失库）
+bug,依赖管理问题,容器/镜像配置错误导致功能异常（如内部Docker镜像不可访问、mlx5设备连接失败）
+bug,路径管理错误,文件路径变更导致依赖失效（如requirements.txt路径失效、模型路径配置错误）
+bug,多线程同步缺陷,进程间消息不对齐导致融合消息错误
+bug,版本兼容性问题,软件版本冲突导致异常（如setuptools版本缺陷导致构建失败）
+bug,内存访问越界,非法内存访问导致崩溃（如mtp eagle模式引发segfault）
+bug,硬件适配缺陷,特定硬件平台功能异常（如Blackwell平台FP8 MLA kernels错误）
+bug,算法逻辑错误,数值处理缺陷导致结果异常（如cp_size*tp_size超限导致kv_head_num归零）
+bug,HTTP服务异常,服务器返回非200状态码（如benchmarking时HTTP 500错误）
+bug,测试用例缺陷,测试条件设置错误导致功能受限（如fp4_gemm测试受nvbug影响无法执行）
+bug,编译配置错误,CUDA图设置异常导致性能问题（如allreduce CUDA图结果错误）
+bug,代码维护问题,重构遗留代码引发错误（如trtGptModelInflightBatching.h定义未清理）
+bug,模型适配缺陷,特定模型部署异常（如DeepSeekR1FP4在B200上的推理速度问题）
+bug,实现逻辑冲突,Sliding Window Attention与kv缓存重用机制冲突导致缓存禁用判断失效
+bug,参数验证不严谨,构造函数条件检查不严格导致错误配置风险
+bug,资源不足,trtllm-build命令因内存不足导致构建失败
+bug,代码转换错误,平台兼容性问题（如Gemma2在Jetson设备报错）
+bug,数据类型错误,模型转换脚本convert_checkpoint.py执行失败
+bug,内存管理缺陷,多节点场景出现"double free detected in tcache 2"错误
+bug,测试用例失败,测试未通过（如Test failed tests/Kill测试/多GPU测试）
+bug,并发处理缺陷,压力测试时出现线程崩溃或性能下降（thread-XX问题）
+bug,功能兼容性缺失,Qwen MOE模块不支持FP8数据类型
+bug,缓存优化失效,enable_kv_cache_reuse参数未产生预期性能提升
+bug,日志与调试信息缺失,缺少有效调试信息导致问题定位困难
+bug,批处理功能缺陷,Whisper批处理仅输出30秒结果
+bug,环境配置问题,测试失败可能由环境配置错误导致
+bug,空内容提交,用户误操作创建空白issue（如空标题/空内容）
+bug,第三方依赖问题,setuptools缺陷导致安装/构建失败
+bug,未知根因,问题描述不完整导致无法明确归类（如Debug消息测试）
+bug,代码实现错误,使用官方示例构建decoder时发生core dump
+bug,参数配置不当,设置max_tokens参数过大导致并行请求被阻塞
+bug,环境变量缺失,未设置指定环境变量导致模型转换错误
+bug,硬件不兼容,在GB200/RTX 5090等硬件上运行时报非法内存访问或无法启动
+bug,内存管理问题,cudaHostAlloc函数内存不足或CUDA内存耗尽导致运行时错误
+bug,版本兼容性问题,TensorRT版本不匹配或Torch版本不兼容导致功能异常
+bug,模型转换错误,转换InternVL2-1B等模型时因脚本或版本问题失败
+bug,量化实现缺陷,FP8/AWQ量化后出现core dumped或准确性问题
+bug,依赖库问题,googletest或.gitmodules文件错误导致构建失败
+bug,API接口限制,调用ModelRunnerCpp.from_dir()时参数不支持引发TypeError
+bug,文档错误,quantization/README.md存在拼写错误需修复
+bug,性能瓶颈,_initialize_and_fill_output函数耗时过长或KV cache量化无效
+bug,资源耗尽,批次过大或权重超出int32范围导致内存溢出
+bug,功能逻辑错误,addCumLogProbs内核批次槽错误导致结果重复
+bug,第三方依赖缺失,Windows系统中缺少tensorrt_llm_ucx_wrapper.dll文件
+bug,输入处理异常,模型推断时因输入格式错误输出文本异常
+bug,依赖管理问题,安装过程中因依赖项（如Git、Flash Infer、CUDA库）缺失或版本不兼容导致失败
+bug,模型转换错误,模型权重转换失败或格式不兼容（如fp8 tp32权重、int4量化处理错误）
+bug,功能实现错误,插件/模块功能未按预期启用（如减少融合、KV Cache量化、解码停止条件）
+bug,内存管理问题,GPU/CPU内存泄漏、非法内存访问或资源利用率异常（如GPU利用率过高）
+bug,参数配置错误,接口参数传递错误（如未知参数、数据类型不匹配、缓冲区大小不兼容）
+bug,环境配置问题,编译或运行时环境问题（如权限不足、CUDA架构设置错误、符号缺失）
+bug,算法逻辑错误,执行过程中逻辑错误（如索引顺序混乱、哈希表操作异常、概率计算错误）
+bug,文档/链接问题,文档内容错误或无效链接导致用户操作受阻
+bug,性能问题,推理速度显著下降或基准测试表现异常
+bug,结果偏差问题,模型输出与预期结果不一致（如数值错误、生成垃圾数据、跨框架结果不一致）
+bug,并发处理问题,多请求并发时性能下降或结果异常（如时间消耗增加、资源竞争）
+bug,版本兼容性问题,不同版本组件（如TensorRT-LLM、Protobuf）间接口不兼容
+bug,量化实现缺陷,量化过程中参数处理错误导致输出异常（如INT8量化中的冗余操作）
+bug,异常处理缺失,未正确处理边界条件（如输入长度超限、向量大小超限）
+bug,安装源配置错误,安装时指向错误仓库或私有源导致依赖获取失败
+bug,配置错误,服务器无法正常启动运行
+bug,内存管理问题,内存泄漏导致编译失败
+bug,模型转换与加载错误,AutoConfig无法加载huggingface配置导致报错
+bug,输入长度限制,输入长度超过模型限制导致错误
+bug,缓存重用问题,kv_cache重复利用导致错误输出
+bug,参数设置错误,kv cache配置问题导致异常
+bug,环境配置问题,Docker命令运行不正确导致无法运行benchmark
+bug,版本兼容性问题,更新版本后出现空输出
+bug,参数传递错误,参数更改后仍报告先前错误
+bug,初始化参数错误,tokenizer初始化时kwargs参数更新导致错误行为
+bug,内存不足,工作空间大小不足导致构建失败
+bug,数值断言失败,lora_weights数值不足导致断言失败
+bug,字段声明缺失,加载onnx模型时因缺少字段声明失败
+bug,模型配置错误,推断时出现断言错误
+bug,量化实现问题,int4 weight only引擎输出垃圾字符
+bug,缓存管理错误,continuous kv cache未正确使用导致计算错误
+bug,构建过程错误,TRT引擎构建时出现TypeError
+bug,功能兼容性问题,guided decoding和kv cache reuse同时使用导致Segmentation fault
+bug,模型支持问题,Qwen2VL模型转换失败
+bug,依赖管理问题,安装时出现模块缺失或依赖冲突
+bug,CUDA兼容性问题,CUDA调用失败导致初始化错误
+bug,代码逻辑错误,加载模型次数与预期不符
+bug,名称映射错误,模型名称映射错误导致加载失败
+bug,解码实现问题,无法正确处理系统提示标记
+bug,构建参数问题,CUDA toolkit版本或驱动版本不匹配导致构建失败
+bug,算法稳定性问题,每次推断结果不一致
+bug,架构支持问题,aarch64架构构建失败
+bug,日志管理问题,运行时不必要的信息提示
+bug,并行计算问题,tensor parallelism导致输出结果错误
+bug,编译配置问题,代码更改后编译错误
+bug,延迟性能问题,启用kv cache reuse后延迟增加
+bug,数据类型错误,元素加法操作中数据类型不匹配
+bug,模块/功能兼容性问题,模型输出异常或无法正常工作
+bug,配置参数错误,生成结果不符合预期（如token长度、重复输出）
+bug,依赖项缺失/版本冲突,安装失败或运行时模块导入错误
+bug,构建/编译错误,引擎构建失败或出现SIGABRT错误
+bug,内存管理问题,内存溢出(OOM)或程序异常终止
+bug,输入处理逻辑错误,输出内容异常（如重复名称、乱码）
+bug,性能优化缺陷,请求延迟过高或计算速度低于预期
+bug,GPU识别/调度异常,无法在指定GPU设备运行
+bug,量化/精度转换错误,模型准确率下降或构建失败
+bug,并行计算问题,多GPU环境结果不一致或系统挂起
+bug,模型转换缺陷,权重转换失败或缺少必要参数
+bug,API服务异常,服务器启动失败或流响应编码错误
+bug,文档缺失/错误,链接失效或缺少配置指导
+bug,采样策略缺陷,生成结果存在未定义行为
+bug,后处理逻辑错误,输出内容缺失关键信息（如标点）
+bug,环境兼容性问题,特定操作系统/硬件运行失败
+bug,插件支持缺失,无法支持指定模型类型（如LoRA/Gemma）
+bug,环境配置错误,执行命令后无反应且未使用GPU，安装过程中出现模块未找到或文件未找到错误
+bug,版本不兼容,导入错误、转换失败、输出logits不符合预期、CUDA版本不匹配导致容器启动失败
+bug,代码逻辑错误,模型输出不一致、属性错误、断言失败、张量形状错误、参数设置错误导致性能下降
+bug,资源不足,内存溢出（OOM）、构建时内存不足、编译耗时过长
+bug,数据处理错误,中文字符解码乱码、输出垃圾数值、批量处理时结果异常
+bug,性能问题,批处理大小增加导致延迟线性增长、高并发请求时推理时间增加
+bug,依赖库问题,链接错误（如未定义符号）、MPI Abort Error、NCCL错误
+bug,功能限制,模型转换失败（如不支持特定模型类型）、检查点转换脚本异常
+bug,参数传递错误,类型不兼容导致API调用失败、拼写错误导致配置失效
+bug,硬件/软件配置问题,INT4性能未达预期、特定选项（如--use_fp8_context_fmha）无法启用
+bug,缓存机制错误,禁用KV缓存导致批处理大小受限、缓存复用功能验证困难
+bug,量化实现问题,INT4 GPTQ转换失败、SmoothQuant检查点出现NaN值
+bug,并发处理缺陷,Medusa性能随批处理规模下降、流式解码异常
+question,功能验证需求,用户询问如何验证enable_kv_cache_reuse是否正常工作
+bug,数据类型不匹配,将模型和LoRA同时转换为bfloat16时出现错误，但float16正常
+bug,代码逻辑错误,Executor多次调用logit processor导致输出异常
+bug,内核实现缺陷,moeTopK()内核无法找到符号导致构建失败
+bug,环境配置差异,tritonserver与run.py性能差异大
+bug,维度约束限制,权重维度n/k非2的幂时cudaCoreGemm精度异常
+bug,参数设置错误,batch_size≥512时张量容量超过限制
+bug,模型兼容性不足,Dit模块不支持pp_size>1
+bug,版本兼容问题,Python 3.12与TensorRT版本不兼容导致Segmentation fault
+bug,内存管理缺陷,运行大模型时出现CUDA内存不足错误
+bug,依赖缺失,安装时缺少必要模块或文件
+bug,API变更未适配,缺少init_all_reduce_helper()函数导致allreduce失败
+bug,量化实现缺陷,Quantization过程中出现输出为空的问题
+bug,多设备支持不足,GPU架构SM70不被当前版本支持
+bug,并行处理缺陷,MPI初始化卡住或导入失败
+bug,日志处理错误,logprobs输出始终为0.000
+bug,缓存机制缺陷,启用kv缓存重用导致CUDA运行时错误
+bug,模型导出功能缺失,缺少visualize_network导致无法导出ONNX
+bug,精度优化不足,XQA kernel使用fp8时速度低于fp16
+bug,功能扩展缺陷,Cross attention无法与Medusa兼容
+bug,性能回归,0.13.0版本吞吐量比0.12.0下降
+bug,符号注册缺失,ONNX导出时无法识别flash_attn命名空间
+bug,模块加载错误,无法加载multi-rank nemo LoRA检查点
+bug,资源分配错误,非法内存访问导致推理失败
+bug,序列处理缺陷,--run_profiling选项导致生成长度不一致
+bug,模型解析错误,convert_checkpoint.py转换过程中崩溃
+bug,参数传播缺陷,load_model_on_cpu选项未正确传播
+bug,特征拆分错误,SmoothQuant量化时未正确拆分mlp.proj
+bug,多端一致性缺陷,Python与C++运行结果不一致
+bug,环境配置或依赖项缺失,无法编译或构建发布版本
+bug,CUDA运行时错误,前向推理函数报错
+bug,引擎模型配置错误,无法执行推理操作
+bug,权重量化处理出错,转换脚本失败
+bug,GPU内存资源不足或请求降低失败,构建或运行失败
+bug,模型规范文件丢失,引擎构建失败
+bug,参数传递或解析错误,模型转换出错
+bug,算法实现或性能优化不足,Int8 Gemm性能下降
+bug,配置参数实现缺陷,参数无效未生效
+bug,未知命令标志或参数,Docker镜像构建失败
+bug,模块或包缺失,导入错误模块未找到
+bug,代码逻辑错误,属性缺失或方法错误
+bug,版本不兼容,转换或构建失败
+bug,API调用用法错误,推理请求hang或异常
+requirement,模型或功能支持不足,用户请求新增支持
+requirement,依赖库版本要求过旧,需要兼容或更新
+bug,环境配置或依赖项缺失,无法编译或构建发布版本
+bug,CUDA运行时错误,前向推理函数报错
+bug,引擎模型配置错误,无法执行推理操作
+bug,权重量化处理出错,转换脚本失败
+bug,GPU内存资源不足或请求降低失败,构建或运行失败
+bug,模型规范文件丢失,引擎构建失败
+bug,参数传递或解析错误,模型转换出错
+bug,算法实现或性能优化不足,Int8 Gemm性能下降
+bug,配置参数实现缺陷,参数无效未生效
+bug,未知命令标志或参数,Docker镜像构建失败
+bug,模块或包缺失,导入错误模块未找到
+bug,代码逻辑错误,属性缺失或方法错误
+bug,版本不兼容,转换或构建失败
+bug,API调用用法错误,推理请求hang或异常
+requirement,模型或功能支持不足,用户请求新增支持
+requirement,依赖库版本要求过旧,需要兼容或更新
+bug,安装环境配置不当,"安装失败、编译错误或启动失败"
+bug,算法或逻辑缺陷,"输出结果错误、计算异常或非确定性响应"
+bug,参数配置错误,"生成重复文本、功能失效或生成阻塞"
+bug,兼容性限制,"功能不起作用、性能无改善或构建失败"
+bug,资源或内存限制,"内存溢出（OOM）或性能显著下降"
+bug,并发或同步问题,"运行阻塞、MPI未知错误或段错误"
+bug,API或插件支持不足,"插件注册失败或模型加载错误"
+question,文档或使用指导不清晰,"用户无法按指南完成安装或配置，提出使用方法询问"
+requirement,功能扩展需求,"需要支持新特性（如自定义层、Flash Attention 等）"
+requirement,文档或示例需求,"需提供示例代码或更完整详细的使用文档"
+bug,构建脚本忽略模型权重,无法从预训练模型生成可用engine
+bug,参数配置不当,生成结果与预期不一致或差异显著
+bug,环境或库版本不匹配,适配器加载失败或脚本运行错误
+bug,缺少方法实现（__repr__）,调试信息不足导致诊断困难
+bug,API实现缺陷（排除endId token）,生成结果缺少结束标识符
+bug,安装命令配置错误,pip安装失败
+bug,符号定义缺失,出现undefined symbol错误
+bug,文档链接失效,无法访问或查阅文档
+bug,导入模块阻塞,导入过程卡住
+bug,缺少bindings路径,setup.py执行失败
+bug,版本兼容性问题,引擎构建失败或模型支持中断
+bug,插件注册失败,trtexec工具报错
+bug,量化键错误,抛KeyError导致构建中断
+bug,性能调度问题,生成速度慢且一次只生成一个token
+bug,推理结果混乱,输出乱码或结果不符合预期
+bug,模型权重加载更新问题,加载过程抛出异常
+bug,输入尺寸不合法,RuntimeError报错
+bug,命令语法错误,构建命令执行失败
+bug,非确定性输出,相同输入多次结果不一致
+bug,量化输出异常,使用smoothquant时输出为空
+bug,已知平台问题（Windows）,存在已知Bug导致功能异常
+bug,构建脚本冲突（重复导入）,模块导入重复导致错误
+bug,CLI参数未识别,命令行报未识别参数
+bug,系统资源不足（内存溢出）,CUDA内存不足导致运行失败
+bug,未处理结束标识,生成未自动停止
+bug,属性缺失,PluginConfig缺少_streamingllm属性导致异常
+bug,PTX指令依赖问题,性能警告提示指令序列化
+requirement,功能缺失：LoRA Adapter支持,无法将LoRA adapter应用于模型
+requirement,功能缺失：int8 gemm_plugin支持,无法创建对应int8引擎
+bug,模型转换流程错误,转换失败
+bug,量化实现错误,量化失败
+bug,依赖或版本不兼容,运行时错误
+bug,内存或资源配置不足,内存溢出
+bug,并行或多GPU配置错误,运行时错误
+bug,参数或功能选项混淆,计算工作空间大小错误
+bug,脚本或组件缺陷,脚本执行失败
+bug,API变更或功能缺失,功能不可用
+bug,文档或拼写错误,命令报错
+bug,架构平台不支持,安装失败
+bug,代码逻辑或索引错误,断言失败或进程崩溃
+bug,编译错误,无法成功编译TrTllm并报错
+bug,文档链接过时,README文件中链接失效导致无法访问资源
+bug,模型转换错误,使用smoothquant或其他模型转换功能时报错
+bug,参数设置不兼容,调用set_shape或TP/PP参数设置错误导致运行失败或性能问题
+bug,依赖缺失或加载失败,无法加载libtensorrt_llm.so或找不到modelSpec.h文件导致加载失败
+bug,配置环境错误,MPI worldSize/Peer access unsupported或Docker资源权限被拒绝导致服务启动或运行失败
+bug,功能未实现,FP8量化和KV缓存支持未实现或pad token配置缺失导致功能异常
+bug,版本不匹配,不同版本库或API移除导致undefined symbol或ImportError
+bug,内存/资源不足,GPU显存不足导致量化或引擎构建时OOM
+bug,运行时CUDA错误,CUDA_ERROR_INVALID_VALUE或cudaDeviceSynchronize运行时错误
+bug,性能退化,使用Leader Mode或LoRa Adapter时延迟增加或性能降低
+bug,加载/构建失败,无法加载 Whisper decoder engine 或模型转换/引擎构建失败
+bug,版本兼容性问题,版本升级后推理结果不一致且速度下降，或 CUDA 与 TensorRT 版本不兼容导致编译失败
+bug,量化支持不足,FP8 量化导致推理结果重复或 attention 计算失败
+bug,形状/参数不匹配,模型构建时出现形状不匹配错误或违反 kOPT 形状约束
+bug,内存不足,CUDA 运行时因显存不足发生 OOM 错误或量化过程失败
+bug,性能退化,kv-cache 在多线程/多 GPU 情况下速度变慢，或 LoRA 模型推理显著变慢
+bug,功能冲突,PromptTuning 与 block_reuse 等功能无法同时正常工作
+bug,构建/安装错误,源码错误或依赖问题导致镜像构建失败或 pip 安装失败
+bug,参数配置错误,low_rank 参数超出最大值或临时工作区分配失败
+bug,内部断言失败,运行时出现 Assertion failed 或 “Operation not permitted” 权限错误
+bug,动态形状处理缺陷,expand/slice 等操作在处理维度为1的张量时失败
+bug,切片/填充问题,不同提示组成的批次推理结果不一致
+bug,依赖/模块缺失,导入模块时发生 ModuleNotFoundError
+bug,特殊标记处理异常,某些特殊 token 导致推理结果异常
+bug,执行器响应故障,Executor failed to await responses 时请求无法正确返回
+question,量化参数含义不明确,用户不确定“--weight_only_precision int8 --qformat fp8”是否生效，权重量化精度存疑
+requirement,推理并行度或流水线配置不当,用户希望改善pipeline parallelism以提升token生成速度
+bug,参数未设置或设置不当,remove_input_padding启用但opt_num_tokens未设置导致trtllmbuild崩溃
+bug,批处理逻辑不一致,不同batch大小下推理结果不一致
+bug,缺少条件检查,W4A(FP)8量化缺少零点检查导致量化过程出错
+bug,内存管理失败,内存工作空间释放失败导致Assertion failed错误
+bug,依赖或版本不兼容,TensorRT版本与库不匹配导致undefined symbol错误
+bug,导入或路径配置错误,无法导入tensorrt_llm模块
+bug,模型转换配置错误,convert_checkpoint.py脚本环境配置或参数错误导致转换失败
+bug,数据类型或硬件支持问题,使用bf16或在不支持硬件上运行导致CUDA运行时错误
+bug,内存溢出,CUDA内存耗尽引发torch.cuda.OutOfMemoryError
+bug,输出重复或异常,长输入任务输出重复或产生垃圾数据
+bug,API忽略关键参数,executor API忽略prompt_vocab_size导致加载/运行异常
+bug,模型转换错误,模型转换失败报错
+bug,缺少依赖库,ImportError 导致加载失败
+bug,参数配置错误,构建或转换失败
+bug,依赖版本不兼容,编译失败或运行时错误
+bug,并行/多GPU访问问题,运行时卡死或设备不可用
+bug,编译构建失败,构建过程出错
+bug,运行时维度不匹配,推理时报 dimension 错误
+bug,量化失败,INT8/INT4 失败报错
+bug,性能瓶颈,吞吐量低或延迟高
+bug,内存/资源错误,程序被 killed 或 OOM
+bug,超时/响应延迟,服务无响应或响应时间增大
+bug,序列化/日志处理缺失,请求同步失败
+bug,文件/张量缺失,转换时报张量模型缺失错误
+bug,分段错误,segfault
+bug,随机种子问题,输出不稳定或不准确
+bug,高并发问题,响应时间显著增大
+bug,缺少声明,编译时报缺失声明错误
+bug,类型或平台不支持,在 Python3.11 等环境下运行失败
+bug,镜像体积过大,Docker 镜像过大难以分发
+bug,输出非预期停止,输出未在停止标记处结束
+bug,解码模块逻辑错误,解码缓慢或结果不一致
+bug,版本不匹配,构建或转换失败  
+bug,参数传递错误或缺失,方法调用出现未预期的关键字参数或缺少参数导致功能无法执行  
+bug,内存分配或管理缺陷,GPU或主机内存分配异常或碎片化导致崩溃或性能下降  
+bug,依赖安装或环境配置错误,安装或编译过程中缺少文件或模块导致安装失败或编译错误  
+bug,量化算法逻辑缺陷,量化过程出现错误导致转换或推理失败  
+bug,API使用或参数校验缺陷,API校验失败或参数格式错误导致调用异常  
+bug,性能或准确率下降,未获得预期性能提升或出现高错误率  
+bug,部署或推理阶段错误,部署至TritonServer或多节点推理时出现OOM或segfault  
+bug,多卡并行或通信错误,NCCL或MPI错误导致进程异常退出  
+bug,模型生成逻辑缺陷,生成会话初始化或生成流程异常导致输出不正确
+bug,张量未迁移到CPU,CUDA内存溢出
+bug,文件或模块缺失或路径错误,构建或加载失败
+bug,版本或依赖不匹配,无法加载或转换模型
+bug,不支持的数据类型或架构,模型转换失败或结果错误
+bug,参数硬编码,输入长度受限或选项不可用
+bug,并行/MPI配置错误,运行卡顿或失败
+bug,量化策略或转换性能问题,推理性能下降或延迟增加
+bug,推理逻辑或采样缺陷,生成无效标记或提前终止
+requirement,功能缺失,用户无法启用所需功能
+question,环境或模型适配,用户寻求解决方案或已构建模型版本
+bug,参数配置错误,运行时报错或错误输出
+bug,依赖/版本不兼容,模块导入失败或功能导出失败
+bug,硬件/架构不支持,断言错误或进程挂起
+bug,量化/精度模块缺陷,输出异常或NaN
+bug,内存不足/OOM,进程因内存溢出崩溃
+bug,模型转换脚本逻辑错误,KeyError或AttributeError
+bug,文档内容问题,死链接或文档不完整
+question,缺少特性支持,无法在CPU上构建或功能欠缺
+requirement,性能优化需求,性能低于预期
+bug,tokenizer逻辑缺陷,多余特殊token出现在prompt中
+bug,多GPU设备访问配置错误,peer access失败
+bug,路径或拼写错误,ModuleNotFoundError或拼写导致错误
+bug,安装或依赖缺失,无法导入模块或安装失败
+bug,配置或参数错误,运行时配置错误导致报错或功能失效
+bug,代码实现缺陷,功能逻辑错误引发异常或结果不正确
+bug,环境兼容性问题,依赖或 CUDA 版本不匹配导致构建或运行失败
+bug,内存或性能瓶颈,高内存消耗或运行性能下降
+bug,文件或路径缺失,缺少配置文件或权重文件导致脚本无法执行
+bug,API或功能支持不足,缺少必要的 API 实现或参数支持导致导出或量化失败
+bug,输入验证或边界检查缺失,越界或无效输入未被捕获导致崩溃或错误
+bug,精度或量化支持不完善,特定精度模式下引擎构建或推理异常
+bug,硬件支持不足,硬件不支持特定功能导致无法构建引擎
+bug,文档描述错误,文档信息不准确导致用户误用功能
+bug,GPU 显存管理不足,OOM 或显存占用过高
+bug,配置或参数缺失,推理失败或引擎无法构建
+bug,参数形状不匹配,量化失败或输出错误
+bug,模型量化实现缺陷,模型压缩不正确或输出异常
+bug,中间数据导出逻辑错误,无法导出中间值或导出异常
+bug,引擎构建流程缺陷,无法创建或反序列化 engine
+bug,运行时多块模式冲突,引擎崩溃或断言失败
+bug,性能优化缺失,批量增加导致性能显著下降
+bug,输出结果不一致,不同版本/参数下结果差异
+bug,安装或构建脚本错误,pip 安装失败或 wheel 构建失败
+bug,环境或平台兼容性问题,模型转换失败或输出乱码
+bug,非确定性并行策略,不同批次或设备导致输出不一致
+bug,示例脚本或 API 使用错误,配置参数不生效或无法指定 GPU
+bug,重复 token 或停止逻辑缺陷,推理过程中出现大量重复或无法停止
+bug,上下文长度处理错误,超长输入导致输出异常或不完整
+bug,依赖库版本冲突,构建或运行时报错
+bug,脚本拼写或逻辑错误,示例模块执行失败
+bug,参数传递错误,GenerationExecutor输出结果无意义
+bug,计算精度数据类型不匹配,bfloat16构建失败
+bug,参数组合不当,量化过程中出现TypeError
+bug,编译环境依赖冲突,v0.8.0版本编译错误
+bug,内存估计不足,CUDA内存溢出
+bug,模块导入失败,无法导入tensorrt_llm库
+bug,配置混淆,max_new_tokens始终为1
+bug,资源不足,CUDA OOM导致量化失败
+bug,长文本处理缺陷,长文本输入输出精度变差
+bug,序列化格式错误,InvalidHeaderDeserialization异常
+bug,断言限制超出,shared memory长度超限导致失败
+bug,校准流程故障,INT8校准失败
+bug,变量未定义,缺少对变量args的定义
+bug,链接依赖缺失,BatchManager未包含导致链接错误
+bug,多模型拼写错误,文档中multimodel拼写错误
+requirement,文档不完善,缺少promptTuningEnabled参数说明
+requirement,功能支持缺失,v0.8.0缺少max_draft_len支持
+requirement,依赖声明缺失,requirements.txt遗漏必要包
+question,行为不确定,批处理大小是否影响推理结果
+question,使用指导缺乏,如何设置BF16构建参数不明确
+bug,格式兼容性问题,文件生成错误
+bug,提交引入回归缺陷,MMLU得分异常
+bug,推理逻辑错误,推理结果不一致
+bug,文档与脚本不一致,引擎生成工具输出不匹配
+bug,构建环境或依赖配置错误,构建失败
+bug,安装包命名或元数据错误,安装失败
+bug,算子或策略缺失,No valid weight only groupwise GEMM tactic 错误
+bug,参数缺失或硬编码,缺失 scale 和 zero-point 警告
+bug,性能或资源管理缺陷,批量推理耗时过长
+bug,内存溢出,CUDA out of memory 错误
+bug,并行策略兼容性问题,MPI 初始化失败
+bug,模型量化缺陷,量化过程失败或导出类型错误
+bug,平台兼容性缺失,构建失败
+bug,依赖/版本冲突,安装或构建失败
+bug,编译/构建配置错误,构建失败
+bug,参数/接口误用,运行报错
+bug,形状/维度不匹配,运行时报错
+bug,内存不足,CUDA内存不足导致OOM
+bug,逻辑实现缺陷,功能异常或结果不正确
+bug,导入/加载错误,加载失败或导入错误
+bug,测试用例失败,单元测试失败
+bug,转换过程缓慢,转换耗时过长
+bug,多GPU并行问题,脚本卡住或性能异常
+bug,崩溃指针错误,程序崩溃
+bug,文档错误,文档引用或说明错误
+question,性能指标差异,性能低于预期
+question,参数使用建议,询问参数调整或移除
+bug,缺少依赖,导入 TensorRTLLM Python 包出错
+bug,版本不兼容,CUDA 版本不兼容导致编译错误
+bug,配置错误,Dockerfile 中未找到 CUDA 编译器导致构建失败
+bug,参数错误,传入未知参数 'group_size' 导致 TypeError
+bug,资源限制,GPU 内存不足导致 OOM 错误
+bug,多 GPU 配置,多 GPU 推理时系统挂起
+bug,脚本缺陷,构建脚本错误导致编译失败
+bug,模型架构不支持,Unsupported model architecture 错误
+bug,数据类型错误,int32 索引溢出导致构建失败
+bug,断言失败,编码器注意力层断言失败导致构建失败
+bug,API 使用错误,示例代码推理时出现异常行为
+bug,授权问题,缺少运行权限/授权导致转换失败
+bug,序列化失败,CUDA 引擎序列化失败导致部署出错
+requirement,文档缺失,README 缺少 libnccl2 安装说明
+requirement,版本说明缺失,未指定 cuDNN 版本导致运行错误
+bug,环境配置错误,无法进入Docker环境或Docker启动失败
+bug,依赖版本不兼容,导入时出现undefined symbol（如ImportError）、CUDA/cuDNN版本不兼容导致的性能降低或构建失败
+bug,代码逻辑错误,多GPU运行时出现配置错误、并发请求断言错误、流式模式无法输出tokens
+bug,功能实现缺失,缺少Alltoall操作导致专家并行性不足、不支持特定模型（如deepseek、baichuan）
+bug,资源不足,内存不足（OOM）导致运行崩溃
+bug,参数配置错误,随机种子未设置导致抽样结果重复、预处理模型修改后断言错误
+bug,模型转换错误,模型转换到ONNX失败、构建引擎时出现AssertionError
+bug,量化实现问题,int8_kv_cache或int4-awq导致精度下降或构建错误、线性层合并影响量化准确性
+bug,构建配置错误,make命令失败（如Error 255）、CUDA版本不兼容导致构建失败
+bug,组件弃用或变更,插件即将弃用（如Layernorm plugin）导致兼容性问题
+bug,性能优化不足,响应时间比预期慢（如VLLM对比）、layernorm kernel速度低于torch
+bug,符号或接口不一致,函数命名不一致导致编译错误、接口参数缺失（如--max_num_sequences不存在）
+bug,插件或驱动问题,CUPTI初始化失败导致性能分析缺失、插件层启用冲突引发错误
+bug,模型兼容性缺陷,特定模型（如MBartForCausalLM、CodeLlama7B）转换或运行时出现错误
+bug,随机生成问题,默认随机种子导致生成结果重复
+bug,调试支持不足,添加调试语句（如printf）后无输出
+bug,代码实现错误,模型构建失败或运行时异常，例如节点实现缺失、性能瓶颈、函数未正确传递参数
+bug,依赖或配置问题,环境配置错误或依赖缺失导致模块未找到、路径错误、文件缺失
+bug,资源不足,内存或显存不足导致崩溃，或硬件不支持某些功能
+bug,API使用错误,函数调用时参数缺失或错误，导致初始化失败或无法加载模型
+bug,数据问题,张量形状不匹配、权重转换错误、数据无法从元张量复制
+bug,兼容性问题,操作系统或环境（如Windows/WSL/Docker）适配问题导致运行失败
+bug,量化问题,AWQ/Int8量化功能错误导致模型性能下降或构建失败
+bug,拼写错误,代码中的拼写错误引发功能异常
+bug,并发问题,高并发场景下系统挂起或资源争用
+bug,弃用警告,使用已弃用的组件（如layernorm plugin）导致兼容性警告
+bug,符号未定义,编译时未定义的符号导致程序无法运行
+bug,网络问题,依赖下载失败（如GitHub连接超时）导致构建中断
+bug,环境配置错误,构建脚本运行时出现CUDA runtime error
+bug,参数配置错误,参数数值错误导致数值处理异常
+bug,代码拼写错误,模块或文件中存在拼写错误导致功能异常
+bug,依赖版本冲突,因Transformers版本冲突导致构建失败
+bug,资源不足,内存不足导致引擎构建失败
+bug,功能逻辑错误,`load_by_shard`选项矛盾导致内存占用过大
+bug,模型兼容性问题,特定模型(如Deepseek/Yi6Bchat)支持异常导致输出错误
+bug,参数验证失败,头部大小(headsize)/输入行列字节数不符合要求触发断言错误
+bug,性能回归问题,版本升级后出现吞吐量下降或速度异常波动
+bug,构建过程错误,生成二进制文件失败或出现链接错误
+bug,初始化问题,使用未初始化的对象导致'NoneType'错误
+bug,量化配置错误,INT8量化范围设置不当导致精度损失或构建失败
+bug,功能实现缺陷,smoothquant功能导致性能下降3~10%
+bug,模块依赖缺失,缺少关键模块(如get_engine_version)导致运行时错误
+bug,容器配置问题,GPU容器进程启动失败或环境配置错误
+bug,数据加载异常,模型权重加载格式不兼容导致KeyError
+bug,内存管理问题,长输入模型构建时出现内存溢出错误
+bug,计算精度问题,Conv2D计算结果存在精度差异
+bug,功能不支持,缺少对偏置项/INT量化的支持导致功能受限
+bug,多GPU协同问题,多GPU环境下出现系统挂起或维度错误
+bug,预热配置缺失,未进行预热导致实际运行速度提升不足
+bug,资源需求异常,显存占用显著高于同类实现(如whisper需17GB显存)
+bug,环境配置错误,构建过程中出现CUDA相关路径不存在、库文件缺失或版本不匹配导致的错误
+bug,依赖缺失,缺少必要的软件模块或库文件(如tensorrt_llm.models.llama.utils模块未找到)
+bug,资源不足,显存不足导致编译过程中出现Out of Memory错误
+bug,数据类型不匹配,加载权重时出现数据类型不一致或形状不匹配错误
+bug,代码逻辑错误,程序出现段错误、参数顺序错误或条件判断错误导致的断言失败
+bug,硬件兼容性问题,在特定硬件平台(如Mac/T4/ORIN)上构建的镜像或程序无法运行
+bug,文档错误,文档中的示例链接失效或说明不准确
+bug,内存管理问题,运行时出现segmentation fault或symbol lookup error等内存访问错误
+bug,并行处理错误,使用多GPU并行时出现结果异常或程序卡死
+bug,接口调用错误,调用API时出现AttributeError或TypeError等接口异常
+bug,性能问题,量化处理时速度异常缓慢或延迟过高
+bug,服务部署错误,HTTP请求处理卡住或批量请求失败
+bug,容器构建问题,Docker镜像构建失败或环境配置错误
+bug,编译器兼容性问题,NVCC编译器与主机编译器版本不兼容导致警告
+bug,命令路径错误,环境变量配置错误导致无法找到可执行命令
+bug,张量形状不匹配,转换模型格式时触发AssertionError/初始化错误/构建失败
+bug,参数配置错误,性能出现明显差异/内存分配失败/模型构建失败
+bug,依赖版本不兼容,pynvml版本过低报错/python3.9脚本运行异常
+bug,序列化问题,InferenceRequest对象无法序列化导致TypeError
+bug,文件路径错误,无法加载plan文件/找不到rouge.py模块
+bug,内存管理问题,GPU内存未释放/内存消耗过大导致崩溃
+bug,CUDA运行时错误,cublasLtMatmul执行失败/CUDA图导致性能下降
+bug,逻辑实现缺陷,流式响应支持缺失/参数传递错误/缓存管理器空指针
+bug,硬件兼容性问题,V100显卡运行AWQ/GPTQ报错/A800设备异常
+bug,版本升级缺陷,主分支性能低于旧版本/23.11镜像导致benchmark失效
+bug,类型检查错误,传入NoneType导致类型错误/头部大小不满足整除条件
+bug,构建系统问题,Docker镜像构建失败/整数溢出错误/MPI进程性能下降
+bug,功能支持缺失,Triton端点不支持解耦事务策略/streaming模式数据丢失
+bug,输出结果异常,输出结果与HuggingFace不一致/响应长度逐渐缩短
+bug,配置加载失败,无法自动完成triton配置/优化参数无法识别
+bug,部署环境问题,Kubernetes部署出现bus error/共享库无法加载
+bug,参数配置错误,构建错误，提示需要配置特定参数（如DOCKER_BUILD_ARGS）
+bug,依赖库或环境不兼容,CUDA环境安装错误（如libnccl2安装失败）
+bug,代码逻辑缺陷,运行时属性错误（如AttributeError: 'NoneType' object has no attribute 'trt_tensor'）
+bug,内存资源不足,内存不足导致OOM错误（如量化时内存不足）
+bug,版本不匹配,构建引擎失败或功能异常（如版本更新导致脚本路径变更）
+bug,符号冲突或代码错误,编译错误（如模糊符号错误、文件缺失、断言失败）
+bug,脚本或文档错误,脚本运行失败或文档描述不准确（如GPU数量设置错误）
+bug,递归深度限制,最大递归深度超出导致报错
+bug,路径或变量错误,环境变量未正确设置导致链接错误
+bug,模型兼容性问题,模型转换失败或输出不一致（如HuggingFace模型对齐问题）
+bug,回调函数未触发,流式输出回调未按预期调用
+bug,量化参数错误,AWQ权重量化参数未生效或标定失败
+bug,多用户并发问题,多用户生成文本时出现core dump
+bug,多设备支持问题,tensor_parallel功能测试失败（如chatglm26B模型）
+bug,性能优化未生效,性能基准测试未显示预期提升（如multi_block_mode选项）
+bug,容器配置问题,Docker构建或运行失败（如CUDA版本不兼容）
+bug,数据预处理错误,文本处理异常（如表情符号导致断言失败）
+bug,模型结构限制,模型构建时参数不匹配（如嵌入大小无法被TP整除）
+bug,API调用错误,属性设置未生效（如is_streaming未触发回调）
+bug,文件路径变更,脚本路径更新导致功能异常（如summarize.py被替换）
+bug,资源限制,模型构建时RAM不足
+bug,环境配置问题,构建过程中出现错误，可能由于CUDA版本不匹配或硬件限制导致
+bug,依赖版本冲突,安装时出现protobuf和transformers版本不一致的错误
+bug,参数配置错误,推理过程中因maxTokensInPagedKvCache设置不足导致错误或张量维度不匹配
+bug,文件或资源缺失,构建过程中因缺少文件或插件（如gpt_attention_plugin）导致失败
+bug,内存不足,GPU内存不足导致构建失败或内存泄漏
+bug,代码逻辑错误,名称未定义（如layers_range）、属性未正确复制（如streaming属性）或缓存无效
+bug,配置错误,文件名不符合规范导致部署失败，或配置文件设置错误导致解析失败
+bug,内核缺失,运行时出现“no kernel image is available”错误
+bug,并行处理问题,多GPU环境下张量处理错误或NCCL版本不兼容
+bug,流式处理问题,因属性未正确复制导致无法流式处理
+bug,量化处理异常,构建SmoothQuant引擎失败或量化结果异常
+bug,生成过程错误,log_probs数组大小错误导致写入异常，或生成无意义结果
+bug,进程管理问题,运行脚本时产生僵尸进程
+bug,功能支持问题,stop_words无效或infilling功能未支持
+bug,性能问题,使用tensor parallelism时性能下降
+bug,驱动或版本兼容问题,Jetson设备因驱动过旧运行失败，或Triton后端识别失败
+bug,输入输出处理错误,模型转换后输出不一致，或数据类型格式不支持
+bug,插件兼容性问题,使用gpt_attention_plugin时出现段错误
+bug,环境配置错误,构建失败，Docker镜像构建失败，编译错误，缺少环境变量传递，系统环境不兼容
+bug,接口不一致,Python与C++运行时接口不一致，函数参数未正确处理，参数配置错误
+bug,内存管理不足,内存不足导致构建或运行时终止，OOM错误，显存不足
+bug,代码逻辑错误,变量名错误，未初始化权重，函数未正确处理维度，逻辑错误导致计数异常
+bug,第三方库或依赖问题,NCCL通信错误，MPI初始化冲突，无法找到插件，共享对象文件缺失
+bug,量化配置错误,量化误差大，量化指令使用错误，量化参数配置不当
+bug,并行处理错误,多GPU并行效率低，MPI world size不匹配，批处理大小不一致
+bug,权重或参数处理错误,权重保存不完整，相同值不同数量的权重，参数传递错误
+bug,构建配置错误,构建过程中文件路径错误，依赖缺失，分支切换导致编译失败
+bug,功能实现缺陷,生成结果缺少结束符，延迟异常增加，生成分数为0，推理结果不匹配
+bug,张量形状或尺寸不匹配,在模型转换或构建过程中出现数组reshape错误、尺寸不匹配AssertionError、数组分割不均衡等导致进程中断
+bug,内存/显存不足或溢出,构建/推理时出现OOM错误、插件缓存超限、内存泄漏导致batch处理时显存持续增长
+bug,环境配置或依赖问题,GPU架构不支持(V100/T4)、驱动版本过低、缺少必要库依赖、docker构建权限错误导致进程失败
+bug,功能实现缺陷,In-flight batching性能未提升、FMHA功能架构不支持、bfloat16解码器段错误、trtexec分析工具core dump
+bug,模型转换错误,权重格式不支持(.pt)、smoothquant转换失败、HF格式转换错误导致引擎构建失败
+bug,文件路径或格式错误,引擎文件路径配置错误、数据集缺失导致benchmark运行失败、模型权重未绑定引发构建错误
+bug,代码逻辑错误,进程hang导致无输出、命名不匹配引发运行时错误、命令行参数配置错误导致构建失败
+bug,性能异常,吞吐量下降、无法达到宣称性能指标、GPU内存占用异常高
+bug,输入输出异常,推理结果与HF模型不一致、输出token后持续生成、特殊字符导致服务冻结
+bug,编译构建错误,CMake生成失败、链接缺少ompi_mpi_comm_world引用、构建脚本返回非零退出状态
+bug,硬件兼容性问题,特定GPU型号(H100SXM/p4de)出现架构不兼容或性能异常
+bug,内存管理问题,GPU内存耗尽（OOM）、内存泄漏、GPU内存使用异常增加、内存溢出
+bug,依赖或环境配置问题,安装失败、依赖冲突、无法导入模块、Docker构建问题、环境配置错误
+bug,脚本或代码语法错误,语法错误导致程序无法运行、文件路径错误、链接错误、编译失败
+bug,量化配置问题,FP8/INT8量化错误、权重量化不准确、量化脚本处理不当导致模型输出错误
+bug,模型构建与加载问题,模型构建失败、引擎文件无法加载、缺少配置文件、权重矩阵形状不兼容
+bug,API或参数使用错误,输入类型不匹配、静态维度不匹配、参数设置不当导致API错误、`max_output_len`参数设置错误
+bug,硬件兼容性问题,Turing架构GPU不支持量化、CUDA兼容性导致无法跨设备使用引擎文件
+bug,并发或线程安全问题,重复调用函数导致内存耗尽、并发调用不安全
+bug,生成控制逻辑错误,生成接口无法在EOS处停止、持续生成结束符、`stop_words`未生效
+bug,性能问题,推理速度慢于预期、批处理大小限制导致性能下降
+bug,文件或资源缺失,缺少Makefile、配置文件缺失、共享库文件缺失
+bug,功能实现错误,cross-attention结果错误、参数设置未生效、内存释放不完全
+bug,模型转换配置错误,模型转换生成的结果与原始模型的结果不一致
+bug,资源不足,内存不足导致OOM错误
+bug,硬件兼容性问题,启用特定操作时出现断言失败或不支持的错误
+bug,代码逻辑错误,指定参数后导致未初始化崩溃
+bug,依赖项缺失或版本不兼容,构建过程中出现编译错误或找不到依赖库
+bug,环境配置错误,CUDA初始化失败或GPU功能不可用
+bug,参数配置错误,未指定必要插件参数导致断言失败
+bug,用户操作错误,命令使用错误导致构建失败
+bug,输入验证错误,输入形状不符合引擎支持范围导致ValueError
+bug,平台兼容性问题,缺少特定平台库文件导致链接错误
+bug,生成算法问题,生成输出缺乏多样性
+bug,功能未实现,不支持特定模型或量化方法导致运行失败
+bug,性能优化不足,1st token延迟不符合预期或性能衰减
+bug,文件路径错误,无法加载模型文件或引擎文件
+bug,编译配置错误,编译时ABI版本不匹配导致链接错误
+bug,内存分配问题,构建过程中内存不足导致程序终止
+bug,软件环境不兼容,CUDA版本不兼容导致"no kernel image"错误
+bug,内存管理问题,GPU内存紧张导致性能下降或CUDA内存溢出错误
+bug,内存管理问题,内存泄漏和最终内存溢出
+bug,代码实现错误,函数缺少返回语句导致行为不符合预期
+bug,代码实现错误,模型输出调整导致错误发生
+bug,输入输出处理错误,生成的文本未能正确结束
+bug,依赖缺失或版本不兼容,缺少'int64'属性导致错误
+bug,网络或资源下载问题,无法正常下载shards导致进度卡住
+bug,参数配置错误,SamplingConfig参数设置不当导致推理结果重复
+bug,环境配置问题,vscode配置导致vocode无法启动
+bug,代码拼写错误,潜在的拼写错误引发bug
+bug,文档内容错误,文档中存在拼写错误（如"qunatization"）
+bug,构建系统问题,执行构建命令时无法完成docker镜像构建
+bug,功能未实现,benchmark代码不支持pipeline parallel
+bug,模型量化错误,无法将bf16权重转换为int8
+bug,系统资源不足,磁盘空间不足导致操作失败
+bug,并行配置错误,引擎和运行时世界大小不匹配
+bug,插件缺失,无法找到Gemmtensorrt_llm插件
+bug,路径配置错误,构建过程中出现路径错误
+bug,输入长度限制,设置的max_input_len与实际输入不符导致输出异常
+bug,硬件资源限制,批量大小超过8时优化模型不支持
+bug,编码处理错误,亚洲语言解码时出现乱码
+bug,语法或格式错误,链接器脚本文件格式不符合规范
+bug,版本兼容性问题,不支持较低版本的CUDA驱动
+bug,内存分配异常,GPU内存足够但出现std::bad_alloc错误
+bug,依赖库缺失,缺少libnvparsers库导致构建失败
+bug,并行通信问题,nccl通信失败导致运行异常
+bug,权重处理错误,权重无法被tensor_parallel_size整除
+bug,编译过程阻塞,编译过程中卡在98%无法完成
+bug,输入类型错误,输入类型不一致导致构建报错
+bug,模型兼容性问题,代码示例与模型不兼容导致运行错误
+bug,文件缺失,缺少Makefile文件导致gmake错误
+bug,安装步骤错误,未完全遵循构建步骤导致量化失败
+bug,停用词处理异常,停用词列表传递异常导致输出提前结束
+bug,插件版本依赖,TrtGptModelInflightBatching需要特定版本插件
+bug,语法错误,编译时出现语法错误导致构建失败
+bug,头文件缺失,缺少NvInferVersion.h文件引发CMake错误
+bug,内存消耗过高,模型内存占用导致CUDA内存不足
+bug,拼写错误,代码中"requests"拼写错误引发问题
+bug,插件不支持操作,PLUGIN_V2操作不受支持导致引擎构建失败
+bug,输入数据配置错误,输入数据或模型配置错误导致输出异常
+bug,环境配置错误,安装时出现命令或路径找不到的错误
+bug,构建配置错误,构建Docker文件或编译过程中出现错误
+bug,环境变量覆盖,Forward Compatibility模式不可用
+bug,CUDA版本不兼容,因CUDA版本变更导致的编译错误
+bug,代码逻辑错误,运行benchmark程序或模型时失败
+bug,参数配置错误,批量推理失败或模型输出异常
+bug,软件集成配置错误,与Tritonserver集成时出现运行错误
+bug,权重量化配置错误,模型输出结果异常
+bug,头文件路径错误,更改头文件路径后构建失败
+bug,依赖版本不可用,找不到符合要求的软件版本
+bug,依赖安装缺失,导入依赖时出现错误
+bug,ABI链接问题,构建时出现C++ 11 ABI链接错误
+bug,文档链接错误,文档中的链接跳转失效
+bug,GPU内存配置不足,构建过程中因内存不足失败
+bug,构建语法错误,构建命令语法错误导致失败
+bug,驱动版本不兼容,因NVIDIA驱动问题导致运行失败
+bug,版本同步滞后,功能不同步导致的兼容性问题
+bug,内存管理缺陷,程序运行时出现内存泄漏
+大类,问题的根因,问题的症状描述
+question,硬件兼容性,确认特定硬件（如NVIDIA Jetson Orin Nano）和软件环境（如TensorRT）是否支持特定模型或功能
+question,功能支持确认,询问框架是否支持特定模型（如Mixtral8x7B、Mistral-7B）、量化方法（如AWQ、LoRA、int4）或操作（如异步通信）
+question,参数配置疑问,询问参数（如`enable_context_fmha`、`use_paged_context_fmha`）的作用、设置方式及其对性能的影响
+question,多GPU配置,咨询如何在多GPU环境下进行推理或配置参数（如AllReduce、Send/Recv）
+question,模型转换流程,询问如何将HuggingFace模型转换为TensorRT-LLM格式、处理剪枝模型或合并多文件（如quantized_npz）
+question,API使用疑问,询问如何调用特定API（如Executor构造函数、C++执行器API）或使用功能（如MultiShot allreduce）
+question,量化方法支持,涉及量化实现细节（如权重布局、scale设置）或量化工具（如生成modelopt_quant_ckpt_path）
+question,性能优化疑问,比较实现差异（如f16xs8混合GEMM与Cutlass）或询问性能参数（如构建阶段的优化选项）
+question,版本兼容性,确认CUDA与TensorRT-LLM版本的兼容性或特定版本（如TRT-LLM 0.9.0）的功能支持
+question,文档缺失,请求教程或文档说明（如部署示例、参数含义、ModelRunner与ModelRunnerCpp区别）
+question,数据处理疑问,询问预处理步骤（如int4权重布局）、数据集替换需求或token生成方法
+question,功能设计理解,询问框架设计原理（如PDL机制、Batch Scheduling Policies）或指标定义（如tokens_per_sec）
+question,模型结构适配,涉及修改模型结构（如添加qknorm操作、支持非Llama模型）或合并输入（如prompt_table与input_ids）
+requirement,功能需求,明确请求支持新功能（如C++ inflight batching、草稿模型推理）
+question,功能支持不明确,用户无法确认框架对特定量化类型（如int16）的支持情况
+question,文档缺失,用户希望获取特定功能（如medusa解码、prefix caching）的详细文档或参数解释
+question,版本兼容性问题,用户遇到因依赖版本不匹配导致的文件缺失或运行错误
+question,参数配置问题,用户对如何设置特定参数（如enableBlockReuse、采样参数）存在困惑
+question,功能实现细节不明确,用户询问框架内部实现细节（如activation size与workspace关系、模块合并原因）
+bug,框架多线程支持缺陷,在tp>1情况下运行模型时出现内存溢出或功能异常
+question,组件关系不清晰,用户对框架内部组件（如GptManager与GptSession）的关系及调用逻辑存在疑问
+question,概念定义模糊,用户对框架中的术语（如Context Phase、Generation Phase）缺乏标准定义
+question,依赖管理问题,用户因不熟悉Docker或环境配置导致安装、构建失败
+question,性能评估方法不明,用户对性能指标（如Throughput计算、内存占用测试）的方法存在疑问
+question,模型部署兼容性,用户不确定模型在不同GPU型号或跨设备移植的可行性
+question,量化选项理解不足,用户对量化类型（如int8、int4_gptq）的选择依据和区别存在困惑
+question,接口调用方法缺失,用户无法直接调用特定C++函数或获取前向传播的logits输出
+bug,框架设计限制,用户因框架设计限制（如topk大小固定为1024）无法满足需求
+question,输出结果异常,用户因参数设置问题（如eos标记缺失）导致生成结果不符合预期
+question,构建流程指导不足,用户缺乏构建benchmark或非Docker环境的指导文档
+question,版本更新信息不透明,用户对框架集成的第三方库（如FlashAttention）版本信息存在疑问
+requirement,新增模型支持需求,用户希望框架新增对Phi-4-MM、DeepseekV3、AWQ模型等特定模型的支持
+requirement,功能扩展需求,用户提出需要新增ZMQ socket IPC通信支持、压力测试功能、FP8支持、NVRTC编译支持等新功能模块
+requirement,性能优化需求,用户建议改进Hopper XQA模块性能、优化广播新请求方法、加速Llama测试套件等性能相关需求
+requirement,基础设施改进需求,需要迁移到Conan包管理、更新Docker镜像、升级cmake版本等基础设施改造
+requirement,文档维护需求,用户要求补充缺失的"Serving"文档、优化现有文档表述、添加贡献者指南等文档改进
+requirement,接口完善需求,用户建议增加JSON Schema验证、完善Attention后端接口、支持后端类型过滤等接口改进
+requirement,工具链增强需求,需要支持自动部署、优化缓存管理、增加日志调试工具等开发工具改进
+requirement,测试优化需求,用户提出延长测试超时阈值、改进测试精度、迁移DeepSeek测试等测试相关改进
+bug,模型转换兼容性问题,Qwen2.5-vl模型转换出现精度问题，需重写乘法操作导致性能下降
+bug,功能实现缺陷,生成结果维度不匹配导致输出错误，LoRA模块测试失败需要修复
+bug,量化支持问题,EAGLE模型量化时smoothquant参数报错，use_weight_only参数导致查询异常
+question,使用指导需求,用户咨询Attention后端接口实现细节，请求DSR1最佳性能实践指导
+requirement,维护性改进需求,需要更新内部cutlass版本号、优化UserBuffers分配方式等代码维护需求
+requirement,硬件支持不足,需要添加对特定硬件（如Hopper、Blackwell）的FP8 MLA支持
+requirement,测试覆盖不足,需要修改测试脚本以适配新功能或场景
+requirement,代码管理需求,需整理/合并提交记录以优化项目结构
+requirement,文档不完善,需增加API示例、模型支持说明或更新主README
+requirement,功能缺失,需新增API接口（如LogitsProcessor、DecoderState重构）或模块支持（如PeftCacheManager、StreamGenerationTask）
+requirement,基础设施自动化需求,需添加分叉同步、机器人帮助等自动化流程
+requirement,性能优化需求,需减少GPU内存占用（如MoE模块拆分）、降低CPU阻塞（pinned H2D）或优化延迟（DeepSeek）
+requirement,依赖版本问题,需升级transformers等第三方库版本以满足功能要求
+requirement,调试工具不足,需添加Blossom调试钩子或RoPE变体支持
+bug,同步机制缺陷,同步请求完成点与移除MPI广播导致性能下降
+bug,并发控制问题,基础设施并发操作时出现冲突
+question,功能支持状态不明确,用户询问模型支持情况（如modernBERT、Gemmas 3）或API兼容性规划
+requirement,代码结构优化,需重构测试脚本（test_disaggregated.py）或DecoderState属性
+requirement,依赖管理优化,需移除MPI依赖或更新libcutlass库
+requirement,格式规范问题,需修复文档中未正确使用alert formatting的格式
+requirement,版本管理需求,需更新库版本号或维护ABI边界稳定性
+requirement,社区互动需求,需组织在线会议收集社区反馈
+requirement,功能增强需求,用户希望添加新的功能或特性（如Variable-Beam-Width-Search、FP4量化支持、LoRA支持等）
+requirement,持续集成流程优化需求,用户提出改进CI测试流程（如更新allowlist、优化重复检出操作、添加本地运行说明等）
+requirement,文档维护需求,用户请求更新或补充文档内容（如README.md、支持矩阵、API稳定性说明等）
+requirement,代码结构优化需求,用户希望重构代码以提高可维护性（如简化前向方法、重构disaggregated serving脚本等）
+requirement,性能优化需求,用户建议改进系统性能（如内存分配优化、替换allgather为gather、缩短引擎构建时间等）
+requirement,测试框架改进需求,用户提出增强测试覆盖（如添加准确性测试脚本、迁移测试用例、添加条件分解测试等）
+requirement,开发环境配置需求,用户需要优化开发工具链（如改进devcontainer、修复git lfs操作问题等）
+requirement,硬件/软件兼容性需求,用户要求适配新硬件或框架（如支持Blackwell的FP8 KV Cache、导入ModelOpt预量化模型等）
+requirement,用户使用便利性需求,用户希望提升易用性（如简化API调用、提供模板生成说明、改善日志记录等）
+requirement,功能缺失修复需求,用户反馈现有功能不完善（如缺少带宽测量、不支持PyTorch PP+attention DP等）
+requirement,缺乏对新模型架构的支持,用户希望添加对Phi-4-mini、Gemma3、Qwen2.5-VL等模型的支持
+requirement,现有功能覆盖不足,用户请求新增chat completion、KV缓存传输度量、自定义采样器等功能
+requirement,配置灵活性不足,用户需要添加纯Python配置（如PeftCacheConfig）或优化返回逻辑
+requirement,文档内容过时或不完整,用户请求更新贡献指南、许可证注释、路线图等文档
+requirement,工作流程需要优化,用户希望更新审批人列表、GitHub工作流程、测试机器人集成
+requirement,性能优化需求,用户提出KV缓存传输度量、内存优化、技术优化方向等改进请求
+question,功能支持存在疑问,用户询问吞吐量指标、分支差异、旧工作流是否废弃等问题
+requirement,测试覆盖率不足,用户提出启用测试用例、改进Accuracy测试套件
+requirement,依赖管理需要更新,用户要求更新cutlass库、调整requirements.txt依赖
+requirement,权限管理需要完善,用户请求添加文档所有者、CODEOWNERs文件测试
+question,技术路线不明确,用户询问是否会采纳DeepEP等优化技术或模型适配计划
+requirement,自动化程度不足,用户希望触发bot运行、使用NVIDIA-gha收集测试结果
+requirement,模型支持不足,"无法支持特定架构模型（如Qwen2.5-VL、DeepSeek V3/R1、NVILA等）的转换或引擎构建"
+requirement,接口变更与文档缺失,"接口替换（如GptManager被Executor替代）导致用户困惑，需补充说明文档或示例"
+requirement,性能优化需求,"现有参数无法直接控制内存/性能（如批处理设置、量化参数、并行机制），需优化计算瓶颈或资源管理"
+requirement,文档不完善,"README或文档内容过时/缺失（如DeepSeek V3说明、Speculative decoding配置），需更新补充"
+requirement,依赖库兼容性问题,"依赖库版本冲突（如GLIBC_2.38要求）导致旧系统无法运行"
+requirement,功能扩展限制,"运行时功能受限（如Logits后处理器需初始化注册、动态形状输入处理困难），需解耦应用与模型部署"
+requirement,新功能请求,"需支持新特性（如INT2/INT3量化、FP8 KV缓存、多模态模型部署、分块上下文选项）"
+requirement,构建流程改进,"构建流程未覆盖特定需求（如Jetson平台版本兼容性、Docker中PyTorch版本滞后）"
+question,操作指导需求,"用户询问实现方法（如量化自定义模型、Token ID转可读文本、Speculative decoding配置）"
+question,支持计划确认,"用户确认框架是否计划支持特定功能（如DualPipe并行、InternVL2.5、Blackwell架构）"
+requirement,文档维护不足,用户请求更新或补充项目文档（如linux.md、disaggregated-service.md、gh-pages分支等）
+requirement,新模型支持需求,用户希望框架支持特定模型（如DeepSeek-V3、Phi4、InternVL 2.0、PaliGemma等）
+requirement,功能实现缺失,用户提出需实现特定功能（如Min-P采样、动态批处理、低延迟基准数据、运行时参数动态配置等）
+requirement,性能优化需求,用户反映模型编译性能不足或内存占用过高，请求优化配置
+requirement,接口扩展需求,用户需要框架提供新接口（如获取hidden_states、可视化网络、传递图像数据等）
+question,功能使用疑问,用户询问现有功能的使用方法（如attention类型选择、前缀缓存启用、参数配置方式等）
+question,兼容性确认,用户确认框架是否支持特定模型或功能（如GLM4Voice、VLM模型支持等）
+requirement,量化支持不足,用户请求增强量化功能（如w4a8量化、fp8/int8量化支持、lm_head量化等）
+requirement,架构适配需求,用户需要修改模型架构以适应新配置（如Encoder-Decoder动态形状处理、自定义路由分布等）
+requirement,工具链完善需求,用户请求添加CI/CD文件或修复构建问题（如c-cpp.yml添加、Windows构建问题修复等）
+requirement,功能未实现,用户希望使用特定功能（如在线微调、In-flight batching、int8_kv_cache集成等），但当前框架尚未支持或存在兼容性问题
+requirement,模型支持缺失,用户请求添加对新模型（如4bit量化模型、FLUX、ColBERT、qwen2.5等）的支持或部署方法
+requirement,文档不完善,用户需要更详细的文档或指南（如BERT模型推理、C++示例、API参考页面更新等）
+requirement,依赖兼容性问题,用户遇到因依赖版本冲突（如vLLM与TensorRTLLM的transformers版本）或缺少依赖集成（如outlines库）导致的问题
+requirement,性能优化需求,用户提出对吞吐量、确定性生成、GPU利用率或性能优化（如LogitsProcessor追加token）的需求
+requirement,API功能限制,用户因API功能缺失（如C++ API中提示嵌入表设置、executor::Response字段访问）而无法实现特定操作
+requirement,硬件兼容性问题,用户询问框架是否支持特定硬件（如仅CPU推理、RISCV架构）或GPU配置（如多GPU并行）
+requirement,代码或配置错误,用户需要解决因代码缺失（如cubin.cpp文件）或配置错误（如多LoRA设置路径）导致的功能障碍
+requirement,文档内容更新,用户提出文档中存在错误或需补充信息（如BF16支持说明、复制代码小部件缺失等）
+requirement,框架功能更新,用户请求更新框架版本或修复已知问题（如TensorRT 10.5的MLLaMa构建问题需降级版本）
+requirement,文档或示例缺失,用户询问如何添加新模型或功能，缺乏相关文档或示例指导
+requirement,功能未实现,用户请求支持特定模型（如Qwen2、llama3.1、KOSMOS-2.5等）或功能（如多Lora支持、input_embeds输入）
+requirement,版本升级需求,用户提出升级TensorRT-LLM版本或依赖库版本（如CUDA、TensorRT）
+requirement,性能优化需求,用户提出优化内存使用、减少延迟（如Int8 KV缓存兼容性、MMHA kernel优化）
+requirement,平台兼容性需求,用户请求支持特定平台（如Windows库、cuda12.5、MPI替代方案）
+requirement,接口或配置改进,用户希望修改API、输入格式（如batch manager替换、多GPU配置）
+question,功能确认,用户询问现有功能是否支持（如encoder_repetition_penalty、序列分类）
+question,操作指导,用户咨询如何实现特定操作（如使用nccl插件、量化方法集成）
+question,兼容性确认,用户确认环境兼容性（如Python/CUDA版本要求）
+bug,内存限制,用户报告因内存不足导致无法支持长上下文输入（如32k context OOM）
+requirement,文档更新需求,用户请求更新文档（如gh-pages、快速入门指南）
+requirement,功能扩展需求,用户提出新增功能（如KV缓存复用、同步配置文件创建）
+requirement,代码开源需求,用户询问特定模块（如batch_manager、executor）的开源计划
+requirement,新模型支持需求,用户希望框架支持新的模型架构或版本（如Llama 3.1、Mistral Large 2、GEMMA2、Interleaved MoE等）
+requirement,功能缺失,当前框架缺少关键功能（如灵活的logit后处理器API、多Lora推理支持、跨注意力与FMHA核的兼容性）
+requirement,性能优化需求,用户指出计算冗余（如交叉注意力）、量化性能差（如FP8在H100表现不佳）或特定硬件加速需求（如V100双缓冲优化）
+requirement,文档维护需求,文档不完整或过时（如Windows部分文档、GitHub图片链接、版本发布信息）
+requirement,API灵活性不足,现有API限制功能扩展（如无法传递自定义参数到后处理器、无法支持自定义alibi slopes）
+question,兼容性咨询,用户询问框架与特定硬件（如Jetson Orin Nano）、模型（如RecurrentGemma）或功能（如FlashAttention 3）的兼容性
+requirement,量化支持不足,量化功能限制（如不支持int类型zeropoints、FP32 LoRA量化兼容性问题）
+requirement,硬件支持需求,用户提出对特定硬件（如RTX4090稀疏优化）或驱动（如GPU驱动缺失）的支持需求
+requirement,版本更新需求,用户或开发者提出更新框架版本（如添加新特性、修复兼容性问题）
+question,信息不足或咨询,用户因缺乏明确文档询问功能实现细节（如吞吐量基准测试方法、自定义模型量化流程）
+requirement,动态内存管理需求,请求分页功能支持以实现动态内存管理（如vAttention风格分页）
+requirement,多模态支持需求,用户希望框架支持多模态模型（如InternVL、Paligemma、Llavanext系列）
+requirement,社区资源需求,用户提出创建讨论频道（如Discord）以增强协作
+requirement,缺乏对新模型架构的支持,用户希望添加对特定模型（如GLM-4、DeepSeek MoE、Mixtral 8x7B）的支持
+requirement,参数或配置选项缺失,用户询问如何设置参数以匹配其他框架功能（如do_sample=False、past_key_values参数）
+requirement,功能实现不完善,用户提出需要新增功能（如Dual Chunk Attention、IFB支持、remove_input_padding特性）
+requirement,性能优化需求,用户希望改进预填充速率、解码速度或模型性能指标测量
+requirement,接口灵活性不足,用户要求更灵活的API设计（如LogitsProcessor类支持、参数重构、请求取消机制）
+requirement,框架兼容性问题,用户提出对特定硬件（如Jetson Orin）、软件版本（如TRT10.1）或部署环境（如Triton Server）的支持需求
+requirement,文档或示例缺失,用户询问功能使用方法（如enable_block_reuse、kv-reuse功能、自定义position_ids）
+requirement,采样机制改进需求,用户建议新增采样策略（如min_p采样）或改进现有机制（如top_p/top_k关系）
+requirement,数据支持扩展,用户请求添加标定数据集支持或本地模型加载功能
+bug,API变更导致兼容性问题,更新后无法正确调用函数（如convert_hf_mpt_legacy）
+bug,功能实现缺陷,特定功能未达预期效果（如Medusa不支持Mixtral、Grouped Diverse Beam Search输出异常）
+question,参数配置疑问,用户询问功能实现原理（如skip_top_p条件、use_paged_context_fmha延迟变化）
+question,功能限制澄清,用户确认框架是否支持特定功能（如LLAMA3支持XQA、BERT支持remove_input_padding）
+question,机制实现原理,用户询问底层机制表现（如logits processor性能损耗原因）
+requirement,模型支持扩展需求,用户请求添加对特定模型的支持（如CogVLM2、InternVL-Chat-V1.5、Yi-VL等）
+requirement,量化功能扩展需求,用户希望新增或改进量化功能（如int8权重量化、FP8量化形式切换、量化模型存储等）
+requirement,API功能扩展需求,用户需要新增或改进API功能（如动态参数调整、分页kv缓存控制、LoRA分类任务支持等）
+question,功能使用指导不足,用户询问特定功能的实现方法或原理（如自定义内核开发、Auto-parallel适用范围、量化过程OOM错误解决等）
+bug,性能未达预期,用户观察到性能问题（如H200与H100差异、动态批处理优化疑问等）
+requirement,配置灵活性需求,用户需要更灵活的配置选项（如修改默认参数`opt_num_tokens`、测试非预设模型性能等）
+requirement,多模态支持需求,用户请求支持多模态模型相关功能（如分布式推理、图像特征传递等）
+requirement,文档与示例完善需求,用户需要补充文档或示例（如README内容改进、API迁移指导、System Prompt Caching使用说明等）
+bug,功能实现缺陷,用户遇到功能异常（如Pipeline Parallelism引发Segmentation fault、Medusa AWQ Conversion错误等）
+requirement,平台兼容性需求,用户希望支持特定平台（如Windows安装nvidia-ammo问题）
+question,功能逻辑理解困惑,用户对框架机制存在疑问（如Prefix Caching与普通kv缓存的区别、生成参数动态修改可行性等）
+requirement,底层计算支持需求,用户要求新增底层计算能力（如2bit gemm操作支持、零拷贝子张量获取等）
+requirement,新模型支持需求,用户希望支持Cohere Command-R、Qwen2、DBRX、Jais、Yi、VIT、distilwhisper/distillargev3、internlm2等新模型
+requirement,功能扩展需求,用户请求添加FP8量化、INT4权重+FP8激活、混合精度推理、异步allreduce、Lookahead Decoding、in-flight batching等新特性
+requirement,文档不完善,用户要求补充AMMO工具箱文档、README链接修复、inflight batching支持说明、nitro-tensorrt-llm项目说明
+requirement,性能优化需求,用户提出减少enqueue调用开销、优化吞吐量基准测试方法、支持异步操作提升速度等性能改进诉求
+requirement,现有功能限制,用户反馈无法同时使用SmoothQuant和int8 kv cache、FP8权重必须与激活值同精度、缺乏自定义校准数据集选项等限制
+requirement,API接口改进,用户希望扩展SamplingConfig参数集、开放KVCacheManager实现、支持更多内存类型定义等接口完善
+requirement,环境配置问题,用户反映Python依赖版本严格固定导致集成困难、需要更新Nitro下载链接等环境适配问题
+requirement,功能使用指导需求,用户询问模型整合方法（Mistral+ViT）、引擎参数配置、Lora适配方案、自定义网络构建等实施指导
+requirement,跨框架兼容需求,用户需要与vLLM参数兼容、支持HF的early_stopping启发式方法等框架迁移需求
+requirement,量化支持扩展,用户询问BERT模型int8量化、MoE模型SmoothQuant支持、W8A8混合精度推理等量化技术需求
+requirement,基础功能补充,用户需要时间戳打印功能、自定义embedding注入、模型自动下载转换等辅助功能
+requirement,功能支持不足,用户询问是否支持特定模型、量化方法或功能（如SLoRA、w4a8、Constrained Decoding、CogVLM支持等）
+requirement,文档或示例缺失,用户请求示例代码或文档说明（如C++接口示例、分支克隆说明、功能使用指南等）
+requirement,硬件兼容性限制,用户希望支持特定硬件平台或GPU功能（如Volta GPU支持int8 smoothquant、NVIDIA Orin平台编译等）
+requirement,接口扩展需求,用户需要添加新模块/层或扩展接口（如添加Min-P采样层、自定义特征遮罩、alltoall模块等）
+requirement,性能优化需求,用户请求优化处理效率（如移除TP加速moe router、支持FP8与paged_context_fmha兼容等）
+requirement,依赖管理问题,用户提出更新依赖版本或添加缺失依赖（如更新AMMO分支版本、添加einops库等）
+requirement,输出控制不足,用户希望获取额外输出信息（如logprobs返回、tokenwise分类结果、注意力分数等）
+requirement,动态输入处理不足,用户需要支持变长输入或批量预测（如处理变长decoder_input_ids、多LoRA设备支持等）
+requirement,模型转换困难,用户遇到模型格式转换问题（如JAX权重转换、distil-whisper转换兼容性问题等）
+requirement,配置参数缺失,用户询问如何设置特定参数（如AWQ配置、最大批次大小估算、生成参数调整等）
+requirement,分支维护需求,用户请求更新发布分支或文档分支（如更新gh-pages、rel分支克隆说明等）
+bug,功能兼容性问题,现有功能与硬件/软件不兼容（如FP8与paged_context_fmha冲突导致无法使用）
+question,功能设计疑问,用户质疑现有设计是否符合预期（如自定义分词器生成假prompt id是否符合设计）
+question,技术实现咨询,用户询问框架底层原理（如TensorRT在TensorRT-LLM中的作用机制）
+requirement,模型支持缺失,用户询问是否支持特定模型（如xverse、Yuan2.0、DeciLM7Binstruct、JAIS等）
+requirement,功能未实现,用户希望支持新功能（如pipeline parallelism组合、权重量化、T5模型量化、文本/图像嵌入模型支持等）
+requirement,性能优化需求,用户提出性能改进需求（如优化KV缓存、引擎缓存机制改进、预提示词KV缓存等）
+question,参数配置疑问,用户询问参数设置方法（如max_batch_size与输入长度关系、runtime参数优化、FLOPs控制等）
+requirement,兼容性问题,用户请求硬件/框架兼容支持（如Windows脚本支持、T4 GPU内存优化、多GPU架构支持等）
+question,功能使用疑问,用户询问现有功能的使用方法（如获取hidden_state、多结果上下文推理、输入输出定制化等）
+requirement,API/接口缺失,用户希望增强接口灵活性（如GptSession多线程支持、BatchManager开源、HLAPI示例改进等）
+requirement,文档不完善,用户需要补充文档（如KV缓存配置指南、prompt输入支持说明、并行部署示例等）
+bug,数值精度问题,用户报告数值不一致（如modified QWenAttention精度差异、int8_sq_per_tensor模式异常等）
+requirement,特性支持缺失,用户请求添加特性（如MLM支持、logn-scaling attention、SwiGlu权重处理等）
+question,版本差异疑问,用户询问版本间功能差异（如In-flight Batching在不同版本的支持情况）
+requirement,部署优化需求,用户提出部署相关改进（如模型显存优化、Mixtral Offloading支持、引擎跨GPU运行等）
+requirement,新模型支持需求,用户请求在框架中添加对新模型的支持（如Swin Transformer、YaRN、llava、Swin Transformer等）
+requirement,模型转换与构建需求,用户需要框架支持特定模型的转换和构建代码（如Stable Diffusion、Whisper时间戳特性）
+requirement,功能扩展需求,用户希望框架支持新功能（如推测性采样、Inflight批处理自定义生成循环、页面注意力集成）
+requirement,性能优化需求,用户提出需优化内存使用、推理速度或内核效率（如weight-only量化、重复惩罚内核重写、ViT/Q-Former插件优化）
+requirement,多任务并发推理需求,用户请求支持多LoRA权重同时推理或更大batch_size/seq_length
+requirement,跨平台兼容性需求,用户需要框架适配非Linux环境（如Windows构建问题、NCCL库依赖处理）
+requirement,部署流程简化需求,用户希望跳过引擎构建步骤直接运行模型（如从PyTorch模型直接推理、免Docker运行）
+requirement,量化支持需求,用户询问或要求特定量化方案支持（如int4_awq、W8A8 SmoothQuant、INT8 GEMM）
+requirement,API与接口完善需求,用户需要增强API功能（如StoppingCriteria/LogitsProcessor支持、隐藏状态获取）
+question,功能使用指导不足,用户询问现有功能的使用方法（如Speculative decoding使用、小模型加载、自定义解码器部署）
+question,文档信息缺失,用户请求补充教程或说明（如非语言模型运行指南、图重写机制解释）
+bug,环境配置问题,框架在特定环境出现构建或运行错误（如LD_LIBRARY_PATH设置、Windows静态库缺失、CUDA版本冲突）
+bug,功能实现缺陷,现有功能存在逻辑错误（如Bert模型attention_mask处理问题、持续批处理模式性能异常）
+requirement,版本更新追踪需求,用户询问框架更新计划（如主分支/Release分支更新、功能集成时间表）
+requirement,开源协作需求,用户希望框架开放更多实现细节（如CUDA代码开源）
+requirement,功能支持不足,用户询问框架是否支持特定功能（如if语句、sequence_bias、int4-awq/gptq、bfloat16精度等）
+requirement,多GPU/分布式支持需求,用户需要多GPU运行任务、多节点推理支持或GPU兼容性确认
+requirement,性能优化需求,用户要求优化CUDA内核性能、内存使用限制或延迟统计功能
+requirement,文档/示例缺失,用户请求更新文档、添加示例或关系图表说明框架组件
+requirement,构建/部署问题,用户遇到安装失败、Docker构建错误或静态库缺失等问题
+requirement,版本/兼容性更新,用户要求更新项目版本、兼容新硬件（如A10显卡）或添加新模型支持
+requirement,输入/输出控制需求,用户希望修改输入形式（embedding/prompt批量处理）、输出内容过滤或停止条件控制
+question,功能运作机制疑问,用户询问框架底层机制（如attention kernel阶段差异、KV缓存实现细节）
+question,技术选型对比,用户对比不同技术（如TensorRT与vLLM）适用场景的决策问题
+requirement,插件/扩展开发支持,用户需要验证新插件有效性或实现自定义功能（如INT4 conv插件）
+bug,内存管理缺陷,特定条件下内存未正确释放导致功能异常
+requirement,工具链整合需求,用户提出与Mojo等外部工具整合的需求
+requirement,功能缺失,用户请求添加新模型支持（如RWKV、Flan-T5、MBartForCausalLM、InternLM等）
+requirement,版本兼容性问题,用户询问是否支持特定库的最新版本（如transformers、TensorRT 9等）
+requirement,功能改进需求,用户希望添加新参数或配置（如attention_mask参数、frequency_penalty、repetition_penalty等）
+requirement,文档或信息缺失,用户请求添加最新动态模块（Latest News section）或示例代码
+requirement,性能优化需求,用户希望框架自动优化底层配置（如GEMM算法选择、KV缓存内存优化等）
+requirement,接口易用性需求,用户需要类似OpenAI API的简化接口或兼容性功能（如模型转换工具）
+question,功能使用疑问,用户询问如何实现特定操作（如GPU内存释放、日志查看、模型格式转换等）
+question,配置与兼容性疑问,用户对框架与外部工具的兼容性存在疑问（如Docker安装、PyTorch版本支持等）
+bug,功能缺陷,用户在尝试特定功能时遇到失败（如SmoothQuant应用失败、参数互斥导致API无法创建）
+requirement,多模态支持需求,用户希望框架支持多模态模型特性（如soft_prompt、inputs_embeds等）
+requirement,并行与批处理优化,用户提出对并行计算和批处理机制的改进需求（如pipeline parallel支持）
+question,性能指标疑问,用户询问如何获取或设置性能相关参数（如生成token数量、吞吐量比较等）
+requirement,功能未实现,用户请求添加新模型支持（如ChatGLM3、Zephyr 7B、InternLM、Roberta、Qwen系列等）
+requirement,功能未实现,用户提出需要新增功能（如支持GQA、streaming标志、多标记前向处理、FlashDecoding加速、Speculative Sampling、多停止标识符等）
+requirement,接口或配置缺失,用户请求增加接口或配置（如sampling配置接口、max capacity指定方式、批处理管理库、非Docker构建方式等）
+requirement,文档不完善,用户询问参数差异（如max_batch_size与max_num_sequences）、性能比较方法、模型构建通信方式等
+requirement,性能优化需求,用户希望优化性能（如长序列推理加速、离线吞吐量Benchmark兼容性、模型量化灵活性等）
+requirement,模型后处理问题,用户需要仅返回新生成token的功能，但后处理逻辑冲突导致错误
+requirement,硬件或资源限制,用户因内存不足导致TensorRT引擎构建失败，询问所需资源
+requirement,依赖性问题,用户因特定Torch版本限制提出AWQ量化功能灵活性的需求
+requirement,构建或部署问题,用户询问本地Linux构建、多节点GPU通信、Docker网络配置等部署相关问题
+question,功能使用疑问,用户询问框架支持的GPU型号、模型中间结果输出方法、LoRA微调模型转换方法等
+requirement,文档更新需求,用户提出README等文档需要更新或修正可读性
+requirement,开源计划询问,用户询问BatchManager是否永久闭源或未来开源计划
+requirement,文档过时或不完整,用户请求更新Windows相关文档到主分支
+requirement,功能缺失或未支持,用户希望添加对Mistral 7B/RWKV模型的支持
+requirement,依赖管理缺失,用户提出需要添加git-lfs依赖处理二进制文件
+requirement,版本兼容性需求,用户请求将onnx版本从1.12.0升级到1.13.0
+requirement,系统兼容性支持,用户询问Windows平台wheel发布链接和安装指导
+requirement,功能扩展需求,用户提出需要支持Medusa Sampling和多模态kv-cache管理
+requirement,硬件兼容性未覆盖,用户询问A10 GPU未列入支持列表的原因
+requirement,开发进度咨询,用户询问Docker image/Triton flashattention/MiniGPT4支持计划
+requirement,架构组件缺失,用户建议添加静态库管理批处理功能
+requirement,资源发布延迟,用户请求更新aarch64批处理库到release/0.5.0版本
+requirement,项目信息维护不足,用户指出项目主页内容需要更新修正

@@ -8,7 +8,7 @@ access_token = os.getenv("GITHUB_TOKEN")
 if not access_token:
     raise ValueError("未找到环境变量 GITHUB_TOKEN")
 
-repo_list = [('mindspore-lab', 'mindnlp')]
+repo_list = [('pytorch', 'pytorch')]
 
 headers = {
     "Authorization": f"Bearer {access_token}"
@@ -43,6 +43,7 @@ def clean(text, owner_name, repo_name): # 净化文本内容
     return cleaned_text
 
 def get_github_repository_issues(page, csv_filename, owner_name, repo_name):
+    flag = True
     cnt = 1
     params = {
         "page": page,
@@ -51,7 +52,7 @@ def get_github_repository_issues(page, csv_filename, owner_name, repo_name):
     }
     issues_url = f"https://api.github.com/repos/{owner_name}/{repo_name}/issues"
     begin_time = time.time()
-    while True:
+    while flag:
         issues = requests.get(issues_url, headers=headers, params=params).json()
         if not issues:
             time.sleep(20)
@@ -63,8 +64,9 @@ def get_github_repository_issues(page, csv_filename, owner_name, repo_name):
                 issue_url = f"https://api.github.com/repos/{owner_name}/{repo_name}/issues/{issue['number']}"
                 issue_response = requests.get(issue_url, headers=headers)
                 issue_data = issue_response.json()
-                if int(issue_data['created_at'][:4]) < 2019:    # 五年前的数据丢弃
-                    continue
+                if int(issue_data['created_at'][:4]) < 2025:    # 判断年份
+                    flag = False
+                    break
                 
                 body = clean(issue_data["body"], owner_name, repo_name)
 
@@ -101,5 +103,8 @@ def get_github_repository_issues(page, csv_filename, owner_name, repo_name):
 
 if __name__ == '__main__':
     for repo in repo_list:
-        csv_filename = rf"C:\pyprogram\research\data\{repo[1]}.csv"
-        get_github_repository_issues(1, csv_filename, repo[0], repo[1])
+        csv_filename = rf"C:\pyprogram\research\data\{repo[1]}\2025\{repo[1]}_2025_user.csv"
+        start_page = 91
+        get_github_repository_issues(start_page, csv_filename, repo[0], repo[1])
+
+# 144900

@@ -1,0 +1,1562 @@
+大类,问题的根因,问题的症状描述
+bug,环境配置错误,安装时出现RuntimeError、环境变量设置错误、CUDA版本不匹配、NPU环境配置失败、缺少依赖项（如CpuAdamArmExtension）
+bug,功能实现缺陷,模型保存失败（AttributeError）、张量未正确解包（_unpad_detach缺失）、混合检查点IO缺陷、梯度未启用、参数形状未检查
+bug,资源管理问题,内存分配过大导致报错、多节点训练时多余内存复制、异步保存内存问题、反向传播速度下降
+bug,兼容性问题,TP_size整除问题导致张量大小不匹配、模型精度转换问题（bf16支持）、Perf与Transformers版本冲突
+bug,逻辑错误,脚本参数列表过长、未注释代码导致功能限制、语言障碍描述混乱、readme指导不清晰
+bug,依赖与安装问题,NPU Docker安装失败、缺少预安装工具（precommit）、扩展模块未正确安装
+bug,性能问题,加载fused_optim_cuda耗时过长、通信与计算重叠导致速度下降、Flash Attention窗口设置错误
+bug,数据类型错误,输入数据类型不一致引发RuntimeError、权重类型参数限制导致加载失败
+bug,并行处理错误,Tensor Parallel训练中词汇表划分错误、混合并行插件保存模型异常、MoE分布式参数组检测错误
+bug,优化器问题,零优化器保存功能异常、梯度通信缓冲未正确初始化
+bug,模型加载问题,模型参数随机初始化、LoRA加载步骤缺失、检查点加载时权重冗余（tie_word_embeddings）
+bug,精度溢出问题,FP16负向分裂错误、MoE前向传播精度溢出（Precision overflow）
+bug,环境配置或依赖问题,无法正确安装或运行，例如缺少依赖库、版本不兼容（如Triton版本导致CI失败）、废弃的安装方法
+bug,并行计算/分布式训练错误,多GPU/多机训练时出现通信错误（如all_gather_fp8失效）、梯度异常（NaN）、进程卡死（如GeminiPlugin卡住）
+bug,模型保存/加载处理错误,检查点保存失败（如维度错误、格式错误）、加载时键不匹配（unexpected_keys）、无法加载混合模型
+bug,代码逻辑错误,变量命名冲突、浮点数比较不准确、条件判断缺失（如缺少lazyload条件）、异步CUDA流处理不当
+bug,功能实现不完整/缺失,未支持必要功能（如fp8线性支持）、未维护代码（如RoBERTa预训练）、未适配新版本（如transformers升级导致兼容问题）
+bug,API/接口变更或兼容性问题,参数缺失（如缺少config参数）、方法调用错误（如module属性未定义）、接口不兼容（如torch.compile导致多进程hang）
+bug,进程间通信/同步问题,多机训练时全局rank转换错误、GPU负载不均衡导致死锁、多进程同步条件错误
+bug,注意力机制实现缺陷,注意力掩码生成错误（如Shardformer模块）、双环注意力组设计问题、注意力kernel数据处理异常
+bug,混合并行策略错误,并行插件（如HybridParallelPlugin）引发属性错误、模型分片维度不匹配、混合模型保存失败
+bug,单元测试缺陷,测试用例设计错误（如stage_index错误）、断言条件不准确、测试环境配置问题
+bug,内核实现问题,算子实现缺陷（如FP8 all-reduce算法错误）、内核兼容性不足（如flash attention缺少lazyload）
+bug,代码逻辑错误,功能未按预期工作（如lora功能问题、参数未正确传递、本地变量未初始化）
+bug,类型错误,变量类型不符导致错误（如_local_rank非int类型）
+bug,环境配置问题,安装或运行时环境依赖冲突（如CUDA版本、Windows兼容性问题）
+bug,功能兼容性问题,模块与框架版本或第三方库不兼容（如transformers 4.39兼容性错误）
+bug,资源管理问题,内存/显存不足或异常占用（如CPU内存耗尽、GPU内存使用率异常）
+bug,通信机制缺陷,分布式训练组件异常（如FP8通信准确度下降、allgather操作缺失）
+bug,参数配置错误,配置参数设置不当（如输入尺寸不一致、atol值设置不当）
+bug,语法/拼写错误,代码拼写或语法错误（如ZeRO typo、文档冗余文件）
+bug,测试覆盖不足,测试用例缺失或覆盖不全（如pytest未检测拼写错误）
+bug,文档/注释问题,文档描述错误或缺失（如缺少PR标准要求）
+bug,流程控制缺陷,训练流程异常（如SFT训练跳过、进度条显示异常）
+bug,断言条件错误,断言逻辑不合理导致异常（如moe policy assert失败）
+bug,版本管理问题,版本检查或更新导致的错误（如torch 2.2异常类型变更）
+bug,路径/文件操作错误,文件路径或IO操作异常（如FileNotFoundError）
+bug,梯度检查点缺陷,梯度检查点功能未完整实现（如OPT模型仅解码器支持）
+bug,分布式协调问题,分布式组件协作异常（如DistCoordinator类问题）
+bug,API接口变更,框架API更新引发兼容性问题（如object_to_tensor新增参数）
+bug,模块实现错误,shardformer建模问题导致bloom和falcon模型异常；booster.backward方法调用后梯度变为None；llama rotary embedding API版本兼容性问题；Flash解码过程中alibi mask导致CI测试失败；llama policy修改引发错误；KVCacheManager中kv_head_num赋值异常；GROK-1模块参数do_sample=False时运行错误
+bug,依赖库版本兼容性问题,transformers版本升级导致API不兼容；OpenMOE示例导入路径因版本差异出错；PyTorch 2.3安装后Shardformer失败
+bug,测试用例缺陷,test_fx/test_tracer等测试用例未通过；预处理步骤缺失导致测试失败；test_continuous_batching运行时间过长；CI测试因超时设置不当失败
+bug,初始化顺序错误,dist logger在进程组初始化前被调用导致rank错误
+bug,配置参数问题,attention头数未按TP size整除导致断言错误；模型加载未指定数据类型占用双倍内存；冗余配置参数引发测试延迟
+bug,环境配置问题,docker构建中出现CUDA扩展错误；缺少__init__.py文件导致模块导入失败
+bug,数据处理不一致,conversation_template.seps与bos/eos_token不匹配导致tokenizer错误
+bug,API变更兼容性缺失,llama_causal_lm_forward()收到未预期参数'shard_config'引发TypeError
+bug,内存管理缺陷,加载检查点时未指定数据类型导致内存占用翻倍
+bug,文档与示例缺失,API服务器文档和示例不完善导致使用问题；缺少auto-policy错误提示影响问题排查
+bug,流程规范问题,未按标准流程创建PR导致代码质量问题；CI构建流程未优化导致时间过长
+bug,性能优化不足,Inference分布式RPC框架性能低下；测试用例执行效率低
+bug,依赖项冲突,flash_attn取代dropout_layer_norm后未提供替代方案
+bug,钩子管理异常,注册的梯度钩子无法正确移除；插件hooks移除导致功能异常
+bug,类型检查缺失,_gen_python_code()收到未定义参数'verbose'导致TypeError
+bug,外部服务集成问题,Slack链接过期导致协作流程中断
+bug,数据类型不一致,参数dtype不一致导致AssertionError
+bug,路径配置错误,缺少正确路径导致模块导入失败
+bug,代码逻辑错误,修复原有功能时引入新错误
+bug,依赖缺失或配置错误,缺少必要文件或模块导致功能异常
+bug,API兼容性问题,新版本API不兼容导致运行错误
+bug,代码拼写错误,文档或代码中存在拼写错误
+bug,内存管理错误,检查点恢复失败导致内存泄漏或卡死
+bug,多线程同步问题,多线程场景下出现死锁
+bug,CUDA兼容性问题,CUDA内核错误导致功能异常
+bug,参数处理错误,传递未知参数导致TypeError
+bug,测试用例缺失,缺少预备操作导致测试失败
+bug,资源管理不当,内存溢出(OOM)导致模型保存失败
+bug,功能实现不完整,自动并行代码生成失败
+bug,版本升级问题,升级操作导致异常行为
+bug,梯度检查点配置错误,缺少pipeline grad ckpt导致功能异常
+bug,输出格式错误,字符串拼接格式导致输出异常
+bug,内核编译错误,运行时内核编译失败
+bug,模块替换逻辑错误,重复替换模块导致异常
+bug,文档缺失,缺少docstrings导致功能异常
+bug,调度批处理错误,CUDA kernels调度异常
+bug,布局优化需求,现有布局导致性能低下
+requirement,性能优化需求,需要重构布局提升推理速度
+requirement,功能扩展需求,需要支持多反向传播
+bug,依赖版本冲突,特定硬件环境出现兼容性问题
+bug,函数命名错误,错误函数名导致调用失败
+bug,数值处理错误,默认值设置不当导致数值异常
+bug,代码冗余问题,存在未使用函数影响维护
+bug,环境配置不兼容,执行命令时因Python/CUDA/PyTorch版本不匹配出现错误
+bug,第三方库版本升级依赖,因transformers库升级导致模型前向函数/掩码生成逻辑变化
+bug,分布式训练策略配置错误,使用HybridParallelOptimizer/TensorParallel时参数分片错误导致数值异常
+bug,硬件环境依赖缺失,无GPU设备时CUDA扩展构建失败或功能不可用
+bug,模型参数处理不当,checkpoint加载时参数大小不匹配未抛出异常
+bug,梯度计算逻辑错误,模型norm层梯度计算异常导致训练失败
+bug,并行策略实现缺陷,使用tensor并行时输出收集错误导致结果异常
+bug,依赖项缺失,缺少apex库导致融合layernorm不可用
+bug,缓存管理机制缺陷,布局转换器误用缓存导致sharding shape错误
+bug,代码逻辑条件判断错误,`torch.cuda.is_available`检测逻辑不准确
+bug,资源管理异常,MoE模型训练时出现CUDA内存溢出
+bug,API兼容性问题,transformers版本升级导致OPT/Falcon模型前向函数不兼容
+bug,路径配置错误,include路径设置错误导致编译/导入失败
+bug,拼写错误,关键参数名称拼写错误导致功能异常
+bug,测试用例维护不足,shardformer测试案例执行失败
+bug,初始化逻辑缺陷,HuggingFace预训练参数加载未正确初始化
+bug,异常处理机制缺失,模型参数大小不匹配时未抛出异常
+bug,分布式通信配置错误,未设置master_addr导致多机训练失败
+bug,功能开关缺失,缺少3D并行插件开关导致输出异常
+bug,数据预处理逻辑错误,禁用few_shot时数据集加载出现IndexError
+bug,模块导入错误,出现ImportError，提示模块未找到或导入语句错误
+bug,代码逻辑错误,运行时错误如KeyError、功能冲突、断言失败、层冻结异常
+bug,依赖或环境配置问题,环境不兼容导致崩溃或测试失败（如CUDA版本问题）
+bug,文档或代码拼写错误,示例代码无法显示、描述不清晰、变量名错误
+bug,参数配置错误,参数类型或值错误（如int代替float）、缺少必要参数（如start_step）
+bug,资源缺失,缺少必要文件或模块（如utils.py、accelerator模块）
+bug,API使用错误,调用API时出现RuntimeError或兼容性问题（如张量子类异常）
+bug,测试用例问题,测试未通过或未覆盖导致功能缺陷（如缺少CI测试）
+bug,内存管理问题,内存访问错误或内存不足导致崩溃（如批大小非2的幂）
+bug,梯度计算错误,损失值为NaN或梯度异常（如Softmax和Focal Loss异常）
+bug,检查点或序列化错误,检查点保存/加载失败、格式错误或同步问题
+bug,并行处理错误,混合并行下功能异常（如dataloader问题、TP/DP配置错误）
+bug,代码规范问题,未遵循标准流程（如PR检查缺失）、存在冗余断言（如dp_size检查）
+bug,配置文件错误,稳定扩散推理出现bug，测试代码问题导致CI构建失败，bash命令不完整导致问题
+bug,代码逻辑错误,请求处理程序问题导致无法完全解码，pipeline forward层次不一致，自定义策略覆盖函数导致错误，未正确处理内存使用导致OOM错误
+bug,依赖或兼容性问题,CI环境与FBGEMM不兼容需移除功能，FlashAttention仅支持Ampere GPU导致RuntimeError，GPU连接问题导致无法运行
+bug,资源管理问题,内存溢出（OOM）错误，优化器初始化进程被杀死，转换大型checkpoint失败
+bug,拼写或文档错误,文档中存在拼写错误需修复，README.md文件拼写错误导致表述不准确
+bug,流程规范问题,未遵循PR创建标准流程导致功能异常，缺少PR创建流程检查导致混乱提交
+bug,API或模块缺陷,API准确性不足和注意力方法问题，shardformer模块测试执行路径配置错误，Triton kernel问题导致功能异常
+bug,数值计算错误,无法将数值转换为浮点数导致RuntimeError，参数未设置梯度导致Assertion错误
+bug,测试配置或执行错误,测试用例未通过导致CI失败，测试代码问题导致本地存储插件测试失败
+bug,功能缺失或不完整,缺少p2p fallback order导致pp死锁，未注册group导致shardformer测试错误
+bug,代码实现错误或逻辑错误,损失值异常高且无法收敛
+bug,张量操作或内存管理问题,出现tensor无法访问、内存分配错误或索引越界错误
+bug,梯度计算问题,梯度为NaN或出现梯度溢出提示
+bug,状态保存与恢复错误,学习率重置或状态无法正确加载
+bug,模块或函数版本兼容性问题,因库版本更新导致功能异常或导入错误
+bug,硬件资源不足或配置不当,出现OOM（内存不足）错误或计算资源不匹配
+bug,通信或并行处理错误,pipeline通信问题或分布式训练错误
+bug,编译或环境依赖问题,编译时报错（如头文件缺失或CUDA代码错误）
+bug,参数校验或配置缺失,关键参数未正确处理导致功能异常
+bug,功能不支持或实现不完整,特定参数组合或硬件环境不支持导致报错
+bug,文本或符号错误,拼写错误或作者姓名等文本信息错误
+bug,数学计算异常,出现NaN loss或数值不稳定现象
+bug,功能模块初始化错误,内存初始化失败或随机参数问题
+bug,接口或API调用错误,属性缺失或方法调用失败导致AttributeError
+bug,数据处理流程错误,数据加载器无法形成有效批次或数据格式错误
+bug,内存管理错误,CUDA内存不足导致程序崩溃或无法执行
+bug,模块缺失或路径错误,模块导入失败（ModuleNotFoundError）或文件未找到
+bug,版本兼容性问题,运行时错误或功能异常
+bug,序列化错误,保存模型时出现TypeError（如无法序列化ProcessGroup）
+bug,进程组管理问题,进程组未正确释放导致系统错误
+bug,依赖缺失,安装失败或运行时缺少必要依赖（如pytest、decorator）
+bug,梯度计算错误,梯度重置失败或参数/梯度设备不一致
+bug,并行策略实现缺陷,Tensor/Pipeline Parallel模式下推理/训练异常
+bug,优化器逻辑错误,ZeroOptimizer在特定条件下卡住或溢出检查失败
+bug,文档错误,拼写错误或依赖说明不准确
+bug,编译配置问题,缺少编译标志导致构建失败（如C++17）
+bug,动态批处理配置缺陷,未正确断言配置导致潜在问题
+bug,量化功能缺陷,GPTQ初始化错误或量化兼容性问题
+bug,测试逻辑问题,测试流程导致缓存超时或模型权重加载失败
+bug,设备同步问题,all_reduce操作卡住或异步处理异常
+bug,参数管理错误,参数组重复存储或权重映射错误
+bug,函数接口变更,新参数未兼容导致调用失败（如padding_mask）
+bug,算法实现缺陷,经验生成时间过长或损失计算异常
+bug,第三方库兼容性问题,由于依赖库版本更新导致API不兼容（如Transformers库变更、Torch 2.0基类修改）
+bug,模块或函数参数缺失,出现未预期的关键字参数错误（如缺少**kwargs、padding_mask参数）
+bug,代码路径或模块缺失,报ModuleNotFoundError或AttributeError（如缺少colossalai.global_variables模块）
+bug,显存资源不足,运行大模型时出现OOM（显存溢出）错误
+bug,梯度计算异常,梯度缩减错误或参数失效（如梯度为NaN、模型不收敛）
+bug,多设备/并行配置错误,在多GPU或云环境中因设备参数未正确传递导致的错误（如位置嵌入计算失败）
+bug,插件或功能兼容性问题,插件间冲突导致功能失效（如Gemini与Peft插件不兼容、Booster API未配置插件）
+bug,测试用例覆盖不全,启用特定功能时测试失败（如sequence parallel模式、enable_flash_attention）
+bug,代码逻辑缺陷,因代码重构或函数迁移导致的引用错误（如get_default_parser移动到legacy）
+bug,依赖项安装问题,安装过程中因文档说明不清晰或依赖冲突报错（如apex安装错误）
+bug,输入数据处理异常,因数据类型或Tokenizer问题导致计算错误（如embedding计算错误）
+bug,文件路径或格式错误,文件未找到或格式不符合要求（如config.json路径错误、gptq格式问题）
+bug,性能问题,模型加载/推理速度慢或资源占用异常（如单GPU推理延迟）
+bug,文档或注释缺陷,文档拼写错误或代码注释缺失导致使用困惑
+bug,构建环境问题,因环境依赖缺失导致构建失败（如PyTorch头文件错误）
+bug,API调用错误,调用不存在的方法或属性（如accelerator.configure错误方法名）
+bug,环境配置问题,未安装triton导致kernel导入错误，Torch版本不兼容导致命令生成错误，Python/CUDA版本不匹配导致预训练错误
+bug,代码逻辑错误,Pipeline并行通信优化不足导致GPU利用率低于50%，hidden_states为None导致训练失败，参数同步问题导致权重不同步
+bug,模块兼容性问题,Gemini策略与LazyInitContext不兼容，gemini_plugin.py与colossalai.py不兼容，Shardformer自动分片未覆盖所有情况
+bug,资源管理问题,GPU显存不足导致OOM错误，内存使用量异常，多机多卡训练出现Socket接口错误
+bug,依赖管理问题,Triton kernel卸载导致导入错误，transformers和torch版本冲突导致模型初始化失败
+bug,测试框架问题,确定性数据加载器未移除导致测试异常，测试脚本性能指标差异大，挂载盘数据不可访问导致测试失败
+bug,版本控制问题,合并分支未清理导致代码冲突，旧版torch命令适配问题，分支删除导致PR重发
+bug,通信机制问题,pp_size=2时通信堵塞，混合并行权重同步失败
+bug,API接口错误,Checkpoint IO绑定模型导致同步异常，optimizer参数未设为可选导致评估失败
+bug,初始化流程问题,TPInferEngine自动优化导致用户流程冲突，模型初始化参数错误
+bug,文档更新问题,遗留用法未删除导致文档过时，tensor parallel说明不完整
+bug,语法错误问题,代码拼写错误导致功能异常，rand()参数无效导致TypeError
+bug,算法实现问题,rotary embedding实现错误，shardformer模块精度差异导致测试失败
+bug,代码逻辑错误,模块功能异常（如前向传播失败、子模块替换错误）
+bug,模块功能不支持,无法处理特定数据类型（如BatchEncoding）
+bug,版本兼容性问题,更新后出现功能异常或错误（如transformers版本升级导致的问题）
+bug,参数/配置错误,运行时报错（如OOM、设备不匹配）
+bug,资源管理缺陷,内存泄漏或分配异常（如CUDA内存持续增加）
+bug,测试流程缺失,CI测试失败或功能验证不完整
+bug,依赖项错误,导入失败（如ImportError）
+bug,文档描述错误,代码实现与文档说明不一致
+bug,并行策略缺陷,分布式训练性能低下或功能异常（如PP/TP/SP问题）
+bug,模型保存问题,模型参数保存不完整或加载异常
+bug,算子实现错误,特定操作执行失败（如张量拼接错误）
+bug,硬件适配问题,特定设备运行异常（如A100显卡OOM）
+bug,优化策略失效,性能优化开关未生效（如迭代时间无变化）
+bug,梯度计算错误,训练结果不符合预期
+bug,初始化缺陷,对象创建失败（如LLaMA实例初始化异常）
+bug,检查点处理错误,离线加载行为异常
+bug,预处理缺陷,数据准备错误导致流程中断
+bug,环境配置问题,Docker构建失败或运行时环境异常
+bug,内存管理问题,在分配内存时出现CUDA内存不足错误，需调整参数避免碎片化
+bug,模块或接口实现缺失,无法保存模型或完成checkpointio，缺少必要方法或参数
+bug,数值计算错误,程序因数值错误崩溃，梯度不稳定或精度异常
+bug,数据预处理错误,代码因缺少数据列（如"text"）引发AssertionError
+bug,依赖版本问题,示例代码因依赖版本过低无法运行，或存在安全漏洞需升级
+bug,代码逻辑错误,脚本因未处理异常情况（如设备设置后退出）或模块缺失报错
+bug,测试覆盖不足,测试未覆盖特定优化组合（如Flash Attention 2 + Pipeline Parallelism）
+bug,硬件兼容性问题,在不支持的硬件上触发CUDA初始化错误或编译架构不匹配
+bug,分布式实现缺陷,分布式模块（如ColoTensor）不支持特定操作（如inplace add）
+bug,并行配置错误,多机多卡训练卡死或无法扩展至多节点（如8节点8GPU）
+bug,训练过程异常,训练因信号（如SIGTEM）异常终止或loss不下降
+bug,文档或配置错误,文档链接失效或配置信息错误导致AssertionError
+bug,资源调度问题,训练脚本因资源分配问题（如Ray模块）卡在Pending状态
+bug,性能优化缺陷,训练速度低于预期（如对比Deepspeed）或学习率未生效
+bug,安全漏洞,依赖库存在CVE漏洞需升级版本（如streamlit、gradio）
+bug,并行处理实现错误,训练结果不符预期、权重差异、模型大小异常
+bug,环境配置错误,启动命令错误、分布式进程初始化卡住、CUDA版本冲突
+bug,API接口设计缺陷,无法加载检查点、save_pretrained失败、不支持左填充
+bug,资源管理不足,OOM错误、训练速度慢、GPU内存分配问题
+bug,代码逻辑错误,断言错误、类型错误（TypeError）、函数参数缺失
+bug,数据加载处理错误,dataloader长度不正确、数据集文件选择错误、预处理标签赋值错误
+bug,依赖版本冲突,Transformers非官方版本导致问题、PyTorch版本不兼容
+bug,测试覆盖不足,测试用例未覆盖边界条件、flash attention测试失败
+bug,模块实现缺失,缺少梯度检查、不支持shard optimizer state dict
+bug,代码结构问题,文件格式错误、拼写错误、import语句位置不当
+bug,硬件兼容性问题,多节点训练卡住、ninjabuild失败、bitsandbytes路径错误
+bug,日志与输出问题,logger打印冗余代码路径、控制台输出混乱
+requirement,工具链优化需求,格式调整工具需要改进、单元测试需补充
+bug,缓存管理缺陷,Chat缓存文件导致异常需移除
+bug,序列化与反序列化错误,检查点加载失败、state_dict方法被破坏
+bug,梯度计算错误,requires_grad标记丢失、embedding梯度未检查
+bug,API变更,测试无法通过
+bug,路径或配置错误,文件或目录不存在导致的错误
+bug,依赖或环境问题,模块未找到或符号未定义错误
+bug,资源冲突,地址已被占用导致初始化失败
+bug,代码错误（拼写/语法错误）,构建失败或CI错误
+bug,模块缺失或未实现功能,无法加载或保存检查点
+bug,文档错误,文档或示例中的错误使用
+bug,数据处理问题,数据溢出或跳过过多步骤
+bug,单位混淆或配置错误,通信桶无法填满或配置错误
+bug,版本兼容性问题,多GPU训练失败
+bug,参数组合不当,不同的错误症状
+bug,性能问题,推理速度慢或VMEM占用过高
+bug,数据路径错误,数据集文件不存在
+bug,测试环境配置问题,测试模块未找到或版本不兼容
+bug,检查点生成问题,生成空的检查点
+bug,缓存或构建问题,CUDA扩展缓存失败或构建目录错误
+requirement,功能缺失,需要实现优化器检查点功能
+bug,代码/文档拼写错误,文档或代码中存在拼写错误或书写不当
+bug,模块实现缺陷,生成的checkpoint文件为空/无法保存或加载模型权重
+bug,依赖版本兼容性问题,在特定torch/CUDA版本下出现安装失败或运行错误
+bug,API使用示例错误,文档示例代码引发AssertionError或无法运行
+bug,并行处理逻辑错误,pipeline parallel出现Nonetype错误/auto parallel报RuntimeError
+bug,缓存管理缺陷,testmon缓存未正确清理导致CI测试问题
+bug,参数配置错误,参数设置不当导致负奖励/内存不足/OOM错误
+bug,环境配置问题,缺少CUB库/flashattention安装失败等依赖问题
+bug,数据加载逻辑错误,重复从相同数据源读取导致错误行为
+bug,模型结构适配问题,LLAMA/GPT2模型输入参数不匹配导致运行错误
+bug,内存管理问题,程序执行卡顿/GPU占用异常/内存不足
+bug,权限配置问题,文档构建未触发/fork仓库PR权限不足
+bug,序列化/反序列化错误,state_dict不匹配导致模型加载失败
+bug,进程组管理缺陷,进程组管理器出现KeyError异常
+bug,训练框架集成问题,无法在EnergonAI中进行模型推断
+bug,脚本路径配置错误,未指定GPU编号导致日志路径缺失
+bug,条件检查逻辑缺陷,docker workflow因if条件未更新被跳过
+bug,代码错误（拼写错误/逻辑错误）,"文档字符串排版错乱；代码存在拼写错误；测试文件内容有误"
+bug,版本兼容性问题,"PyTorch版本不一致导致兼容性问题；cond_stage_trainable参数更改导致版本依赖冲突"
+bug,API/接口设计缺陷,"Booster API未实现no_sync方法；Plugin类缺少状态字典处理逻辑"
+bug,资源管理问题,"GPU内存不足；训练时出现CUDA Runtime Error；梯度超出浮点精度范围"
+bug,并行化处理错误,"单机双卡初始化卡死；Shard Model保存函数维度不一致；Zero+Gemini混合初始化冲突"
+bug,配置参数错误,"save_last参数设置问题；ppo.py参数加载逻辑错误；max_timesteps参数含义混淆"
+bug,数据加载错误,"prompt_dataloader重复读取相同数据；seed dataset转换错误；KL散度采样源错误"
+bug,依赖安装问题,"Docker镜像构建失败；安装命令错误；WSL环境模块找不到"
+bug,通信机制问题,"gloo通信端口冲突；梯度同步不正确；多进程状态字典加载错误"
+bug,环境配置问题,"CI/CD流程失败；文档检查CI异常；GitHub Action自动格式化引发PR变动"
+bug,张量处理错误,"概率张量含非法值（inf/nan）；张量维度不匹配；CUDA索引错误"
+bug,状态管理错误,"优化器检查点存储异常；模型加载时权重切分方式冲突；Lora参数未合并"
+bug,初始化错误,"ZeroInitContext参数卸载失败；'Parameter'对象缺少colo_attr属性"
+bug,测试流程缺陷,"测试脚本参数设置错误；单元测试未覆盖新逻辑"
+bug,安装配置错误,在nvidia ngc pytorch Docker环境中安装ColossalAI时遇到的安装问题；安装命令存在问题；无法导入'ColoInitContext'导致ImportError错误；TensorNVME在官方Docker镜像中安装不完整导致无法运行
+bug,代码拼写错误,文档中出现拼写错误；代码中的变量名错误；命令中的参数名错误；文档中存在额外字符错误
+bug,版本兼容性问题,注册的kernel冲突问题；PyTorch版本与代码不兼容；Meta tensor注册不兼容torch>1.12.1；ColossalAI模块与PyTorch版本冲突
+bug,内存管理问题,GPU内存未正确释放；训练大模型时出现内存溢出；单GPU训练时出现内存不足错误
+bug,模块导入错误,缺少`__init__.py`文件导致模块无法导入；无法导入_analyzer模块；运行时报ModuleNotFoundError
+bug,参数配置错误,torch.distributed.elastic参数设置错误导致训练失败；多节点训练参数配置不当；experiment_batch_size参数逻辑错误
+bug,代码逻辑错误,setStorage越界错误；重复函数导致代码冗余；索引错误导致数值计算问题；输入维度不匹配引发RuntimeError
+bug,依赖缺失问题,缺少colossalai.kernel.op_builder模块；无法加载RewardModelTrainer；coati模块未正确安装
+bug,文档不完整,缺乏关于ddp训练设置的说明；训练脚本缺少必要参数定义；API文档未覆盖新功能
+bug,资源分配问题,单GPU训练脚本无法运行；gemini策略未正确包装模型；prompt_sampler未正确定义
+bug,模型加载错误,加载预训练模型后报错；resize_token_embeddings方法调用错误；stable diffusion模型替换名称错误
+bug,训练过程异常,模型生成结果重复直到最大长度；actor/critic模型tokenizer冲突；优化器参数组不匹配
+bug,环境变量错误,master_addr参数设置错误导致命令失败；分布式训练环境变量配置不当
+bug,CUDA错误,运行时错误，如无效参数或内存不足
+bug,模块导入错误,ModuleNotFoundError或ImportError
+bug,版本兼容性问题,元类冲突或执行错误
+bug,代码逻辑错误,重复计算、多余操作或未定义变量导致错误
+bug,环境配置问题,Docker标签缺失或GLIBCXX版本缺失
+bug,文档错误,链接错误或内容缺失
+bug,分布式训练问题,进程超时或优化器加载耗时过长
+bug,模型保存/加载错误,参数保存错误导致推理失败
+bug,依赖项缺失,缺少模块或路径错误
+bug,输入数据处理错误,数据格式或属性名称错误
+bug,API使用错误,参数不支持导致TypeError或ValueError
+bug,训练准确率异常,损失函数不稳定导致准确率低
+bug,构建/编译错误,Docker构建失败或编译参数错误
+bug,张量设备不匹配,张量位于不同设备（如CPU和GPU）导致RuntimeError
+bug,参数配置错误,训练过程中出现eval结果为dist=nan、acc=0或train loss为nan
+bug,代码语法错误,运行时报TypeError（如关键字参数错误、缩进错误、属性缺失等）
+bug,模块功能缺失,模型缺少关键函数（如forward函数）或功能支持（如Lora、Peft）
+bug,内存管理问题,训练时因显存不足报错（如CUDA kernel错误、OOM错误）
+bug,版本兼容性冲突,特定环境（如PyTorch版本、Docker镜像）下出现功能异常或报错
+bug,数据对齐错误,输入数据维度或类型不匹配（如"int too big to convert"、矩阵形状错误）
+bug,API接口变更,新版本API导致旧功能失效（如checkpoint命名格式不兼容、Torch DDP插件失效）
+bug,环境配置错误,运行时报导入错误（如模块缺失、CUDA流初始化问题）或环境变量未定义
+bug,逻辑设计缺陷,模型行为不符合预期（如标签与input_ids相同导致训练异常）
+bug,文件路径错误,配置文件或模型路径无效（如JSON文件解析失败、pretrained模型加载失败）
+bug,文档信息错误,文档内容误导用户（如错误的世界杯结果描述）
+bug,进程通信问题,分布式训练时死锁或卡住（如gemini策略异步通信问题）
+bug,单元测试缺陷,文件夹结构混乱或测试用例未覆盖导致功能异常
+bug,梯度计算错误,参数与梯度形状不匹配触发AssertionError
+bug,模型保存异常,保存模型时因属性缺失或路径问题报错（如AttributeError）
+bug,数据加载错误,dataloader获取数据时触发loss计算异常
+bug,元数据注册冲突,重复注册功能模块导致程序崩溃
+bug,环境配置不兼容,GPU、CUDA、Python版本或框架版本不匹配导致的模块无法运行
+bug,文档错误,README文件中的标点符号、语法错误或版本号错误
+bug,资源缺失,数据集下载链接、预训练模型权重或配置文件缺失
+bug,代码逻辑错误,张量维度不匹配、函数参数错误或数据处理流程缺陷
+bug,接口不兼容,模块/类方法缺失或参数传递方式不一致（如缺少resize_token_embeddings属性）
+bug,并行处理冲突,同时使用pipeline parallel和gemini导致通信死锁
+bug,内存管理问题,CUDA内存耗尽或显存占用未优化
+bug,依赖项问题,与torch 2.0、MetaTensor或其他第三方库存在兼容性问题
+bug,系统环境限制,Windows环境不支持或Linux环境gcc版本不匹配
+bug,训练过程异常,训练时出现NaN损失或Rogue1评分下降
+bug,分词处理缺陷,正则表达式匹配错误或tokenizer未正确初始化
+bug,性能问题,聊天功能卡顿或显存占用不稳定
+bug,后处理缺失,推理输出缺乏后处理导致结果错误
+bug,参数配置错误,lora_rank参数设置不当导致程序无响应
+bug,工作流缺陷,postcommit workflow不能正常触发lint检查
+bug,版本兼容性问题,CUDA版本与Torch版本不匹配导致运行时错误
+bug,模型参数或形状不匹配,加载预训练模型时参数形状不匹配引发RuntimeError
+bug,代码逻辑错误,元组索引错误导致TypeError或属性不存在错误（如 'DistributedDataParallel' object has no attribute 'model'）
+bug,工作流程配置错误,Docker镜像版本错误、GitHub Action条件配置错误导致构建或版本更新失败
+bug,依赖管理问题,requirements.txt版本号错误或依赖源不可用导致安装失败
+bug,内存管理问题,OOM（内存不足）或内存泄漏导致进程被终止
+bug,优化器或策略不兼容,使用不支持的优化器（如FusedSGD替换HybridAdam）引发AssertionError
+bug,数据预处理错误,标签深复制操作不当或padding_side参数设置错误导致生成异常
+bug,模型保存与加载问题,state_dict不匹配导致无法加载优化器权重或保存模型失败
+bug,并行策略问题,模型参数未更新（如pipeline并行分割问题）或梯度同步失败
+bug,生成控制逻辑错误,无法识别生成结束符导致生成无关内容
+bug,测试覆盖不全,跳过部分测试（如torchaudio tracing测试）引发兼容性问题
+bug,配置文件冲突,Precommit配置与pyproject.toml不兼容导致构建失败
+bug,网络通信问题,IPv6/IPv4地址获取失败导致单机多卡连接错误
+bug,初始化参数错误,模型初始化参数随机化影响KL散度学习
+bug,模块导入缺失,缺少模块（如ModuleNotFoundError: No module named 'chatgpt.models'）
+bug,版本限制问题,Torch版本限制（如无法安装2.x版本）导致兼容性错误
+bug,资源分配问题,内存利用率达100%引发ChildFailedError异常
+bug,代码版本不匹配,actor_checkpoint_prompts.pt与代码版本不兼容导致状态字典加载失败
+bug,环境配置错误,测试或推理环境运行失败或无响应
+bug,依赖版本冲突,模块导入或运行时报错
+bug,参数拼写错误,kwargs未被正确识别导致运行错误
+bug,GPU内存不足,CUDA out of memory错误或OOM
+bug,属性缺失,AttributeError异常
+bug,分布式通信差异,训练过程中挂起或卡住
+bug,模块功能冲突,功能异常或崩溃
+bug,资源分配不均,显存占用过高
+bug,并行配置错误,初始化两次或训练不加速
+bug,CI/构建配置错误,CI构建失败或Docker错误
+bug,文档拼写/语言错误,文档中存在错别字或不通顺
+bug,不支持平台,在Windows环境安装失败
+bug,内核构建失败,Bus error或kernel build失败
+bug,检查点加载错误,load_checkpoint时报错缺少键
+bug,GroupNorm实现错误,元信息传播失败导致运行失败
+bug,模块缺失或导入错误,出现ModuleNotFoundError导致运行失败
+bug,参数传递方式错误,传参格式或类型错误导致TypeError或无法解析
+bug,缺少关键键,缺少state_dict加载所需的键导致无法加载模型
+bug,模型初始化不当,模型未正确初始化导致OOM或推理失败
+bug,文件下载异常,模型文件下载中断或损坏导致训练或推理失败
+bug,属性缺失,缺少example_input_array等属性导致无法记录计算图或运行卡住
+bug,维度或形状不匹配,hidden_size或tensor形状不符合要求导致RuntimeError
+bug,环境依赖或配置冲突,pyproject.toml或CUDA_EXT等配置冲突导致安装或运行失败
+bug,分布式/多节点配置错误,多机或多GPU设备未正确识别导致卡住或训练中断
+bug,预构建内核缺失,缺少预编译核心导致运行时动态构建卡住
+bug,内存不足或溢出,内存占用过高导致OOM或训练过程终止
+bug,性能或启动速度问题,示例启动或推理速度过慢影响使用体验
+bug,CI/工作流配置错误,post-commit或pre-commit流程异常显示错误状态
+bug,文档或示例代码错误,README或示例脚本拼写/描述错误导致用户混淆
+bug,网络或IO故障,IPv6地址无法获取或网络下载失败导致运行中断
+bug,环境配置错误,多机多卡训练通信失败或CUBLAS_STATUS_INVALID_VALUE等运行错误
+bug,参数配置错误,并行策略rank或world_size设置不正确导致报错
+bug,模块导入或依赖缺失,加载模型或库时出现ModuleNotFoundError或无法找到cudart
+bug,维度或形状不匹配,layer norm或张量形状不符导致RuntimeError
+bug,缺少属性或方法,Trainer缺少add_argparse_args属性导致AttributeError
+bug,内存访问或Segmentation fault,非法内存访问或段错误
+bug,版本或兼容性冲突,CUDA/torch/colossalai版本不匹配导致安装或运行异常
+bug,通信或资源分配错误,backward communication error或socket连接超时
+bug,缺失功能或预构建组件,pre-built kernel或checkpoint保存逻辑缺失导致功能不可用
+bug,文档或示例不足,示例代码或文档格式错误影响使用
+bug,训练逻辑不支持,某些torch函数或Zero/LoRA策略不支持特定参数导致运行失败
+bug,拼写错误,文本或文档中存在拼写错误
+bug,内存不足,出现CUDA out of memory错误
+bug,模型初始化失败,AttributeError导致训练无法继续
+bug,文档缺失或错误,缺乏清晰指导导致无法正确实施
+bug,版本解析错误,命令行工具版本检查失败
+bug,导入错误,ImportError或ModuleNotFoundError
+bug,网络地址解析错误,IPv6地址无法检索导致运行失败
+bug,计算逻辑错误,reward计算值不正确
+bug,私有API变更,torch._six子模块被移除导致导入失败
+bug,配置或参数错误,命令行参数设置错误导致Traceback
+bug,模块兼容性问题,Flash attention未移除导致需重新安装
+bug,平台不兼容,Windows11不支持shell指令导致演示无法运行
+bug,CI/CD流程配置错误,notify job条件缺失导致CI/CD失败
+bug,安装链接错误,URL链接错误导致安装失败
+bug,设备分配错误,fake_param设备选择不正确
+bug,分布式兼容性测试失败,autoparallel兼容性测试出现错误
+bug,分片初始化形状不匹配,shard_init导致形状不匹配错误
+requirement,文档需求,缺少清晰的实施指南
+bug,内存不足,OOM (out of memory) 错误
+bug,模块导入错误,No module named '...' 错误
+bug,拼写错误,文档或代码中出现拼写错误
+bug,版本不匹配,依赖冲突导致无法导入或属性缺失
+bug,依赖缺失,未安装必要库（如 apex）导致构建或运行失败
+bug,参数配置错误,错误的参数名或参数值导致运行失败
+bug,环境配置错误,环境设置不匹配导致运行时报错
+bug,构建缓存失败,构建缓存无法命中导致 CI 构建失败
+bug,命名错误,方法或变量命名错误导致功能失效
+bug,质量问题,采样结果质量差
+bug,API 接口变更,接口变化导致自动并行测试失败
+bug,测试流程错误,测试覆盖率报告格式错误导致报告生成失败
+bug,文档链接损坏,徽章或链接无法正常显示
+bug,发布流程错误,release workflows 执行失败
+bug,拼写错误,导致 workflow 运行失败
+bug,类型不匹配,抛出 TypeError 错误
+bug,版本不一致,pip 安装失败或上传到 pypi 版本号错误
+bug,兼容性问题,兼容测试失败或与第三方库交互异常
+bug,依赖或环境配置错误,ModuleNotFoundError 或 Dockerfile 配置错误
+bug,路径或权限错误,无法找到文件或选择错误目录
+bug,资源或环境问题,超时错误或死锁导致训练/作业中断
+bug,日志过载,日志中过多输出导致信息丢失或性能下降
+bug,checkpoint 保存错误,checkpoint 文件过小或张量为空无法加载
+bug,工作流结构错误,检测变更文件或 skip 条件错误导致作业跳过
+bug,形状信息不匹配,SPMD 求解器输出形状无法匹配导致运算失败
+bug,梯度累积逻辑错误,所有 logits 变为 0 或训练结果异常
+bug,子模块无效,无效 submodule 导致项目构建或加载失败
+bug,参数设置错误,功能异常或进度条不显示
+bug,硬件/并行策略配置问题,NCCL 超时或混合并行单元测试失败
+bug,导入符号缺失,模块无法正确导入
+bug,通信节点插入破坏检查点结构,图模块含意外检查点函数
+bug,优化器不兼容导致ImportError,抛出ImportError异常
+bug,CI示例配置错误,CI流程失败
+bug,主机名解析不一致,本地运行报错
+bug,resume参数缺失输入属性,程序无法正常运行
+bug,图片大小及worker数修改,生成模糊网格图片
+bug,PyTorch nightly缺少属性,出现AttributeError
+bug,initialize.py警告修复未生效,警告信息错误
+bug,条件检查逻辑错误,工作流执行异常
+bug,metadata类型假设错误,post_process冲突
+bug,添加callbacks时精度不兼容,RuntimeError
+bug,子进程错误信息未传递,主进程无错误提示
+bug,忽略参数未警告,zero模块潜在问题
+bug,种子设置冲突,随机结果不一致
+bug,state_dict忽略参数,zero3模型加载异常
+bug,错误日志信息不足,启动失败难以诊断
+bug,CUDA版本不兼容,抛出invalid device ordinal
+bug,代码逻辑错误,输出图片带随机噪音
+bug,覆盖率报告过长,PR讨论困难
+bug,覆盖率阈值逻辑错误,未报告低覆盖率
+bug,ShardedOptimizerV2 inf检测,程序错误提示
+bug,空issue提醒,无实际内容
+bug,重复示例代码,代码库冗余
+bug,设备不匹配,RuntimeError:张量位于不同设备
+bug,拼写错误,分布式训练支持失败
+bug,文件变更检测缺失,CUDA扩展缓存恢复失败
+bug,glibc依赖缺失,安装检查命令失败
+bug,高内存消耗,checkpoint保存时OOM
+bug,CLI检查过时,无法正确检测CUDA扩展
+bug,输入类型与权重类型不匹配,RuntimeError
+bug,rank混淆,LowLevelZeroOptimizer问题
+bug,文档缺失或错误,文档问题报告
+bug,热修复内容缺失,问题未解决
+bug,导入错误,FusedLayerNormAffineFunction导入失败
+bug,CUDA扩展缓存失效,构建流程中CUDA内核未重新构建
+bug,版本不匹配,模块或示例无法运行并出现函数调用错误
+bug,依赖缺失,模块导入失败或缺少_posixsubprocess/xformers等导致训练中断
+bug,拼写错误,文档或代码中单词拼写错误引发构建或运行异常
+bug,参数未设置或丢失,state_dict中缺少参数或加载检查点失败
+bug,内存不足,CUDA内存溢出导致训练失败
+bug,文件路径配置错误,文件或目录未找到导致运行中断
+bug,发布流程脚本错误,pypi release 或 CI workflow 构建失败
+bug,功能不兼容,调用时抛出 NotImplementedError 或 torch 函数不兼容
+bug,数据类型错误,参数类型错误导致断言或运行时异常
+bug,未调用父类初始化,super().__init__() 缺失导致类初始化失败
+bug,并行种子设置错误,多节点训练中 gpc.set_seed() 未生效引发 AssertionError
+bug,重复计算逻辑,重复计算 L2 范式导致断言错误并出现 NaN
+bug,代码实现错误或不完整,无法正确构建或执行特定操作（如scaled_upper_triang_masked_softmax构建失败）
+bug,分布式通信连接失败,多节点多NIC环境下模型训练或推断无法启动
+bug,数据处理或移动不及时,Pipeline Middleware导致通信冗余或RPC死锁
+bug,变量或常量未定义,logger.py中未定义 `_FORMAT` 导致程序报错
+bug,环境变量或配置缺失,CUDA_HOME未设置或依赖路径错误导致构建失败
+bug,库或版本兼容性问题,第三方库（如timm与torch）不兼容导致模型无法加载或运行
+bug,资源泄漏或不足,内存泄漏或多GPU推断内存不足导致运行失败
+bug,参数处理逻辑错误,autoparallel模块getitem处理不当导致输出tensor维度错误
+bug,类型提示或类型转换错误,Python实例无法转换为C++类型或TypeError异常抛出
+bug,函数或方法调用参数缺失,函数缺少kwargs或out参数处理不当导致TypeError
+bug,文档或标签拼写错误,README或代码注释中拼写错误影响可读性
+bug,缺失功能支持,IPv6或自动并行功能未实现导致调用失败
+bug,测试或脚本错误,benchmark.sh或测试脚本异常导致性能测试或保存加载失效
+bug,策略选择限制,get_attr handler策略选择受限未选中最佳策略导致性能或正确性问题
+bug,版本兼容性问题,训练时因CUDA、PyTorch、框架版本不匹配导致失败
+bug,代码逻辑错误,计算错误、程序崩溃、策略注册失败、断言过严、节点合并问题
+bug,模块初始化问题,参数初始化顺序错误、未正确处理元参数、模块初始化失败
+bug,模块间兼容性问题,tracer检测不一致、策略冲突、梯度未释放、数据竞争
+bug,测试用例缺陷,单元测试挂起、缺少测试用例、测试模型类型增加导致失败
+bug,资源管理问题,内存泄漏、CPU占用过高、GPU未释放、checkpoint文件异常
+bug,配置错误,搜索chunk配置失败、参数设置错误、eval使用不当
+bug,API使用不当,传入未预期的关键字参数导致TypeError
+bug,依赖管理问题,框架安装时无法识别已安装的Torch版本
+bug,拼写错误或命名问题,变量未定义、属性缺失、类名不符合实际功能
+bug,功能实现缺陷,HybridAdam不可用、NFC功能异常、ParamOpHook不支持参数类型
+bug,共享模块处理问题,tracer无法正确处理共享模块导致错误
+bug,通信逻辑错误,非连续张量通信未正确处理、all reduce兼容性问题
+bug,文档或注释错误,代码注释不准确导致开发者误解
+bug,参数配置错误,训练过程报错或表现不一致
+bug,版本兼容性问题,运行时报ModuleNotFoundError或不兼容错误
+bug,模块缺失,导入时报ModuleNotFoundError
+bug,拼写错误,命令或配置文件中出现拼写导致执行失败
+bug,构建脚本或CI流程错误,构建失败或缺少编译产物
+bug,内存泄漏,内存持续增长直至耗尽
+bug,内存追踪错误,追踪模块报错导致运行中断
+bug,测试用例设计缺陷,单元测试无法通过或覆盖不全
+bug,环境设置错误,程序无响应或依赖无法加载
+bug,OP兼容性问题,特定模型或操作无法执行
+bug,GPU资源未利用,GPU利用率为0但内存被占用
+bug,精度类型不匹配,报“expected scalar type Half but found Float”错误
+bug,检查点保存失败,调用保存函数时程序异常退出
+bug,初始化逻辑错误,模型无法正确初始化
+bug,配置参数错误,训练或功能无法运行
+bug,文件忽略配置缺失,多余文件未被忽略导致仓库混乱
+bug,模块导入或依赖冲突,模块加载失败或功能异常
+bug,版本兼容性问题,运行或构建时报错
+bug,缺少必要文件,功能调用时报错
+bug,内存管理问题,训练过程中出现内存泄漏或不足
+bug,代码格式或命名错误,格式检查或路径匹配失败
+bug,测试逻辑或缓存设置错误,单元测试失败或被跳过
+bug,通信或维度转换错误,运算过程中出现AssertionError或数据错位
+bug,实现逻辑错误,分片策略形状不一致
+bug,缺少正确性检查,生成无效策略导致错误
+bug,异常处理缺失,非法策略未被拦截
+bug,版本兼容问题,接口调用报错
+bug,配置或环境问题,git操作失败
+bug,内存管理错误,出现内存泄漏或断言错误
+bug,测试用例遗漏或跳过,单元测试失败
+bug,计算成本错误,resharding成本计算不准确
+requirement,功能支持缺失,缺少num_microbatches支持
+requirement,无策略节点未移除,自动并行包含空策略节点
+bug,命名错误,变量或命名空间错误导致功能异常或显示不正确
+bug,重复定义,函数或方法被重复定义导致冗余或冲突
+bug,初始化流程缺陷,在初始化或构造阶段未正确设置上下文或参数导致失败
+bug,内存估算不准确,计算图执行差异或算法精度不足导致内存估算结果错误
+bug,并行分片缺陷,嵌入表或张量分片逻辑错误导致精度或性能问题
+bug,多进程死锁,在容器中多进程训练或推理时出现死锁占用GPU资源
+bug,策略逻辑错误,节点合并或策略生成逻辑缺陷导致计算内核生成异常或性能问题
+bug,文档或配置错误,文档字符串或配置选项错误导致功能不正常
+bug,测试覆盖/干扰,测试用例缺失或相互干扰导致测试失败或遗漏
+bug,激活检查点缺陷,对inplace操作或checkpoint流程处理不当导致反向计算错误
+bug,数据分发不稳定,pipeline/rpc模块数据分发逻辑不稳定导致检查点或1F1B操作错误
+bug,性能或内存泄漏,CPU缓存操作或并行嵌入未使用Tensor类型导致泄漏或性能下降
+bug,内部统计计算错误,MetaInfoProp或操作时间离散化等内部计算逻辑错误导致统计异常
+requirement,预算自动估算,通过网格搜索自动估算预算以替代手动提供预算
+bug,版本兼容性问题,因PyTorch或外部库版本不匹配导致测试或运行失败
+bug,缺失或不一致的函数/方法,缺少必要的校验函数或命名不规范导致计算或调用错误
+bug,空指针或内存管理问题,空指针或内存使用异常导致崩溃或内存溢出
+bug,分布式/优化器集成问题,分布式训练或优化器集成逻辑缺陷导致梯度计算或DDP失败
+bug,测试代码和CI问题,测试脚本或CI配置错误导致单元测试失败或被跳过
+bug,checkpoint和状态保存加载问题,checkpoint或state_dict保存加载逻辑错误导致模型恢复或梯度不正确
+bug,外部API或库更新,依赖的API或库升级导致函数签名或接口变化引发CI或运行故障
+bug,代码实现或逻辑缺陷,代码拼写、缩进或逻辑处理遗漏导致功能不完整或追踪失败
+bug,参数或配置错误,参数设置不当或分区策略不合理导致结果不稳定或性能下降
+bug,文件或引用问题,文件缺失或循环引用导致构建失败
+bug,张量形状不匹配,反向传播过程中出现 shape error
+bug,检查点保存/加载逻辑错误,保存或加载 checkpoint 导致测试不通过
+bug,代码格式错误,因代码格式不规范引发功能异常或不稳定
+bug,测试用例缺失或重复,单元测试失败或测试用例被跳过
+bug,依赖库导入缺失,缺少 pytest 导入导致测试无法运行
+bug,Tracing 逻辑错误,模型跟踪失败导致结果不一致
+bug,断言错误,断言失败中断程序执行
+bug,循环导入,模块相互导入导致运行时报错
+bug,内存泄漏,Op hook 使用导致 CUDA 内存过度分配
+bug,通信阻塞,p2p 通信阻塞导致程序挂起
+bug,属性/接口不友好,不友好属性设计引起使用障碍
+bug,序列化错误,pickle dump 失败导致无法序列化对象
+bug,API使用不当,使用不支持的嵌套功能导致错误训练结果
+bug,代码重构引入错误,调度程序重构后出现功能异常
+bug,参数序列化错误,模型检查点期间无法序列化参数
+bug,格式配置错误,YAML文件格式错误导致程序崩溃
+bug,日志管理不当,日志记录过于频繁导致系统资源浪费
+bug,数据类型不一致,自动类型转换导致张量规格信息丢失
+bug,资源管理缺陷,内存监控异常或内存消耗激增
+bug,分布式通信问题,all-to-all通信方式优化引发异常
+bug,环境配置错误,PyTorch版本与CUDA环境不兼容
+bug,测试用例缺陷,单元测试硬编码GPU数量导致验证失败
+bug,初始化流程错误,上下文管理器未正确返回对象属性
+bug,功能实现缺陷,自动梯度函数处理张量类型不完整
+bug,参数配置错误,BATCH_SIZE与GPU数量关系不当导致准确度异常
+bug,功能兼容性问题,ZeRO与momentum SGD组合引发溢出错误
+bug,并行处理缺陷,多GPU测试流程条件判断错误
+bug,性能优化缺陷,持续运行cudnn benchmark导致处理速度下降
+bug,异常处理缺失,未正确处理空hooks导致内存消耗异常
+bug,通信协议缺陷,P2P连接更改后出现功能异常
+bug,注册表管理错误,重复注册导致系统行为异常
+bug,输入处理缺陷,模型输出类型支持不完整导致运行时错误
+bug,环境变量缺失,未设置RANK变量导致分布式训练失败
+bug,设备切换冲突,pre-forward阶段设备变更引发autograd异常
+bug,安全策略限制,VPN导致微信链接无法正常访问
+bug,环境配置与依赖问题,安装或运行时的CUDA扩展缺失、Python版本不兼容、Docker环境配置错误、依赖库版本冲突
+bug,代码实现逻辑错误,梯度累积功能未按预期工作、张量形状/设备/数据类型未正确更新、多继承顺序错误、初始化上下文处理错误、模块参数覆盖问题
+bug,构建与编译问题,CUDA扩展构建失败、缺少头文件（如cub.h）、gcc版本过低导致编译错误、CUDA扩展未正确构建
+bug,数据加载与处理错误,GradAccumDataloader忽略最后一个迭代步骤、数据加载器无法正确处理数据、数据格式不匹配
+bug,模型与模块设计缺陷,ColoTensor属性异常、Module类参数方法冲突、测试模型逻辑错误、模型动物园中无效模型未移除
+bug,资源管理与内存问题,张量释放后无法参与计算和通信、内存分配后属性未重置
+bug,文档与示例代码问题,示例代码测试不完全导致数据加载错误、论文链接失效、下载链接错误、代码注释或文档拼写错误
+bug,工具与CLI问题,CLI工具出现段错误（segmentation fault）、代码格式化工具功能异常、构建发布流程错误
+bug,拼写错误与代码规范,常量拼写错误导致逻辑异常、无用import语句、代码格式不符合规范
+bug,测试覆盖不足,单元测试缺失导致初始化上下文错误、测试参数未更新、多进程测试未覆盖预训练加载场景
+bug,错误消息不清晰或不详细,用户在使用时遇到困难，无法明确问题所在
+bug,模块初始化错误,初始化过程中出现错误，如参数初始化不正确或上下文配置错误
+bug,参数或数据处理不一致,加载检查点（ckpt）时出错，模型权重分配错误
+bug,测试用例缺失或错误,单元测试失败，需要热修复或修改测试代码
+bug,版本或环境兼容性问题,与特定版本（如PyTorch 1.7）不兼容，导致API调用失败或异常
+bug,内存管理错误,内存泄漏或未正确使用内存管理器（如GeminiMemoryManager）
+bug,配置选项失效,全局选项（如`no_cuda_ext`）无法正常工作，需重新设计文档或改用环境变量
+bug,代码逻辑错误,功能无法正常运行（如CLI启动失败、线性测试失败、pipeline构建错误）
+bug,依赖项或安装问题,CUDA扩展安装失败，或安装参数（如`--no_cuda_ext`）引发错误
+bug,代码合并或提交错误,错误合并未完成代码（WIP PR），需撤销操作或修复遗漏的提交
+bug,性能问题,程序性能异常或不稳定（如吞吐量指标错误、训练准确率下降）
+bug,资源分配或策略错误,张量放置策略未更新、未正确设置`pin_memory`或断言缺失
+bug,设计或结构问题,目录结构错误（如Gemini归属错误）、ckpt适配性不符或模块功能冲突
+bug,日志或类型提示不完善,日志记录控制不完整或类型提示错误导致调试困难
+bug,多进程通信问题,多节点/多任务启动时进程通信失败（如地址冲突或`group=None`传递错误）
+bug,PyTorch版本兼容性问题,与特定PyTorch版本（如1.8/1.9）API不兼容导致单元测试失败或功能异常
+bug,模块内部逻辑错误,梯度计算不准确、参数初始化错误、未正确处理非分片模块等导致功能异常
+bug,内存管理不当,内存泄漏、GPU内存使用异常、激活检查点失败等内存相关问题
+bug,环境配置错误,Docker权限问题、CI/CD工作流配置错误、依赖包缺失等环境相关故障
+bug,API变动未适配,因PyTorch或框架内部API更新导致调用失败（如`ctx.save_for_backward`无效）
+bug,参数/设备分配错误,未正确分配设备ID、参数分片错误、未恢复分片参数等导致的运行时错误
+bug,梯度状态处理缺陷,梯度包含inf/nan、梯度状态未正确分配给非叶子节点等梯度相关问题
+bug,测试用例适配不足,单元测试因函数返回值变化（如`get_current_device`）、测试目录命名问题等失败
+bug,依赖管理缺陷,requirements-test.txt未包含必要包、安装需求被意外移除等依赖相关问题
+bug,通信机制异常,分布式训练中检查点测试失败、`_rank_not_in_group`未暴露等通信问题
+bug,混合计算内核缺陷,混合梯度类型（如fp16/fp32）处理错误导致参数更新异常
+bug,模块初始化错误,初始化上下文时出现问题，导致程序无法启动或运行异常
+bug,编码规范不符合,代码和注释格式不规范，导致代码显示异常或无法通过格式检查
+bug,功能实现错误,activation offload未能正确保存CUDA内存，CPU Adam更新错误，优化器参数未分片等核心功能异常
+bug,参数配置缺失,缺少必要的配置参数（如采样时间、并行输入标志等）导致模块运行失败
+bug,内存管理错误,梯度存储位置错误导致GPU内存占用过高，内存统计信息不准确
+bug,模块兼容性问题,与PyTorch原生模块（如nn.Linear）行为不一致导致KeyError等异常
+bug,数据追踪不完整,内存统计功能未包含优化器数据，导致内存使用情况追踪不准确
+bug,错误处理不足,缺乏预防性错误消息（如头数不可分/批处理大小异常），导致调试困难
+bug,张量形状处理缺陷,无法处理不可分割的批处理大小，触发RuntimeError或程序崩溃
+bug,路径引用错误,模块导入路径变更导致GPU运行时出现异常
+bug,冗余代码存在,测试代码中存在误导性冗余实现，影响代码可维护性
+bug,混合精度处理不当,attention_mask数据类型转换错误导致混合精度问题
+bug,日志模块设计缺陷,模块命名混乱导致API不清晰
+bug,文档格式错误,HTML文档格式异常导致展示效果不符合预期
+bug,空内容提交,用户意外提交无具体内容的空issue报告
+bug,核心算法不一致,QKV实现方案与经典transformer不对齐导致结果错误
+bug,动态布局限制,grad数据移动机制导致难以实现CPUGPU动态布局
+bug,状态管理错误,梯度状态设置不正确导致参数更新异常
+bug,初始化错误,初始化设备错误或未正确初始化上下文环境，导致运行时无法删除torch的payload或创建错误的shard
+bug,依赖安装问题,安装时无法正常运行或开发环境设置错误（如代理访问失败、依赖冲突）
+bug,参数处理错误,参数命名不明确导致误解，shard参数错误，或attention mask形状/传递异常
+bug,版本兼容性问题,代码更新后未适应新版本（如ZeRO升级）导致benchmark错误或测试失败
+bug,文档不一致,文档与实际发布版本不匹配、拼写错误或图表尺寸问题导致显示异常
+bug,测试框架问题,单元测试格式无效、无法运行或测试逻辑错误（如pytest兼容性问题）
+bug,通信处理异常,未正确处理集体通信导致Profiler错误（如ZeroDivisionError）
+bug,内存管理缺陷,CUDA内存使用差异、无法存储操作系统或梯度未检查导致运行错误
+bug,工作流程错误,发布工作流程被跳过或GitHub Action不可用需手动干预
+bug,代码逻辑错误,函数多次运行、路由模块引入噪音或旧代码错误实现导致功能异常
+bug,资源链接问题,徽章/图表链接损坏或元数据缺失导致显示异常
+bug,代码格式问题,文件格式无效或代码规范不符合要求（如许可证元数据缺失）
+bug,设备放置错误,内存监控线程因设备放置错误导致数据偏差
+bug,代码格式错误,格式问题导致代码无法正常运行，文件格式设置错误
+bug,模块初始化错误,参数无法正确初始化在CPU，参数数量计算错误
+bug,导入依赖缺失,在no-tensorboard环境下出现导入错误，apex模块导入失败
+bug,参数处理错误,梯度形状计算错误，整数张量被误转换为fp16导致梯度异常
+bug,测试用例不完善,单元测试未禁用dropout或分片模型未启用，测试用例存在缺陷
+bug,设备间复制错误,bucketized tensor在CPU和GPU之间复制失败，张量必须在指定设备上
+bug,循环导入问题,模块重构导致循环import依赖引发异常
+bug,文档/示例配置错误,示例链接缺失导致用户无法查看，启动命令不一致造成困惑
+bug,许可证信息不完善,许可证未完善需要更新补充相关信息
+bug,功能兼容性问题,ZeRO与梯度累积机制不兼容，SyncBN缺少fp16兼容性支持
+bug,内核缺失或错误,尝试在CPU上运行Adam优化内核，CUDA内核缺失导致性能问题
+bug,接口设计异常,ShardedOptimv2接口运行异常，缺少必要参数传递导致功能失效
+bug,并行处理配置错误,多个进程尝试创建目录导致崩溃或冲突
+bug,代码逻辑错误,函数返回错误的张量或缺少关键功能（如Masking）
+bug,依赖项或环境配置问题,缺少必要的包或Python版本不兼容导致异常
+bug,API变更或兼容性问题,因PyTorch版本更新或模块路径变更导致的导入错误或功能失效
+bug,资源管理问题,端口占用、僵尸进程未清理或设备张量未正确放置
+bug,CI/CD配置错误,GitHub Action未触发或执行失败
+bug,自动化工具缺陷,格式错误处理混乱或PR机器人异常
+bug,模型定义或配置错误,层定义缺失、参数同步问题或收敛性异常
+bug,通信协议实现错误,缓冲区数据类型错误、Allreduce未应用或P2P通信阻塞
+bug,文档错误或过时,链接指向错误仓库或内容未更新
+question,文档维护需求,README或changelog需要更新说明
+bug,性能问题,jit fusion性能下降或训练过程挂起
+bug,异常处理缺失,未捕获异常导致KeyError或程序中断
+bug,安装或部署问题,pip安装失败或git clone命令错误
+bug,测试用例缺陷,模型测试（如GPT2 XL）无法正常运行
+bug,并行计算实现错误,张量并行参数处理不当导致Allreduce操作或梯度裁剪错误
+bug,代码冗余,同一函数在setup.py中重复定义导致冗余
+bug,安装配置错误,setup.py中使用反引号导致pip安装卸载不一致
+bug,条件判断缺失,在没有张量并行参数时误用Allreduce操作
+bug,文档维护疏忽,代码修改未同步更新文档导致不一致性
+bug,语法规范问题,gradient clipping功能对张量并行节点的处理逻辑错误
+bug,依赖项管理缺陷,未正确使用pyprof依赖项导致功能异常
+bug,版本兼容性问题,LAMB优化器与张量并行计算的范式不兼容
+question,框架功能实现方式不明确,询问混合并行插件显存占用高于同类框架的原因
+question,硬件兼容性说明不足,询问框架在MacOS/Rocm平台的可运行性
+question,分布式策略实现细节缺失,咨询GeminiDDP是否包含DP/PP/TP策略
+question,训练机制理解困难,询问双重损失函数的初始化和训练方法
+question,模型加载方式不清晰,咨询LoRA模型在训练阶段的复用方法
+question,组件设计原理不明确,质疑Critic类的状态-动作依赖设计
+question,版本兼容性说明缺失,询问旧版ZeRO的使用方式和弃用计划
+question,资源配置指导不足,咨询PPO模型运行的硬件选型建议
+question,功能支持范围不明确,询问框架是否支持ROCM平台
+question,训练参数配置指导不足,反馈PPO训练参数设置导致收敛困难
+question,算法实现细节缺失,询问SFT微调功能的代码实现状态
+question,基准对比信息不全,要求公开框架与DeepSpeed的性能对比配置
+question,文档完整性不足,请求补充数据集准备和下载指南
+question,代码逻辑存在疑问,质疑reward_model.py截断操作的正确性
+question,功能设计原理不明确,咨询GRPO与LoRA在训练中的适用性
+question,模型部署指导不足,咨询DeepSeek 671B模型加载测试方法
+requirement,功能支持不足,请求添加新功能（如pipeline并行性、分布式checkpointio、异步IO支持等）
+requirement,分布式训练需求,要求支持分布式环境下的功能（如GRPO训练、ProcessGroupMesh多节点支持）
+requirement,模型/算法扩展需求,需要适配新模型（如Llama405B、MoE模型）或集成新算法（如RL风格生成）
+requirement,文档/示例缺失,请求提供文档说明或示例代码（如LoRA SFT示例、自定义模型训练指南）
+requirement,兼容性问题,要求适配新版本库（如transformers）或硬件支持（如NPU）
+requirement,性能优化,提出优化需求（如load-pin overlap、非阻塞pin加载）
+question,功能使用疑问,询问现有功能是否支持特定场景（如FP8在MoE中的应用、expert parallel实现）
+question,配置问题,关于环境配置或初始化的问题（如多节点分布式环境初始化失败）
+requirement,流程规范化需求,要求更新PR流程/文档规范（如添加自查清单、标准步骤）
+requirement,调试支持不足,请求添加调试功能（如checkpointio的debug日志记录）
+requirement,API扩展需求,要求为插件提供异步API（如异步checkpoint API）
+bug,功能缺陷,报告现有功能异常（如allgather操作不支持特定数据类型）
+requirement,工具链更新,提出更新CI/CD工具链（如pre-commit版本升级）
+requirement,异步IO支持缺失,当前的同步IO机制导致性能瓶颈或无法满足异步操作需求
+requirement,模块化运行支持不足,无法以模块方式运行框架，需要独立应用形式
+requirement,新模型/算法支持未实现,运行特定模型（如Gemma2、llama）时出现NotImplementedError
+requirement,梯度信息获取功能缺失,无法获取训练过程中的梯度范数信息
+requirement,代码维护规范不完善,存在冗余函数导致维护困难，需要清理和优化
+requirement,分布式训练支持不完整,缺少Tensor Parallelism/Zerobubble等特定训练模式支持
+requirement,第三方工具集成需求,需要集成新组件（如Liger-Kernel）来提升训练性能
+requirement,文档内容过时或不完整,README/贡献指南/训练文档需要更新或补充说明
+requirement,自动化流程缺失,PR审查/代码贡献流程缺少标准化检查项
+requirement,跨平台兼容性不足,Windows用户无法使用部分框架功能
+requirement,新型训练方法支持需求,需要支持DPO训练、MCTS算法等新兴方法
+bug,第三方工具兼容性问题,Triton缓存问题导致兼容性测试失败
+bug,代码规范不符合要求,存在未遵循命名规范或格式要求的代码
+requirement,混合专家系统优化需求,需要实现影子专家功能或MOE混合插件
+requirement,性能优化需求,序列并行性能不足需要优化
+requirement,内存管理改进需求,多GPU训练时内存使用率过高需要优化
+requirement,代码重构需求,需要更新旧版API导入或进行架构调整
+requirement,功能未实现,用户需要框架支持特定模型（如qwen）或功能（如FP8通信、MoE混合并行）
+requirement,文档示例不足,官方文档缺乏多模型训练、启动参数配置等关键场景的说明
+requirement,测试用例未覆盖新功能,引入新数据类型（如FP8）导致现有测试用例失效
+requirement,代码存在冗余或低效实现,使用np.array导致不必要数据副本或未优化通信操作符
+requirement,缺乏配置参数或选项,模型训练时无法选择checkpoint保存频率或混合并行策略
+requirement,版本兼容性问题,依赖库版本更新（如pre-commit/black）导致格式检查失败
+requirement,日志系统不完善,插件未使用推荐的dist logger影响调试和可追溯性
+requirement,异步通信支持缺失,当前框架不支持FP8异步通信影响训练性能
+requirement,分布式训练支持不足,缺乏混合并行插件与Shardformer的深度整合方案
+requirement,性能优化需求,需添加FP8 benchmark或优化all2all等通信算子
+requirement,API设计缺陷,自定义操作符无法跳过节点生成策略导致处理失败
+requirement,训练流程定制化不足,LoRA训练缺乏参数配置选项或PP插件支持
+bug,功能实现不完整,attn mask条件限制缺失导致计算结果错误
+requirement,数据加载机制缺陷,需要分布式数据加载支持以提高系统效率
+requirement,计算逻辑优化需求,需重构交叉熵计算以节省通信和计算资源
+requirement,模型架构支持缺失,Shardformer中llama等模型缺乏FP8训练支持
+requirement,框架功能不完善，缺乏对新模型的支持,用户请求支持CommandR、T5ForTokenClassification、qwen等模型
+requirement,框架版本兼容性不足,用户要求升级transformers或mistral版本以适配新特性
+requirement,内存管理策略不足,训练大模型时出现OOM问题需要插件支持
+requirement,网络协议支持不完整,需要添加IPv4主机初始化支持
+requirement,并行计算策略不完善,需要支持4D并行、FlashAttention兼容、分布式优化策略
+requirement,文档内容缺失或过时,要求添加dist optim文档侧边栏/更新推理文档
+requirement,代码质量管控流程缺失,需要增加precommit配置/PR规范性检查
+requirement,性能优化需求,需要预取数据/异步操作/减少CI时间等性能改进
+requirement,模块架构需要重构,MoE模块重构、Zero offload功能改进等架构调整
+requirement,新功能集成需求,要求添加fp8转换、RPC服务器支持、量化缓存接口等
+requirement,API接口不一致,需要保持新旧API接口一致性
+requirement,自动化流程不足,需要优化reduce scatter操作/自动分布式优化器转换
+requirement,测试覆盖不全面,需要简化测试用例/添加benchmark测试
+requirement,开发工具链缺失,缺少docker CI步骤/代码贡献标准流程
+requirement,硬件适配不足,需要支持Lazy Init解决CPU内存限制
+requirement,新增模型支持需求,需要支持Qwen2、Baichuan 7B/13B TP、LLaMA-3 CPT/ST等新模型适配
+requirement,功能扩展与优化,需要添加Shardformer并行输出、分布式优化器集成、LoRA量化支持、FlashDecoding的kvcache量化等功能
+requirement,代码重构与维护,需移除无用Triton内核、清理代码结构、解决命名问题、重构梯度钩子管理
+requirement,分布式训练需求,请求支持DDP/Zero分布式训练、MoE模块重构、优化器集成及分布式实现
+requirement,性能优化需求,需改进KCache布局提升CUDA性能、支持Triton新内核、优化推理模块性能
+requirement,框架兼容性升级,需升级Transformers版本至4.39.1、同步代码分支、解决版本依赖冲突
+requirement,测试与持续集成优化,需规范GitHub Actions流程、添加测试条件、提升测试精度和稳定性
+requirement,开发流程规范化,需完善PR检查清单、添加代码自审机制、规范文档和测试要求
+requirement,基础功能补全,需支持忽略EOS token逻辑、多次反向传播、bias_gelu_jit_fused等基础特性
+bug,代码同步问题,在合并分支时出现tests timeout等异常问题
+bug,配置缺失问题,模型推理示例缺少Llama3配置更新或存在策略BUG
+requirement,API简化需求,需要重构pipeline grad ckpt配置等API降低使用复杂度
+requirement,第三方组件适配,需传递alibi_slopes参数给flash_attn_varlen_func等深度适配操作
+requirement,功能缺失,用户请求新增Tensor Model Parallel在推理过程中的支持
+requirement,依赖版本过旧,用户希望支持CUDA 12和Torch 2.2但现有代码基于旧版本
+requirement,功能缺失,需要添加Lora Quantization Support功能
+requirement,代码重构需求,需用MoeHybridParallelPlugin替换MoEManager并消除依赖
+requirement,文档或示例不足,用户请求提供预训练数据格式的示例
+requirement,分布式功能不足,用户需要多节点分布式训练和推断的示例代码
+requirement,功能缺失,需在Inference模块增加Reduce Utils功能
+requirement,硬件兼容性需求,需支持在H800 GPU上运行最新软件环境
+requirement,功能优化需求,用户提出ShardFormer/Sequence Parallelism的性能优化请求
+requirement,模型版本更新,需要升级transformers版本并更新相关模型实现
+requirement,功能缺失,请求添加get_cos_and_sin Kernel数学计算支持
+requirement,性能优化需求,需对Zero1/2平台进行CPU卸载和大规模优化
+requirement,分布式功能扩展,需加速optimizer offload并添加subgroup参数
+requirement,代码标准化需求,需要优化代码风格和宏定义逻辑
+requirement,功能扩展需求,需支持自定义mask功能和Shardformer模块更新
+requirement,训练策略控制,需添加gradient_checkpointing_ratio和异构分片策略
+requirement,模型支持扩展,需支持dit model的layer Parallel功能
+requirement,算法优化需求,需优化padding vocabulary size的算法选择
+requirement,字符编码支持,需改进正则表达式对Unicode的支持
+requirement,跨平台支持,需为Windows系统编译安装包
+requirement,新功能发布,需发布Open-Sora 1.0版本模型权重并完善文档
+requirement,API重构需求,需重构扩展colo attention的API接口
+requirement,精度控制需求,需为Rotary Embedding添加高精度标志
+requirement,编译机制限制,当前编译不支持.separate运算符导致函数无法实现
+requirement,新技术整合,需整合GaLore技术到框架中
+requirement,性能优化需求,需优化rmsnorm算法的CUDA kernel性能
+requirement,文档维护需求,需更新open-sora demo文档说明
+requirement,功能需求或集成需求,用户希望了解或添加与HuggingFace Accelerate、CUDA图支持、Streaming Output API、同步/异步API服务器、FastAPI集成、vLLM测试支持、NPU支持、Flash Attention补丁、分片模型保存/加载、无填充建模、多架构构建支持等相关的功能
+requirement,性能优化需求,用户提出需要优化CUDA内核执行间隔、内存拷贝操作、KVCache内核、RMS Norm中间张量、注意力层/MLP层权重转置、推理批处理调度、训练脚本、评估模块、模型生成过程等性能问题
+requirement,工作流程规范需求,涉及PR创建前的检查清单、代码贡献流程管理、文档标准更新、模型/优化器保存加载测试规范等流程改进需求
+bug,功能实现缺陷,存在无法支持分片模型保存/加载、Flash Attention优化问题、推理生成配置不符文档、CUDA构建系统兼容性问题等功能性缺陷
+bug,资源管理问题,数据并行组导致数据加载吞吐过大、内存分配逻辑需要优化等资源消耗异常
+requirement,文档维护需求,需要更新安装命令文档、README翻译文件、推理模块文档等文档维护工作
+requirement,硬件兼容性扩展,需要增加NPU设备支持、多架构GPU构建支持等硬件适配需求
+requirement,算法实现改进,涉及Speculative Decoding实现、Drafter模型容器添加、Rotary Embedding加速等算法层改进
+bug,标签管理缺失,PR未添加必要标签导致管理困难
+requirement,开发者体验优化,需要添加Stream Chat示例、自动生成分词器配置、完善测试用例等用户体验改进
+requirement,功能模块支持不足,需要支持新模块或功能（如DistCrossEntropy、RMSNorm、TP逻辑、MOE等）
+requirement,文档不完善或缺失,需要更新或补充文档（如缺少日文翻译、标签、检查清单等）
+requirement,性能未优化,需要优化执行效率（如解码内核性能低下、线性算子速度不足）
+requirement,代码规范未遵循,需要调整代码风格或格式（如tokenizer模块风格不规范）
+requirement,流程标准化不足,需要完善PR提交流程规范（如检查项缺失、自审机制不足）
+requirement,测试覆盖不全面,需要补充测试验证（如离线连续批处理测试、NPU代码测试）
+requirement,硬件适配性不足,需要支持新硬件（如NPU分支同步、IB 100g卡多节点训练）
+requirement,接口兼容性不足,需要适配新版本或框架（如Python 3.10版本适配）
+requirement,用户体验优化需求,需要改进界面或交互（如Leaderboard格式不统一）
+bug,功能实现缺陷,现有功能存在逻辑错误（如评估指标选择不准确）
+bug,资源配置错误,配置文件路径或结构命名错误
+bug,功能扩展冲突,新功能与现有模块不兼容（如KVCache兼容性问题）
+requirement,系统扩展性需求,需要增强系统扩展能力（如支持任意大小批处理、推测解码加速）
+requirement,工程化能力不足,需要完善基础设施（如添加推理引擎、演示案例设计）
+requirement,功能缺失,用户需要特定功能（如支持LoRa、NPU支持、KV-Cache管理、安全评估数据集等）以实现通信、硬件加速或评估需求
+requirement,性能优化需求,需要改进缓存管理、重构代码、升级加速方法或优化内存使用以提升系统效率
+requirement,文档不完善,缺少功能说明、API文档、用户指南或代码示例，导致使用困难或需完善标准流程
+requirement,测试覆盖不足,缺乏测试案例（如模型前向准确性测试、Mistral测试），导致功能稳定性风险
+requirement,代码冗余,存在未使用代码或弃用函数（如colo_init_context），导致系统冗余或维护成本增加
+requirement,接口抽象需求,需要为多硬件平台（如NPU、GPU）提供统一接口或封装（如TensorRT-LLM引擎）
+requirement,兼容性问题,需升级组件（如Triton kernels版本）或重构代码以适配新旧版本
+question,配置问题,用户询问如何开启功能（如activation checkpoint offload）或在特定模块（如gemini插件）中实现张量并行
+bug,并行处理问题,GPU/NPU并行处理异常（如P2P通信问题）导致需要热修复或内核更新
+requirement,安全性需求,需添加安全评估数据集到评估框架（如ColossalEval）以增强模型安全性
+requirement,功能弃用,因特定原因需撤销功能（如Mistral支持）或替换组件（如Adam优化器替换为SGD）
+requirement,标准化需求,需重构代码示例、完善PR规范或统一命名以提高可维护性
+requirement,功能缺失,用户希望支持Lora功能但当前框架缺乏相关API
+requirement,性能优化需求,用户提出合并模块以优化推理性能或减少重复代码
+requirement,动态批处理支持不足,用户请求在推理过程中支持动态批处理功能
+requirement,训练流程自动化不足,用户希望实现训练中断后自动恢复并从检查点继续
+requirement,硬件资源限制,用户询问在有限资源下持续预训练大模型的最低配置要求
+requirement,数据处理功能不完善,用户反映长文本被截断并要求支持分段处理
+requirement,接口灵活性不足,用户需要改进参数接口或增加额外参数支持
+requirement,分布式训练支持不足,用户遇到NCCL超时问题并要求改进多机多卡训练稳定性
+requirement,模型格式兼容性问题,用户需要将框架特定checkpoint转换为HuggingFace格式
+requirement,监控功能缺失,用户希望在训练过程中实时显示TFLOPS或集成wandb支持
+question,硬件配置疑问,用户询问预训练/微调大模型所需的最小CPU/GPU内存
+question,功能实现细节不明确,用户询问知识重放阶段的具体步骤和数据集使用方法
+question,环境依赖问题,用户需要明确特定工具链(如Ninja)的C++版本要求
+question,模型加载兼容性问题,用户无法加载Meta原始权重或转换后的HuggingFace权重
+bug,文档不完善,用户指出文档缺少功能说明图表或PR创建规范说明
+bug,测试覆盖不足,用户指出需要更新测试脚本以支持新增功能
+bug,代码结构混乱,用户反映现有代码需要重构以提高可维护性
+bug,版本兼容性问题,用户指出新版本PyTorch导致环境配置问题
+bug,功能实现不完整,用户发现现有功能不支持TP when PP=1的特定配置
+bug,内存占用过高,用户反映训练过程中出现内存溢出问题
+bug,功能设计不合理,用户质疑为什么使用broadcast_object而非send/recv API
+requirement,功能模块缺失,需要支持新功能（如load balance、smoothquant、动态批处理等）
+requirement,现有功能不支持特定模型或配置,无法适配特定模型（如Falcon、Mistral、Llama等）或配置（如FP16、O3模式）
+requirement,文档缺失或过时,文档链接失效、说明不完整或未按规范更新
+requirement,代码风格不符合规范,代码可读性差或不符合开发规范
+requirement,缺乏示例或教程,用户缺少参考实现（如微调示例、Serving示例）
+requirement,性能优化需求,模块效率低下或资源利用不均衡（如负载不均衡、推理性能不足）
+requirement,流程或检查缺失,PR创建前检查或代码审查流程不完善
+requirement,功能扩展需求,需扩展现有模块功能（如梯度累积、混合并行、权重保存等）
+requirement,框架适配需求,需要支持新框架或环境（如Ray Serve、多GPU在线推理）
+requirement,技术实现改进,需优化底层逻辑（如异步控制、稀疏矩阵运算、内核优化）
+question,技术细节不明确,用户提问训练步骤、实现原理等具体技术细节
+requirement,功能模块缺失,用户请求支持特定功能（如梯度累积、混合并行、自定义策略、新模型支持）
+requirement,文档内容不完善或过时,用户提出文档补充/修订需求（如新增支持矩阵说明、更新并行策略用法）
+requirement,代码规范不符合要求,贡献者提交代码前需修复风格问题（如CUDA模块标准化、PR检查清单完善）
+requirement,现有实现性能不足,用户建议优化通信/计算逻辑（如替换线性操作为Shardformer、改进P2P通信）
+requirement,框架扩展性不足,用户请求添加新模块（如评估管道、持续预训练项目、检索式对话系统）
+question,用户对框架功能使用不熟悉,用户询问功能配置方法（如梯度累积启用、权重合并配置、并行策略结合）
+requirement,代码维护需求,需清理过时代码/迁移文档（如utils模块整理、遗留文档更新）
+bug,代码实现错误,triton kernel初始化报错
+requirement,API接口不完整,类/方法缺少必要参数（如LazyTensor缺少from_pretrained、CosineAnnealing类缺last_epoch）
+requirement,基准测试不完善,用户提出性能对比需求（如Gemini与Deepspeed显存占用对比）
+requirement,功能缺失,用户请求添加新功能支持（如LazyInit加载、多个LLMs支持、openmoe训练等）
+requirement,文档不完善,用户文档或README需要更新或补充具体内容
+requirement,示例缺失,缺少特定模型（如Llama2、GPT2）的示例代码或更新
+requirement,代码结构过时,需要重构旧代码（如移动模块至legacy、清理遗留代码）
+requirement,配置方式不统一,参数设置不灵活（如基准测试使用绝对路径而非参数）
+requirement,用户接口不兼容,不支持第三方库接口（如HuggingFace的from_pretrained）
+requirement,性能优化需求,需要优化推断性能或训练效率（如添加TP推理引擎、改进schedule参数）
+bug,内存泄漏,零优化模块存在内存泄漏导致内存消耗过高
+requirement,测试环境配置不足,需要检查环境版本（如Triton/CUDA版本）以确保测试正确性
+requirement,功能增强请求,用户建议改进现有功能（如新增损失函数、优化器支持、模型保存功能）
+requirement,流程文档缺失,PR流程或模块使用流程的文档不完善
+requirement,功能缺失,用户希望增加与HuggingFace的checkpoint IO兼容性
+requirement,并行性支持不足,用户请求支持混合并行插件（如tp+zero1/pp）及相关测试
+requirement,模型支持不足,需要添加对ChatGLM、LLAMA、Bloom等模型的推断/训练支持
+requirement,内核功能不足,需要新增rms_norm、rotary_embedding等内核操作
+requirement,优化器功能不完善,需支持梯度累积与ZeRO2的兼容
+requirement,系统性能优化需求,要求优化GPTQ CUDA内核加速和KV缓存管理
+requirement,代码结构问题,需要重构文件路径和解决代码重复问题
+requirement,文档维护不足,需要更新Gemini文档和CI环境说明
+requirement,测试覆盖不足,需为3D并行模型/混合并行场景添加测试用例
+requirement,接口抽象不足,需要支持自定义后端通信的accelerator抽象
+requirement,存储功能缺失,需要分片式checkpoint保存加载支持
+requirement,部署支持不足,要求创建llama推断模板和chatglm推断服务
+requirement,新版本适配需求,需要适配LLAMA2并进行相关检查
+requirement,功能缺失或未支持,"请求支持新的功能或模型（例如：GPT2序列并行处理、TP+ZeRO功能、环形自注意力支持等）"
+requirement,代码重构或优化需求,"需要重构现有模块以适应新需求（例如：interleaved schedule重构、替换命名不清晰的类、优化代码结构等）"
+requirement,并行策略支持不足,"请求增加或改进并行策略（例如：支持TP+DP混合并行、序列并行、pipeline并行等）"
+requirement,测试覆盖不足,"需要添加/更新测试用例（例如：添加8GPU分布式测试标记、验证优化应用效果、重写模型测试等）"
+requirement,示例或文档不完善,"请求更新示例或补充文档（例如：适配新功能的BERT示例、添加docstrings、更新PR标准文档等）"
+requirement,环境适配需求,"需要环境配置支持（例如：提供Docker文件、PyTorch/CUDA版本适配列表等）"
+requirement,性能优化需求,"请求改进性能或功能优化（例如：使用Flash Attention 2、重叠输入收集与梯度计算等）"
+requirement,多模型协同需求,"需要支持多模型联合操作（例如：多模型协同训练、混合并行性支持等）"
+requirement,参数管理问题,"参数存储方式需要改进（例如：moe参数存储位置调整、placement policy策略优化等）"
+requirement,分支管理需求,"涉及代码版本管理操作（例如：分支同步请求、提交精选到新分支等）"
+requirement,功能缺失,"缺乏对Flash Attention 2的支持"
+requirement,功能缺失,"不支持纯bf16训练"
+requirement,功能缺失,"缺乏序列并行操作支持"
+requirement,功能缺失,"未实现会话型训练支持"
+requirement,功能缺失,"缺少sharded optimizer checkpointing功能"
+requirement,代码整合需求,"需要合并flash attention分支到pipeline分支"
+requirement,代码整合需求,"需要将shardformer模型合并到pipeline"
+requirement,代码整合需求,"需要统一不同模型的测试整合"
+requirement,性能优化,"需要优化推理前向计算效果"
+requirement,性能优化,"需要重构低级zero模块提升性能"
+requirement,版本适配,"需要支持新版Flash Attention v2.0.1"
+requirement,测试覆盖不足,"缺少针对1F1B schedule的unit test"
+requirement,测试覆盖不足,"需要为T5模型添加pipeline测试"
+requirement,代码规范,"未遵循PR创建检查清单规范"
+requirement,代码规范,"存在代码风格不符合标准问题"
+requirement,架构设计,"T5结构复杂需要特殊pipeline分配算法"
+requirement,新功能支持,"需要支持hierarchical Gemini"
+requirement,工具链改进,"需要优化测试流程减少启动次数"
+requirement,模块扩展,"需要为chat模块添加tensorboard支持"
+requirement,模型兼容性,"需要添加GLM/ChatGLM模型支持"
+requirement,缺乏对新模型的支持,用户请求添加对LLama、Blip2、SAM、T5、GPT2、OPT、BERT、Bloom、Whisper等模型的支持
+requirement,功能模块不完善,用户提出需新增或完善Shardformer模块功能（如inplace sharding、lazy init、flash attention支持等）
+requirement,性能优化需求,用户要求优化内存效率（如原地分片）、减少训练时间（如优化zero优化器步骤）、提升计算性能（如FP8混合精度训练）
+requirement,代码规范与质量提升,用户提出需要清理代码风格、完善PR审查流程、更新文档（如benchmark和准确度文档）
+requirement,并行处理能力扩展,用户请求支持3D并行插件、集成GPT模型pipeline策略
+requirement,硬件/环境适配需求,用户需要新增Docker对SSH/RDMA的支持
+requirement,测试覆盖不足,用户提出需补充Bert/OPT等模型的pipeline测试案例
+bug,现有功能存在缺陷,现有参数分片方法导致内存效率低下、zero优化器通信机制导致性能瓶颈
+requirement,注意力机制增强,用户要求为ColoAttention模块新增'attn mask'类型支持、实现paddedcausal类型mask
+requirement,架构扩展需求,用户希望为Transformer Engine添加FP8混合精度训练支持
+requirement,state_dict形式与Huggingface不兼容,无法保存或加载Shard形式的state_dict与Huggingface兼容
+requirement,缺少Flash Attention支持,用户无法启用Flash Attention或性能未达预期
+requirement,缺少性能基准测试,无法评估或对比Shardformer的实际性能表现
+requirement,文档未同步更新,文档与主分支或实现细节不一致导致使用误导
+requirement,缺少低级接口支持,低级Zero模块缺少state_dict或process_group传递接口
+requirement,缺少开发SOP文档,用户不清楚如何参与开发或遵守标准操作流程
+requirement,无法禁用张量并行,小模型无法在无需并行的情况下正常运行或优化
+requirement,缺少Unsharded Optimizer Checkpoint,无法保存或加载非分片优化器的检查点
+requirement,缺少no_sync功能,Zero Plugin中no_sync功能缺失导致同步问题
+requirement,缺少示例代码,Shardformer与BERT微调的示例缺失导致使用门槛高
+requirement,pipeline功能缺失,缺少1f1b调度、阶段管理或P2P通信支持
+requirement,缺少融合归一化支持,合并归一化核未支持导致效率和性能下降
+requirement,缺少DDP兼容性,Shardformer无法与PyTorch DDP集成导致分布式训练受限
+requirement,功能模块未实现,VITT等高级功能模块缺失导致特定场景无法使用
+bug,导入错误,未隐式导入transformers时报错或ImportError
+bug,测试持续时间显示缺失,测试报告中无法展示单测或集成测试的耗时信息
+bug,配置更新不一致,更新配置和提示文件后出现运行或兼容性异常
+question,使用流程不明,用户对配置、接口或操作步骤存在疑问需补充说明
+requirement,新 API 支持不足,示例代码无法使用新 API
+requirement,核心功能缺失,模型（如 Bloom、BERT、GPT-2、T5、LLaMA）不被支持
+requirement,文档不准确或不完整,用户对功能用法不清楚
+requirement,插件兼容性不足,无法使用特定特性（如 no_sync、DTensor、优化器检查点）
+requirement,硬件支持缺失,无法在特定设备（XPU）上运行
+requirement,测试覆盖不足,缺少测试用例导致不确定功能正确性
+requirement,组件集成需求,模块无法与其他组件（如 dist layer、TorchDDPPlugin）协同工作
+bug,API 不兼容或断裂,调用失败或行为异常
+bug,代码结构混乱且可读性差,难以维护或重构
+bug,性能或负载不均衡,某些操作导致 OOM 或速度瓶颈
+bug,保存/加载机制缺陷,state_dict 保存或加载错误
+question,用户使用方式不明确,对如何使用或配置功能存在疑问
+question,参数可选性不足,方法调用时参数强制要求不合理
+requirement,API变更导致接口不兼容,相关示例和策略类无法正常使用需要重构
+requirement,模块不支持特定模型(shardformer/LLM),无法在相应模型上运行或测试失败
+requirement,缺少依赖包,安装或运行时报错找不到pytest、decorator等依赖
+requirement,文档不一致或过时,README或示例文档链接失效或风格不统一
+requirement,缺乏示例或教程,用户不清楚如何使用新功能或API
+requirement,缺乏单元测试,功能准确性未验证或遇到未知错误
+requirement,部署配置不完善(Docker/Simulator),无法运行时构建或镜像未发布
+requirement,性能优化需求(缓存/分片),缓存提取效率低或分片参数分配不均匀
+requirement,混合精度(BF16)支持缺失,low-level插件无法进行BF16混合精度训练
+bug,代码分支不同步,同步PR导致冲突或模块版本不一致
+bug,分布式资源分配不均衡,初始化时各rank负载不平衡
+bug,大模型对象过大,保存/加载过程出现内存溢出或性能瓶颈
+bug,版本不兼容(torch等),测试失败或功能异常
+question,评估功能支持不足,evaluate接口无法评估GPT或参考结果不准确
+requirement, 功能支持缺失, 无法使用 bfloat16/混合精度 或 shard checkpoint 等关键特性  
+requirement, 文档不完整或过时, 安装、使用或 API 说明缺少步骤和示例导致用户困惑  
+requirement, 缺少示例脚本或教程, 用户不知道如何在特定 GPU 上运行脚本或启用 flash attention  
+requirement, 缺少测试用例, 新增模块或功能缺乏单元测试和集成测试覆盖  
+requirement, 代码结构冗余或不规范, sample 文件夹或目录结构不符合开发流程需要重构  
+bug, 拼写或命名错误, README、参数名或函数名拼写错误导致调用失败  
+bug, 实现缺陷, Adam、DDP、FSDP 等优化器或并行插件在特定模式下功能异常或崩溃  
+bug, 文档与实现不同步, API 更新后文档未同步，导致用户按文档操作时报错  
+bug, checkpoint 保存/加载失败, save_sharded_model 等方法未正确覆盖或不支持分片模型检查点  
+question, 使用方法或配置询问, 用户询问如何在框架中集成自定义模型训练流程或修改默认参数
+requirement,文档过时或缺失,教程内容过时或缺乏导致用户无法使用功能
+requirement,功能缺失,缺少分布式PPO训练器等功能导致用户提出增强需求
+requirement,示例缺乏,缺少示例代码导致用户无法实现特定场景
+requirement,CI/CD配置不完善,标签顺序或测试配置问题导致构建流程不稳定
+bug,版本兼容问题,Torch版本升级导致CI测试失败
+bug,API设计缺陷,接口或方法命名不规范导致使用和扩展困难
+question,使用疑惑,用户对多轮对话训练或加载预训练模型方式存在疑问
+question,维护计划不明确,用户对Ray实现的PPO算法未来维护情况不确定
+question,支持范围不清晰,用户不确定是否可以部署或支持多模型/混合并行
+bug,硬件兼容性问题,在1080ti/P40等显卡上运行ColossalAI或ColossalChat失败
+bug,内存管理不足,运行Llama 13B或PPO训练时显存溢出或内存使用过高
+bug,文档格式/拼写错误,README.md或1D tensor parallel文档存在拼写、格式或额外字符导致误导
+bug,文档缺失,zero3 chunk搜索工具及zero optim模块缺少函数说明导致难以使用
+bug,代码风格不一致,diffusion代码或send_message_to_lark.py中存在风格或拼写错误
+requirement,插件功能缺失,Gemini/ColossalAI插件不支持shard检查点或懒惰初始化导致大型checkpoint无法处理
+requirement,功能模块缺失,缺少数据库对话访问、无监督学习、Chat应用评估、Community Pipelines等功能
+requirement,模型支持缺失,缺少ChatGLM-6B、BLOOM、seq2seq等模型训练或推理支持
+requirement,参数配置缺失,train_prompts脚本缺少max_len，多tokenizer或verbose等参数功能
+requirement,性能优化需求,需要低内存/8bits训练模式、zero2 CPU策略等显存友好训练方式
+requirement,文档完善需求,社区模型支持指南、有限资源训练示例、贡献者列表等文档需补充或优化
+requirement,发布管理需求,Docker镜像缺少latest标签、ColossalChat模型权重未发布
+question,文档缺失,缺乏启动命令示例导致用户不知道如何启动框架
+question,示例缺失,缺少示例代码导致用户不了解使用方法
+question,使用疑问,不清楚特定功能调用方式导致用户提出操作疑问
+requirement,功能缺失,缺少inplace add操作导致无法在tensor上就地加法
+requirement,功能缺失,缺少断点续训功能导致模型训练无法中断续接
+requirement,功能缺失,缺少sharded checkpoint支持导致无法加载Huggingface分片模型
+requirement,平台兼容性缺失,不支持AMD GPU导致用户显卡无法使用
+requirement,测试结构混乱,测试文件夹结构杂乱导致CI测试失败
+requirement,示例过时,示例代码路径与重构后结构不匹配导致CI报错
+requirement,插件适配,booster插件与CheckpointIO API不兼容导致插件无法使用
+requirement,文档缺失,缺少暗黑模式功能说明导致用户无法切换主题
+requirement,数据缺失,缺少训练数据集链接导致用户无法复现实验
+requirement,参数增强,缺少vf_coef参数导致PPOTrainer无法计算value loss
+requirement,功能缺失,缺少梯度累积功能导致Gemini DDP无法累积梯度
+bug,功能缺陷,调用inplace add时报错导致操作失败
+bug,导入错误,示例和教程导入旧版模块失败导致异常
+bug,CI失败,重构后测试结构错误导致CI无法通过
+bug,代码风格问题,未完成PR前检查列表导致代码风格不一致
+bug,文档格式错误,README链接优化需求未按标准流程更新导致格式不规范
+requirement,缺少功能实现,系统缺少所需功能，用户无法满足需求
+requirement,缺少参数配置选项,无法设置重复惩罚导致生成质量低
+requirement,缺少示例或教程,未提供示例文档用户无法参考使用方法
+requirement,文档不完善或过时,文档链接失效或缺少说明导致文档不准确
+requirement,缺少数据集或依赖引用,未添加数据集引用或模型支持影响可信度
+requirement,缺少审核或检查流程,PR流程缺乏标准检查导致代码质量不佳
+requirement,缺少代码风格规范,代码风格不统一导致可读性差
+requirement,API设计混乱,接口使用复杂或不一致用户难以理解
+requirement,性能或内存优化不足,内存成本高或运行效率低无法满足训练需求
+requirement,命名不清晰,变量或类命名混淆导致理解困难
+bug,兼容性或集成问题,模块无法适配新版本依赖运行时抛出异常
+bug,缺少安全或内容审查机制,无法过滤不当内容可能输出违规信息
+question,文档或API不清晰,用户对使用或配置提出疑问无法确定正确操作流程
+requirement,缺少测试模型,测试模型库不完整
+requirement,功能未支持,无法支持vit等特定模型
+requirement,性能测试覆盖不足,benchmark无法支持大模型或特定模型
+bug,分布式初始化逻辑错误,LazyInit功能在分布式环境下不正确
+bug,内存溢出（OOM）问题,gather操作填充GPU导致OOM
+requirement,文档不完善,文档缺少conda安装或Windows支持
+bug,CI/CD配置错误,持续集成流程工作不正常
+requirement,子模块版本同步缺失,需要手动更新子模块提交信息
+question,API设计不友好,ChatGPT模块命名不便于查找
+question,参数含义不清,max_length参数含义不明且无法扩展
+requirement,缺少示例脚本,没有FP8示例脚本演示
+question,特殊标记支持不足,自定义特殊标记无法适配不同分词器
+requirement,功能缺失,Docker 镜像未遵循 opencontainers image-spec 导致质量不佳
+requirement,文档不足,缺乏监督微调（SFT）使用示例导致用户无法进行微调
+requirement,流程规范缺失,缺少标准 PR 提交流程导致文档和代码审查不规范
+bug,设计缺陷,ShardingSpec 包含与张量分片无关信息
+bug,兼容性问题,分片初始化无法兼容 model.from_pretrained() 导致模块无法正常加载
+bug,命名混淆,LowLevelZeroOptimizer 中 forced_dtype 命名与实际行为不符
+bug,性能瓶颈,auto-parallel intraop solver 求解时间过长
+question,文档移除,API 文档被从官网页面移除导致用户疑惑
+question,推理脚本缺失,缺少推理示例脚本导致无法进行模型推断
+requirement,配置管理不清晰,多个配置文件未集中管理导致项目配置混乱
+requirement,自动化缺失,子模块更新未自动同步导致引用不同步
+requirement,回调支持缺失,缺少 checkpoint 保存回调导致无法保存训练状态
+requirement,元信息缺失或不完整,autoparallel 运行时相关 API 调用失败或不支持
+requirement,硬件加速支持缺失,无法在 Movidius Compute Stick 或 Pine64 Quartz64 等设备上运行加速
+requirement,测试用例或文档注释缺失,功能不稳定或难以理解，缺乏示例和说明
+requirement,并行特性支持不足,无法使用 Tensor Parallelism 或 Pipeline Parallelism 等并行功能
+requirement,检查点保存格式不支持 FP16,在 GeminiDDP 模型中无法以 FP16 格式保存检查点
+requirement,PR 创建流程或文档流程缺失,文档更新流程混乱，标准不统一导致遗漏或错误
+requirement,代码风格或格式检查缺失,代码提交前未统一风格或缺少自动检查，导致可读性差或合并失败
+bug,内存估算逻辑不准确,AutoChunk 在 UNet 中的内存估算结果错误
+requirement,API 参数配置缺失,无法控制生成 API 返回的序列数量（如缺少 num_return_sequences 参数）
+question,训练步骤不明确,用户对 ColossalAI ChatGPT 训练流程步骤存在疑问
+requirement,调度器设计可读性差,Pipeline Scheduler 难以扩展和维护
+bug,文档拼写或翻译错误,README.md 或服务文档中存在错别字或翻译不完整
+requirement,文档缺失或过时,文档内容不完整或链接错误
+requirement,代码风格不符合规范,可读性差并触发风格警告
+requirement,功能缺失,无法满足用户期望的操作需求
+requirement,并行策略顺序或选项不匹配,单元测试失败或并行处理错误
+requirement,缺少meta信息补丁,autoparallel运行时异常
+requirement,弃用代码长期未维护,示例缺失或存在冗余代码
+requirement,持续集成流程缺失,无法自动化测试或跟踪版本更新
+requirement,子模块引用更新无自动化,提交流程繁琐且易出错
+requirement,文档发布流程过时,发布步骤失败或不够健壮
+bug,直接引用私有成员变量,grad store更新不生效
+bug,缺少meta信息支持,Softmax功能异常
+question,对PR流程及标准格式不清楚,用户对PR创建及操作步骤存在困惑
+requirement,文档过时,文档未及时更新导致用户对CI/CD流程或功能使用产生困惑
+requirement,缺少通知机制,构建或测试失败时未收到通知，无法及时响应
+requirement,构建流程不足,缺乏专门的构建检查步骤（如CUDA扩展、testpypi分发），导致构建或发布前未检出错误
+requirement,自动化测试流程不完善,GPU资源占用检测、缓存机制等不完善，导致工作流偶尔失败或效率低下
+requirement,功能缺失,缺少钩子集成、示例、报告生成、性能分析等功能
+requirement,工作流配置不合理,文件命名和内存阈值设置不当导致流程维护困难或失败
+requirement,报告不完整,社区报告或测试覆盖率报告缺少讨论统计或仅关注PR更改
+bug,依赖不兼容,第三方库更新导致依赖失效或构建失败
+bug,安装及示例错误,安装过程或示例代码存在错误导致安装失败或示例运行错误
+question,使用疑问,用户对文档、工具链的使用流程或配置参数产生疑问
+requirement,缺少对特定模块/模型的支持,无法使用目标模型或模块功能
+requirement,CI/CD 脚本或流程缺失,无法自动测试或集成新功能
+requirement,文档或示例内容不完整或格式不清晰,阅读或使用困难导致用户无法快速上手
+requirement,自动构建/子模块更新流程缺失,需要手动维护导致版本不同步
+requirement,性能瓶颈或高内存消耗,训练或推理效率低下
+requirement,缺少工作流检查或增强功能,代码风格或一致性无法保障
+requirement,国际化支持不足,非英语评论或内容难以理解
+requirement,发布与包管理流程问题,无法正确识别或获取对应版本包
+requirement,基准测试或示例参数缺失,测试覆盖不全或示例运行失败
+bug,全局变量或配置冲突,功能无法正常协同工作
+question,使用方式或差异不明确,用户不确定推荐方案
+requirement,接口不一致或不统一,调用时易出错或难以迁移
+requirement,代码风格不统一,导致代码可读性和维护性差
+requirement,代码结构混乱,难以扩展和复用
+requirement,功能缺失,用户无法使用或演示预期功能
+requirement,文档不完整,用户对使用或配置产生困惑
+requirement,缺少自动化测试,修改后功能回归无法及时发现
+requirement,缺少CI检查流程,示例代码可能与最新API不一致
+bug,强制构建CUDA扩展,安装过程耗时且影响用户体验
+requirement,示例目录结构混乱,用户难以快速查找和运行示例
+question,集成计划未明确,用户对项目与其他框架集成进度不清楚
+requirement,性能效率低,设备通信或算法执行成为瓶颈
+requirement,发布流程不完善,用户无法方便通过pip安装
+requirement,功能缺失,用户请求新增功能但框架未提供对应 API
+requirement,文档不完善,README/文档缺少使用或配置说明
+requirement,示例代码错误,示例脚本缺失或参数不匹配导致无法运行
+requirement,配置安装问题,Docker 或安装流程配置错误导致安装失败
+requirement,性能不足,自动并行/benchmark 性能不理想
+requirement,元信息不一致,MetaInfo 节点处理逻辑缺失导致异常
+requirement,接口兼容性,选项与 solver 模块无法正确连接
+requirement,链接失效,文档中外部链接 404 或已过期
+requirement,内存管理缺失,量化推断或内存估算功能未支持
+requirement,子模块引用同步自动化缺失,需要手动更新子模块提交
+requirement,attention kernels 接口不兼容,无法支持来自 xformers 的新接口
+requirement,softmax handler 未实现,无法生成或优化 softmax 策略
+requirement,sharding_spec 设备兼容性不足,tensor 大小或 slice 参数计算错误
+requirement,运行时内存统计存储方式不合理,非模型数据跟踪结果存储冗余且难以使用
+requirement,参数访问顺序与初始化顺序不一致,内存碎片化严重
+requirement,L2 梯度裁剪功能缺失,无法对梯度进行裁剪
+requirement,PP middleware 参数注入缺失,bwd 和 step 未能在管道并行中使用
+requirement,Chunk Manager API 命名或方法不一致,接口调用失败或兼容性差
+requirement,sum handler 缺失,autoparallel 不支持 torch.sum 和相关操作
+requirement,embedding handler 缺乏,运行时无法处理 num_embeddings 场景
+requirement,Runtime Memory Tracer 跟踪结果未整合 MemStats,跟踪数据无法被 Gemini 管理器读取
+requirement,MemStats 与 Collector 未分离,多收集器使用同一实例导致冲突
+requirement,TensorConstructorHandler 分布式张量构造功能不足,只能创建本地张量无法分布式部署
+requirement,RPC 与 DAG 耦合,旧版 RPC PP 无法拆分并支持 CTS
+requirement,分区划分方法缺少精确 DAG 信息,分区结果不准确
+requirement,示例或文档未及时更新,项目 README／示例代码不完整
+bug,F.conv metainfo 错误,自动并行和线性 metainfo 导致测试失败
+bug,全局模型数据追踪器移除未同步更新,相关功能失效或异常
+bug,代码结构优化不足,性能低或可维护性差
+question,是否支持基于图像条件的模型训练,功能可用性不确定
+question,是否支持 T5/MT5 训练并使用自定义数据集,使用方法不清晰
+question,如何通过 tensor.storage 管理 CUDA 内存并添加梯度钩子,操作流程不明确
+requirement,CUDA 扩展安装流程不完善,无法通过 PyPI 安装包，用户切换到私有 pip 源
+question,缺乏 Param hook 使用指导,用户不清楚如何使用 Param hook
+requirement,autoparallel 强制复制输入引发额外通信,重塑操作中通信开销过高
+requirement,缺少针对特定模块的单元测试,测试覆盖不足导致代码改动后功能不稳定
+requirement,不支持特定模型（如 RoBERTa、ResNet18）,模型加载或训练失败
+requirement,新版本未支持 torchaudio 等第三方模块,无法使用 torchaudio 相关功能
+requirement,metainfo 支持不完善导致内存估计不一致,性能或内存估计结果异常
+requirement,文档或教程内容不全或过时,用户无法快速入门或操作指南不明确
+requirement,代码冗余或命名混乱,存在未使用或重复代码需要清理
+requirement,缺少多节点数据和模型并行支持,无法在多节点环境下进行分布式训练
+requirement,子模块引用或依赖版本未同步,项目依赖不同步或版本冲突
+requirement,缺少示例或 Demo 功能不完善,示例演示功能不足或缺失
+bug,不必要文件移除导致依赖缺失,导入或运行时报错
+requirement,文档缺失或过时,用户无法获取最新信息或教程内容不完整
+requirement,API设计复杂,用户在使用时遇到困难或不方便，需要简化或改进API设计
+requirement,功能缺失,缺乏必要功能（如示例、测试脚本、模块接口）导致使用场景受限
+requirement,代码风格不规范,代码格式不统一或不符合规范，影响可读性和维护性
+requirement,冗余代码或配置,存在冗余文件、配置信息或通信节点，影响仓库整洁或性能
+requirement,模块兼容性问题,新增功能与现有模块（如并行优化器）不兼容，需调整参数或逻辑
+bug,测试流程缺陷,在CUDA等环境下测试不通过，需调查修复完整工作流程
+requirement,版本信息不清晰,文档或配置中缺乏版本说明，导致用户混淆或使用错误版本
+requirement,性能对比需求,需对比不同模块（如torch amp与apex amp）的性能或功能差异
+requirement,用户体验优化,界面元素（如网页按钮）指向错误或交互设计不友好，影响新用户使用
+requirement,代码维护与协作需求,提升代码可读性的类型提示改进
+requirement,模块依赖缺失,需要跳过flash_attn和triton模块的相关测试
+requirement,子模块同步问题,自动化更新子模块提交的需求
+requirement,测试与实现不匹配,修改自动并行系统中卷积操作的元信息类测试代码
+requirement,功能实现不完整,添加JIT预热和更新1D layernorm核心
+requirement,框架性能缺陷,alpha-beta估计导致潜在延迟方差较大
+requirement,接口设计不足,CheckpointSolverRotor方法需要重新设计和参数调整
+requirement,子模块维护需求,自动化PR同步子模块引用
+requirement,功能逻辑缺失,Pipeline模块缺少flatten导致exec_seq为None问题
+requirement,元信息测量方式不完善,自动并行系统需要激活CI测试并修改内存测试代码
+requirement,第三方库兼容问题,移除Pipeline中对torch.Tensor的类型检查
+requirement,节点处理功能不足,支持在autoparallel的tracer模块创建多节点参数列表
+requirement,性能优化需求,优化tensorparallel模块的层性能
+requirement,接口更新需求,更新CommSpec到CommAction的处理函数
+requirement,策略处理缺失,添加get_attr操作节点的策略处理程序
+requirement,文档维护需求,更新FastFold文档和推荐系统URL
+requirement,统计功能缺失,添加MemStatsCollectorStatic内存统计组件
+requirement,代码结构优化需求,重构activation checkpoint solvers的数据准备
+requirement,并行处理能力不足,添加torch.matmul操作节点处理程序
+requirement,注意力机制实现缺失,添加CUDA和Triton flash attention功能
+requirement,测试覆盖不足,添加节点策略数值测试API
+requirement,操作处理缺失,添加二元元素级操作节点处理程序
+requirement,文档维护不足,重构Runtime Pass并添加文档
+requirement,代码结构混乱,拆分memory utils和shard utils模块重构
+requirement,广播形状转换问题,添加torch.addbmm的handler处理
+requirement,代码风格不规范,优化测试文件test_3d.py等代码风格
+requirement,版本维护需求,升级ColossalAI到v0.1.11版本
+requirement,通信顺序问题,调整通信操作顺序实现
+requirement,代码规范维护,优化common.py等文件代码风格
+requirement,功能扩展需求,在zero模块添加chunk init函数
+requirement,代码质量优化,通过autoflake和isort重新格式化代码
+requirement,模块结构混乱,清理autoparallel旧代码并重组结构
+requirement,文档完整性不足,补充pytest_wrapper.py模块文档
+requirement,功能模块缺失,需要添加新的处理程序或功能模块（如LayerNorm、Conv handler、BN处理器等）
+requirement,数据类型支持不足,当前框架不支持bf16与amp、zero的结合使用
+requirement,性能优化需求,现有实现存在性能瓶颈（如MetaInfoProp耗时过长、ZeRO进程通信不均衡）
+requirement,模块设计不合理,现有代码结构需要调整（如CommSpec类需要独立解耦、策略生成器需要模板化）
+requirement,功能命名不一致,模块命名需要统一（如FreqAwareEmbedding更名为CachedEmbedding）
+requirement,代码生成逻辑缺陷,自动并行处理存在策略冗余或物理形状映射错误
+requirement,依赖模块未完成,部分功能因依赖项未开发而无法测试（如node handler迁移未完成）
+requirement,通信策略缺失,运算符策略未涵盖必要通信操作（如matmul未包含bias项通信）
+requirement,运行时分析不足,缺乏详细的性能分析工具（如embeddings计时器、分析结果输出）
+requirement,系统兼容性扩展,需要适配新硬件或架构（如非阻塞CPU-GPU拷贝、动态规划表C版本实现）
+requirement,代码维护需求,需要重构代码结构（如pytree_map替换args处理、子模块自动更新机制）
+bug,进程调度缺陷,ZeRO进程间数据传输不对称导致整体效率下降
+bug,策略生成冗余,自动并行处理存在重复策略检查和索引冲突
+requirement,功能测试条件不足,测试环境缺乏必要的控制机制
+requirement,代码生成流程缺失,图操作后缺乏重新编译步骤
+requirement,张量处理逻辑不完善,多维张量物理分片策略映射困难
+requirement,功能未实现,完善不需要广播的矩阵乘法策略
+requirement,功能未实现,自动并行化的矩阵乘法策略生成器需求
+requirement,参数设置不合理,embedding模块默认参数需要更新
+requirement,功能未实现,需要添加自动并行处理的bcast操作处理器
+requirement,框架适配缺失,offload codegen缺少torch11版本支持
+requirement,自动化机制缺失,需要自动化更新子模块提交
+requirement,架构设计不足,需要重构cuda rpc支持新调度
+requirement,测试覆盖不足,极端场景参数未计入通信成本
+requirement,数据结构优化,需要用数据类替代字典结构
+requirement,算法逻辑缺陷,共同节点检测机制导致非预期行为
+requirement,功能扩展需求,需要添加嵌套检查点支持
+requirement,内存管理优化,需要优化解决方案搜索策略
+requirement,接口缺失,需要添加测试收敛性的接口
+requirement,元数据管理不足,需要支持aten级别计算图元追踪
+requirement,代码冗余,重复实现导致代码冗余
+requirement,代码风格不规范,代码不符合规范需要格式调整
+requirement,版本维护需求,需要发布版本更新
+requirement,模块重构需求,需要重构激活检查点求解器
+requirement,性能优化需求,需要优化主循环避免忙等待
+requirement,模块耦合度高,需要解耦子模块引用关系
+requirement,测试不足,需要进行功能测试
+requirement,功能缺失,需要添加反向传播信息到卷积策略
+requirement,模块同步机制缺失,需要自动化更新子模块提交
+requirement,功能缺失,需要添加存活性分析到计算图
+requirement,算法效率低下,优化LFU算法的CUDA内存使用
+requirement,功能缺失,需要同步子模块引用
+requirement,功能缺失,需要改进pipeline模块的机制
+requirement,功能缺失,需要添加StrategiesConstructor类
+requirement,文档不完善,需要更新GitHub项目文档
+requirement,资源分配机制缺失,需要指定服务器GPU使用情况
+requirement,调度策略不优,需要优化pipeline/rpc模块的调度机制
+requirement,测试框架不兼容,CI环境跳过新算法测试
+requirement,错误信息不准确,需要改进Profiler的内存检测和错误提示
+requirement,缓存策略低效,需要改用LRU策略优化FAW嵌入
+requirement,通信机制不优,需要优化1D设备网格通信
+requirement,分布式支持不足,需要集成mmdetection作为分布式后端
+requirement,代码结构不规范,需要添加auto_parallel模块的命名空间标准化
+requirement,功能缺失,需要实现LFU缓存初始化
+requirement,分片策略不完整,需要补充自动并行的卷积分片策略
+requirement,测试框架缺失,需要实现分布式优化器正确性测试
+requirement,性能分析工具缺失,需要添加模型成本和性能分析器
+requirement,代码冗余,需要重构autoparallel模块的torch fx集成
+requirement,功能缺失,需要实现cuda rpc框架的demo
+requirement,代码结构不规范,需要统一自动并行代码格式
+requirement,文档过时,需要更新ProcessGroup类的文档字符串
+requirement,策略生成不足,需要为Conv handler生成多种分片策略
+requirement,初始化效率低,需要优化FreqCacheEmbedding的GPU异步初始化
+requirement,计算图限制,需要线性化计算图以支持激活检查点搜索
+requirement,文档缺失,需要补充ColoTensor的使用文档
+requirement,功能不支持,需要实现runtime ShardingSpec应用
+requirement,存储管理不足,需要为TensorNVMe添加新功能
+requirement,接口设计混乱,需要重构FreqCacheEmbedding的继承结构
+requirement,梯度处理不足,需要支持跨设备/数据类型的clip_grad_norm
+requirement,功能缺失,需要为all-gather chunk添加新功能
+requirement,行为追踪缺失,需要代码生成模块识别激活offload选项
+requirement,接口导出缺失,需要在_ops中导出FAW功能
+requirement,分配算法不足,需要开发新的参数组分配算法
+requirement,分片策略支持不足,需要增强shape consistency功能的自动转换支持
+requirement,算法支持不足,需要添加vanilla激活检查点搜索支持
+requirement,功能缺失,用户希望添加新功能（如并行FAW嵌入、AgChunk功能、缓存管理器、List[Any]通信支持等）
+requirement,文档不完善,用户提出需要补充代码示例、更新README内容、添加注释说明等文档改进需求
+requirement,兼容性支持不足,需要支持PyTorch新版本、添加torchrec兼容性测试、支持PL集成等框架适配需求
+requirement,自动化流程缺失,需要自动化更新子模块提交、自动化PR流程等持续集成需求
+requirement,性能优化需求,用户提出改进内存计算方式、重构通信模块(p2p_v2)、优化CUDA内存使用等性能优化需求
+requirement,接口参数缺失,需要添加only_rank_0参数、save/load_checkpoint的args/kwargs参数等接口扩展需求
+requirement,模块初始化配置问题,ColoTensor需要添加set_dist_spec方法解决初始化不完整问题
+requirement,部署配置更新,需要更新Docker构建流程、添加tensornvme依赖等环境配置需求
+requirement,测试用例维护,需要更新GPU测试用例版本、添加单元测试等质量保障需求
+requirement,调度策略扩展,用户希望支持自定义并行调度策略、改进pipeline_schedule实现
+requirement,存储管理优化,需要添加GPT-2 NVME支持、改进Heterogeneous Memory Management等存储需求
+requirement,代码生成能力扩展,需要增强前向推断代码生成功能并扩大框架版本支持范围
+requirement,功能缺失,用户请求添加对HuggingFace Transformers的官方支持
+requirement,自动化流程不完善,用户提出需要自动化更新子模块提交功能
+requirement,兼容性不足,用户希望支持任意输入版本并关注PyTorch兼容性
+requirement,功能设计不足,当前Module功能无法满足模型保存/加载的高级需求
+requirement,功能设计不足,用户要求为ColoOptimizer添加checkpoint功能
+requirement,版本更新需求,用户提出需要更新框架中的torch版本
+requirement,功能冗余,用户认为ColoOptimizer模块存在冗余设计需要优化
+requirement,测试灵活性不足,用户希望改进PyTorch兼容性测试的版本硬编码限制
+requirement,代码可读性不足,用户建议优化ColoOptimizer初始化方法的代码结构
+requirement,代码风格不一致,用户要求优化构建脚本的代码风格规范
+requirement,模块功能不完整,用户提出需要实现分布式参数checkpoint功能
+requirement,功能设计不足,用户建议增加zero_like运算符支持优化器
+requirement,代码可读性不足,用户要求改进ColoTensor等类的__repr__实现
+requirement,测试覆盖不足,用户提出需要添加ColoTensor交叉熵函数单元测试
+requirement,调度支持不足,用户要求checkpoint功能支持通用调度程序
+question,使用指导缺失,用户不清楚模型分片场景下如何正确实现EMA功能
+requirement,可视化功能缺失,用户要求更新GPT-3可视化功能
+requirement,功能扩展需求,用户提出需要为fx模块新增平衡策略版本
+requirement,功能缺失,用户建议在transformer模块添加MLP功能
+requirement,资源管理需求,用户希望实现跨进程组的tensor重新分配
+requirement,功能缺失,用户要求提供获取fx图属性的方法
+requirement,接口设计不足,用户建议简化tensor分片/复制规范
+requirement,命名规范优化,用户提出需要重命名库中特定功能
+requirement,模块化不足,用户要求拆分pass模块并添加单元测试
+requirement,代码风格不一致,用户持续提出CUDA核心/神经网络模块的代码风格优化需求
+requirement,代码风格不一致,用户要求优化多项式学习率调度器的代码风格
+requirement,代码风格不一致,用户建议改进通信模块collective.py的代码结构
+requirement,模块整合需求,用户提出需要整合colotensor和lazy初始化上下文
+requirement,功能模块缺失或不足,添加全局数据分片处理、新增张量规范应用在图上的功能、初始化并行卷积操作、新增池化层模块补丁、添加embedding bag操作
+requirement,性能优化需求,优化checkpoint性能以提升单元测试速度、1D linear pass函数优化、优化并行操作性能
+requirement,代码规范或结构优化,重构ColoDDP和ZeroDDP、替换ParallelAction操作、API重命名（如TensorSpec、ComputeSpec）、代码规范调整（如1d_linear_pass临时使用）
+requirement,自动化流程需求,自动化更新子模块提交、自动生成发布文本内容、自动化同步子模块引用
+requirement,分布式训练支持不足,添加Tensor的CPU组到DDP、支持分布式视图多进程混合并行、避免dist spec作为参数设置
+requirement,测试覆盖不足,新增模块追踪测试（如timm模型、ColoTracer测试）、添加视图unittest优化
+requirement,API设计不完善,ColoTensor缺少基本功能（如独立进程组、init函数改进）、需要轻量级启动器、配置AutoPlacementPolicy的warmup ratio
+requirement,文档与配置不完善,修正README和Dockerfile、完善ColoTensor的调试功能（如添加`__repr__`方法）
+requirement,工作流改进,支持灵活Pipeline操作（如双流功能）、优化发布管理流程、自动发布docker镜像
+requirement,数据格式支持不足,用户希望支持List of Dict作为输入格式
+requirement,并行策略未覆盖特定参数,用户需在混合并行中排除参数并应用自定义方法
+requirement,模块初始化机制缺失,ColoTensor模块缺乏懒初始化支持
+requirement,设备放置策略不完整,当前仅支持"cuda"策略，需扩展"cpu"和"auto"
+requirement,API功能不统一,collective ops API存在数据缺失或不统一问题
+requirement,内存管理功能不足,需要添加chunk_size搜索和内存监控功能
+requirement,训练流程定制化不足,用户希望自定义epoch执行过程
+requirement,模块组织结构不合理,存在循环导入和目录结构混乱问题
+requirement,文档不完整,log_to_file函数和chunk.py缺乏使用说明
+requirement,测试覆盖不全,GPU数量限制导致部分测试被跳过
+requirement,版本管理机制缺失,需要自动化更新子模块提交和版本号
+requirement,推理功能未集成,项目缺少推理子模块路径
+requirement,预训练模型兼容性差,ZeroInitContext导致无法加载checkpoint
+requirement,分布式通信功能不足,P2P模块需添加对象列表传输功能
+requirement,参数配置不灵活,训练时无法修改最大步数等超参数
+requirement,代码可维护性不足,需要重构并行操作相关代码
+requirement,开发环境配置过时,Docker指令和镜像名称需要更新
+requirement,示例资源缺失,需要添加Colab教程和Bert测试案例
+requirement,新特性未及时同步,需支持StyleganXL和Latent Diffusion特性
+requirement,优化器支持不全,ColoTensor缺乏"zero"优化器实现
+requirement,梯度累积配置问题,学习率调度器与梯度累积步数不协调
+requirement,代码风格不规范,CUDA前端C代码需要风格优化
+bug,未使用的导入项,未使用的导入项可能会导致导入错误
+requirement,代码风格不符合规范,代码可读性差或风格不一致需优化
+requirement,缺乏功能支持,用户询问或请求新增功能（如TPU、DistSpec等）
+question,功能支持确认,用户主动询问框架是否支持特定功能或架构
+requirement,子模块同步问题,子模块引用未同步或需自动化更新
+requirement,版本控制问题,版本更新需求或兼容性问题
+requirement,参数共享冲突,参数共享导致计算模式不一致
+requirement,CUDA架构限制,特定CUDA架构（如sm70）支持缺失
+requirement,自动化流程需求,需自动化操作（如机器人更新子模块）
+requirement,代码冗余问题,代码重复或冗余需优化设计
+requirement,测试流程缺陷,测试未完成或存在风险需干预
+requirement,模型兼容性需求,需支持新模型（如OPT、Huggingface BERT）
+requirement,张量分类需求,需区分模型数据和非模型数据张量
+requirement,功能缺失或实现不完整,需要添加新功能模块（如ColoTensor的gather/ShardPattern/1Dcol/TP1Dcol Embedding等）
+requirement,现有功能扩展性不足,需要支持新模型类型（如GPT的pipelining支持、HuggingFace Bert适配）
+requirement,API接口不完善,需要扩展模块方法（如ShardedModelV2的state_dict()/load_state_dict()、ColoOptimizer初始化）
+requirement,配置管理机制缺失,需要增加配置验证机制（schema模块）确保配置规范性
+requirement,性能优化需求,需要优化现有功能性能（如gemini模块布局调整缓存、代码重构）
+requirement,兼容性维护需求,需要支持多版本兼容（Python3.6适配、CUDA/Torch版本构建脚本）
+requirement,文档体系不完善,需要改进文档可读性（通信模块/amp模块文档美化、类型提示增强）
+requirement,工程化流程改进,需要优化开发流程（CI运行时优化、代理设置调整、子模块同步机制）
+requirement,数据结构标准化,需要统一数据结构规范（新tensor数据结构RFC、ColoTensor重命名）
+requirement,工具链增强,需要新增开发工具（CLI构建检查工具、profiler重构）
+requirement,依赖管理优化,需要精简依赖项（移除torchvision等非必要依赖）
+requirement,内存管理改进,需要增强内存管理（GeminiMemoryManager添加、StatefulTensor重构）
+requirement,自动化机制缺失,需要增加自动化功能（权重自动分片、延迟内存分配）
+requirement,模块依赖管理不足,需要自动化更新子模块提交
+requirement,缺乏API支持,无法设置CPU内存容量或调整功能
+requirement,依赖管理缺失,CLI模块缺少必要依赖包
+requirement,模块设计不合理,存在循环导入问题
+requirement,功能不支持特定配置,需要适配检查点格式
+requirement,监控指标不足,日志缺少tflops性能指标
+requirement,CI/CD配置过时,需要更新持续集成流程
+requirement,开发流程不明确,需要确定提案实施步骤
+requirement,功能未实现,缺乏张量分片策略支持
+requirement,监控功能不完善,需要记录Tflops指标
+requirement,功能未实现,缺少分布式启动器命令
+requirement,功能未实现,缺乏CLI启动功能
+requirement,兼容性问题,强制GPU初始化导致版本冲突
+requirement,功能未实现,需要开发特定模块功能
+requirement,计算效率低下,需要优化并行计算流程
+requirement,维护需求,需要更新项目版本
+requirement,代码耦合严重,需要重构shard/gather操作
+requirement,文档维护不足,中英文文档内容不同步
+requirement,文档不完善,README缺失关键信息
+requirement,兼容性需求,需要保持与PyTorch的兼容
+requirement,模块耦合严重,Gemini与ZeRO存在依赖问题
+requirement,功能未实现,无法配置无偏置的LayerNorm
+requirement,文档不完善,缺乏项目集成教程
+requirement,示例维护不足,同名模型文件导致混淆
+requirement,功能未实现,需要添加内存管理策略
+requirement,监控工具缺失,需要同步CUDA内存监视器
+requirement,文档维护不足,安装指令过时
+requirement,测试覆盖不足,需要添加单元测试检查点
+requirement,功能未实现,无法检测节点进程数量
+requirement,数据导出功能缺失,无法导出性能数据
+requirement,可视化功能受限,无法绘制交互式图表
+requirement,功能未实现,无法获取进程共享信息
+requirement,示例不足,缺少版本兼容性演示
+requirement,功能适应性差,需要改进参数处理机制
+requirement,文档内容缺失,需要添加外部资源链接
+requirement,参数传递限制,梯度checkpoint不支持字典参数
+requirement,示例不足,缺少Swish Transformer示例
+requirement,功能未实现,需要支持CPU/Hybrid优化器
+requirement,CI/CD流程改进,更新后选项列表仅在特定分支有效，需调整CI工作流程
+requirement,性能优化需求,兼容性测试耗时过长，需添加选项以选择特定版本测试
+requirement,示例补充需求,用户希望提供强化学习示例或小资源示例
+requirement,功能扩展需求,需支持动态管理CPUGPU空间、自定义DDP参数、推断配置参数等功能
+requirement,代码规范维护,代码风格不一致需优化（如文件builder.py、cpu_adam.cpp等）
+requirement,文档维护需求,文档不完整或缺少关键内容（如并行模型定义、checkpoint功能说明）
+requirement,监控配置需求,需添加Prometheus/Loki-Promtail监控配置或日志系统
+requirement,测试覆盖不足,需增加检查点测试、更新测试文件以适应单GPU环境
+requirement,工具链优化,需改进模型保存/加载工具、统一初始化流程、添加混合优化器
+requirement,版本维护,需更新软件版本或同步框架功能改进
+requirement,资源管理问题,异构训练因内存限制失败，需优化ZeRO操作
+requirement,自动化流程需求,需从配置文件自动推断参数、添加pre-commit格式规范
+requirement,新增功能需要测试支持,请求测试新增函数或API
+requirement,命名不准确导致理解困难,变量/模块命名需修改以提高可读性
+requirement,旧实现方式存在局限性,需重构旧代码或移除遗留代码
+requirement,文档格式不符合规范,需重构/更新API文档或文档字符串
+requirement,代码结构导致循环引用,需改进单例模式或上下文定义
+requirement,参数适配需求,需修改/移除冗余参数或优化接口
+requirement,资源管理需求,需添加内存跟踪/移动API或CUDA资源管理
+requirement,功能改进需求,需支持混合精度/并行计算/模型状态管理
+requirement,依赖管理问题,需调整第三方依赖或镜像源配置
+requirement,自动化流程不足,需实现子模块同步或异常重试机制
+requirement,性能优化需求,需支持pipeline并行或算法效率提升
+requirement,实验验证需求,需添加性能对比可视化结果
+requirement,测试覆盖不足,需补充单元测试或梯度验证
+requirement,模块功能独立化,需解耦模块依赖实现独立功能
+requirement,格式标准化需求,需统一命名格式或代码风格
+requirement,异常处理机制缺失,需增加异常捕获与重试功能
+requirement,混合计算支持,需实现CPU/GPU混合优化器支持
+requirement,模型架构扩展,需添加新模型结构支持（如MOEGPT）
+requirement,功能需求,涉及新增或改进功能模块（如MOE模块、ShardedOptimizerV2、ViLT-MLM模型等），需支持特定操作（如CPU上的ADAMW优化器、CLI功能、P2P通信检查等）
+requirement,性能优化,针对测试代码、CI流程或模块性能进行优化（如缩短CI时间、减少单元测试耗时、优化梯度处理带宽等）
+requirement,代码质量优化,涉及代码重构、测试代码合并、初始化方法改进、优化器版权问题调整等
+requirement,文档更新,需要更新贡献指南、README路径、模块文档（如ZeRO模块、负照更新等）以反映当前流程或修复错误
+requirement,工具集成,新增或替换工具（如使用`rich`库改进日志、替换CodeBeat为CodeFactor、集成Hugging Face平台等）
+requirement,模块兼容性适配,需适配不兼容的API接口（如DLCM适配、模型同步功能、CUDA迁移等）
+requirement,监控与统计,新增内存统计、PCIE profiler、集群日志监控等需求
+bug,功能缺陷,现有功能存在问题（如CPUADAM无法在CUDA运行、梯度卸载未充分利用带宽等）
+bug,测试缺陷,测试用例初始化分布式网络效率低或需要优化测试规模
+question,配置问题,涉及unittest零配置问题或寻求相关帮助
+requirement,功能未实现或未完善,需要添加全局模型数据内存追踪功能、性能分析模块的实时数据监测、MemProfiler、示例代码、测试ShardedOptimV2与CPUAdam的兼容性
+requirement,系统架构优化需求,需要重构异步内存组织结构、改进分片参数设计、优化zero模块的分片策略
+requirement,性能监控能力不足,缺乏通信性能分析上下文管理器、内存分析器自适应采样功能、主内存追踪器参数配置
+requirement,测试覆盖不全面,需要添加ShardedOptimV2单元测试、Zero3ParameterManager测试、梯度分片验证测试
+requirement,代码质量改进,需要Flake8代码格式化、更新zero hook功能、重构github action工作流
+requirement,模块兼容性不足,要求支持ShardedTensor API、Zero3的clip_grad功能、fp16梯度分片与聚合策略
+requirement,用户体验优化,需要集成配置教程、简化参数钩子注册操作、添加模型初始化切片说明
+requirement,文档维护需求,要求添加贡献者徽章、完善issue模板内容、更新README文档
+requirement,内存管理优化,需要实现模型参数fp16转换、细粒度参数分片、内存预热功能支持
+requirement,开发流程改进,建议优化CI触发配置、分离文档变更的测试流程、完善PR草稿规范
+requirement,系统扩展性增强,需要支持TensorListShardStrategy分片策略、FlatShardStrategy扁平化处理、梯度hook重构
+requirement,功能未实现,用户希望添加新的功能模块（如TPExpert、ZeRO优化器阶段1/2、内存跟踪器等）
+requirement,文档缺失或不完善,用户要求补充中文文档、教程说明或实验结果展示
+requirement,框架兼容性需求,用户需要框架支持特定模型（如SyncBN与fp16兼容性、TensorFlow示例构建）
+requirement,自动化流程缺失,用户希望实现自动化流程（如子模块同步、PyPI自动发布、CUDA扩展自动构建）
+requirement,代码质量管理需求,用户提出改进代码质量（如添加质量徽章、更新flake8配置、优化pre-commit）
+requirement,性能优化需求,用户要求添加资源优化功能（如激活CPU卸载、内存监控）
+bug,数据类型处理错误,fp16实现导致批量归一化层数据类型检查失败
+requirement,开发流程优化,用户希望改进分支管理策略（如合并到develop分支而非master）
+requirement,API功能不足,用户需要增强API能力（如集体操作函数、运行时钩子扩展）
+requirement,部署配置不完整,用户指出PyPI包缺少元数据（如长描述缺失）
+requirement,验证机制缺失,用户要求增加收敛验证功能（如ResNet+CIFAR10验证）
+requirement,示例代码缺失,用户需要添加基准测试代码（如GPT基准代码）
+question,功能使用指导不足,用户询问具体功能的使用方法（如模型保存/加载、并行功能支持）
+requirement,CI/CD改进,用户要求更新GitHub Actions等持续集成配置
+requirement,代码维护需求,用户提出需要更新遗留代码（如zero_stage3开发待办事项）
+requirement,功能模块缺失,用户希望添加新的功能模块（如transpose_pad_fusion kernel、多输出支持、ViLT数据并行示例）
+requirement,文档不完善,需要更新或修正文档（如README、API文档、tutorial文件、AMP模型文档）
+requirement,示例不足,用户请求添加或整合模型示例（如GPT2、GPT3、deeplabv3+、CamVid数据集示例）
+requirement,性能优化需求,用户提出优化建议（如减少通信负载、优化GPU内存、提升训练效率）
+requirement,兼容性问题,框架不支持特定数据格式或工具（如仅支持字典形式的批处理、缺乏Hugging Face模型迁移指导）
+requirement,环境配置需求,用户请求改进环境配置（如CUDA扩展自动构建、Docker镜像构建、环境变量管理）
+requirement,功能增强,用户希望扩展现有功能（如支持混合并行模型、随机数据增强、梯度检查点技术）
+requirement,工程结构优化,需要重构代码结构（如CUDA kernel重构、移除冗余进程组）
+requirement,可视化与交互改进,用户建议提升界面或交互（如透明Logo添加、论坛功能集成）
+requirement,日志系统优化,需调整日志记录设置（如默认日志名称修改、禁用冲突日志器）
+requirement,自动化流程缺失,文档或构建流程未自动化（如文档自动部署、基准模块更新）
+requirement,并行处理功能不足,需要支持GPT/BERT训练的管道并行处理，添加模型并行初始化器和单元测试
+requirement,计算与通信未优化,提出在2D操作中重叠计算和通信以提高性能
+requirement,文档不完善或过时,需要更新API文档/Sphinx文档/英文markdown文档，增加中文支持
+requirement,示例代码缺失或不够详细,缺少MNIST分类/ViT-B16/SimCLR自监督训练/高光谱影像处理等应用示例
+requirement,API设计不够灵活,需要重命名API、重构指标、改进初始化方式或添加新接口（如Timer的ignore_steps参数）
+requirement,测试覆盖不足,需要添加自动化单元测试并调整测试文件夹结构
+requirement,模型初始化方式需要改进,更新PipelineModelInitializer的模型加载规则
+requirement,配置和运行环境支持不足,需支持单机多GPU训练、调整LAMB模型参数、改进分布式系统兼容性
+requirement,收敛性及性能问题,2D/1D ViT收敛不稳定，3D层运算速度慢需要优化
+requirement,代码结构可维护性差,需重构Layer集成代码、2.5D层代码以提升准确性
+requirement,用户交互体验不佳,需要优化lr_scheduler命名逻辑，改善issue模板易用性
+requirement,文档不完善,用户需要添加或更新项目文档（如中文文档、修正拼写错误）
+requirement,功能缺失,用户需要新增框架功能（如梯度累积、自定义调度表）
+requirement,模块设计不合理,用户要求改进模块逻辑一致性（如Engine/Trainer/Scheduler模块交互）
+requirement,文档结构混乱,用户建议优化文档组织结构（如并行化方法排序调整）
+requirement,多语言支持不足,用户需要通过环境变量控制文档生成语言
+requirement,功能灵活性不足,用户需要更灵活控制训练过程（如学习率调度器更新方式）

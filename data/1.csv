@@ -1,0 +1,134 @@
+Framework,Keyword
+PyTorch,transformer
+PyTorch,attention
+PyTorch,LLM
+PyTorch,GPT
+PyTorch,BERT
+PyTorch,LLaMA
+PyTorch,BLOOM
+PyTorch,OPT
+PyTorch,ChatGPT
+PyTorch,HuggingFace
+PyTorch,transformers
+PyTorch,Megatron
+PyTorch,DeepSpeed
+PyTorch,vLLM
+PyTorch,FlashAttention
+PyTorch,FSDP
+PyTorch,LoRA
+PyTorch,QLoRA
+PyTorch,rotary embedding
+PyTorch,OOM
+PyTorch,CUDA out of memory
+PyTorch,gradient checkpointing
+PyTorch,fp16
+PyTorch,bf16
+PyTorch,quantization
+PyTorch,int8
+PyTorch,mixed precision
+PyTorch,torch.compile
+PyTorch,torch.distributed
+PyTorch,pipeline parallel
+PyTorch,tensor parallel
+PyTorch,model parallel
+PyTorch,torchrun
+PyTorch,allreduce
+PyTorch,NCCL error
+PyTorch,Triton kernel
+PyTorch,torch.fx
+PyTorch,TorchDynamo
+PyTorch,AITemplate
+,
+TensorFlow,transformer
+TensorFlow,BERT
+TensorFlow,T5
+TensorFlow,LLM
+TensorFlow,GPT
+TensorFlow,ChatGPT
+TensorFlow,BLOOM
+TensorFlow,OPT
+TensorFlow,attention
+TensorFlow,encoder-decoder
+TensorFlow,seq2seq
+TensorFlow,long sequence
+TensorFlow,billion parameters
+TensorFlow,OOM
+TensorFlow,out of memory
+TensorFlow,tf.data bottleneck
+TensorFlow,tf.distribute
+TensorFlow,strategy
+TensorFlow,MirroredStrategy
+TensorFlow,MultiWorkerMirroredStrategy
+TensorFlow,memory leak
+TensorFlow,tf.function
+TensorFlow,XLA compile
+TensorFlow,quantization
+TensorFlow,int8
+TensorFlow,bfloat16
+TensorFlow,fp16
+TensorFlow,TPU
+TensorFlow,AutoGraph
+TensorFlow,graph mode
+TensorFlow,multi-GPU
+TensorFlow,TPU training
+TensorFlow,sharding
+TensorFlow,data parallel
+TensorFlow,model parallel
+TensorFlow,TensorRT
+TensorFlow,TF-TRT
+TensorFlow,KerasNLP
+TensorFlow,long context
+TensorFlow,tfa.optimizers
+TensorFlow,TPU failure
+,
+MindSpore,LLM
+MindSpore,GPT
+MindSpore,BERT
+MindSpore,BLOOM
+MindSpore,ChatGLM
+MindSpore,ZhipuAI
+MindSpore,attention
+MindSpore,transformer
+MindSpore,rotary embedding
+MindSpore,FlashAttention
+MindSpore,Pangu-alpha
+MindSpore,long sequence
+MindSpore,billion parameters
+MindSpore,OOM
+MindSpore,memory leak
+MindSpore,float16
+MindSpore,bfloat16
+MindSpore,int8 quant
+MindSpore,overflow
+MindSpore,underflow
+MindSpore,precision loss
+MindSpore,kernel timeout
+MindSpore,memory exhausted
+MindSpore,ParallelMode
+MindSpore,auto_parallel
+MindSpore,model parallel
+MindSpore,data parallel
+MindSpore,sharding
+MindSpore,mindspore.communication
+MindSpore,allreduce
+MindSpore,allgather
+MindSpore,Ascend
+MindSpore,HCCL error
+MindSpore,task fail
+MindSpore,execution timeout
+MindSpore,GraphKernel
+MindSpore,GE backend
+MindSpore,runtime error
+MindSpore,compile failure
+MindSpore,pynative mode
+MindSpore,graph mode
+MindSpore,ascend compile
+MindSpore,operator fusion
+MindSpore,MindFormers
+MindSpore,MindCV
+MindSpore,MindData
+MindSpore,MindNLP
+MindSpore,tokenizer error
+MindSpore,MindSpore Lite
+MindSpore,MindIR
+MindSpore,checkpoint loading failed

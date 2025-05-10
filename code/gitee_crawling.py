@@ -5,8 +5,8 @@ import time
 import re
 import os
 
-OWNER = "ascend"   # 仓库所属用户或组织
-REPO = "MindSpeed"  # 仓库名称
+OWNER = "mindspore"   # 仓库所属用户或组织
+REPO = "mindspore"  # 仓库名称
 
 ACCESS_TOKEN = os.getenv("gitee_token")
 if not ACCESS_TOKEN:
@@ -39,13 +39,11 @@ BASE_URL = "https://gitee.com/api/v5/repos/{owner}/{repo}/issues"
 COMMENTS_URL = "https://gitee.com/api/v5/repos/{owner}/{repo}/issues/{issue_id}/comments"
 
 # CSV 文件初始化
-csv_file = fr".\research\data\{REPO}.csv"
-csv_columns = ["name", "title", "body", "Created At", "Tags", "State", "Reactions", "Comments_count", "Link", "Comments"]
+csv_file = fr".\research\data\{REPO}\2025\mindspore_2025_user.csv"
 
-# 创建 CSV 文件并写入标题行
+# 创建 CSV 文件
 with open(csv_file, mode="w", newline="", encoding="utf-8") as file:
-    writer = csv.writer(file)
-    writer.writerow(csv_columns)
+    pass
 
 # 获取 Issues 的函数
 def get_issues(page=1):

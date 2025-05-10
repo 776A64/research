@@ -1,0 +1,462 @@
+大类,问题的根因,问题的症状描述
+bug,版本兼容性（如 NumPy/MindSpore/transformers 版本冲突）,训练/加载时报错或崩溃
+bug,数据类型不支持（如 bfloat16、safetensors 等）,dtype 不一致或无法识别
+bug,功能未实现（如某模型微调方式、split 函数等缺失）,调用时抛出 NotImplementedError 或空指针
+bug,环境配置错误（如 Windows+CPU、Orange Pi、Ascend 设备等）,导入失败或设备不可见错误
+bug,接口设计缺陷（如 from_pretrained 无法识别条件化检测模型）,加载失败或参数缺失
+bug,依赖安装/下载问题（源码下载不全、多线程禁用等）,安装/下载失败或缺包
+bug,硬件资源限制或多卡并行问题（如四卡报错）,OOM 或线程异常
+bug,逻辑或代码错误（如误删文件内容、接口调用不完整）,集成测试/功能测试不通过
+bug,第三方库兼容性（如 pyboost、TensorPy 与 MindSpore 兼容问题）,初始化或运行时报错
+question,文档或示例缺失（如缺乏使用说明、参数解释）,用户询问“如何使用/如何复现”
+requirement,新增功能需求（如支持新的 safetensors loader）,用户期望“需添加 XX 功能”
+requirement,性能优化需求（如推理效率不达标）,用户期望“提升性能/多卡支持”
+bug,版本兼容性（如 MindSpore/transformers/mixtral 等版本冲突）,运行时抛出 RuntimeError、训练/加载失败
+bug,数据类型不支持（如 bfloat16、混合精度不兼容）,报错无法获取浮点信息或 dtype 不一致
+bug,功能未实现（如 IA3、cells→modules 替换、ops.ones 未支持）,调用时报 NotImplementedError 或空指针
+bug,环境/硬件配置错误（如 Orange Pi、香橙派 AIPro、Ascend、CPU 模式）,模块加载失败或设备不可见
+bug,接口设计缺陷（如 from_pretrained 识别失败、normalize_embeddings 逻辑有误）,模型加载/推理输出不准确
+bug,依赖安装/下载问题（源码下载不全、版本号无效）,安装失败或下载中断
+bug,多进程/多卡并行问题（如 AllReduce 调用时机、四卡报错）,OOM、线程异常或超时
+bug,参数配置错误（如 optimizer step、task_ids 缺失、分组参数配置不当）,TypeError、ValueError 或数值错误
+bug,拼写或命名错误（如 llama→baichuan 拼写、module_logits→cell_logits）,AttributeError 或 KeyError
+bug,测试用例或示例缺陷（如 pytest 配置错误、Quick start 示例失败）,测试不通过或示例运行报错
+bug,性能或效率问题（如训练速度慢、推理效率低）,训练/推理耗时过长或结果准确度下降
+question,文档/示例缺失（无参数说明、用法示例）,用户询问“如何使用/如何配置”
+requirement,新增功能需求（如 safetensors loader、更多精度支持）,用户期望“新增 XX 功能”
+requirement,性能优化需求（如多卡推理、低内存占用）,用户期望“提升性能/资源利用”
+bug,版本兼容性（如 MindSpore/transformers/mixtral 版本冲突）,运行时抛出 RuntimeError、训练/加载失败
+bug,数据类型支持不足（如 bfloat16、混合精度不兼容）,dtype 不一致或无法获取浮点信息
+bug,维度不匹配（如示例程序推理维度错位）,抛出 ShapeMismatchError 或 IndexError
+bug,代码修改不完整（如替换 DataLoader 后未同步修改）,KeyError 或逻辑异常
+bug,模型/模块未注册或丢失（如 minicpm 未注册、injection 模块不存在）,ModuleNotFoundError
+bug,性能或资源利用不足（如训练速度线性变慢、CPU/GPU 利用率低）,训练/推理耗时过长或无进度
+bug,参数配置错误（如 per_gpu_train_batch_size、task_ids 缺失）,KeyError、ValueError 或 TypeError
+bug,接口/API 设计缺陷（如 normalize_embeddings、set_adapter 多 adapter）,调用异常或结果不一致
+bug,导入/命名/拼写错误（如 llama→baichuan 拼写错误、module_logits），AttributeError 或 KeyError
+bug,环境/硬件不兼容（如 OrangePi、Ascend、香橙派 AIPro）,UnsupportedExpression 或设备不可见
+bug,运算符或数值稳定性问题（如 cumsum 缺失、gamma 设置错误）,RuntimeError 或数值异常
+bug,多卡/分布式训练错误（如 AllReduce 调用时机不当、动态图分布式失败）,OOM、Deadlock 或超时
+bug,第三方依赖过时或缺失（如 nn.utils.parametrizations 未更新）,ImportError 或 NotImplementedError
+bug,文档与示例缺失或错误（如 Quick start 示例失败、URL 错误）,用户无法复现或询问“如何…”
+bug,功能未实现（如 IA3、whisper stream、llava on Ascend）,调用时报 NotImplementedError 或空指针
+bug,逻辑或算法缺陷（如损失计算错误、split 实现有误）,输出 nan 或收敛不一致
+question,文档/示例缺失（如参数说明、用法示例）,用户询问“如何使用/如何配置”
+requirement,新增功能需求（如 safetensors loader、多精度支持）,用户期望“需添加 XX 功能”
+requirement,性能优化需求（如多卡推理、低内存占用）,用户期望“提升性能/资源利用”
+bug,版本兼容性（依赖版本冲突）,抛出 RuntimeError 或加载失败
+bug,数据类型支持不足（bfloat16/混合精度）,dtype 不一致或无法获取浮点信息
+bug,环境/硬件不兼容（OrangePi/Ascend/CPU-only）,UnsupportedExpression 或设备不可见
+bug,API/接口设计缺陷（from_pretrained/normalize_embeddings）,调用异常或结果不一致
+bug,功能未实现（IA3/whisper stream/llava on Ascend）,NotImplementedError 或空指针
+bug,维度/形状不匹配（tensor shape mismatch）,IndexError 或 ShapeMismatchError
+bug,参数配置错误（batch_size/task_ids）,KeyError、ValueError 或 TypeError
+bug,逻辑或算法缺陷（损失计算/split 实现错误）,输出 nan 或收敛不一致
+bug,导入/注册/命名错误（模块未注册/拼写错误）,ModuleNotFoundError 或 KeyError
+bug,第三方依赖缺失或过时（parametrizations/pyboost）,ImportError 或 NotImplementedError
+bug,多卡/分布式训练错误（AllReduce/分布式模式）,OOM、Deadlock 或超时
+bug,性能或资源利用不足（速度慢/利用率低）,训练/推理耗时过长
+bug,依赖安装/下载问题（源码下载不全/版本号无效）,安装/下载失败
+bug,文档示例缺失或错误（URL 拼写/示例失败）,用户无法复现
+bug,运算符或数值稳定性问题（cumsum/gamma/nan）,RuntimeError 或数值异常
+question,文档示例缺失（缺参数说明/示例）,用户询问“如何使用”
+requirement,新增功能需求（safetensors loader/多精度支持）,用户期望“新增 XX 功能”
+requirement,性能优化需求（多卡推理/低内存占用）,用户期望“提升性能/资源利用”
+bug,版本兼容性（依赖版本冲突）,加载/运行时报 RuntimeError 或崩溃
+bug,数据类型支持不足（bfloat16/混合精度）,dtype 不一致或无法获取浮点信息
+bug,环境/硬件配置错误（OrangePi/Ascend/CPU-only）,UnsupportedExpression 或设备不可见
+bug,API/接口设计缺陷（from_pretrained/normalize_embeddings）,调用异常或结果不一致
+bug,功能未实现（IA3/whisper stream/llava on Ascend）,NotImplementedError 或空指针
+bug,维度/形状不匹配（tensor shape mismatch）,IndexError 或 ShapeMismatchError
+bug,参数或配置错误（batch_size/task_ids/per_gpu_train_batch_size）,KeyError、ValueError 或 TypeError
+bug,逻辑或算法缺陷（损失计算/split 错误）,输出 nan 或收敛不一致
+bug,导入/注册/命名错误（模块未注册/拼写错误）,ModuleNotFoundError 或 KeyError
+bug,第三方依赖问题（parametrizations/pyboost 等）,ImportError 或 NotImplementedError
+bug,多卡/分布式训练错误（AllReduce/Distributed Training）,OOM、Deadlock 或超时
+bug,性能或资源利用不足（速度慢/CPU/GPU 利用率低）,训练/推理耗时过长
+bug,安装/下载失败（源码下载不全/版本号无效）,安装或下载中断
+bug,文档示例缺失或错误（示例脚本/URL 拼写）,用户无法复现
+bug,运算符或数值稳定性问题（cumsum/gamma/nan）,RuntimeError 或数值异常
+question,文档/示例缺失（缺参数说明/示例脚本）,用户询问“如何使用/如何配置”
+requirement,新增功能需求（safetensors loader/多精度支持）,用户期望“新增 XX 功能”
+requirement,性能优化需求（多卡推理/低内存占用）,用户期望“提升性能/资源利用”
+bug,版本兼容性（依赖版本冲突）,运行时抛出 RuntimeError 或加载失败
+bug,数据类型支持不足（bfloat16/混合精度）,dtype 不一致或无法获取浮点信息
+bug,环境/硬件配置（OrangePi/Ascend/CPU-only）,UnsupportedExpression 或设备不可见
+bug,API/接口设计缺陷（from_pretrained/normalize_embeddings）,调用异常或结果不一致
+bug,功能未实现（IA3/whisper stream/llava on Ascend）,NotImplementedError 或空指针
+bug,维度/形状不匹配（tensor shape mismatch）,IndexError 或 ShapeMismatchError
+bug,参数/配置错误（batch_size/task_ids/scale_factor）,KeyError、ValueError 或 TypeError
+bug,逻辑/算法缺陷（损失计算/split 错误）,输出 nan 或收敛不一致
+bug,导入/注册/命名错误（模块未注册/拼写错误）,ModuleNotFoundError 或 KeyError
+bug,第三方依赖缺失或过时（parametrizations/pyboost/faiss）,ImportError 或 NotImplementedError
+bug,多卡/分布式训练错误（AllReduce/Distributed Training）,OOM、Deadlock 或超时
+bug,性能/资源利用不足（速度慢/利用率低）,训练/推理耗时过长
+bug,安装/下载失败（下载不全/版本号无效）,安装或下载中断
+bug,文档示例缺失或错误（示例脚本/URL 拼写）,用户无法复现
+bug,运算符/数值稳定性问题（cumsum/gamma/nan）,RuntimeError 或数值异常
+question,文档/示例缺失（缺参数说明/示例脚本）,用户询问“如何使用/如何配置”
+requirement,新增功能需求（safetensors loader/多精度支持）,用户期望“新增 XX 功能”
+requirement,性能优化需求（多卡推理/低内存占用）,用户期望“提升性能/资源利用”
+bug,版本兼容性（依赖版本冲突）,加载/运行时报 RuntimeError 或崩溃
+bug,数据类型支持不足（bfloat16/混合精度）,dtype 不一致或无法获取浮点信息
+bug,环境/硬件配置错误（Ascend/OrangePi/CPU-only）,UnsupportedExpression 或设备不可见
+bug,API/接口设计缺陷（from_pretrained/normalize_embeddings）,调用异常或结果不一致
+bug,功能未实现（IA3/whisper stream/llava on Ascend）,NotImplementedError 或空指针
+bug,维度/形状不匹配（tensor shape mismatch）,IndexError 或 ShapeMismatchError
+bug,参数或配置错误（batch_size/task_ids/scale_factor）,KeyError、ValueError 或 TypeError
+bug,逻辑或算法缺陷（损失计算/split 错误）,输出 nan 或收敛不一致
+bug,导入/注册/命名错误（模块未注册/拼写错误）,ModuleNotFoundError 或 KeyError
+bug,第三方依赖缺失或过时（parametrizations/pyboost/faiss）,ImportError 或 NotImplementedError
+bug,多卡/分布式训练错误（AllReduce/Distributed Training）,OOM、Deadlock 或超时
+bug,性能或资源利用不足（速度慢/利用率低）,训练/推理耗时过长
+bug,安装/下载失败（下载不全/依赖安装失败）,安装或下载中断
+bug,文档示例缺失或错误（示例脚本/URL 拼写）,用户无法复现
+bug,运算符/数值稳定性问题（cumsum/gamma/nan）,RuntimeError 或数值异常
+question,文档/示例缺失（缺参数说明/示例脚本）,用户询问“如何使用/如何配置”
+requirement,新增功能需求（safetensors loader/多精度支持）,用户期望“新增 XX 功能”
+requirement,性能优化需求（多卡推理/低内存占用）,用户期望“提升性能/资源利用”
+bug,环境兼容性问题,因 Python 版本或硬件平台不兼容导致运行失败或测试无法通过
+bug,性能瓶颈,代码实现或配置不当导致推理/训练速度过慢
+bug,输出异常,损失函数或计算逻辑缺陷导致输出尺寸不匹配或精度误差过大
+bug,显示/结果异常,未知原因导致出现乱码、无法识别字符或结果与预期差距显著
+bug,属性/接口缺失,模型加载或微调时缺少必要属性或接口（如 peft_config、get_added_tokens_decoder）导致 RuntimeError
+bug,逻辑解析错误,注释解析、参数校验等逻辑缺陷导致功能异常
+bug,更新回归缺陷,最近代码更新或补丁引入新问题导致原功能失效
+bug,索引/递归错误,索引越界或递归深度超限导致程序崩溃
+bug,序列化/反序列化错误,反序列化过程中报错导致脚本执行失败
+bug,路径/文件格式错误,模型路径或文件后缀格式不符导致加载失败
+bug,示例/文档缺失,缺少示例代码或文档导致用户无法正确使用
+bug,未知或未描述原因,issue 内容过于简略，缺乏复现信息导致无法定位具体问题
+requirement,测试反馈,测试完成或进度更新的反馈，用于协同测试或推进流程
+bug,实现错误,模型推理时卡住
+bug,环境/版本不匹配,导入错误 (ImportError) 或推理失败
+bug,精度处理问题,权重消失 或 单元测试失败
+bug,依赖缺失,无法导入模块（如 easydict、scipy）
+bug,数据处理错误,token 时间戳错误
+bug,API 使用错误,TypeError: unhashable type: 'dict'
+bug,路径配置错误,找不到 CUDA 路径 (find_cuda_home 报错)
+bug,不支持的操作,roll 操作在 CPU 上不支持
+bug,示例过时,示例代码运行报错
+bug,网络/链接错误,模型加载失败 (如 HF-Mirror URL 错误)
+bug,冗余或冲突导入,重复类导入导致程序崩溃
+bug,平台/硬件特定问题,Ascend 平台推理功能失效
+requirement,缺少功能,支持 BLIP 模型
+requirement,缺少功能,支持 JetMoE 或 zero-load
+requirement,适配需求,支持 pipeline & injection 功能
+bug,方法被移除,调用该方法时报错或功能缺失
+bug,输入类型不匹配,抛出 TypeError
+bug,代码修复不完整或错误,功能异常或错误持续存在
+requirement,功能未被支持,用户提出增加该功能的请求
+bug,模块初始化错误,初始化阶段失败/抛出异常
+bug,外部函数或库调用问题,加载 ckpt 时失败
+bug,后端异步处理错误,推理过程中出现挂起或报错
+bug,硬件兼容性问题,在特定硬件（如 Ascend）上出现错误
+bug,张量维度不匹配,构造/执行时维度不一致报错
+bug,参数类型转换缺失,key_missing 或相关参数加载失败
+bug,运算精度问题,fp16 下出现 NaN
+bug,内存使用异常,内存溢出或占用过高
+bug,单元测试覆盖不足,测试用例被跳过或缺失
+bug,文件或示例内容缺失,ipynb/示例代码空白
+bug,权限或访问控制错误,安装/运行时报“Permission Denied”
+bug,模块导入错误,无法 import 对应模块
+bug,配置或命名错误,配置项或命名不一致导致功能异常
+requirement,性能或稳定性优化,建议修改底层配置如 ACL 默认项
+bug,数据集路径或 URL 失效,加载数据集或下载时抛出文件不存在或 404 错误
+bug,文档/示例代码截断或缺失,示例无法完整运行或报 NotImplementedError
+bug,算子或模块实现错误,单元测试跳过／执行时报错（如 CRF transpose、GatherV2 越界）
+bug,预训练模型缓存或加载逻辑有误,无法加载预训练模型／模型找不到（“model not found”）
+bug,硬件平台兼容性问题,模型在 Ascend/Kaggle GPU 上运行失败／挂起
+requirement,功能未实现或受限,用户提出对并行层加速(trace)、新算子支持等需求
+bug,API 接口或方法缺失,调用方法时报错或接口不可用（如 resize_token_embeddings、auto_mixed_precision）
+bug,参数传递或类型转换错误,维度不匹配或 dtype cast 缺失引发 ValueError/TypeError
+bug,内存管理问题,训练/推理过程中出现内存泄露或溢出
+bug,安装或依赖配置失败,pip install、Python setup 报错或权限被拒绝
+bug,网络请求或下载逻辑异常,HTTP 错误或超时导致功能中断
+bug,文件或路径拼写错误,找不到相关文件或模块导入失败
+bug,模型持久化方法缺失,微调后模型无法保存 ckpt
+bug,度量评估维度不一致,metric 评估时报 y_pred 与 y_true 维度不一致
+bug,缓存文件处理异常,cached file 操作抛异常
+bug,文档拼写或格式错误,README.md 等文档内容有误
+bug,版本兼容性（老旧或升级后API不兼容）,调用过时API导致运行时报错或模型加载失败
+bug,安装路径或依赖缺失,模块未找到或导入失败
+bug,配置错误（参数或配置文件不匹配）,预训练模型无法正确加载或配置文件解析失败
+bug,代码逻辑错误（实现缺陷或边界条件未考虑）,运行时抛出异常或输出结果不符合预期
+bug,文档或链接不完整,用户无法访问示例代码或文档说明
+bug,测试覆盖不足或测试配置错误,单元测试或CI构建失败
+bug,硬件/环境不兼容（GPU/Ascend等设备差异）,在特定设备或模式下模型无法运行
+bug,多余或遗留代码（未清理的调试或示例代码）,引发方法冲突或命名空间污染
+requirement,新功能需求（新增模型、算子或接口）,需要扩展框架以支持新用例
+requirement,功能优化（性能或易用性提升）,需要引入图模式、加速器支持或简化API
+question,文档不清晰或示例不明确,用户对参数含义或使用方式存在疑问
+question,运行模式差异（Graph/Eager等）不明,用户无法判断何时开启特定执行模式
+bug,代码实现逻辑错误,模型输出不正确或运行时抛错（如 nan、RuntimeError 等）
+bug,参数/配置缺失或设置错误,功能无法正常启动或运行（如缺少 jit 参数、下载路径不对等）
+bug,文件/资源丢失或为空,下载失败或加载时报错（如 empty files、URL 缺失）
+bug,环境/平台兼容性问题,特定系统下功能异常或崩溃（如 macOS 上 CRF、logsoftmax 报错）
+bug,文档/翻译错误,用户阅读或链接文档时出现混乱或无法定位（如文档符号处理错误、.po 文件过时）
+bug,性能/效率瓶颈,编译或推理速度过慢（如序列长度过长时编译过慢）
+bug,评估指标实现缺陷,Metrics 计算结果不准确（如 BLEU、ROUGE、F1、accuracy 异常）
+bug,缓存机制或下载模块缺陷,无法从缓存读取或下载失败（如 get_cache_path、cache miss）
+requirement,功能缺失或改进需求,需要新增或增强功能（如 review 后的模型优化、beam search 改进）
+question,信息不完整/描述不清,无法确定具体问题，只能寻求更多上下文或帮助
+bug,代码逻辑错误,运行或训练时报错
+bug,性能瓶颈,训练或模型运行速度极慢
+bug,文档或示例错误,用户无法正确理解或使用功能
+bug,文件版本或格式错误,文件加载或解析失败
+bug,参数处理缺陷,未考虑 None 或参数异常导致错误
+bug,数据预处理错误,数据预处理步骤失败或结果异常
+bug,模型实现缺陷,loss 为 nan 或输出异常
+bug,测试用例错误或缺失,单元测试跳过或失败
+bug,注释或翻译不准确,注释内容错误导致理解偏差
+bug,兼容性或平台依赖,在特定平台（如 Windows）出错
+bug,功能支持缺失,Trainer 或其他组件不支持特定模型
+bug,嵌入问题,embedding 输出异常或结果错误
+bug,参数命名值位置不一致,参数不统一导致程序处理错误或崩溃
+bug,情感分类模块缺陷,情感分类功能返回错误结果
+bug,代码逻辑或数据处理错误,相关功能无法正常运行
+bug,回滚引入的修复产生副作用,功能异常或不一致
+bug,下载函数访问故障,下载功能失败或超时
+bug,打包/安装脚本错误,安装流程执行失败
+bug,单元测试环境问题,UT 测试需关闭或执行失败
+question,函数迁移缺少替换方案,用户需要知道 `is_torch_fx_proxy` 函数如何替换或删除  
+question,预训练模型加载方式不明确,用户不确定是否需要手动转换 CLIP 预训练权重  
+question,文档或内容不完整,训练用例报错且缺少完整内容或格式存在错误  
+question,平台兼容性不明确,用户不了解如何在 Ascend 910 上使用 GPT 相关模型  
+question,文档链接缺失,用户无法查看贡献者指南  
+requirement,需要对模型进行迁移以适配新框架或环境,用户请求将特定模型迁移到MindNLP或MindSpore中以便在项目中使用
+requirement,需要微调模型以适配特定任务或数据集,用户希望对某模型进行微调以提升在特定数据集或任务中的性能
+requirement,希望新增模型或组件的支持,用户希望MindNLP支持某个新模型或组件功能（如WhisperFlashAttention2、Janus Pro等）
+requirement,希望增强已有模型的某个能力或接口,用户希望对现有模型接口（如参数公开、类型调整）进行功能增强
+requirement,希望框架支持新的硬件后端或操作（如NPU、triton等）,用户提出希望框架支持在特定硬件或编译设置下正常运行
+requirement,希望添加持续集成或自动化支持,用户希望MindNLP在CI流程中集成新的依赖或使用方式（如官方MindSpore）
+requirement,由于文档或样例缺失，用户难以完成特定开发任务,用户请求提供示例或说明以完成任务（如图像描述、模型推理等）
+requirement,开源实习或项目任务驱动的需求提交,用户为完成开源实习任务而提出模型支持、迁移或训练相关需求
+requirement,需要迁移模型到新框架或平台,用户请求将模型（如Mimi、BERT等）从原框架迁移到MindNLP/MindSpore
+requirement,缺乏特定模型支持,用户请求增加对特定模型（如TrOCR、GLM4Voice、LayoutLMv2等）的支持或微调能力
+requirement,功能接口缺失或不完整,用户请求补全功能如RWKV接口、value_and_grad对kwargs支持、Gamma操作等
+requirement,训练或推理示例不足,用户请求添加模型微调、summarization等任务的demo或notebook示例
+requirement,多卡/分布式训练能力缺失或不明晰,用户请求添加或明确模型在多GPU环境下运行的能力
+requirement,与其他系统集成能力不足,用户请求MindNLP支持Triton自定义操作、魔乐下载、MindTorch等外部工具或平台
+requirement,文档与说明不足,用户请求补充README、SIG介绍、模块初始化说明等文档
+requirement,项目结构或构建流程不合理,用户建议修改项目结构、移动测试文件夹、改进初始化脚本
+requirement,性能相关需求,用户请求支持LoRA半精度训练、支持FlashAttention、动态推理展示等
+requirement,新功能或模块添加,用户提出添加如“janus pro”、“image_feature_extraction”等pipeline的需求
+requirement,资源管理机制缺陷,用户指出并行下载缺乏锁机制导致文件错位问题
+question,使用方法不明确,用户询问如何进行模型微调、数据调用、NPU指定等
+question,论文或理论理解不足,用户请求解读论文内容或模型机制
+question,环境或接口配置困惑,用户不清楚如何指定模块依赖、使用新版MindSpore等
+requirement,用户希望模型或功能支持特定硬件平台（如OrangePi、Atlas 300I Duo等）,请求支持在特定硬件上运行或加速模型推理
+requirement,用户希望系统支持新的模型或架构,请求添加对某个模型（如llama、BEiT、SegFormer等）的支持
+requirement,用户希望系统支持模型迁移至MindSpore或其他框架,请求指导或实现模型迁移（如Speech2Text、Unispeech等）
+requirement,用户需要新增具体功能或API（如pipeline、generate返回scores、分布式推理等）,请求扩展系统功能或支持新的用法
+requirement,用户希望项目文档更加完善或具备导航性,请求更新或改进README、增加中文文档、提供教程
+requirement,用户希望新增脚本、Notebook或模型目录用于训练/微调,请求添加`.ipynb`文件或新建模型目录结构
+requirement,用户希望项目支持特定格式或调用方式,请求实现如`set_format("torch")`这类API的支持
+requirement,用户希望性能优化,请求使用mmap、静态图加速、支持int8/8bit量化等方式进行优化
+requirement,用户提出更新现有模型或功能版本的需求,请求升级模型或功能（如Whisper升级至V3）
+requirement,用户参与开源实习计划，提出模型开发、迁移等任务申请,请求协助或指导模型实习项目（如ImageGPT、VideoMAE等）
+requirement,用户希望系统对多个模型组合或模型合并提供支持,请求实现模型合并功能
+requirement,模型或功能缺失,用户希望添加新的模型支持（如qwen2-vl-7b、tinyllama、dbrx、vivit等）
+requirement,迁移支持不足,用户请求将现有模型迁移到新框架或环境（如CLIPSeg、GPTSAN-japanese、depth_anything等）
+requirement,文档或示例不足,用户反映缺少使用示例或文档（如peft example、ashell1数据集训练指导、Dora-finetuning指导）
+requirement,功能扩展需求,用户需要新增特定功能（如多进程推理支持、`comm_func`功能、vision-encoder-decoder支持）
+requirement,性能优化需求,用户请求优化现有功能的性能（如safetensors加载速度、BERT/CLIP/MixTral算法优化）
+requirement,版本更新滞后,用户希望框架依赖库或模型版本保持最新（如transformers模块跟进huggingface更新、bloom模型更新）
+requirement,接口适配问题,用户需要调整接口参数匹配顺序（如`forward`函数参数顺序、`nn.AdaptiveLogSoftmaxWithLoss`支持）
+requirement,依赖库配置缺失,用户请求添加依赖项或替换代码以支持模型迁移（如flaubert模型迁移需要添加requirement）
+requirement,课程资料维护,用户提出开源实习资料或课程内容更新需求（如CodeGeeX课程资料、Pix2struct项目支持）
+requirement,模块化支持不足,用户需要新增特定模块（如glm4模块、conv3d模块、Roberta_prelayernorm模型）
+requirement,微调流程支持,用户请求模型微调相关指导或功能支持（如prefix_tuning_t5参数调节、peft_ia3_seq2seq微调）
+requirement,新模型或功能需求,用户希望添加新的模型（如Lxmert、Persimmon、DonutSwin、M-CTC-T、vit_msn等）或功能模块（如tokenizer_fast、rag demo）
+requirement,社区实习或项目需求,用户因参与社区实习（如昇腾AI创新大赛）提出模型支持需求（如TAPAS、DETR、speecht5等）或任务链接补充
+requirement,文档或教程不足,用户需要补充/更新文档（如mindspore教程、transformers文档）、修复错误文档地址或完善README指引
+requirement,功能性能优化,用户提出功能性能问题（如safetensor加载速度慢、动静态图实现分隔需求、owlv2精度提升）
+requirement,测试或代码缺失,用户因本地测试失败/代码缺失导致模型更新未完成（如trl/models文档更新、deit模型代码补充）
+requirement,审核流程问题,用户提交的任务因审核未通过（如DonutSwin模型添加）或注册问题（如mvp注册auto）受阻
+requirement,需求信息不明确,用户提交空内容或未明确具体需求（如UnivNet、UMTA5、Vilt模型相关issue）
+requirement,文档不完善,用户需要补充或更新测试文档、模型文档等，例如transformers测试文档、MindNLP中的文档内容缺失或为空
+requirement,功能或模型支持需求,用户请求添加新模型（如GPTJ、PEFT教程）、更新现有模型（如Segformer）或增强功能性
+requirement,竞赛相关支持需求,用户参与昇腾AI创新大赛时需特定模型支持（如wav2vec2_conformer、videomae）或遇到相关问题
+requirement,代码/模型更新需求,用户提交Pull Request以修复模型差异或撤销问题提交（如switch_transformers）
+requirement,文档内容缺失,用户反映文档内容为空（如videomae、flava）或缺乏具体指导信息
+requirement,模型使用指导不足,用户寻求模型使用方法（如Data2VecText、wavlm）或功能微调（如GPT_NeoX基于LoRa的指令微调）
+requirement,文档不完善,用户请求补充或更新测试文档（如transformers部分）
+requirement,新模型适配需求,用户希望添加特定模型（如GPTJ、Segformer）到项目
+requirement,项目参赛需求,用户因昇腾AI创新大赛需要相关模型支持（如wav2vec2_conformer）
+requirement,功能扩展需求,用户请求添加教程或示例代码（如PEFT教程、LoRA微调）
+requirement,文档内容缺失,用户指出文档内容为空（如videomae、flava部分）
+requirement,模型支持请求,用户针对特定模型寻求帮助（如DETR、Mobilenet_v1）
+requirement,项目协作需求,用户提交Pull Request更新模型（如Segformer版本更新）
+requirement,测试反馈,开发者反馈本地测试通过但需进一步验证（如switch_transformers）
+requirement,功能模块缺失,请求添加新的模型或功能模块（如ViT、seq2seq lora、sentence transformer等）
+requirement,文档或示例不足,需要补充特定模块的文档说明或添加使用示例（如mkdocs教程、数据预处理教程）
+requirement,比赛支持需求,针对昇腾AI创新大赛/MindSpore挑战赛提出模型适配或功能支持需求
+requirement,功能实现不完整,现有模块需要扩展功能支持（如多任务提示调整、prefix-tuning、ln_tuning支持）
+requirement,代码质量优化,请求改进现有代码实现（如修复core.py问题、添加代码注释生成功能）
+requirement,接口适配需求,需要为特定模型提供推理代码或框架适配（如GLM4-9b、DeBERTa-v2适配）
+requirement,资源获取需求,用户寻求实习帮助或比赛相关支持（如engine docs实习任务咨询）
+question,功能使用咨询,用户询问特定模块的使用方法（如print_trainable_parameters函数使用）
+requirement,框架不支持特定模型或工具,用户需要在框架中支持LoHa、EMU2、phi3、openELM、llama3等模型或工具
+requirement,文档不完整或缺失,用户请求完善Engine文档、peft模块文档、添加教程快速入门、更新现有文档内容
+requirement,功能接口缺失,框架不支持add_adapter接口、stream_generate功能、HuggingFace镜像支持等关键功能
+requirement,性能优化需求,用户提出需要加速初始化操作、支持断点续传下载等性能改进
+requirement,示例代码或演示缺失,用户要求添加vscode demo、音乐生成器到gradio演示、COT推理代码样例等实现示例
+requirement,模型适配需求,用户希望迁移llava-next/vipllava模型、添加convnext/cvt/resnet等新模型支持
+requirement,训练机制改进,用户提出需要支持prompt_tuning、添加数据并行处理、设计新的张量核心模块等训练相关改进
+requirement,量化与部署支持,用户需求包括支持bitsandbytes量化、添加多平台模型上传功能、Mixtral 8x7B模型在910A上的适配
+requirement,工具链集成,用户希望支持modelscope & wisemodel endpoint、实习任务地址指引等外围工具集成
+bug,参数配置错误,参数设置不正确导致无法成功训练LoHa模型
+bug,路径缺失,微调模块Adaption Prompt缺少model directory导致提示引入失败
+requirement,测试与重构需求,用户提出需要迁移metrics ut到legacy目录以支持代码重构
+requirement,缺少模型支持,用户请求添加新模型（如Pegasus、MPNet、ConvBert、Xlnet等）
+requirement,功能缺失,用户需要新增功能模块或示例（如Trainer、text2vec模块、RLHF demo等）
+requirement,性能优化需求,用户要求提升推理性能（如GPT2性能需与PyTorch竞争）
+requirement,依赖版本过时,用户建议更新核心组件（如FlashAttention核心）
+requirement,示例文档不足,用户无法成功运行现有功能（如embedding模型调用问题）
+requirement,适配需求,需要将模型适配到其他框架（如SAM适配到huggingface/transformers）
+requirement,训练方式改进,用户需要新增训练模式（如图模式convbert、PEFT微调方法）
+requirement,依赖精简需求,用户要求移除特定依赖
+requirement,多模态支持需求,用户请求添加跨模态模型（如Layoutlm2、table_transformer等）
+requirement,并行计算支持,用户需要管道并行推理功能
+requirement,硬件兼容性,用户要求支持CPU运行优化
+requirement,现有功能模块不完整,用户提出需要添加新的功能模块（例如evaluate模块、tokenization_layoutlm功能）
+requirement,缺乏对新模型的支持,用户请求添加对特定模型的支持（例如Reformer、DeBERTa、gemma、biogpt等）
+requirement,现有模型库覆盖不足,用户希望扩展支持的模型范围（例如Bark、Hubert、Pop2piano等）
+requirement,性能优化需求,用户提出需要优化推理速度或计算资源利用（例如NPU迁移、显存优化）
+requirement,功能扩展需求,用户要求新增特定任务处理能力（例如自动语音识别、文本生成、问答系统等）
+requirement,工程实践改进,用户建议改进开发流程或基础设施（例如CI/CD优化、并行训练支持）
+requirement,文档不完善,用户提出需要补充示例代码或更新说明文档（例如添加bce示例、README更新）
+requirement,第三方工具整合需求,用户希望增强与其他库的兼容性（例如支持mamba、jieba替换cjieba）
+requirement,模型更新维护需求,用户提出需要更新现有模型版本（例如bark模型更新、CPM模型添加streamers）
+requirement,框架对标需求,用户建议开发对标其他框架的功能模块（例如HuggingFace的TrainingArguments类）
+requirement,功能缺失,"支持特定模型或功能（如AutoModel、图模式、混合MOE模型）"
+requirement,功能缺失,"添加新模型（如regnet、mbart、phi_2、falcon、chatglm）"
+requirement,功能缺失,"支持特定模块或方法（如Cell类的half()/float()方法、Tensor.expand元组输入）"
+requirement,功能缺失,"添加工具模块（如python懒加载模块、Mask LM数据集处理器）"
+requirement,性能优化,"提升模型加载速度或计算效率（如flash attention支持、GPU快速注意力）"
+requirement,兼容性需求,"支持旧版本或特定平台（如Ascend平台适配、pytorch模型加载）"
+requirement,代码维护需求,"更新模型实现或测试用例（如gpt模型更新、UT测试新增）"
+requirement,文档完善,"补充API文档或示例（如中文文档翻译、README代码示例）"
+requirement,接口适配需求,"修改变量命名规范（如mt5模型参数重命名）"
+requirement,框架扩展需求,"新增模型迁移支持（如Falcon/Graphormer模型迁移）"
+requirement,功能改进需求,"调整模型性能参数（如santacoder模型性能优化）"
+requirement,缺少新模型支持,用户请求将新模型（如Whisper、llama2、pop2piano等）添加到框架中
+requirement,现有模型功能不足,用户要求更新现有模型（如BERT、T5、GPT等）的代码结构或功能
+requirement,代码结构不兼容,用户提出将模型（如roberta）重构为HuggingFace风格兼容的代码
+requirement,缺少必要模块,用户请求添加新模块（如tokenization、autoformer、__init__.py等基础组件）
+requirement,训练框架限制,用户希望支持数据并行训练、多机多卡训练等分布式训练能力
+requirement,文档信息不全,用户要求在README等文档中补充支持的模型列表或使用说明
+requirement,计算功能优化,用户提出需要优化内存计算（如einsum函数）或自定义计算逻辑
+requirement,持续集成支持不足,用户希望将新功能（如ms2.2）集成到CI流水线中
+requirement,模型适配需求,用户需要对特定硬件（如910B）或场景（中文embedding）进行模型适配
+requirement,资源链接维护,用户请求更新模型checkpoint链接或修复失效的URL
+requirement,功能组件缺失,用户要求添加模型相关配套组件（如配置类、分词器、预训练支持等）
+requirement,模型初始化文件缺失,需要添加__init__.py文件以实现模块初始化
+requirement,模型库支持不足,请求添加新模型（如mT5、Longformer、codellama等）
+requirement,数据集缺失,需要扩展数据集（如hf_squad、xfund、xnli等）
+requirement,Tokenizer功能不足,需新增或完善Tokenizer（如LlamaTokenizer、xlm tokenizer）
+requirement,训练功能不完善,需支持多机多卡训练、模型保存功能
+requirement,算法/架构支持缺失,需添加greedy search、动态图/静态图区分、PEFT模块支持
+requirement,性能优化需求,需优化Llama模块性能、支持AMP测试和fp16兼容性
+requirement,示例/文档不完整,请求重构示例目录、更新README、添加Llama示例
+requirement,框架适配问题,需要适配huggingface datasets、加载特定模型架构（如simcse-chinese-roberta）
+requirement,功能扩展需求,需添加text2vec支持、opt模型测试、LogitsWarper功能实现
+question,框架适用性咨询,用户询问框架是否适用于大模型训练及研发背景
+bug,模块实现不完整,当前MegatronBertTokenizer功能未完全实现
+bug,动态形状支持问题,chatglm模块使用图形和动态形状时出现未明确问题
+requirement,功能扩展需求,用户希望添加新的功能模块或数据集支持（例如：llama2、hf_duconv、CMRC2018数据集、BART tokenizer等）
+requirement,框架兼容性需求,用户需要支持新版本框架（例如：mindspore 1.10）或硬件环境（例如：x86 CPU+910 GPU）
+requirement,文档维护需求,用户要求更新或补充文档内容（例如：API文档、README、功能说明）
+requirement,性能优化需求,用户提出对现有功能的性能改进（例如：提升chatglm推理速度、重构parallel模块）
+requirement,代码结构优化需求,用户请求修改代码结构或配置（例如：添加文件、调整路径、更新pylint配置等）
+requirement,模型转换需求,用户需要模型格式转换功能（例如：将torch模型转换为mindspore模型）
+question,功能使用疑问,用户询问现有功能的实现细节或使用方法（例如：token embeddings调整、模型加载路径等）
+requirement,功能修复需求,用户要求修复未实现或存在问题的功能（例如：ernie_tokenizer修复、CPM_generate功能更新）
+requirement,测试覆盖需求,用户提出需要增加测试用例（例如：test_hfduconv、test_hfsquad2等）
+requirement,资源管理需求,用户需要文件下载或存储功能（例如：指定目录下载、生成文件上传）
+requirement,缺少新模型支持,请求添加新的模型到框架中（如BART、Clip、T5、ERNIE、ALBERT等）
+requirement,缺少Tokenizer支持,请求增加特定Tokenizer功能（如Longformer、RoBERTa、ERNIE、nezha等）
+requirement,缺少数据集支持,要求添加或修复数据集下载链接（如docvqa_zh、Glue、Cnn-dailymail等）
+requirement,框架兼容性不足,需要支持特定硬件/框架版本（如GPU自定义运算符、MS1.10/MS1.8兼容、torch转mindspore等）
+requirement,功能模块缺失,请求添加新功能模块（如LoRA、stream_chat、GenerationConfig、resize_embedding等）
+requirement,单元测试不足,要求增加或优化模型单元测试（如降低成本、修改测试示例等）
+requirement,文档与示例过时,需要更新文档/示例（如gpt2_summarization、情感分析示例、bert_finetune示例等）
+requirement,代码优化需求,请求简化代码结构或添加辅助功能（如Bert LSTM CRF简化、保存函数、accumulator功能等）
+requirement,版权信息缺失,要求补充模型版权声明（如BART模型版权信息）
+requirement,功能缺失,用户请求在库中添加特定模型（如Roberta、T5Tokenizer、GPT、Llama、XLM、Ernie等）以支持更多功能
+requirement,代码结构优化,用户提出需要迁移或重构现有代码结构（如移动文件路径、更新预训练模型参数、代码生成器更新等）
+requirement,测试与持续集成支持不足,用户要求添加单元测试（UT）、GPU测试或修复CI/CD流程（如squad流程、Kaggle测试环境等）
+requirement,文档不完善或错误,用户提出需要更新文档内容、修改版权声明或补充缺失的代码说明
+requirement,半精度支持不足,用户请求添加FP16/BF16支持或相关操作warper模块
+requirement,模型组件缺失,用户提出需要添加特定模型组件（如SelfAttention类、Attention模块、RMSNorm等）
+requirement,工具链不完善,用户要求新增模型工具（如model_utils、vocab工具）或优化现有工具（如from_json_file）
+requirement,预训练模型更新需求,用户希望更新现有预训练模型参数或添加新训练功能（如fine-tuning支持）
+requirement,框架兼容性问题,用户提出需要支持旧版本框架（如MindSpore 1.8）或解决版本冲突
+bug,代码错误,用户报告现有代码存在功能缺陷（如bidaf_squad流程错误、XLM代码过时等）
+requirement,框架未包含特定预训练模型,用户请求添加预训练模型（如TinyBert、MobileBERT、XLM、GPTNeo、LUKE等）
+requirement,功能模块缺失,用户请求添加模型相关组件（如SelfAttention、cumsum功能、T5Stack、Longformer Embedding等）
+requirement,工具类或实用函数缺失,用户请求添加工具类（如Vocab类、utils_modeling_util、CellUtilMixin等）
+requirement,文档不完善,用户请求补充文档内容（如添加bert_senta_ipynb示例、更新T5注释等）
+requirement,数据预处理功能不足,用户请求添加数据集处理功能（如RandomMask Transform、PadTransform等）
+requirement,外部资源整合需求,用户请求接入Hugging Face数据集或整合其他框架功能
+requirement,路径配置错误,用户反馈路径调整导致模型加载异常（如models.models.utils路径问题）
+requirement,接口兼容性需求,用户请求支持MindData管道或Pythonic词汇接口
+requirement,模型结构不完整,用户请求补充模型定义（如StaticGRU、StaticLSTM、T5ForConditionalGeneration等）
+requirement,功能模块缺失,请求添加新模型或模块以支持特定任务（如BERT、GPT、LSTM等）
+requirement,文档不完善,需要补充文档说明或示例以提升使用指导性
+requirement,代码结构不完整,请求创建新文件夹/文件来组织模块或功能
+requirement,接口未实现,需要开发基础组件接口（如Trainer、Evaluator、Callback等）
+requirement,功能扩展需求,要求增加数据处理/评估指标/注意力机制等特定功能
+bug,参数配置错误,jit参数或数据集配置导致运行失败
+requirement,现有模块缺陷,请求移除/改进存在问题的自定义模块（如multiheadattention）
+requirement,框架效率优化,需要建立工作流框架提升处理效率
+requirement,功能使用指导缺失,请求提供具体功能（如下载路径、recall）的使用说明
+requirement,基类功能缺失或不足,用户提出新增或修改BaseModel、Seq2seqModel、Seq2vecModel等基类功能的需求
+requirement,注意力机制相关模块不完善,用户针对self attention、多头注意力、中文attention模块提出功能改进或快速入门指南需求
+requirement,文档内容缺失或不完整,用户请求新增QA文档、回调函数文档、机器翻译文档等中文文档内容
+requirement,模块功能需要扩展,用户提出添加Transformer API、LSTMEncoder改进、CRF模块优化等新功能需求
+requirement,版本更新需求,用户提出构建版本从0.0.1升级到0.1.1的更新需求
+requirement,国际化支持不足,用户请求更新po文件并完善多语言翻译支持
+requirement,示例代码缺失,用户要求添加fasttext示例、sequence_tagging示例等具体使用案例
+requirement,工具链功能不完善,用户提出需要ddt测试框架支持、metrics中文支持等开发工具改进
+requirement,数据预处理功能缺失,用户请求添加dataset注册函数和数据转换相关文档
+requirement,训练评估流程不清晰,用户需要中文训练评估文档和train&eval en功能说明
+requirement,缓存机制问题,用户提出需要改进下载缓存文件处理机制
+requirement,旧版本兼容性问题,用户反馈需要支持legacy MindSpore版本的适配需求
+requirement,代码结构优化需求,用户建议在目录树中添加"use_callback"功能提升可维护性
+requirement,文档不完整或缺失,用户需要补充特定部分的中文注释或英文文档（如注意力机制、BERT建模、下载流程等）
+requirement,特定功能未实现,用户希望添加新的模型示例或处理流程（如BiLSTM-CRF、Conll2000Chunking、SQuAD1数据集处理）
+requirement,平台兼容性支持不足,用户需要在特定操作系统（如Windows）下添加测试或文档
+requirement,文件格式支持不足,用户无法使用特定类型文件（如npy）加载嵌入表
+requirement,数据集处理流程不完善,用户需要更新或添加新的数据集处理方法（如RTE、IMDB数据集）
+requirement,项目文档结构不清晰,用户希望优化文档结构（如添加README的Get Started部分）
+requirement,代码注释不完整,用户需要更新或补充代码中的注释说明（如trainer.py、RNNDecoder模块）
+requirement,自动化流程缺失,用户希望添加自动化功能（如自动镜像、OpenI同步、make_wheel_releases的GitHub Action）
+requirement,操作系统兼容性缺失,需要为BasicTokenizer增加Windows支持
+requirement,框架功能扩展需求,请求添加自定义amp功能实现定制化
+requirement,框架版本兼容性问题,需要添加对mindspore 1.8.1的支持
+requirement,功能组件缺失,要求在机器翻译和文本生成中添加处理进程
+requirement,模型评估指标不足,需要添加Perplexity/Rouge等Metric类
+requirement,代码可维护性优化,要求更新训练器参数命名规范
+requirement,类型提示不清晰,需要修改参数类型提示和代码注释
+requirement,功能返回值限制,trainer需要支持多返回值场景
+requirement,文档维护需求,要求更新README.md项目说明
+requirement,测试覆盖不足,需要为数据集添加单元测试
+requirement,模型初始化格式过时,要求升级Seq2Seq模型初始化格式
+requirement,数据集扩展需求,请求添加Amazon/Yelp等新数据集
+requirement,代理功能缺失,需要为数据集添加代理支持
+requirement,代码结构优化,要求将pipeline移动到工作流模块
+requirement,工具复用性不足,需要提取通用工具模块
+requirement,运行模式配置需求,要求将运行模式修改为jit模式
+requirement,代码质量检查缺失,测试文件需要添加Pylint检查
+requirement,下载功能增强,需要为下载功能添加代理支持
+requirement,情感分析功能扩展,要求添加情感分类功能模块
+requirement,评估指标缺失,请求添加BleuScore评分功能
+requirement,注册机制缺失,需要添加map_rule注册功能
+requirement,工作流集成需求,要求添加GitHub工作流支持
+question,函数迁移或替换不明确,用户需要了解特定函数（如is_torch_fx_proxy）在框架迁移中的替代方案或删除方式
+question,预训练权重加载方式不明确,用户询问如何正确加载预训练模型权重（如CLIP模型）并转换第三方平台的权重文件
+question,框架功能使用文档缺失,用户因缺乏框架文档或指南（如Ascend 910上的GPT模型使用方法）而无法完成特定操作
+bug,训练用例实现不完整或格式错误,用户在运行训练用例时因代码不完整或格式问题导致报错
+bug,框架兼容性问题,用户因框架版本或依赖项不兼容（如贡献者指南链接失效）而无法完成操作

@@ -30,11 +30,11 @@ data_names = [
 for i in data_names:
     deal_one_txt(i)
     
-with open(rf'.\research\data\tagged\requirement.csv', 'w', encoding='utf-8', newline='') as file:
+with open(rf'.\research\data\tagged\bug.csv', 'w', encoding='utf-8', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(bug_result)
 
-with open(rf'.\research\data\tagged\bug.csv', 'w', encoding='utf-8', newline='') as file:
+with open(rf'.\research\data\tagged\requirement.csv', 'w', encoding='utf-8', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(requirement_result)
     

@@ -12,12 +12,7 @@ data_names = [
     ('gitee', 'mindformers'),
     ('gitee', 'MindSpeed')
 ]
-url = "https://cn2us02.opapi.win/v1/chat/completions"
 csv.field_size_limit(10 * 1024 * 1024)
-
-token = os.getenv("Ohmygpt")
-if not token:
-    raise ValueError("未找到环境变量 Ohmygpt")
 
 def count(input_file):
     result = [] 
@@ -38,6 +33,10 @@ def count(input_file):
         return limit 
     
 def ask(content):
+    url = "https://cn2us02.opapi.win/v1/chat/completions"
+    token = os.getenv("Ohmygpt")
+    if not token:
+        raise ValueError("未找到环境变量 Ohmygpt")
     payload = json.dumps({
     "model": "gpt-3.5-turbo",
     "messages": [  
